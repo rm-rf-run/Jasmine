@@ -1,4 +1,9 @@
 <?php
+//用户自定义头像功能
+include (TEMPLATEPATH . '/inc/author-avatars.php');
+//优化网站代码
+include (TEMPLATEPATH . '/inc/optimization-speed.php');
+
 //注册菜单的名称
 function register_my_menus() {
   register_nav_menus(
@@ -28,7 +33,7 @@ function sonliss_menu_link_atts( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'sonliss_menu_link_atts', 10, 3 );
 
 //自定义头像
-add_filter( 'avatar_defaults', 'newgravatar' );  
+// add_filter( 'avatar_defaults', 'newgravatar' );  
  
 function newgravatar ($avatar_defaults) {  
     $myavatar = get_bloginfo('template_directory') . '/assets/images/gravatar.jpg';  

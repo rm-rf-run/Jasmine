@@ -1,0 +1,37 @@
+/*
+ * jQuery.Running.js - jQuery plugin for Running
+ *
+ * Copyright (c) 2007-2015 Qietu inc
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Project home:
+ *   http://www.qietu.com/p/jQuery.Running.js
+ *
+ * Version:  1.0.0
+ *
+ */
+ 
+ /*pie*/
+.pie{ width: 120px; height: 120px;  border-radius: 50%; background: #e95549; position:relative; margin-top:20px; }
+.pieLeftInner,
+.pieRightInner { width:120px; height:120px; background-color:#e5e5e5; border-radius:100px; position:absolute; }
+.pieLeftInner { clip:rect(0px,120px,120px,60px); -o-transform:rotate(0deg); -moz-transform:rotate(0deg); -webkit-transform:rotate(0deg);  }
+.pieRightInner { clip:rect(0px,60px,120px,0px); -o-transform:rotate(0deg); -moz-transform:rotate(0deg); -webkit-transform:rotate(0deg);  }
+.pieLeft,
+.pieRight { width:120px; height:120px; position:absolute; z-index:1; }
+.pieLeft { clip:rect(0px,120px,120px,60px); }
+.pieRight { clip:rect(0px,60px,120px,0px); }
+.pieInner { width:80px; height:80px; margin:20px 0 0 20px; background-color:#fff; border-radius:100px; position:absolute; z-index:1; text-align:center; line-height:80px; font-size:24px; font-weight:bold; color:#e25a4a; font-family:"微软雅黑", "黑体";}
+
+/*prograss*/
+.prograss{
+    background:#eee; height:15px; width:80%; position:relative; border-radius:2px; margin-top:10px;
+}
+.prograss .bar{
+	background:#e95549; height:100%; width:10%; border-radius:2px 0 0 2px;
+}
+.prograss_bar_yellow{
+	background:#f8b757 !important;
+}

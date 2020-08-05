@@ -12,7 +12,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-white bg-white head-nav ">
-      <a class="navbar-brand" href=""><?php bloginfo('name'); ?></a>
+      <a class="navbar-brand" href="<?php bloginfo('url');?>"><?php bloginfo('name'); ?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,19 +49,72 @@
     <div class="container">
       <div class="row clearfix">
         <!--左边栏-->
-        <div class="col-md-2 column">
+        <div class="col-md-3 column">
           <!--个人信息-->
           <div id="about-me">
-            <div id="about-me-1">
-              <div id="avatar">
-                <!-- <?php echo get_avatar(get_the_author_meta('email'), 50); ?> -->
-                <?php echo get_bloginfo('template_directory') . '/assets/images/gravatar.jpg';?>
+            <div id="about-me-1" class="d-flex">
+              <div id="avatar" class="flex-column">
+                <a href="<?php bloginfo('url');?>">
+                  <?php echo get_simple_local_avatar(get_bloginfo('admin_email'),'50'); ?>
+                </a>
+              </div>
+              <div id="user-info" class="flex-column">
+                <div>
+                  <a href="<?php bloginfo('url');?>">
+                    <?php $author_obj = get_user_by('email', get_bloginfo('admin_email'));the_author_meta('nickname',$author_obj->ID);?>
+                  </a>
+                </div>
+                <div>
+                  
+                </div>
+              </div>
+            </div>
+            <div id="about-me-2" class="d-flex">
+              <!-- <span class="animateNum" data-animatetarget="999.9">999.9</span>万
+              <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span> -->
+              <dl class="text-center">
+                <dt class="text-center">
+                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+                </dt>
+                <dd class="text-center">
+                  文章
+                </dd>
+              </dl>
+              <dl class="text-center">
+                <dt class="text-center">
+                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+                </dt>
+                <dd class="text-center">
+                  获赞
+                </dd>
+              </dl>
+              <dl class="text-center">
+                <dt class="text-center">
+                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+                </dt>
+                <dd class="text-center">
+                  评论
+                </dd>
+              </dl>
+              <dl class="text-center">
+                <dt class="text-center">
+                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+                </dt>
+                <dd class="text-center">
+                  访问
+                </dd>
+              </dl>
+            </div>
+            <div class="item-rank"></div>
+            <div id="about-me-3">
+              <div class="d-flex">
+                
               </div>
             </div>
           </div>
         </div>
         <!--中间栏-->
-        <div class="col-md-8 column">
+        <div class="col-md-7 column">
           
         </div>
         <!--右边栏-->
