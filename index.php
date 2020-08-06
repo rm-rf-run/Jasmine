@@ -10,13 +10,9 @@
  get_header(); 
 ?>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-white bg-white head-nav ">
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-white head-nav ">
       <a class="navbar-brand" href="<?php bloginfo('url');?>"><?php bloginfo('name'); ?></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <?php if (has_nav_menu('header-menu')) {
                     wp_nav_menu(
@@ -45,7 +41,7 @@
     </nav>
   </header>
   
-  <main role="main" id="main">
+  <main role="main" id="main" style="height: 800px;">
     <div class="container">
       <div class="row clearfix">
         <!--左边栏-->

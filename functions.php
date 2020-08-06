@@ -3,6 +3,8 @@
 include (TEMPLATEPATH . '/inc/author-avatars.php');
 //优化网站代码
 include (TEMPLATEPATH . '/inc/optimization-speed.php');
+//主题自带插件
+include (TEMPLATEPATH . '/inc/customized-plugin.php');
 
 //注册菜单的名称
 function register_my_menus() {
