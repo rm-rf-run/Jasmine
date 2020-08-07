@@ -1,6 +1,6 @@
- (function($){
- 	$(function(){
-		$('body').running();
-		$(".fixed-top").autoHidingNavbar();
-	})
+ (function($) {
+     $(function() {
+         $('body').running();
+         $(".fixed-top").autoHidingNavbar();
+     })
  })(jQuery);

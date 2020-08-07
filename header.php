@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes();?>>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,8 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- Optional CSS -->
-  	<link href="<?php bloginfo('template_directory'); ?>/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/assets/js/runningJs/css/jquery.running.css">
-    <title><?php the_title(); ?></title>
-    <?php wp_head(); ?>
+    <link href="<?php bloginfo('template_directory');?>/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/assets/js/runningJs/css/jquery.running.css">
+    <!-- end -->
+    <title><?php the_title();?></title>
+    <?php wp_head();?>
   </head>
