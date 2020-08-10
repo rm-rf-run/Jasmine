@@ -1,13 +1,13 @@
 <?php
 //启动主题钩子,创建jasmine表
-do_action( 'after_setup_theme', 'create_jasmine_table');
+do_action('after_setup_theme', 'create_jasmine_table');
 
 function create_jasmine_table()
 {
     global $wpdb;
     $table_name = $wpdb->prefix . "jasmine";
     require_once ABSPATH . "wp-admin/includes/upgrade.php";
-    dbDelta('CREATE TABLE if not exists `'.$table_name.'`  (
+    dbDelta('CREATE TABLE if not exists `' . $table_name . '`  (
   `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `backgroundImg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `csdn` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -28,13 +28,14 @@ function create_jasmine_table()
  * @param  [type] $new_theme [description]
  * @return [type]            [description]
  */
-function deactivate_my_theme( $new_theme ) {
+function deactivate_my_theme($new_theme)
+{
     global $wpdb;
     $table_name = $wpdb->prefix . "jasmine";
-    $sql        = 'DROP TABLE '.$table_name.'';
+    $sql        = 'DROP TABLE ' . $table_name . '';
     flush_rewrite_rules(false);
 }
-add_action( 'switch_theme', 'deactivate_my_theme' );
+// add_action('switch_theme', 'deactivate_my_theme');
 /**
  *添加菜单
  */

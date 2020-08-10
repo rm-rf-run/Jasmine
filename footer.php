@@ -11,6 +11,7 @@
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/runningJs/js/jquery.running.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-autohidingnavbar@4.0.0/dist/jquery.bootstrap-autohidingnavbar.min.js" integrity="sha256-Jbr5aqov83eQaJnnSDDIY36ROZFKxkED7kSM2yp7gvw=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/customized.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
     <!-- end -->
   <?php wp_footer();?>
   </body>

@@ -16,6 +16,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 body {
     /*cursor:url('https://s1.ax1x.com/2020/05/23/Yjguu9.jpg'),auto;*/
+    /*background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);*/
+    background: #f4f5f7;
 }
 
 /*导航栏*/
@@ -23,6 +25,7 @@ body {
 .head-nav {
     padding-right: 20%;
     padding-left: 20%;
+    background-color: #fff;
 }
 
 .head-nav .navbar-brand {
@@ -35,19 +38,18 @@ body {
 }
 
 #main {
-    margin-top: 60px;
+    margin-top: 85px;
 }
 
 /*关于我*/
 
 #about-me {
-    padding-bottom: 10px;
     margin-bottom: 8px;
+    border-radius: 4px;
+    padding: 16px 16px 6px 16px;
+    background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);
 }
 
-#about-me {
-    padding: 16px 16px 6px 16px;
-}
 
 #about-me-1 a {
     color: #555666;
@@ -104,6 +106,10 @@ dd {
     color: #999aaa;
 }
 
+dl {
+    margin-bottom: 0px;
+}
+
 .item-rank {
     height: 1px;
     background-color: #f5f6f7;
@@ -113,5 +119,42 @@ dd {
 
 #about-me-3 {
     display: flex;
-    padding: 0 16px;
+    margin-top: 5px;
+}
+
+#about-me-3 img {
+    width: 36px;
+    height: 36px;
+}
+
+.jasmine-nav {
+    background: #fff;
+    border-radius: 4px;
+}
+
+.jasmine-nav li a {
+    color: #999aaa;
+}
+
+.jasmine-nav li {
+    margin-left: 5px;
+}
+
+.icon-badge {
+    margin-right: 2px;
+}
+
+.jasmine-article {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+    height: 200px;
+    border-radius: 4px;
+}
+#avatar img{
+    transition: all .3s;
+}
+
+#avatar img :hover {
+transform: scale(1.3) rotate(1turn);
 }

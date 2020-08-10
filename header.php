@@ -11,6 +11,6 @@
     <link href="<?php bloginfo('template_directory');?>/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/assets/js/runningJs/css/jquery.running.css">
     <!-- end -->
-    <title><?php the_title();?></title>
+    <!-- <title><?php the_title();?></title> -->
     <?php wp_head();?>
   </head>

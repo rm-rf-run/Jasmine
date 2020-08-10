@@ -105,14 +105,72 @@ the_author_meta('nickname', $author_obj->ID);?>
             <div class="item-rank"></div>
             <div id="about-me-3">
               <div class="d-flex">
-
+				<div class="icon-badge">
+					<img src="https://github.com/fluidicon.png" alt="GitHub">
+				</div>
+				<div class="icon-badge">
+					<img src="https://github.com/fluidicon.png" alt="GitHub">
+				</div>
+				<div class="icon-badge">
+					<img src="https://github.com/fluidicon.png" alt="GitHub">
+				</div>
+				<div class="icon-badge">
+					<img src="https://github.com/fluidicon.png" alt="GitHub">
+				</div>
+				<div class="">
+					<img src="https://github.com/fluidicon.png" alt="GitHub">
+				</div>
+				<div class="icon-badge">
+					<img src="https://github.com/fluidicon.png" alt="GitHub">
+				</div>
               </div>
             </div>
           </div>
         </div>
         <!--中间栏-->
         <div class="col-md-7 column">
-
+        	<?php if ( is_home() && is_front_page() ) : ?>
+				<ul class="nav jasmine-nav">
+				  <li class="nav-item">
+				    <a class="nav-link active" href="#">全部</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="#">文章</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="#">说说</a>
+				  </li>
+				</ul>
+			<?php else : ?>
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb">
+				    <li class="breadcrumb-item"><a href="#">Home</a></li>
+				    <li class="breadcrumb-item"><a href="#">Library</a></li>
+				    <li class="breadcrumb-item active" aria-current="page">Data</li>
+				  </ol>
+				</nav>
+			<?php endif; ?>
+			<?php
+				if ( have_posts() ) :
+				    while ( have_posts() ) : the_post();
+				        ?>
+						<article class="jasmine-article lazyload" style="background-image: url(<?php $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "Full");
+echo $img_src[0];?>);">
+							<div class="post-thumb">
+								<!-- <a href="<?php echo get_permalink($ID); ?>"><?php $image_id = get_post_thumbnail_id(); $image = get_the_post_thumbnail( $post->ID, 'thumbnail', array( 'class' => 'lazyload' )); echo $image;?></a> -->
+							</div>
+							<div class="post-content-wrap">
+								<div class="post-content">
+									<?php the_title()?>
+									<?php $author_obj = get_user_by('email', get_bloginfo('admin_email'));
+the_author_meta('nickname', $author_obj->ID);?>
+								</div>
+							</div>
+						</article>
+				        <?php
+				    endwhile;
+				endif;
+			?>
         </div>
         <!--右边栏-->
         <div class="col-md-2 column">
