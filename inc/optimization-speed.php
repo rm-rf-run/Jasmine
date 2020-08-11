@@ -240,6 +240,7 @@ wp_dequeue_style( 'storefront-gutenberg-blocks' ); // Storefront theme
 define('WP_POST_REVISIONS', false);
 
 //禁止自动保存
+//找到下面两个文件
 //wp-admin/post-new.php
 //wp-admin/post.php
 //注释wp_enqueue_script( 'autosave' );
