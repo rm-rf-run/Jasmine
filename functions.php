@@ -61,3 +61,9 @@ function lxtx_comment_body_class($content)
 
 add_theme_support( 'post-thumbnails', array( 'post' ) ); // 给日志启用日志缩略图
 add_theme_support( 'post-thumbnails', array( 'page' ) ); // 给页面启用日志缩略图
+
+//将摘要长度更改为20个字
+function wpdocs_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );

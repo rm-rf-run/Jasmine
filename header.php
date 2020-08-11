@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes();?>>
+<html lang="zh-CN">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
