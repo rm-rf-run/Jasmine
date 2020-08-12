@@ -236,18 +236,15 @@ wp_dequeue_style( 'wc-block-style' ); // WooCommerce
 wp_dequeue_style( 'storefront-gutenberg-blocks' ); // Storefront theme
 }
 
-//禁用文章修订版
-define('WP_POST_REVISIONS', false);
+//禁用文章修订版 需要删除之前的版本执行SQL
+//DELETE FROM wp_posts WHERE post_type = "revision";
+// define('WP_POST_REVISIONS', false);需要添加到config配置里面
 
 //禁止自动保存
 //找到下面两个文件
 //wp-admin/post-new.php
 //wp-admin/post.php
 //注释wp_enqueue_script( 'autosave' );
-
-//关闭版本管理  需要删除之前的版本执行SQL
-//DELETE FROM wp_posts WHERE post_type = "revision";
-define('WP_POST_REVISIONS', false);
 
 
 //给wordpress添加关键词与描述

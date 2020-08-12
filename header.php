@@ -11,6 +11,9 @@
     <link href="<?php bloginfo('template_directory');?>/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/assets/js/runningJs/css/jquery.running.css">
     <!-- end -->
-    <!-- <title><?php the_title();?></title> -->
+    <title>
+        <?php $title = wp_title('',false);
+        if ( $title == "" ) : echo bloginfo('name'); else : echo $title; endif;?>
+    </title>
     <?php wp_head();?>
   </head>
