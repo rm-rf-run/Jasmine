@@ -17,11 +17,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 body {
     /*cursor:url('https://s1.ax1x.com/2020/05/23/Yjguu9.jpg'),auto;*/
     /*background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);*/
-    background: #f4f5f7;
+    /*background: #f4f5f7;*/
+    background-attachment: fixed;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
+
 /*导航栏*/
 
 .head-nav {
@@ -160,13 +163,15 @@ dl {
 
 #avatar img:hover {
     transform: rotate(1turn);
-    transition-delay:0s;
+    transition-delay: 0s;
     transition-property: all;
     filter: 2px;
 }
-.jasmine-content h2 a{
+
+.jasmine-content h2 a {
     color: #fff !important;
 }
+
 .jasmine-article-img {
     min-height: 200px;
     position: relative;
@@ -176,27 +181,134 @@ dl {
     border-radius: 4px;
     transition: all .3s;
 }
-.jasmine-panel{
+
+.jasmine-panel {
     min-height: 200px;
     overflow: hidden;
     border-radius: 4px;
 }
+
 .jasmine-article-img:hover {
-    transform: scale(1.3,1.3);
-    -ms-transform: scale(1.3,1.3);/* IE 9 */
-    -webkit-transform: scale(1.3,1.3);/* Safari and Chrome */
+    transform: scale(1.3, 1.3);
+    /* IE 9 */
+    -ms-transform: scale(1.3, 1.3);
+    /* Safari and Chrome */
+    -webkit-transform: scale(1.3, 1.3);
     filter: blur(5px);
-    box-shadow: 0 1px 20px -6px rgba(0,0,0,.5);
+    box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
 }
-.jasmine-content{
+
+.jasmine-content {
     pointer-events: none;
 }
-.jasmine-content{
-position: relative;
+
+.jasmine-content {
+    position: relative;
     margin-top: -20%;
     text-align: center;
 }
-.jasmine-content-foot{
+
+.jasmine-content-foot {
     margin-right: 5px;
-    opacity:0;
+    opacity: 0;
+}
+
+.pagination {
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}
+
+/**
+ * 重写分页样式
+ */
+.page-numbers {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+/**
+ * 重写分页样式
+ */
+.nav-links {
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}
+
+.jasmine-notice {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 16px 6px 16px;
+    height: 157px;
+}
+
+.jasmine-notice p {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px
+}
+
+
+/*定义滚动条轨道*/
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+    background-color: #0093ff;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em
+}
+
+.to-top {
+    position: fixed;
+    display: none;
+    bottom: 100px;
+    right: 20px;
+    transform: translateY(0);
+    width: 62px;
+    height: 85px;
+    margin-left: 602px;
+    cursor: pointer;
+    background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/asserts/space-to-top.png);
+    background-position: -40px -44px;
+}
+
+.to-top.fly {
+    transform: translateY(-1000px);
+}
+
+.to-top.transition {
+    transition: transform .3s ease-in;
 }

@@ -15,12 +15,6 @@
 <article id="post-<?php the_ID(); ?>" class="jasmine-article" <?php post_class(); ?>>
               <div class="jasmine-panel">
                 <div class="lazyload jasmine-article-img" style="background-image: url(<?php
-                  if ( has_post_thumbnail() ) {
-                    //当前日志有缩略图
-                    $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "Full");echo $img_src[0];
-                  } else {
-                    //当前日志没有设置缩略图则随机上图片，有概率重复
-                    $id = rand(1,12);
                     $image[1] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
                     $image[2] = "https://api.ixiaowai.cn/api/api.php";
                     $image[3] = "http://api.btstu.cn/sjbz/?lx=dongman";
@@ -33,6 +27,12 @@
                     $image[10] = "http://www.dmoe.cc/random.php";
                     $image[11] = "https://acg.yanwz.cn/api.php";
                     $image[12] = "https://img.paulzzh.tech/touhou/random";
+                  if ( has_post_thumbnail() ) {
+                    //当前日志有缩略图
+                    $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "Full");echo $img_src[0];
+                  } else {
+                    //当前日志没有设置缩略图则随机上图片，有概率重复
+                    $id = mt_rand(1,12);
                     echo esc_url($image[$id]);
                   }
                   ?>);">

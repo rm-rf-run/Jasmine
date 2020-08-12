@@ -9,7 +9,7 @@
  * */
 get_header();
 ?>
-<body>
+<body <?php body_class(); ?>>
   <header class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-white head-nav ">
       <a class="navbar-brand" href="<?php bloginfo('url');?>"><?php bloginfo('name');?></a>
@@ -46,108 +46,18 @@ get_header();
       <div class="row clearfix">
         <!--左边栏-->
         <div class="col-md-3 column">
-          <!--个人信息-->
-          <div id="about-me">
-            <div id="about-me-1" class="d-flex">
-              <div id="avatar" class="flex-column">
-                <a href="<?php bloginfo('url');?>">
-                  <?php echo get_simple_local_avatar(get_bloginfo('admin_email'), '50'); ?>
-                </a>
-              </div>
-              <div id="user-info" class="flex-column">
-                <div>
-                  <a href="<?php bloginfo('url');?>">
-                    <?php $author_obj = get_user_by('email', get_bloginfo('admin_email'));
-the_author_meta('nickname', $author_obj->ID);?>
-                  </a>
-                </div>
-                <div>
-
-                </div>
-              </div>
-            </div>
-            <div id="about-me-2" class="d-flex">
-              <dl class="text-center">
-                <dt class="text-center">
-                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
-                </dt>
-                <dd class="text-center">
-                  文章
-                </dd>
-              </dl>
-              <dl class="text-center">
-                <dt class="text-center">
-                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
-                </dt>
-                <dd class="text-center">
-                  获赞
-                </dd>
-              </dl>
-              <dl class="text-center">
-                <dt class="text-center">
-                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
-                </dt>
-                <dd class="text-center">
-                  评论
-                </dd>
-              </dl>
-              <dl class="text-center">
-                <dt class="text-center">
-                  <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
-                </dt>
-                <dd class="text-center">
-                  访问
-                </dd>
-              </dl>
-            </div>
-            <div class="item-rank"></div>
-            <div id="about-me-3">
-              <div class="d-flex">
-				<div class="icon-badge">
-					<img src="https://github.com/fluidicon.png" alt="GitHub">
-				</div>
-				<div class="icon-badge">
-					<img src="https://github.com/fluidicon.png" alt="GitHub">
-				</div>
-				<div class="icon-badge">
-					<img src="https://github.com/fluidicon.png" alt="GitHub">
-				</div>
-				<div class="icon-badge">
-					<img src="https://github.com/fluidicon.png" alt="GitHub">
-				</div>
-				<div class="">
-					<img src="https://github.com/fluidicon.png" alt="GitHub">
-				</div>
-				<div class="icon-badge">
-					<img src="https://github.com/fluidicon.png" alt="GitHub">
-				</div>
-              </div>
-            </div>
-          </div>
+          <?php get_template_part( 'template-parts/sidebar/left-sidebar');?>
         </div>
         <!--中间栏-->
-        <div class="col-md-7 column">
-        	<?php if ( is_home() && is_front_page() ) : ?>
-				<ul class="nav jasmine-nav">
-				  <li class="nav-item">
-				    <a class="nav-link active" href="#">全部</a>
-				  </li>
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">文章</a>
-				  </li>
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">说说</a>
-				  </li>
-				</ul>
-			<?php else : ?>
-				<nav aria-label="breadcrumb">
-				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="#">Home</a></li>
-				    <li class="breadcrumb-item"><a href="#">Library</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Data</li>
-				  </ol>
-				</nav>
-			<?php endif; ?>
+        <div class="col-md-6 column">
+        	<?php if ( is_home() && is_front_page() ) :
+            //导入主页的面包屑导航
+            get_template_part( 'template-parts/nav/nav-home');
+			     else :
+            //导入文章或者页面的面包屑导航
+            get_template_part( 'template-parts/nav/nav-post');
+           endif;
+           ?>
 			<?php
 				if ( have_posts() ) :
 
@@ -155,7 +65,7 @@ the_author_meta('nickname', $author_obj->ID);?>
 				    while ( have_posts() ) : the_post();
               /*
                 *包含内容的帖子格式特定模板。
-                *如果您想在子主题中覆盖它，那么就包括一个文件
+                *如果您想在子主题中覆盖它，那么就选择一个文件
                 *称为content-___.php（其中___是Post格式名），并且将被替代。
                 */
                 get_template_part( 'template-parts/post/content', get_post_format() );
@@ -166,8 +76,8 @@ the_author_meta('nickname', $author_obj->ID);?>
                   'mid_size'           => 2,
                   'aria_current'       => __( 'page' ),
                   'screen_reader_text' => __( ' ' ),
-                  'aria_label'         => __( 'Page navigation example' ),
-                  'class'              => 'A',
+                  'aria_label'         => __( 'Page navigation' ),
+                  'class'              => 'pagination',
                   'prev_text'          => __( '上一页', 'textdomain' ),
                   'next_text'          => __( '下一页', 'textdomain' )
                 )
@@ -178,8 +88,8 @@ the_author_meta('nickname', $author_obj->ID);?>
 			?>
         </div>
         <!--右边栏-->
-        <div class="col-md-2 column">
-
+        <div class="col-md-3 column">
+          <?php get_template_part( 'template-parts/sidebar/right-sidebar');?>
         </div>
       </div>
       <div class="row clearfix">

@@ -68,4 +68,6 @@ function wpdocs_custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
-
+//添加一个自定义背景
+//选择填满屏幕
+add_theme_support( 'custom-background');

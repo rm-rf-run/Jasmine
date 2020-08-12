@@ -1,6 +1,6 @@
 
 <footer>
-
+<div class="to-top" style="display: block; background-position-x: -40px;"></div>
 </footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="
@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-autohidingnavbar@4.0.0/dist/jquery.bootstrap-autohidingnavbar.min.js" integrity="sha256-Jbr5aqov83eQaJnnSDDIY36ROZFKxkED7kSM2yp7gvw=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/customized.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+    <script type="text/javascript" src="//s1.hdslb.com/bfs/static/jinkela/long/js/sentry/sentry-5.2.1.min.js"></script>
     <!-- end -->
   <?php wp_footer();?>
   </body>

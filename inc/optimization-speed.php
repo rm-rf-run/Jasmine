@@ -240,7 +240,7 @@ wp_dequeue_style( 'storefront-gutenberg-blocks' ); // Storefront theme
 //DELETE FROM wp_posts WHERE post_type = "revision";
 // define('WP_POST_REVISIONS', false);需要添加到config配置里面
 
-//禁止自动保存
+//禁止自动保存 (每次更新wordpress都需要注释)
 //找到下面两个文件
 //wp-admin/post-new.php
 //wp-admin/post.php
