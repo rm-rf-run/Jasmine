@@ -1,6 +1,6 @@
 <?php
 //启动主题钩子,创建jasmine表
-add_action('after_setup_theme', 'create_jasmine_table'); 
+add_action('after_setup_theme', 'create_jasmine_table');
 
 function create_jasmine_table()
 {
