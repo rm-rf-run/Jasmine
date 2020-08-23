@@ -1,27 +1,29 @@
 <?php
 //启动主题钩子,创建jasmine表
-do_action('after_setup_theme', 'create_jasmine_table');
+add_action('after_setup_theme', 'create_jasmine_table');
 
 function create_jasmine_table()
 {
     global $wpdb;
     $table_name = $wpdb->prefix . "jasmine";
-    require_once ABSPATH . "wp-admin/includes/upgrade.php";
-    dbDelta('CREATE TABLE if not exists `' . $table_name . '`  (
-  `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `backgroundImg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `csdn` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `gitHub` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `weibo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `qq` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `zhihu` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `bililbilil` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `personalMessage` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `extraCss` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `startDate` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `alipay` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `weChat` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
+	$sql ="CREATE TABLE IF NOT EXISTS `" . $table_name . "` (
+	  `id` varchar(255)  NOT  NULL,
+	  `backgroundImg` varchar(255) DEFAULT  NULL,
+	  `csdn` varchar(255)  DEFAULT  NULL,
+	  `gitHub` varchar(255)  DEFAULT  NULL,
+	  `weibo` varchar(255)  DEFAULT  NULL,
+	  `qq` varchar(255)  DEFAULT  NULL,
+	  `zhihu` varchar(255)  DEFAULT  NULL,
+	  `bililbilil` varchar(255)  DEFAULT  NULL,
+	  `personalMessage` varchar(255)  DEFAULT  NULL,
+	  `extraCss` varchar(255)  DEFAULT  NULL,
+	  `startDate` varchar(255) DEFAULT   NULL,
+	  `alipay` varchar(255) DEFAULT   NULL,
+	  `weChat` varchar(255) DEFAULT   NULL,
+	  PRIMARY KEY (`id`)
+	)ENGINE=InnoDB  DEFAULT CHARSET=utf8;";
+	require_once (ABSPATH . "wp-admin/includes/upgrade.php");
+    dbDelta($sql);
 }
 /**
  * 停用主题时删除所创建的表和数据
