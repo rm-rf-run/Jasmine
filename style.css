@@ -155,6 +155,7 @@ dl {
     background: #fff;
     height: 200px;
     border-radius: 4px;
+    transition: all .2s;
 }
 
 #avatar img {
@@ -172,6 +173,10 @@ dl {
     color: #fff !important;
 }
 
+.jasmine-content h2{
+    transition: all .3s;
+}
+
 .jasmine-article-img {
     min-height: 200px;
     position: relative;
@@ -183,12 +188,11 @@ dl {
 }
 
 .jasmine-panel {
-    min-height: 200px;
     overflow: hidden;
     border-radius: 4px;
 }
 
-.jasmine-article-img:hover {
+.jasmine-article:hover .jasmine-article-img{
     transform: scale(1.3, 1.3);
     /* IE 9 */
     -ms-transform: scale(1.3, 1.3);
@@ -198,19 +202,31 @@ dl {
     box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
 }
 
-.jasmine-content {
-    pointer-events: none;
+.jasmine-article:hover h2{
+    transform:translateY(-20px) scale(1.2);opacity:1;padding:0 60px;
 }
+
+.jasmine-article:hover .jasmine-content-foot{
+    transform:translateY(5px);opacity:1;
+}
+
 
 .jasmine-content {
     position: relative;
-    margin-top: -20%;
+    margin-top: -37%;
+    padding-top: 15%;
+    height: 200px;
     text-align: center;
+    transition: all .3s;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.3);
+    color: #fff;
 }
 
 .jasmine-content-foot {
     margin-right: 5px;
     opacity: 0;
+    transition: all .3s;
 }
 
 .pagination {

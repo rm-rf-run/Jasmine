@@ -2,11 +2,6 @@
      $(function() {
          $('body').running();
          $(".fixed-top").autoHidingNavbar();
-         $('.jasmine-article').mouseenter(function(){
-         	$('.jasmine-content-foot').css('opacity','1');
-         }).mouseleave(function(){
-         	$('.jasmine-content-foot').css('opacity','0');
-         });
          $('[data-toggle="tooltip"]').tooltip();
          $('.to-top').click(function(event){
          	$('.to-top').addClass('fly').addClass('transition');
