@@ -294,6 +294,7 @@ dl {
     border-radius: 8px;
     text-align: center;
     padding-top: 5px;
+    margin-bottom: 8px;
 }
 @keyframes scaleDraw {
     /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
@@ -359,4 +360,203 @@ dl {
 }
 .jasmine-random-articles-div div:last-child{
     display: inline-block;
+}
+.jasmine-bilbil {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background-position: 50%;
+    background-size: cover;
+    transition: background-image .2s ease,background-size 1s ease;
+    position: relative;
+    background-image: url(http://images.weserv.nl/?url=http://i0.hdslb.com/bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png@2200w_400h_1o.webp);
+}
+
+.jasmine-bilbil-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 54px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAABdCAMAAADNEjtLAAABEVBMVEUDAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAACnjvHuAAAAW3RSTlMBAgMEBQYHCAkKCwwNDxAREhQVFhgZGxweHyEiJCUnKSosLS8xMjQ2ODk7PT5AQkNFR0hKTE5PUVNUVldZW1xeX2FiZGVnaGprbG5vcHFzdHV2d3h5ent8fX5/XoZ4lgAAAPVJREFUeAHt1AERADAQAiDdrX/mDyKEIAAAjGkDsOk3AAIEECCAAAEECCBAAAECCBBAgAACBBAggAABBAggQAABAggQQIAAAgQQIIAAAQQIIEAAAQIIEECAAAIEECCAAAEECAgQQIAAAgQQIIAAAQQIIEAAAQIIEECAAAIEECCAAAEECCBAAAECCBBAgAACBBAggAABBAggQAABAggQQIAAAgQQIIAAAQECCBBAgAACBBAggAABBAggQAABAggQQIAAAgQQIIAAAQQIIEAAAQIIEECAAAIEECCAAAEECCBAAAECCBBAgAACBAQIIEAAAQIseAEYdZ9sAcJDX4ICAAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+}
+
+.jasmine-bilbil-me {
+    position: relative;
+    z-index: 1;
+}
+
+.h-basic a:first-child{
+    color: black !important;
+}
+
+.h-basic a:last-child{
+    color: #fff !important;
+}
+
+
+.jasmine-bilbil-me div:first-child{
+    margin-left: 5px;
+    padding-bottom: 10px;
+    display: block;
+    margin-top: 5px;
+}
+
+.h-avatar {
+    position: relative;
+    float: left;
+    width: 54px;
+    height: 54px;
+    border: 2px solid hsla(0,0%,100%,.4);
+    border-radius: 52px;
+}
+
+#h-avatar{
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 48px;
+    color: #fff;
+}
+
+.h-basic {
+    float: left;
+    font-size: 0;
+    margin: 10px 0 0 0px;
+}
+
+#h-name {
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: 700;
+    line-height: 18px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.m-level[lvl="2"] {
+    background-position: -21px -82px;
+}
+
+.m-level {
+    display: inline-block;
+    width: 28px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    background-image: url(https://images.weserv.nl/?url=https://s1.hdslb.com/bfs/static/jinkela/space/asserts/level.png);
+    background-repeat: no-repeat;
+    background-position: 999px 999px;
+}
+
+.h-vipType {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fff;
+    padding: 0 5px;
+    background-color: #f45a8d;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.h-basic-spacing {
+    margin-top: 8px;
+}
+
+ .h-sign {
+    color: #d6dee4;
+    font-size: 12px;
+    line-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.jasmine-bilbil-statistics {
+    background:#fff;
+    height: 75px;
+    padding-left: 8%;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.jasmine-bilbil-statistics-a {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    float: left;
+    width: 70px;
+    height: 38px;
+    padding-top: 5px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.statistics-data {
+    line-height: 14px;
+    font-size: 12px;
+    color: #99a2aa;
+    margin-bottom: 0px;
+}
+
+.statistics-data-num {
+    line-height: 16px;
+    margin-top: 5px;
+    color: #222;
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+.jasmine-bilbil-btn {
+    padding-left: 15%;
+}
+
+
+.jasmine-bilbil-btn-add {
+    background: #f25d8e;
+    box-shadow: 0 0 0 2px #fff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    float: left;
+    text-align: center;
+    margin: 0 20px 0 0;
+    width: 76px;
+    line-height: 30px;
+    margin-top: 2px;
+}
+
+.jasmine-bilbil-btn-add a{
+    color: #fff;
+}
+
+.jasmine-bilbil-message {
+    background: rgba(0,0,0,.45);
+    box-shadow: 0 0 0 2px hsla(0,0%,100%,.3);
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    float: left;
+    text-align: center;
+    margin: 0 20px 0 0;
+    width: 76px;
+    line-height: 30px;
+    margin-top: 2px;
+}
+
+.jasmine-bilbil-message a{
+    color: #fff;
+}
+
+svg{
+    margin-bottom: 3px;
 }

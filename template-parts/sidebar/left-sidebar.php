@@ -46,7 +46,7 @@ the_author_meta('nickname', $author_obj->ID);?>
       <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
     </dt>
     <dd class="text-center">
-      获赞
+      说说
     </dd>
   </dl>
   <dl class="text-center">
@@ -111,5 +111,69 @@ the_author_meta('nickname', $author_obj->ID);?>
 </div>
 
 <div class="jasmine-bilbil">
-  
+  <div class="jasmine-bilbil-gradient"></div>
+  <div class="jasmine-bilbil-me">
+    <div class="h-info clearfix">
+      <div class="h-avatar">
+        <a href="https://space.bilibili.com/113314236">
+          <img src="https://images.weserv.nl/?url=https://i2.hdslb.com/bfs/face/890cc0201dc473a238a788fb116a1750e0d8c65a.jpg_64x64.jpg" id="h-avatar">
+        </a>
+      </div>
+      <div class="h-basic">
+        <div>
+          <a href="https://space.bilibili.com/113314236">
+            <span id="h-name">Chuir-</span>
+          </a>
+          <a href="//www.bilibili.com/html/help.html#k" target="_blank" lvl="2" class="h-level m-level"></a>
+          <a href="//account.bilibili.com/account/big" target="_blank" class="h-vipType">没有大会员</a><!---->
+        </div>
+        <div class="h-basic-spacing">
+          <h4 title="个人博客：www.prettywordpress.com" class="h-sign">博客:www.prettywordpress.com</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jasmine-bilbil-btn">
+    <div class="jasmine-bilbil-btn-add">
+      <a href="https://space.bilibili.com/113314236">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+        </svg>
+        <span>关注</span>
+      </a>
+    </div>
+    <div class="jasmine-bilbil-message">
+      <a href="https://message.bilibili.com/#/whisper/mid113314236">
+        <span>发消息</span>
+      </a>
+    </div>
+  </div>
 </div>
+
+<div class="jasmine-bilbil-statistics">
+      <a href="https://space.bilibili.com/113314236/fans/follow" class="jasmine-bilbil-statistics-a">
+        <p class="statistics-data">
+          关注数
+        </p>
+        <p class="statistics-data-num">
+          4
+        </p>
+      </a>
+      <a href="https://space.bilibili.com/113314236/fans/fan" class="jasmine-bilbil-statistics-a">
+        <p class="statistics-data">
+          粉丝数
+        </p>
+        <p class="statistics-data-num">
+          4
+        </p>
+      </a>
+      <a href="" class="jasmine-bilbil-statistics-a">
+        <p class="statistics-data">
+          获赞数
+        </p>
+        <p class="statistics-data-num">
+          11
+        </p>
+      </a>
+    </div>
