@@ -71,3 +71,44 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 //添加一个自定义背景
 //选择填满屏幕
 add_theme_support( 'custom-background');
+
+//随机文章
+function random_posts($posts_num=5,$before='<li>',$after='</li>'){
+    global $wpdb;
+    $sql = "SELECT ID, post_title,guid
+            FROM $wpdb->posts
+            WHERE post_status = 'publish' ";
+    $sql .= "AND post_title != '' ";
+    $sql .= "AND post_password ='' ";
+    $sql .= "AND post_type = 'post' ";
+    $sql .= "ORDER BY RAND() LIMIT 0 , $posts_num ";
+    $randposts = $wpdb->get_results($sql);
+    $output = '';
+    foreach ($randposts as $randpost) {
+        $post_title = stripslashes($randpost->post_title);
+        $permalink = get_permalink($randpost->ID);
+        $output .= $before.'<a href="'
+            . $permalink . '"  rel="bookmark" title="';
+        $output .= $post_title . '">' . $post_title . '</a>';
+        $output .= $after;
+    }
+    echo $output;
+}
+
+//添加小部件
+// add_action( 'widgets_init', 'my_register_sidebars' );
+function my_register_sidebars() {
+    /* Register the 'primary' sidebar. */
+    register_sidebar(
+        array(
+            'id'            => 'primary',
+            'name'          => __( 'Primary Sidebar' ),
+            'description'   => __( 'A short description of the sidebar.' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+    /* Repeat register_sidebar() code for additional sidebars. */
+}

@@ -7,7 +7,7 @@ Description: 使用bootstrap制作的wordpress模板
 Version: 1.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: Grid Layout,Blog
+Tags: Grid Layout,Blog,小部件
 Text Domain: Jasmine
 
 This theme, like WordPress, is licensed under the GPL.
@@ -20,11 +20,9 @@ body {
     /*background: #f4f5f7;*/
     background-attachment: fixed;
 }
-
 a:hover {
     text-decoration: none;
 }
-
 /*导航栏*/
 
 .head-nav {
@@ -32,20 +30,16 @@ a:hover {
     padding-left: 20%;
     background-color: #fff;
 }
-
 .head-nav .navbar-brand {
     color: black;
     font-size: 22px;
 }
-
 .head-nav a {
     color: black;
 }
-
 #main {
     margin-top: 85px;
 }
-
 /*关于我*/
 
 #about-me {
@@ -54,101 +48,81 @@ a:hover {
     padding: 16px 16px 6px 16px;
     background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);
 }
-
-
 #about-me-1 a {
     color: #555666;
     cursor: pointer;
     text-decoration: none;
 }
-
 #avatar {
     width: 50px;
     height: 50px;
 }
-
 .avatar {
     border-radius: 50%;
 }
-
 #user-info {
     margin-left: 8px;
     padding: 10px 5px 5px 5px;
     width: 100%;
 }
-
 .flex-column {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
     -ms-flex-direction: column !important;
     flex-direction: column !important;
 }
-
 .d-flex {
     display: flex !important;
 }
-
 .text-center {
     text-align: center;
 }
-
 #about-me-2>* {
     width: 100%;
 }
-
 #about-me-2 {
     padding: 9px 0px;
 }
-
 dt {
     color: #4a4d52;
     font-size: 14px;
     font-weight: 500;
     line-height: 22px;
 }
-
 dd {
     color: #999aaa;
 }
-
 dl {
     margin-bottom: 0px;
 }
-
 .item-rank {
     height: 1px;
     background-color: #f5f6f7;
     width: 100%;
     margin: auto;
 }
-
 #about-me-3 {
     display: flex;
     margin-top: 5px;
 }
-
 #about-me-3 img {
     width: 36px;
     height: 36px;
+    border-radius: 50%;
 }
-
 .jasmine-nav {
     background: #fff;
     border-radius: 4px;
 }
-
 .jasmine-nav li a {
     color: #999aaa;
 }
-
 .jasmine-nav li {
     margin-left: 5px;
 }
-
 .icon-badge {
     margin-right: 2px;
 }
-
 .jasmine-article {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -157,26 +131,21 @@ dl {
     border-radius: 4px;
     transition: all .2s;
 }
-
 #avatar img {
     transition: all .3s;
 }
-
 #avatar img:hover {
     transform: rotate(1turn);
     transition-delay: 0s;
     transition-property: all;
     filter: 2px;
 }
-
 .jasmine-content h2 a {
     color: #fff !important;
 }
-
-.jasmine-content h2{
+.jasmine-content h2 {
     transition: all .3s;
 }
-
 .jasmine-article-img {
     min-height: 200px;
     position: relative;
@@ -186,13 +155,11 @@ dl {
     border-radius: 4px;
     transition: all .3s;
 }
-
 .jasmine-panel {
     overflow: hidden;
     border-radius: 4px;
 }
-
-.jasmine-article:hover .jasmine-article-img{
+.jasmine-article:hover .jasmine-article-img {
     transform: scale(1.3, 1.3);
     /* IE 9 */
     -ms-transform: scale(1.3, 1.3);
@@ -201,16 +168,15 @@ dl {
     filter: blur(5px);
     box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
 }
-
-.jasmine-article:hover h2{
-    transform:translateY(-20px) scale(1.2);opacity:1;padding:0 60px;
+.jasmine-article:hover h2 {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+    padding: 0 60px;
 }
-
-.jasmine-article:hover .jasmine-content-foot{
-    transform:translateY(5px);opacity:1;
+.jasmine-article:hover .jasmine-content-foot {
+    transform: translateY(5px);
+    opacity: 1;
 }
-
-
 .jasmine-content {
     position: relative;
     margin-top: -37%;
@@ -219,16 +185,14 @@ dl {
     text-align: center;
     transition: all .3s;
     border-radius: 4px;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
     color: #fff;
 }
-
 .jasmine-content-foot {
     margin-right: 5px;
     opacity: 0;
     transition: all .3s;
 }
-
 .pagination {
     -ms-flex-pack: center !important;
     justify-content: center !important;
@@ -238,24 +202,25 @@ dl {
     list-style: none;
     border-radius: .25rem;
 }
-
 /**
  * 重写分页样式
  */
+
 .page-numbers {
     position: relative;
     display: block;
     padding: .5rem .75rem;
-    margin-left: -1px;
+    margin: 0 5px;
     line-height: 1.25;
     color: #007bff;
     background-color: #fff;
     border: 1px solid #dee2e6;
+    border-radius: 8px;
 }
-
 /**
  * 重写分页样式
  */
+
 .nav-links {
     -ms-flex-pack: center !important;
     justify-content: center !important;
@@ -265,28 +230,18 @@ dl {
     list-style: none;
     border-radius: .25rem;
 }
-
 .jasmine-notice {
     background: #fff;
     border-radius: 8px;
     padding: 16px 16px 6px 16px;
-    height: 157px;
+    margin-bottom: 8px;
 }
-
-.jasmine-notice p {
-    margin: 0px;
-    padding: 0px;
-    font-size: 14px;
-}
-
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 
 ::-webkit-scrollbar {
     width: 9px;
     height: 9px
 }
-
-
 /*定义滚动条轨道*/
 
 ::-webkit-scrollbar-track {
@@ -295,8 +250,6 @@ dl {
     -moz-border-radius: 2em;
     border-radius: 2em
 }
-
-
 /*定义滑块 内阴影+圆角*/
 
 ::-webkit-scrollbar-thumb {
@@ -306,7 +259,6 @@ dl {
     -moz-border-radius: 2em;
     border-radius: 2em
 }
-
 .to-top {
     position: fixed;
     display: none;
@@ -320,11 +272,91 @@ dl {
     background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/asserts/space-to-top.png);
     background-position: -40px -44px;
 }
-
 .to-top.fly {
     transform: translateY(-1000px);
 }
-
 .to-top.transition {
     transition: transform .3s ease-in;
+}
+.jasmine-notice-div {
+    margin-top: -15px;
+}
+.jasmine-notice-title {
+    text-align: center;
+    font-weight: bolder;
+    font-family: cursive;
+}
+.jasmine-notice-title title {
+    display: block;
+}
+.jasmine-love {
+    background: #fff;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 5px;
+}
+@keyframes scaleDraw {
+    /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+    0% {
+        transform: scale(1);
+        /*开始为原始大小*/
+    }
+    25% {
+        transform: scale(1.1);
+        /*放大1.1倍*/
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+.jasmine-love svg {
+    color: red;
+    -webkit-animation-name: scaleDraw;
+    /*关键帧名称*/
+    -webkit-animation-timing-function: ease-in-out;
+    /*动画的速度曲线*/
+    -webkit-animation-iteration-count: infinite;
+    /*动画播放的次数*/
+    -webkit-animation-duration: 3s;
+    /*动画所花费的时间*/
+}
+.jasmine-love-me {
+    width: 50px;
+    height: 50px;
+    vertical-align: -20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+}
+.jasmine-love-she {
+    width: 50px;
+    height: 50px;
+    vertical-align: -20px;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+}
+.jasmine-random-articles{
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 16px 6px 16px;
+    margin-bottom: 8px;
+}
+.jasmine-random-articles title{
+    display: block;
+}
+.jasmine-random-articles-div div:first-child{
+    display: inline-block;
+}
+.jasmine-random-articles-div div:last-child{
+    display: inline-block;
 }

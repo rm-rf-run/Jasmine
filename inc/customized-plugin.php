@@ -97,6 +97,15 @@ function my_options()
                 <form class="needs-validation" name="form1">
                   <div class="row">
                     <div class="col-md-12 bm-12">
+                      <label for="notice">今日公告</label>
+                      <textarea  class="form-control" id="notice" placeholder="" value="" required=""></textarea>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 bm-12">
                       <label for="background-img">网站背景图片地址</label>
                       <input type="text" class="form-control" id="background-img" placeholder="" value="" required="">
                       <div class="invalid-feedback">
@@ -148,6 +157,22 @@ function my_options()
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-6 bm-6">
+                      <label for="qq_he">男生的QQ号</label>
+                      <input type="text" class="form-control" id="qq_he" placeholder="" value="" required="">
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-6 bm-6">
+                      <label for="qq_she">女生的QQ号</label>
+                      <input type="text" class="form-control" id="qq_she" placeholder="" value="" required="">
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                  </div>
                   <hr class="mb-4">
                   <button class="btn btn-primary btn-lg btn-block" type="submit">确定</button>
                 </form>
@@ -193,3 +218,4 @@ function echoDate( $postID ){
 }
 add_action( 'echo_date', 'echoDate' );
 ?>
+

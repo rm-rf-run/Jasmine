@@ -63,7 +63,7 @@ get_header();
 
             // 开始循环(Loop).
 				    while ( have_posts() ) : the_post();
-              /*
+                /*
                 *包含内容的帖子格式特定模板。
                 *如果您想在子主题中覆盖它，那么就选择一个文件
                 *称为content-___.php（其中___是Post格式名），并且将被替代。
@@ -71,6 +71,7 @@ get_header();
                 get_template_part( 'template-parts/post/content', get_post_format() );
 				    endwhile;
 
+            //分页
             the_posts_pagination(
                 array(
                   'mid_size'           => 2,
@@ -82,6 +83,7 @@ get_header();
                   'next_text'          => __( '下一页', 'textdomain' )
                 )
               );
+
         else :
     _e( 'Sorry, no posts matched your criteria.', 'textdomain' );
 				endif;
