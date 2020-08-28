@@ -154,8 +154,8 @@ add_filter('locale', function ($locale) {
     return $locale;
 });
 //移除wp-json链接
-add_filter('rest_enabled', '_return_false');
-add_filter('rest_jsonp_enabled', '_return_false');
+add_filter('rest_authentication_errors', '__return_false');
+add_filter('rest_jsonp_enabled', '__return_false');
 remove_action('wp_head', 'rest_output_link_wp_head', 10);
 remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
 
@@ -182,7 +182,7 @@ function disable_embeds_init()
         'embed',
     ));
     remove_action('rest_api_init', 'wp_oembed_register_route');
-    add_filter('embed_oembed_discover', '__return_false');
+    add_filter('embed_oembed_discover', '___return_false');
     remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
     remove_action('wp_head', 'wp_oembed_add_discovery_links');
     remove_action('wp_head', 'wp_oembed_add_host_js');
@@ -226,7 +226,7 @@ return $hints;
 add_filter( 'wp_resource_hints', 'remove_dns_prefetch', 10, 2 );
 
 //完全禁用Gutenberg编辑器。
-add_filter('use_block_editor_for_post_type', '__return_false', 10);
+add_filter('use_block_editor_for_post_type', '___return_false', 10);
 //不要加载与Gutenberg相关的样式表。
 add_action( 'wp_enqueue_scripts', 'remove_block_css', 100 );
 function remove_block_css() {

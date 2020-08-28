@@ -68,5 +68,7 @@
              return time;
          }
          setInterval(setTime, 1000);
+
+         $('.datepicker').datepicker();
      })
  })(jQuery);

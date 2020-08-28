@@ -1,103 +1,103 @@
 <?php
 header('Content-Type:text/html;charset=utf-8');
-$uid=$_GET['uid'];
-if($uid!=null){
-$b1= file_get_contents("https://api.bilibili.com/x/space/acc/info?mid=$uid&jsonp=jsonp");
-$b2= file_get_contents("https://api.bilibili.com/x/relation/stat?vmid=$uid&jsonp=jsonp");
-$b3= file_get_contents("https://api.bilibili.com/x/space/upstat?mid=$uid&jsonp=jsonp");
-$newStr = str_ireplace('archive":{"view":',"播放数：",$b3,$count);
-$l1 = str_ireplace('article":{"view":',"阅读数：",$b3,$count);
-$l2 = str_ireplace('"likes":',"获赞数：",$b3,$count);
-$l3 = str_ireplace('me":"',"昵称：",$b1,$count);
-$l4 = str_ireplace('"sex":"',"性别：",$b1,$count);
-$l5 = str_ireplace('birthday":"',"生日：",$b1,$count);
-$l6 = str_ireplace('"sign":"',"签名：",$b1,$count);
-$l7 = str_ireplace('"level":',"等级：",$b1,$count);
-$l8 = str_ireplace('"face":"',"头像：",$b1,$count);
-$l9 = str_ireplace('follower":',"粉丝数：",$b2,$count);
-$l10 = str_ireplace('following":',"关注数：",$b2,$count);
-$l11 = str_ireplace('"vip":{"type":',"类型：",$b1,$count);
-$l12 = str_ireplace('"status":',"状态：",$b1,$count);
-$str="$l11";
-$t1 = mb_strpos($str,'类型：');
-$t2 = mb_strpos($str,',"status":');
-$p1 = mb_substr($str,$t1,$t2-$t1);
-$str="$l12";
-$t1 = mb_strpos($str,'状态：');
-$t2 = mb_strpos($str,',"theme_type');
-$p2 = mb_substr($str,$t1,$t2-$t1);
-$str="$l3";
-$t1 = mb_strpos($str,'昵称：');
-$t2 = mb_strpos($str,'","sex":"');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l4";
-$t1 = mb_strpos($str,'性别：');
-$t2 = mb_strpos($str,'","face":"');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l5";
-$t1 = mb_strpos($str,'生日：');
-$t2 = mb_strpos($str,'","coins"');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l6";
-$t1 = mb_strpos($str,'签名：');
-$t2 = mb_strpos($str,'","rank"');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-echo "会员：";
-if($p1=="类型：0"&&$p2=="状态：0"){
-echo "未开通大会员服务";
-}else{
-if($p1=="类型：2"&&$p2=="状态：1"){
-echo "年度大会员，未过期";
-}else{
-if($p1=="类型：2"&&$p2=="状态：0"){
-echo "年度大会员，已过期";
-}else{
-if($p1=="类型：1"&&$p2=="状态：1"){
-echo "大会员，未过期";
-}else{
-if($p1=="类型：1"&&$p2=="状态：0"){
-echo "大会员，已过期";
-}}}}}
-echo "</br>";
-$str="$l7";
-$t1 = mb_strpos($str,'等级：');
-$t2 = mb_strpos($str,',"jointime');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l8";
-$t1 = mb_strpos($str,'头像：');
-$t2 = mb_strpos($str,'","sign"');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l9";
-$t1 = mb_strpos($str,'粉丝数：');
-$t2 = mb_strpos($str,'}}');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l10";
-$t1 = mb_strpos($str,'关注数：');
-$t2 = mb_strpos($str,',"whisper');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$newStr";
-$t1 = mb_strpos($str,'播放数：');
-$t2 = mb_strpos($str,'},"artic');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l1";
-$t1 = mb_strpos($str,'阅读数：');
-$t2 = mb_strpos($str,'},"likes');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-$str="$l2";
-$t1 = mb_strpos($str,'获赞数：');
-$t2 = mb_strpos($str,'}}');
-echo $s = mb_substr($str,$t1,$t2-$t1);
-echo "</br>";
-}else{
-	echo "请输入B站UID！";
+$uid = $_GET['uid'];
+if ($uid != null) {
+    $b1     = file_get_contents("https://api.bilibili.com/x/space/acc/info?mid=$uid&jsonp=jsonp");
+    $b2     = file_get_contents("https://api.bilibili.com/x/relation/stat?vmid=$uid&jsonp=jsonp");
+    $b3     = file_get_contents("https://api.bilibili.com/x/space/upstat?mid=$uid&jsonp=jsonp");
+    $newStr = str_ireplace('archive":{"view":', "播放数：", $b3, $count);
+    $l1     = str_ireplace('article":{"view":', "阅读数：", $b3, $count);
+    $l2     = str_ireplace('"likes":', "获赞数：", $b3, $count);
+    $l3     = str_ireplace('me":"', "昵称：", $b1, $count);
+    $l4     = str_ireplace('"sex":"', "性别：", $b1, $count);
+    $l5     = str_ireplace('birthday":"', "生日：", $b1, $count);
+    $l6     = str_ireplace('"sign":"', "签名：", $b1, $count);
+    $l7     = str_ireplace('"level":', "等级：", $b1, $count);
+    $l8     = str_ireplace('"face":"', "头像：", $b1, $count);
+    $l9     = str_ireplace('follower":', "粉丝数：", $b2, $count);
+    $l10    = str_ireplace('following":', "关注数：", $b2, $count);
+    $l11    = str_ireplace('"vip":{"type":', "类型：", $b1, $count);
+    $l12    = str_ireplace('"status":', "状态：", $b1, $count);
+    $str    = "$l11";
+    $t1     = mb_strpos($str, '类型：');
+    $t2     = mb_strpos($str, ',"status":');
+    $p1     = mb_substr($str, $t1, $t2 - $t1);
+    $str    = "$l12";
+    $t1     = mb_strpos($str, '状态：');
+    $t2     = mb_strpos($str, ',"theme_type');
+    $p2     = mb_substr($str, $t1, $t2 - $t1);
+    $str    = "$l3";
+    $t1     = mb_strpos($str, '昵称：');
+    $t2     = mb_strpos($str, '","sex":"');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l4";
+    $t1     = mb_strpos($str, '性别：');
+    $t2     = mb_strpos($str, '","face":"');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l5";
+    $t1     = mb_strpos($str, '生日：');
+    $t2     = mb_strpos($str, '","coins"');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l6";
+    $t1     = mb_strpos($str, '签名：');
+    $t2     = mb_strpos($str, '","rank"');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    echo "会员：";
+    if ($p1 == "类型：0" && $p2 == "状态：0") {
+        echo "未开通大会员服务";
+    } else {
+        if ($p1 == "类型：2" && $p2 == "状态：1") {
+            echo "年度大会员，未过期";
+        } else {
+            if ($p1 == "类型：2" && $p2 == "状态：0") {
+                echo "年度大会员，已过期";
+            } else {
+                if ($p1 == "类型：1" && $p2 == "状态：1") {
+                    echo "大会员，未过期";
+                } else {
+                    if ($p1 == "类型：1" && $p2 == "状态：0") {
+                        echo "大会员，已过期";
+                    }}}}}
+    echo "</br>";
+    $str    = "$l7";
+    $t1     = mb_strpos($str, '等级：');
+    $t2     = mb_strpos($str, ',"jointime');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l8";
+    $t1     = mb_strpos($str, '头像：');
+    $t2     = mb_strpos($str, '","sign"');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l9";
+    $t1     = mb_strpos($str, '粉丝数：');
+    $t2     = mb_strpos($str, '}}');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l10";
+    $t1     = mb_strpos($str, '关注数：');
+    $t2     = mb_strpos($str, ',"whisper');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$newStr";
+    $t1     = mb_strpos($str, '播放数：');
+    $t2     = mb_strpos($str, '},"artic');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l1";
+    $t1     = mb_strpos($str, '阅读数：');
+    $t2     = mb_strpos($str, '},"likes');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+    $str    = "$l2";
+    $t1     = mb_strpos($str, '获赞数：');
+    $t2     = mb_strpos($str, '}}');
+    echo $s = mb_substr($str, $t1, $t2 - $t1);
+    echo "</br>";
+} else {
+    echo "请输入B站UID！";
 }

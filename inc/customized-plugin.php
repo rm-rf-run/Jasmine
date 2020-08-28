@@ -14,8 +14,16 @@ function create_jasmine_table()
 	  `weibo` varchar(255)  DEFAULT  NULL,
 	  `qq` varchar(255)  DEFAULT  NULL,
 	  `zhihu` varchar(255)  DEFAULT  NULL,
-	  `bililbilil` varchar(255)  DEFAULT  NULL,
-	  `personalMessage` varchar(255)  DEFAULT  NULL,
+	  `bilbil` varchar(255)  DEFAULT  NULL,
+    `bilbil_face` varchar(255)  DEFAULT  NULL,
+    `bilbil_top_photo` varchar(255)  DEFAULT  NULL,
+    `bilbil_name` varchar(255)  DEFAULT  NULL,
+    `bilbil_sign` varchar(255)  DEFAULT  NULL,
+    `bilbil_level` varchar(255)  DEFAULT  NULL,
+    `bilbil_vip_type` varchar(255)  DEFAULT  NULL,
+    `bilbil_following` varchar(255)  DEFAULT  NULL,
+    `bilbil_follower` varchar(255)  DEFAULT  NULL,
+	  `notice` varchar(255)  DEFAULT  NULL,
 	  `extraCss` varchar(255)  DEFAULT  NULL,
 	  `startDate` varchar(255) DEFAULT   NULL,
 	  `alipay` varchar(255) DEFAULT   NULL,
@@ -72,9 +80,46 @@ function my_options()
         wp_die(__('You do not have sufficient permissions to access this page.'));
     }
     wp_enqueue_style('bootstrapCss', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css', '', '4.5.0', false);
+    wp_enqueue_style('bootstrap_datepicker_css', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css', '', '1.9.0', false);
     wp_enqueue_script('JS3.5.1', 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', '', '3.5.1', true);
     wp_enqueue_script('popper1.16.0', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', '', '1.16.0', true);
     wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
+    wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
+    wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
+    global $wpdb,$current_user;
+    wp_get_current_user();
+    $table_name = $wpdb->prefix . "jasmine";
+    $id = $current_user->user_login;
+    //验证是否设置了 $test_hidden 这个变量。
+    if( isset($_POST['test_hidden']) == 'y') {
+      $data_array = array(
+      'id'  => $id,
+      'notice'  => $_POST['notice'],
+      'startDate' => $_POST['startDate'] ,
+      'bilbil_uid'    => $_POST['bilbil_uid'] ,
+      'CSND'  => $_POST['CSND'],
+      'GitHub' => $_POST['GitHub'] ,
+      'weibo'    => $_POST['weibo'] ,
+      'QQ'    => $_POST['QQ'] ,
+      'zhihu'    => $_POST['zhihu'] ,
+      'bilbil'    => $_POST['bilbil'] ,
+      'qq_he'    => $_POST['qq_he'] ,
+      'qq_she'    => $_POST['qq_she'] ,
+      'extraCss'    => $_POST['extraCss'] ,
+      );
+        echo '<div class="updated"><p>';
+            printf(__( '添加成功'));
+            echo "</p></div>";
+        try {
+          $wpdb->insert($table_name, $data_array);
+        } catch (Exception $e){
+          echo '<div class="updated" style="border-left-color: red;"><p>';
+          printf(__( '添加失败,原因为：'));
+          print $e->getMessage();
+          echo "</p></div>";
+        }
+
+       }
     ?>
     <div class="container" style="margin-top: 50px">
       <div class="py-5 text-center">
@@ -94,7 +139,7 @@ function my_options()
           <!--第一个表单-->
             <div class="collapse" id="collapseExample" data-parent="#accordionExample">
               <div class="card card-body col-md-12">
-                <form class="needs-validation" name="form1">
+                <form class="needs-validation" method="post"  action ="options.php" name="form1">
                   <div class="row">
                     <div class="col-md-12 bm-12">
                       <label for="notice">今日公告</label>
@@ -105,9 +150,16 @@ function my_options()
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12 bm-12">
-                      <label for="background-img">网站背景图片地址</label>
-                      <input type="text" class="form-control" id="background-img" placeholder="" value="" required="">
+                    <div class="col-md-6 bm-6">
+                      <label for="startDate">建站日期</label>
+                      <input type="text" class="form-control" id="startDate" data-provide="datepicker" data-date-format="yyyy/mm/dd" data-date-autoclose='true' data-date-language='zh-CN' placeholder="" value="" required="">
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-6 bm-6">
+                      <label for="bilbil_uid">B站UID</label>
+                      <input type="text" class="form-control" id="bilbil_uid" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
@@ -150,8 +202,8 @@ function my_options()
                       </div>
                     </div>
                     <div class="col-md-2 bm-2">
-                      <label for="bililbilil">B站</label>
-                      <input type="text" class="form-control" id="bililbilil" placeholder="" value="" required="">
+                      <label for="bilbil">B站</label>
+                      <input type="text" class="form-control" id="bilbil" placeholder="" value="" required="">
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
@@ -168,6 +220,15 @@ function my_options()
                     <div class="col-md-6 bm-6">
                       <label for="qq_she">女生的QQ号</label>
                       <input type="text" class="form-control" id="qq_she" placeholder="" value="" required="">
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 bm-12">
+                      <label for="extraCss">额外CSS</label>
+                      <textarea  class="form-control" id="extraCss" placeholder="" value="" required=""></textarea>
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
@@ -199,6 +260,7 @@ function my_options()
                     </div>
                   </div>
                   <hr class="mb-4">
+                  <input type="hidden" name="test_hidden" value="y"  />
                   <button class="btn btn-primary btn-lg btn-block" type="submit">确定</button>
                 </form>
               </div>
@@ -216,6 +278,32 @@ function echoDate( $postID ){
 </svg>: %s', 'textdomain' ), get_the_modified_date('Y-M-j',$postID) );
   return $content;
 }
-add_action( 'echo_date', 'echoDate' );
+add_shortcode( 'echo_date', 'echoDate' );
+
+
+add_action( 'init', 'wpdocs_add_custom_shortcode' );
+
+function wpdocs_add_custom_shortcode() {
+    add_shortcode( 'bilbil', 'jasmine_bilbil' );
+}
+
+function jasmine_bilbil( $atts ) {
+
+  if (null != $atts['uid']) {
+    $b1= file_get_contents("https://api.bilibili.com/x/space/acc/info?mid=".$atts['uid']."&jsonp=jsonp");
+    $b2= file_get_contents("https://api.bilibili.com/x/relation/stat?vmid=".$atts['uid']."&jsonp=jsonp");
+    if ( 'follow'== $atts['option'] ) {
+        $contents = utf8_encode($b2);
+        $results = json_decode($contents,true);
+        return $results['data']['following'];
+    } else if ( 'fans'== $atts['option'] ) {
+        $contents = utf8_encode($b2);
+        $results = json_decode($contents,true);
+        return $results['data']['follower'];
+    }
+
+  }
+}
+
 ?>
 

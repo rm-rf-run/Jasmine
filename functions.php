@@ -86,32 +86,41 @@ function random_posts($posts_num=5,$before='<li>',$after='</li>'){
     $output = '';
     foreach ($randposts as $randpost) {
         $post_title = stripslashes($randpost->post_title);
+        $lenth = mb_strlen($post_title,'utf-8');
+        if ($lenth >= 10) {
+            $post_title_short = mb_substr($post_title,0,10,'utf-8')."...";
+        }else{
+            $post_title_short = $post_title;
+        }
         $permalink = get_permalink($randpost->ID);
         $output .= $before.'<a href="'
             . $permalink . '"  rel="bookmark" title="';
-        $output .= $post_title . '">' . $post_title . '</a>';
+        $output .= $post_title . '">' . $post_title_short . '</a>';
         $output .= $after;
     }
     echo $output;
 }
 
-//添加小部件
-// add_action( 'widgets_init', 'my_register_sidebars' );
-function my_register_sidebars() {
-    /* Register the 'primary' sidebar. */
-    register_sidebar(
-        array(
-            'id'            => 'primary',
-            'name'          => __( 'Primary Sidebar' ),
-            'description'   => __( 'A short description of the sidebar.' ),
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</div>',
-            'before_title'  => '<h3 class="widget-title">',
-            'after_title'   => '</h3>',
-        )
-    );
-    /* Repeat register_sidebar() code for additional sidebars. */
-}
-
 //添加友情链接
 add_filter('pre_option_link_manager_enabled','__return_true');
+
+/*
+ * 删除自带小工具
+ */
+function unregister_default_widgets()
+{
+    unregister_widget("WP_Widget_Pages");
+    unregister_widget("WP_Widget_Calendar");
+    unregister_widget("WP_Widget_Archives");
+    unregister_widget("WP_Widget_Links");
+    unregister_widget("WP_Widget_Meta");
+    unregister_widget("WP_Widget_Search");
+    //unregister_widget("WP_Widget_Text");
+    unregister_widget("WP_Widget_Categories");
+    unregister_widget("WP_Widget_Recent_Posts");
+    //unregister_widget("WP_Widget_Recent_Comments");
+    //unregister_widget("WP_Widget_RSS");
+    //unregister_widget("WP_Widget_Tag_Cloud");
+    unregister_widget("WP_Nav_Menu_Widget");
+}
+add_action("widgets_init", "unregister_default_widgets", 11);
