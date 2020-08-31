@@ -18,9 +18,7 @@
   </div>
   <div class="jasmine-notice-div">
   	<span class="jasmine-notice-span">
-	  	知识不能替代友谊，比起失去你，我宁愿做个白痴。
-	  	Knowledge cannot replace friendship,
-	  	I'd rather be an idiot than lose you.
+	  	<?php echo esc_attr(get_option('jasmine_notice')); ?>
   	</span>
   </div>
 </div>
