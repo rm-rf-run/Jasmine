@@ -173,7 +173,7 @@ the_author_meta('nickname', $author_obj->ID);?>
           关注数
         </p>
         <p class="statistics-data-num">
-          <?php echo do_shortcode('[bilbil uid="113314236" option="follow"]'); ?>
+         <?php if(!empty(get_option('jasmine_bilbil_following'))){echo get_option('jasmine_bilbil_following');}?>
         </p>
       </a>
       <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/fans';}?>" class="jasmine-bilbil-statistics-a">
@@ -181,7 +181,7 @@ the_author_meta('nickname', $author_obj->ID);?>
           粉丝数
         </p>
         <p class="statistics-data-num">
-          <?php echo do_shortcode('[bilbil uid="113314236" option="fans"]'); ?>
+          <?php if(!empty(get_option('jasmine_bilbil_follower'))){echo get_option('jasmine_bilbil_follower');}?>
         </p>
       </a>
     </div>

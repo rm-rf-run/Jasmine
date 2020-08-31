@@ -226,7 +226,7 @@ return $hints;
 add_filter( 'wp_resource_hints', 'remove_dns_prefetch', 10, 2 );
 
 //完全禁用Gutenberg编辑器。
-add_filter('use_block_editor_for_post_type', '___return_false', 10);
+// add_filter('use_block_editor_for_post_type', '___return_false', 10);
 //不要加载与Gutenberg相关的样式表。
 add_action( 'wp_enqueue_scripts', 'remove_block_css', 100 );
 function remove_block_css() {

@@ -109,6 +109,11 @@ function add_bilbil_data()
     if (get_option( 'jasmine_bilbil_uid') !== false) {
       $bilbil_uid = get_option('jasmine_bilbil_uid');
       if (! empty($bilbil_uid)) {
+      	  //使用file_get_contents需要将extension=php_openssl.dll前面的;去掉
+      	  /**
+      	   * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
+      	   *
+      	   */
           $b1 = file_get_contents("https://api.bilibili.com/x/space/acc/info?mid=" . $bilbil_uid . "&jsonp=jsonp");
           $b2 = file_get_contents("https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
           $contents1 = utf8_encode($b1);

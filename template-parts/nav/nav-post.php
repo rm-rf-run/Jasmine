@@ -14,8 +14,10 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
+    当前位置：
+    <li><a href="<?php bloginfo('url');?>">首页</a></li>
+    <li><a href="">&nbsp;>&nbsp;<?php the_category(', ') ?></a></li>
+    <?php if (is_singular('post')){?>
+    <li><a href="">&nbsp;>&nbsp;<?php the_title();}?></a></li>
   </ol>
 </nav>

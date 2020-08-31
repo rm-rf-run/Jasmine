@@ -13,6 +13,8 @@
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/customized.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animatext.js@0.0.0/js/dist/animatext.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/jquery.pjax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
     <!-- end -->
   <?php wp_footer();?>
   </body>

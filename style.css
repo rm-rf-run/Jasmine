@@ -654,3 +654,17 @@ dl {
 svg {
     margin-bottom: 3px;
 }
+
+.breadcrumb {
+    color: #99a2aa;
+    font-size: 15px;
+    background: #fff;
+}
+
+.breadcrumb a{
+    color: #99a2aa;
+}
+
+.breadcrumb a:hover{
+    color: #007bff;
+}
