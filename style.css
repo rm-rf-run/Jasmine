@@ -417,11 +417,11 @@ dl {
     list-style-type: decimal;
 }
 
-.jasmine-random-articles ul li a{
+.jasmine-random-articles ul li a {
     color: #212529;
 }
 
-.jasmine-random-articles ul li a:hover{
+.jasmine-random-articles ul li a:hover {
     color: #409eff;
 }
 
@@ -661,10 +661,95 @@ svg {
     background: #fff;
 }
 
-.breadcrumb a{
+.breadcrumb a {
     color: #99a2aa;
 }
 
-.breadcrumb a:hover{
+.breadcrumb a:hover {
     color: #007bff;
+}
+
+.jasmine-post-content {
+    background: #fff;
+    border-radius: 4px;
+    padding: 12px 16px
+}
+
+.jasmine-post-content-foot {
+    text-align: center;
+    border-bottom: 1px dashed #ddd;
+    border-top: 1px dashed #ddd;
+    height: 50px;
+    padding-top: 2%;
+}
+
+.jasmine-post-content-foot div {
+    display: inline-block;
+}
+
+.jasmine-post-content-foot a {
+    color: #b3b3b3;
+}
+
+.jasmine-post-content-foot a:hover {
+    color: #888;
+}
+
+.jasmine-appreciation {
+    text-align: center;
+    color: rebeccapurple;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.jasmine-appreciation-ul {
+    margin: 0px;
+    padding: 0px;
+    background: #f5f5f5;
+}
+
+.jasmine-appreciation-img {
+     padding: 5px;
+    position: absolute;
+    left: 128px;
+    animation: main .4s;
+    display: none;
+}
+
+.jasmine-appreciation-img ul li{
+    display: inline-block;
+    margin: 10px;
+}
+
+.jasmine-appreciation-ul::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid #f5f5f5;
+    position: absolute;
+    top: -7px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.jasmine-appreciation-ul li:after {
+    display: block;
+    padding: 5px 0 0;
+    font-size: 13px;
+    color: #555;
+}
+
+.alipay-code:after {
+    content: "支付宝";
+}
+
+.wechat-code:after {
+    content: "微信";
+}
+
+.jasmine-appreciation-icon :hover .jasmine-appreciation-img{
+    display: block;
 }

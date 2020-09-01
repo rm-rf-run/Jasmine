@@ -69,34 +69,34 @@ the_author_meta('nickname', $author_obj->ID);?>
 <div class="item-rank"></div>
 <div id="about-me-3">
   <div class="d-flex">
-  	<div class="icon-badge">
-  		<a href="<?php if(!empty(get_option('jasmine_CSND'))){echo esc_attr(get_option('jasmine_CSND'));}?>">
-          <img src="https://images.weserv.nl/?url=https://profile.csdnimg.cn/D/A/A/3_rm_and_rf" alt="GitHub" data-toggle="tooltip" data-placement="top" title="CSDN">
-      </a>
-  	</div>
-  	<div class="icon-badge">
-      <a href="<?php if(!empty(get_option('jasmine_weibo'))){echo esc_attr(get_option('jasmine_weibo'));}?>">
-          <img src="https://weibo.com/favicon.ico" alt="weibo" data-toggle="tooltip" data-placement="top" title="weibo">
+    <div class="icon-badge">
+      <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/bilbil.ico" alt="B站" data-toggle="tooltip" data-placement="top" title="B站">
       </a>
     </div>
+  	<div class="icon-badge">
+  		<a href="<?php if(!empty(get_option('jasmine_CSND'))){echo esc_attr(get_option('jasmine_CSND'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/csdn.ico" alt="CSDN" data-toggle="tooltip" data-placement="top" title="CSDN">
+      </a>
+  	</div>
     <div class="icon-badge">
       <a href="tencent://message/?uin=<?php if(!empty(get_option('jasmine_QQ'))){echo esc_attr(get_option('jasmine_QQ'));}?>&Site=&Menu=yes">
-          <img src="https://im.qq.com/favicon.ico" alt="QQ" data-toggle="tooltip" data-placement="top" title="QQ">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/qq.png" alt="QQ" data-toggle="tooltip" data-placement="top" title="QQ">
       </a>
     </div>
     <div class="icon-badge">
       <a href="<?php if(!empty(get_option('jasmine_GitHub'))){echo esc_attr(get_option('jasmine_GitHub'));}?>">
-          <img src="https://github.com/fluidicon.png" alt="GitHub" data-toggle="tooltip" data-placement="top" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/github.ico" alt="GitHub" data-toggle="tooltip" data-placement="top" title="GitHub">
       </a>
     </div>
     <div class="icon-badge">
       <a href="<?php if(!empty(get_option('jasmine_zhihu'))){echo esc_attr(get_option('jasmine_zhihu'));}?>">
-          <img src="https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.67c7b278.png" alt="知乎" data-toggle="tooltip" data-placement="top" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/zhihu.ico" alt="知乎" data-toggle="tooltip" data-placement="top" title="知乎">
       </a>
     </div>
     <div class="icon-badge">
-      <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
-          <img src="https://space.bilibili.com/favicon.ico" alt="B站" data-toggle="tooltip" data-placement="top" title="GitHub">
+      <a href="<?php if(!empty(get_option('jasmine_weibo'))){echo esc_attr(get_option('jasmine_weibo'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/weibo.ico" alt="weibo" data-toggle="tooltip" data-placement="top" title="weibo">
       </a>
     </div>
   </div>

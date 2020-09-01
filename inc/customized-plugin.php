@@ -83,6 +83,7 @@ function register_jasmine_settings()
     //jasmine_group必须和settings_fields函数中使用的名称匹配。
     register_setting( 'jasmine_group', 'jasmine_notice');
     register_setting( 'jasmine_group', 'jasmine_startDate');
+    register_setting( 'jasmine_group', 'jasmine_loveDate');
     register_setting( 'jasmine_group', 'jasmine_bilbil_uid');
     register_setting( 'jasmine_group', 'jasmine_CSND');
     register_setting( 'jasmine_group', 'jasmine_GitHub');
@@ -276,16 +277,23 @@ function my_options()
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6 bm-6">
+                    <div class="col-md-4 bm-4">
                       <label for="qq_he">男生的QQ号</label>
                       <input type="text" class="form-control" name="jasmine_qq_he" id="qq_he" placeholder="" value="<?php echo esc_attr(get_option('jasmine_qq_he')); ?>" >
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
-                    <div class="col-md-6 bm-6">
+                    <div class="col-md-4 bm-4">
                       <label for="qq_she">女生的QQ号</label>
                       <input type="text" class="form-control" name="jasmine_qq_she" id="qq_she" placeholder="" value="<?php echo esc_attr(get_option('jasmine_qq_she')); ?>" >
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-4 bm-4">
+                      <label for="qq_she">恋爱日期</label>
+                      <input type="text" class="form-control" name="jasmine_loveDate" id="loveDate" data-provide="datepicker" data-date-format="yyyy/mm/dd" data-date-autoclose='true' data-date-language='zh-CN' placeholder="" value="<?php echo esc_attr(get_option('jasmine_loveDate')); ?>" >
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
