@@ -126,51 +126,13 @@ function unregister_default_widgets()
 add_action("widgets_init", "unregister_default_widgets", 11);
 
 //恋爱时间
-function echo_love_time($data)
+function echo_love_time()
 {
-    $data = (get_option('jasmine_loveDate') !== false) ? explode("/", get_option('jasmine_loveDate')) : null ;
+    $love_data = (get_option('jasmine_loveDate') !== false) ?   get_option('jasmine_loveDate') : null ;
+    $start_data = (get_option('jasmine_startDate') !== false) ? get_option('jasmine_startDate') : null ;
     ?>
     <script type="text/javascript">
-        function setTime() {
-         //Date.UTC(year,month,day,hours,minutes,seconds,ms)
-         var create_time = Math.round(new Date(Date.UTC(<?php  echo $data[0];?>, <?php  echo $data[1];?>, <?php  echo $data[2];?>, 00, 00, 0)).getTime() / 1000);
-         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
-         currentTime = secondToDate((timestamp - create_time));
-         currentTimeHtml = currentTime[0] + ' 年 ' + currentTime[1] + ' 月 ' + currentTime[2] + ' 天 ' + currentTime[3] + ' 时 ' + currentTime[4] + ' 分 ' + currentTime[5] + ' 秒';
-         document.getElementById('htmer_time').innerHTML = currentTimeHtml;
-        }
-
-        function secondToDate(second) {
-         if (!second) {
-             return 0;
-         }
-         var time = new Array(0, 0, 0, 0, 0,0);
-         if (second >= 365 * 24 * 3600) {
-             time[0] = parseInt(second / (365 * 24 * 3600));
-             second %= 365 * 24 * 3600;
-         }
-         if (second >= 30 * 24 * 3600) {
-             time[1] = parseInt(second / (30 * 24 * 3600));
-             second %= 30 * 24 * 3600;
-         }
-         if (second >= 24 * 3600) {
-             time[2] = parseInt(second / (24 * 3600));
-             second %= 24 * 3600;
-         }
-         if (second >= 3600) {
-             time[3] = parseInt(second / 3600);
-             second %= 3600;
-         }
-         if (second >= 60) {
-             time[4] = parseInt(second / 60);
-             second %= 60;
-         }
-         if (second > 0) {
-             time[5] = second;
-         }
-         return time;
-        }
-        setInterval(setTime, 1000);
+        var jasmineConfig = {"siteUrl":"https:\/\/shawnzeng.com\/wp-content\/themes\/Giligili","siteStartTime":"<?php echo $start_data;?>","loveStartTime":"<?php echo $love_data;?>","ajaxUrl":"https:\/\/shawnzeng.com\/wp-admin\/admin-ajax.php","commentEditAgain":"1","loadPjax":"1","version":"5.2.5"};
     </script>
     <?php
 }

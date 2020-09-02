@@ -107,7 +107,7 @@ the_author_meta('nickname', $author_obj->ID);?>
   <img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_he'))){echo esc_attr(get_option('jasmine_qq_he'));}?>&s=100" class="jasmine-love-me" /><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 </svg><img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_she'))){echo esc_attr(get_option('jasmine_qq_she'));}?>&s=100" class="jasmine-love-she" /><br/>
-  <span id="htmer_time"></span>
+  <span id="love_time"></span>
 </div>
 
 <div class="jasmine-bilbil">
