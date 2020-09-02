@@ -696,27 +696,33 @@ svg {
 }
 
 .jasmine-appreciation {
-    text-align: center;
+    margin: auto;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+}
+
+.jasmine-appreciation-icon {
     color: rebeccapurple;
     cursor: pointer;
-    margin-bottom: 15px;
 }
 
 .jasmine-appreciation-ul {
     margin: 0px;
     padding: 0px;
     background: #f5f5f5;
+    text-align: center;
 }
 
 .jasmine-appreciation-img {
-     padding: 5px;
+    padding: 5px;
     position: absolute;
     left: 128px;
-    animation: main .4s;
+    animation: all .4s;
     display: none;
 }
 
-.jasmine-appreciation-img ul li{
+.jasmine-appreciation-img ul li {
     display: inline-block;
     margin: 10px;
 }
@@ -742,14 +748,18 @@ svg {
     color: #555;
 }
 
-.alipay-code:after {
+.jasmine-alipay:after {
     content: "支付宝";
 }
 
-.wechat-code:after {
+.jasmine-wechat:after {
     content: "微信";
 }
 
-.jasmine-appreciation-icon :hover .jasmine-appreciation-img{
+.jasmine-appreciation:hover .jasmine-appreciation-img {
     display: block;
+}
+
+#foot {
+    text-align: center;
 }

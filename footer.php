@@ -26,6 +26,10 @@
   </div>
 </div>
 <div class="to-top" style="display: block; background-position-x: -40px;"></div>
+<!--foot-->
+<div id="foot">
+    
+</div>
 </footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="
