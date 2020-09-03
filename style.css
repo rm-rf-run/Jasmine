@@ -767,6 +767,10 @@ svg {
     margin-top: 30px;
 }
 
+#foot a{
+    color: black;
+}
+
 /* start */
 .my-face {
     animation: my-face 5s infinite ease-in-out;
@@ -1075,3 +1079,7 @@ svg {
 }
 
 /* end */
+
+.jasmine-post-h1 {
+    text-align: center;
+}

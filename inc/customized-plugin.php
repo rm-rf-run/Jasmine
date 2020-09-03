@@ -94,6 +94,8 @@ function register_jasmine_settings()
     register_setting( 'jasmine_group', 'jasmine_qq_he');
     register_setting( 'jasmine_group', 'jasmine_qq_she');
     register_setting( 'jasmine_group', 'jasmine_love_date');
+    register_setting( 'jasmine_group', 'jasmine_record');
+    register_setting( 'jasmine_group', 'jasmine_police_record');
     register_setting( 'jasmine_group', 'jasmine_extraCss');
     register_setting( 'jasmine_group', 'jasmine_bilbil_following');
     register_setting( 'jasmine_group', 'jasmine_bilbil_follower');
@@ -313,6 +315,22 @@ function my_options()
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-md-6 bm-6">
+                      <label for="record">备案信息</label>
+                      <input type="text" class="form-control" name="jasmine_record" id="record" placeholder="" value="<?php echo esc_attr(get_option('jasmine_record')); ?>" >
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-6 bm-6">
+                      <label for="police_record">公安备案信息</label>
+                      <input type="text" class="form-control" name="jasmine_police_record" id="police_record" placeholder="" value="<?php echo esc_attr(get_option('jasmine_police_record')); ?>" >
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12 bm-12">
                       <label for="extraCss">额外CSS</label>
                       <textarea  class="form-control" name="jasmine_extraCss" id="extraCss" placeholder="" ><?php echo esc_attr(get_option('jasmine_extraCss')); ?></textarea>
@@ -395,9 +413,9 @@ function echo_footData()
     $this_year = date('Y');
     $blog_name = get_bloginfo('name');
     $bolg_href = get_bloginfo('url');
-    $beian = "";
-    $beian1 = "";
-    echo "版权所有 © ".$date."-".$this_year." <a href='".$bolg_href."'>".$blog_name."</a> | ".$beian."<br/>Theme Jasmine By me With  | All Rights Reserved<br/>本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
+    $beian = get_option('jasmine_record');
+    $police_beian = get_option('jasmine_police_record');
+    echo "版权所有 © ".$date."-".$this_year." <a href='".$bolg_href."'>".$blog_name."</a> <br/> <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" .$beian. "</a> | <img class='lazy loaded' src='' data-src='' data-was-processed='true'> <a>".$police_beian." </a><br/>Theme Jasmine By me With  | All Rights Reserved<br/>本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
 }
 
 ?>

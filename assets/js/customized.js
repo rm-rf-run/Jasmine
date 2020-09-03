@@ -17,7 +17,6 @@
          $(window).off("scroll.toTop").on("scroll.toTop", (function() {
              // debugger;
              var i = $(window).scrollTop();
-             console.log("isClick:" + n.isClick + ";isVisible:" + n.isVisible + ";keyframes:" + n.keyframes)
              i - n.lastTrace > 0 ? (n.isClick && e.removeClass("transition"), e.removeClass("fly"), i >= t / 2 && (!n.isVisible && e.stop().fadeIn(100), n.isVisible = !0,
                      n.keyframes = 0,
                      e.css("background-position-x", "-40px")),
