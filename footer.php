@@ -25,11 +25,11 @@
     </div>
   </div>
 </div>
-<div class="to-top" style="display: block; background-position-x: -40px;"></div>
+<div class="to-top" style="display: none; background-position-x: -40px;"></div>
 <!--foot-->
 <div id="foot">
-    <?php 
-    $date = esc_attr(explode("/", get_option('jasmine_loveDate'))[0]); 
+    <?php
+    $date = esc_attr(explode("/", get_option('jasmine_loveDate'))[0]);
     $this_year = date('Y');
     $blog_name = get_bloginfo('name');
     $bolg_href = get_bloginfo('url');

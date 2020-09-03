@@ -9,7 +9,7 @@
  * */
 get_header();
 ?>
-  <main role="main" id="main" style="min-height: 800px;">
+  <main role="main" id="main">
     <div class="container">
       <div class="row clearfix">
         <!--左边栏-->

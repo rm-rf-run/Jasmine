@@ -56,8 +56,8 @@ function lxtx_comment_body_class($content)
     $content     = preg_replace($pattern, $replacement, $content);
     return $content;
 }
-// add_filter('comment_class', 'lxtx_comment_body_class');
-// add_filter('body_class', 'lxtx_comment_body_class');
+add_filter('comment_class', 'lxtx_comment_body_class');
+add_filter('body_class', 'lxtx_comment_body_class');
 
 add_theme_support( 'post-thumbnails', array( 'post' ) ); // 给日志启用日志缩略图
 add_theme_support( 'post-thumbnails', array( 'page' ) ); // 给页面启用日志缩略图
