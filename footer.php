@@ -28,15 +28,7 @@
 <div class="to-top" style="display: none; background-position-x: -40px;"></div>
 <!--foot-->
 <div id="foot">
-    <?php
-    $date = esc_attr(explode("/", get_option('jasmine_loveDate'))[0]);
-    $this_year = date('Y');
-    $blog_name = get_bloginfo('name');
-    $bolg_href = get_bloginfo('url');
-    $beian = "";
-    $beian1 = "";
-    echo "版权所有 © ".$date."-".$this_year." <a href='".$bolg_href."'>".$blog_name."</a> | ".$beian."<br/>Theme Jasmine By me With  | All Rights Reserved<br/>本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
-    ?>
+    <?php do_shortcode('[footData]')?>
 </div>
 </footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

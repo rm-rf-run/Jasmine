@@ -132,6 +132,18 @@ function add_bilbil_data()
       }
     }
 }
+
+
+function myAdminScripts() {  
+    wp_enqueue_style('bootstrapCss', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css', '', '4.5.0', false);
+    wp_enqueue_style('bootstrap_datepicker_css', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css', '', '1.9.0', false);
+    //会和低版本jQuery冲突 wp_enqueue_script('JS3.5.1', 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', '', '3.5.1', true);
+    wp_enqueue_script('popper1.16.0', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', '', '1.16.0', true);
+    wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
+    wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
+    wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
+}  
+add_action( 'admin_enqueue_scripts', 'myAdminScripts' );
 /**
  * 页面输出方法
  * 使用wp_enqueue_style在后台导入css
@@ -144,13 +156,14 @@ function my_options()
     if (!current_user_can('manage_options')) {
         wp_die(__('You do not have sufficient permissions to access this page.'));
     }
-    wp_enqueue_style('bootstrapCss', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css', '', '4.5.0', false);
-    wp_enqueue_style('bootstrap_datepicker_css', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css', '', '1.9.0', false);
-    wp_enqueue_script('JS3.5.1', 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', '', '3.5.1', true);
-    wp_enqueue_script('popper1.16.0', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', '', '1.16.0', true);
-    wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
-    wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
-    wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
+    //  wp_enqueue_style('bootstrapCss', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css', '', '4.5.0', false);
+    // wp_enqueue_style('bootstrap_datepicker_css', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css', '', '1.9.0', false);
+    // wp_enqueue_script('JS3.5.1', 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', '', '3.5.1', true);
+    // wp_enqueue_script('popper1.16.0', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', '', '1.16.0', true);
+    // wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
+    // wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
+    // wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
+    
     // global $wpdb, $current_user;
     // wp_get_current_user();
     // $table_name = $wpdb->prefix . "jasmine";
@@ -362,6 +375,7 @@ add_action('init', 'wpdocs_add_custom_shortcode');
 function wpdocs_add_custom_shortcode()
 {
     add_shortcode('bilbil', 'jasmine_bilbil');
+    add_shortcode('footData','echo_footData');
 }
 
 function jasmine_bilbil($atts)
@@ -373,6 +387,17 @@ function jasmine_bilbil($atts)
     } else {
       echo "";
     }
+}
+
+function echo_footData()
+{
+    $date = esc_attr(explode("/", get_option('jasmine_loveDate'))[0]);
+    $this_year = date('Y');
+    $blog_name = get_bloginfo('name');
+    $bolg_href = get_bloginfo('url');
+    $beian = "";
+    $beian1 = "";
+    echo "版权所有 © ".$date."-".$this_year." <a href='".$bolg_href."'>".$blog_name."</a> | ".$beian."<br/>Theme Jasmine By me With  | All Rights Reserved<br/>本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
 }
 
 ?>
