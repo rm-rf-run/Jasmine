@@ -765,6 +765,7 @@ svg {
     text-align: center;
     margin-bottom: 10px;
     margin-top: 30px;
+    color: black;
 }
 
 #foot a{
@@ -1082,4 +1083,9 @@ svg {
 
 .jasmine-post-h1 {
     text-align: center;
+}
+
+#rm-rf-run {
+    font-size: 20px;
+    font-weight: 500;
 }

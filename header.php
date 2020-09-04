@@ -11,6 +11,7 @@
     <link href="<?php bloginfo('template_directory');?>/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/assets/js/runningJs/css/jquery.running.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha256-uqQQGnDcmRKvhKwc5Vm4XT1GQ2oV6t1U0NR2N9tV+BQ=" crossorigin="anonymous">
     <!-- end -->
     <title>
         <?php $title = wp_title('',false);

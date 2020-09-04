@@ -44,6 +44,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animatext.js@0.0.0/js/dist/animatext.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/jquery.pjax.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha256-6Y7CJDaltoeNgk+ZftgCD9jLgmGv4xKUo8nQ0HgAwVo=" crossorigin="anonymous"></script>
     <!-- end -->
   <?php wp_footer();?>
   </body>

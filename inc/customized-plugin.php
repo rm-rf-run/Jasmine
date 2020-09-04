@@ -415,7 +415,8 @@ function echo_footData()
     $bolg_href = get_bloginfo('url');
     $beian = get_option('jasmine_record');
     $police_beian = get_option('jasmine_police_record');
-    echo "版权所有 © ".$date."-".$this_year." <a href='".$bolg_href."'>".$blog_name."</a> <br/> <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" .$beian. "</a> | <img class='lazy loaded' src='' data-src='' data-was-processed='true'> <a>".$police_beian." </a><br/>Theme Jasmine By me With  | All Rights Reserved<br/>本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
+    echo "版权所有 © ".$date."-".$this_year." <a href='".$bolg_href."'>".$blog_name."</a> <br/> <img class='lazy loaded' src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
+beian.png' data-src='' data-was-processed='true'> <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>".$police_beian." </a> | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" .$beian. "</a><br/>Theme Jasmine By <span id='rm-rf-run'>rm-rf-run</span> With  | All Rights Reserved<br/>本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
 }
 
 ?>

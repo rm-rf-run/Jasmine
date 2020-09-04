@@ -1,10 +1,12 @@
 <?php
 //用户自定义头像功能
-include TEMPLATEPATH . '/inc/author-avatars.php';
+require get_template_directory() . '/inc/author-avatars.php';
 //优化网站代码
-include TEMPLATEPATH . '/inc/optimization-speed.php';
+require get_template_directory() . '/inc/optimization-speed.php';
 //主题自带插件
-include TEMPLATEPATH . '/inc/customized-plugin.php';
+require get_template_directory() . '/inc/customized-plugin.php';
+//底部音乐
+require get_template_directory() . '/inc/api.php';
 
 //注册菜单的名称
 function register_my_menus()
