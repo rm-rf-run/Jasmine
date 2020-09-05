@@ -1,8 +1,8 @@
 
 <footer>
-<div style="display: block; background-position-x: -40px;bottom: 227px;position: fixed;right: 20px;width: 62px;height: 85px;margin-left: 602px;cursor: pointer;background: #fff;">
+<div style="display: block; border-radius: 4px;background-position-x: -40px;bottom: 227px;position: fixed;right: 20px;width: 62px;height: 85px;margin-left: 602px;cursor: pointer;background: #fff;">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+  聊天室
 </button>
 </div>
 <!-- Modal -->

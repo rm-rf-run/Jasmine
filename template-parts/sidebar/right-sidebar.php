@@ -12,6 +12,9 @@
 
 ?>
 
+<?php
+if (get_option('jasmine_notice')) {
+	?>
 <div class="jasmine-notice">
   <div class="jasmine-notice-title">
   	<title>今日公告</title>
@@ -22,6 +25,10 @@
   	</span>
   </div>
 </div>
+	<?php
+}
+?>
+
 
 <div class="jasmine-random-articles">
 	<div class="jasmine-random-articles-div">

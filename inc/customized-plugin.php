@@ -96,6 +96,7 @@ function register_jasmine_settings()
     register_setting( 'jasmine_group', 'jasmine_love_date');
     register_setting( 'jasmine_group', 'jasmine_record');
     register_setting( 'jasmine_group', 'jasmine_police_record');
+    register_setting( 'jasmine_group', 'jasmine_police_href');
     register_setting( 'jasmine_group', 'jasmine_extraCss');
     register_setting( 'jasmine_group', 'jasmine_bilbil_following');
     register_setting( 'jasmine_group', 'jasmine_bilbil_follower');
@@ -165,41 +166,6 @@ function my_options()
     // wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
     // wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
     // wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
-    
-    // global $wpdb, $current_user;
-    // wp_get_current_user();
-    // $table_name = $wpdb->prefix . "jasmine";
-    // $id         = $current_user->user_login;
-    // //验证是否设置了 $test_hidden 这个变量。
-    // if (isset($_POST['test_hidden']) == 'y') {
-    //     $data_array = array(
-    //         'id'         => $id,
-    //         'notice'     => $_POST['notice'],
-    //         'startDate'  => $_POST['startDate'],
-    //         'bilbil_uid' => $_POST['bilbil_uid'],
-    //         'CSND'       => $_POST['CSND'],
-    //         'GitHub'     => $_POST['GitHub'],
-    //         'weibo'      => $_POST['weibo'],
-    //         'QQ'         => $_POST['QQ'],
-    //         'zhihu'      => $_POST['zhihu'],
-    //         'bilbil'     => $_POST['bilbil'],
-    //         'qq_he'      => $_POST['qq_he'],
-    //         'qq_she'     => $_POST['qq_she'],
-    //         'extraCss'   => $_POST['extraCss'],
-    //     );
-    //     echo '<div class="updated"><p>';
-    //     printf(__('添加成功'));
-    //     echo "</p></div>";
-    //     try {
-    //         $wpdb->insert($table_name, $data_array);
-    //     } catch (Exception $e) {
-    //         echo '<div class="updated" style="border-left-color: red;"><p>';
-    //         printf(__('添加失败,原因为：'));
-    //         print $e->getMessage();
-    //         echo "</p></div>";
-    //     }
-
-    // }
     ?>
     <div class="container" style="margin-top: 50px">
       <div class="py-5 text-center">
@@ -225,118 +191,88 @@ function my_options()
                   <div class="row">
                     <div class="col-md-12 bm-12">
                       <label for="notice">今日公告</label>
-                      <textarea  class="form-control" name="jasmine_notice" id="notice" placeholder="" ><?php echo esc_attr(get_option('jasmine_notice')); ?></textarea>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <textarea  class="form-control" name="jasmine_notice" id="notice" placeholder="没有值则前台不显示公告块" ><?php echo esc_attr(get_option('jasmine_notice')); ?></textarea>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 bm-6">
                       <label for="startDate">建站日期</label>
                       <input type="text" class="form-control" name="jasmine_startDate" id="startDate" data-provide="datepicker" data-date-format="yyyy/mm/dd" data-date-autoclose='true' data-date-language='zh-CN' placeholder="" value="<?php echo esc_attr(get_option('jasmine_startDate')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
                     </div>
                     <div class="col-md-6 bm-6">
                       <label for="bilbil_uid">B站UID</label>
-                      <input type="text" class="form-control" name="jasmine_bilbil_uid" id="bilbil_uid" placeholder="" value="<?php echo esc_attr(get_option('jasmine_bilbil_uid')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_bilbil_uid" id="bilbil_uid" placeholder="B站UID" value="<?php echo esc_attr(get_option('jasmine_bilbil_uid')); ?>" >
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-2 bm-2">
                       <label for="CSND">CSND</label>
-                      <input type="text" class="form-control" name="jasmine_CSND" id="CSND" placeholder="" value="<?php echo esc_attr(get_option('jasmine_CSND')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_CSND" id="CSND" placeholder="填网址" value="<?php echo esc_attr(get_option('jasmine_CSND')); ?>" >
                     </div>
                     <div class="col-md-2 bm-2">
                       <label for="GitHub">GitHub</label>
-                      <input type="text" class="form-control" name="jasmine_GitHub" id="GitHub" placeholder="" value="<?php echo esc_attr(get_option('jasmine_GitHub')); ?>">
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_GitHub" id="GitHub" placeholder="填网址" value="<?php echo esc_attr(get_option('jasmine_GitHub')); ?>">
                     </div>
                     <div class="col-md-2 bm-2">
                       <label for="weibo">微博</label>
-                      <input type="text" class="form-control" name="jasmine_weibo" id="weibo" placeholder="" value="<?php echo esc_attr(get_option('jasmine_weibo')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_weibo" id="weibo" placeholder="填网址" value="<?php echo esc_attr(get_option('jasmine_weibo')); ?>" >
                     </div>
                     <div class="col-md-2 bm-2">
                       <label for="QQ">QQ</label>
                       <input type="text" class="form-control" name="jasmine_QQ" id="QQ" placeholder="只需要填QQ号" value="<?php echo esc_attr(get_option('jasmine_QQ')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
                     </div>
                     <div class="col-md-2 bm-2">
                       <label for="zhihu">知乎</label>
-                      <input type="text" class="form-control" name="jasmine_zhihu" id="zhihu" placeholder="" value="<?php echo esc_attr(get_option('jasmine_zhihu')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_zhihu" id="zhihu" placeholder="填网址" value="<?php echo esc_attr(get_option('jasmine_zhihu')); ?>" >
                     </div>
                     <div class="col-md-2 bm-2">
                       <label for="bilbil">B站</label>
-                      <input type="text" class="form-control" name="jasmine_bilbil" id="bilbil" placeholder="" value="<?php echo esc_attr(get_option('jasmine_bilbil')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_bilbil" id="bilbil" placeholder="填网址" value="<?php echo esc_attr(get_option('jasmine_bilbil')); ?>" >
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 bm-4">
                       <label for="qq_he">男生的QQ号</label>
-                      <input type="text" class="form-control" name="jasmine_qq_he" id="qq_he" placeholder="" value="<?php echo esc_attr(get_option('jasmine_qq_he')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_qq_he" id="qq_he" placeholder="填男生的QQ号" value="<?php echo esc_attr(get_option('jasmine_qq_he')); ?>" >
                     </div>
                     <div class="col-md-4 bm-4">
                       <label for="qq_she">女生的QQ号</label>
-                      <input type="text" class="form-control" name="jasmine_qq_she" id="qq_she" placeholder="" value="<?php echo esc_attr(get_option('jasmine_qq_she')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_qq_she" id="qq_she" placeholder="填女生的QQ号" value="<?php echo esc_attr(get_option('jasmine_qq_she')); ?>" >
                     </div>
                     <div class="col-md-4 bm-4">
                       <label for="qq_she">恋爱日期</label>
-                      <input type="text" class="form-control" name="jasmine_loveDate" id="loveDate" data-provide="datepicker" data-date-format="yyyy/mm/dd" data-date-autoclose='true' data-date-language='zh-CN' placeholder="" value="<?php echo esc_attr(get_option('jasmine_loveDate')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
+                      <input type="text" class="form-control" name="jasmine_loveDate" id="loveDate" data-provide="datepicker" data-date-format="yyyy/mm/dd" data-date-autoclose='true' data-date-language='zh-CN' placeholder="不填前段不显示恋爱卡片" value="<?php echo esc_attr(get_option('jasmine_loveDate')); ?>" >
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6 bm-6">
+                    <div class="col-md-4 bm-4">
                       <label for="record">备案信息</label>
                       <input type="text" class="form-control" name="jasmine_record" id="record" placeholder="" value="<?php echo esc_attr(get_option('jasmine_record')); ?>" >
                       <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
                     </div>
-                    <div class="col-md-6 bm-6">
+                    <div class="col-md-4 bm-4">
                       <label for="police_record">公安备案信息</label>
                       <input type="text" class="form-control" name="jasmine_police_record" id="police_record" placeholder="" value="<?php echo esc_attr(get_option('jasmine_police_record')); ?>" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
                     </div>
+                    <div class="col-md-4 bm-4">
+                      <label for="police_href">公安备案跳转地址</label>
+                      <input type="text" class="form-control" name="jasmine_police_href" id="police_href" placeholder="列如:https://api.bilibili.com" value="<?php echo esc_attr(get_option('jasmine_police_href')); ?>" >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 bm-12">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">文章底部是否显示作者信息</label>
+                      </div>
+                    </div>  
                   </div>
                   <div class="row">
                     <div class="col-md-12 bm-12">
                       <label for="extraCss">额外CSS</label>
                       <textarea  class="form-control" name="jasmine_extraCss" id="extraCss" placeholder="" ><?php echo esc_attr(get_option('jasmine_extraCss')); ?></textarea>
-                      <div class="invalid-feedback">
-                        Valid first name is required.
-                      </div>
                     </div>
                   </div>
                   <hr class="mb-4">
@@ -409,14 +345,28 @@ function jasmine_bilbil($atts)
 
 function echo_footData()
 {
-    $date = esc_attr(explode("/", get_option('jasmine_loveDate'))[0]);
+    $date = esc_attr(explode("/", get_option('jasmine_startDate'))[0]);
     $this_year = date('Y');
     $blog_name = get_bloginfo('name');
     $bolg_href = get_bloginfo('url');
     $beian = get_option('jasmine_record');
     $police_beian = get_option('jasmine_police_record');
-    echo "版权所有 © ".$date."-".$this_year." <a href='".$bolg_href."'>".$blog_name."</a> <br/> <img class='lazy loaded' src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
-beian.png' data-src='' data-was-processed='true'> <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>".$police_beian." </a> | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" .$beian. "</a><br/>Theme Jasmine By <span id='rm-rf-run'>rm-rf-run</span> With  | All Rights Reserved<br/>本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
+    $police_beian_href = get_option('jasmine_police_href');
+    $police_beian_exit = "";
+    $startDate = "";
+    if (get_option('jasmine_police_record')) {
+      $police_beian_exit = "<br/> <img class='lazy loaded' src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
+beian.png' data-src='' data-was-processed='true'> <a href='".esc_url($police_beian_href)."' rel='external nofollow' target='_blank'>".esc_html($police_beian)." </a>";
+    }
+    if (get_option('jasmine_startDate')) {
+      $startDate = "本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
+    }
+    if ($date == $this_year) {
+      $date = "";
+    }else {
+      $date = $date.'-';
+    }
+    echo "版权所有 © ".$date.$this_year." <a href='".esc_url($bolg_href)."'>".esc_html($blog_name)."</a> ".$police_beian_exit." | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" .$beian. "</a><br/>Theme Jasmine By <span id='rm-rf-run'>rm-rf-run</span> With  | All Rights Reserved<br/>".$startDate;
 }
 
 ?>

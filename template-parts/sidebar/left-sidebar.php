@@ -103,13 +103,22 @@ the_author_meta('nickname', $author_obj->ID);?>
 </div>
 </div>
 
-<div class="jasmine-love">
-  <img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_he'))){echo esc_attr(get_option('jasmine_qq_he'));}?>&s=100" class="jasmine-love-me" /><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-</svg><img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_she'))){echo esc_attr(get_option('jasmine_qq_she'));}?>&s=100" class="jasmine-love-she" /><br/>
-  <span id="love_time"></span>
-</div>
+<?php
+  if (get_option('jasmine_loveDate')) {
+   ?>
+    <div class="jasmine-love">
+      <img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_he'))){echo esc_attr(get_option('jasmine_qq_he'));}?>&s=100" class="jasmine-love-me" /><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+    </svg><img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_she'))){echo esc_attr(get_option('jasmine_qq_she'));}?>&s=100" class="jasmine-love-she" /><br/>
+      <span id="love_time"></span>
+    </div>
+   <?php
+  }
+?>
 
+<?php 
+  if (get_option('jasmine_bilbil_uid')) {
+?>
 <div class="jasmine-bilbil">
   <div class="jasmine-bilbil-gradient"></div>
   <div class="jasmine-bilbil-me">
@@ -168,20 +177,24 @@ the_author_meta('nickname', $author_obj->ID);?>
 </div>
 
 <div class="jasmine-bilbil-statistics">
-      <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/follow';}?>" class="jasmine-bilbil-statistics-a">
-        <p class="statistics-data">
-          关注数
-        </p>
-        <p class="statistics-data-num">
-         <?php if(!empty(get_option('jasmine_bilbil_following'))){echo get_option('jasmine_bilbil_following');}?>
-        </p>
-      </a>
-      <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/fans';}?>" class="jasmine-bilbil-statistics-a">
-        <p class="statistics-data">
-          粉丝数
-        </p>
-        <p class="statistics-data-num">
-          <?php if(!empty(get_option('jasmine_bilbil_follower'))){echo get_option('jasmine_bilbil_follower');}?>
-        </p>
-      </a>
-    </div>
+  <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/follow';}?>" class="jasmine-bilbil-statistics-a">
+    <p class="statistics-data">
+      关注数
+    </p>
+    <p class="statistics-data-num">
+     <?php if(!empty(get_option('jasmine_bilbil_following'))){echo get_option('jasmine_bilbil_following');}?>
+    </p>
+  </a>
+  <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/fans';}?>" class="jasmine-bilbil-statistics-a">
+    <p class="statistics-data">
+      粉丝数
+    </p>
+    <p class="statistics-data-num">
+      <?php if(!empty(get_option('jasmine_bilbil_follower'))){echo get_option('jasmine_bilbil_follower');}?>
+    </p>
+  </a>
+</div>
+
+<?php 
+  }
+?>

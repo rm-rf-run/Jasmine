@@ -130,8 +130,8 @@ add_action("widgets_init", "unregister_default_widgets", 11);
 //恋爱时间
 function echo_love_time()
 {
-    $love_data = (get_option('jasmine_loveDate') !== false) ?   get_option('jasmine_loveDate') : null ;
-    $start_data = (get_option('jasmine_startDate') !== false) ? get_option('jasmine_startDate') : null ;
+    $love_data = (get_option('jasmine_loveDate')) ?   get_option('jasmine_loveDate') : null ;
+    $start_data = (get_option('jasmine_startDate')) ? get_option('jasmine_startDate') : null ;
     ?>
     <script type="text/javascript">
         var jasmineConfig = {"siteUrl":"https:\/\/shawnzeng.com\/wp-content\/themes\/Giligili","siteStartTime":"<?php echo $start_data;?>","loveStartTime":"<?php echo $love_data;?>","ajaxUrl":"https:\/\/shawnzeng.com\/wp-admin\/admin-ajax.php","commentEditAgain":"1","loadPjax":"1","version":"5.2.5"};
