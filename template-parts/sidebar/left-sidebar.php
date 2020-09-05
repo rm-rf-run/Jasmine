@@ -35,7 +35,7 @@ the_author_meta('nickname', $author_obj->ID);?>
 <div id="about-me-2" class="d-flex">
   <dl class="text-center">
     <dt class="text-center">
-      <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+      <span class="animateNum" data-animatetype="num" data-animatetarget="<?php do_shortcode('[counPost]')?>" style=""><?php do_shortcode('[counPost]')?></span>
     </dt>
     <dd class="text-center">
       文章
@@ -51,7 +51,7 @@ the_author_meta('nickname', $author_obj->ID);?>
   </dl>
   <dl class="text-center">
     <dt class="text-center">
-      <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+      <span class="animateNum" data-animatetype="num" data-animatetarget="<?php do_shortcode('[counComments]')?>" style=""><?php do_shortcode('[counComments]')?></span>
     </dt>
     <dd class="text-center">
       评论

@@ -83,7 +83,6 @@ function register_jasmine_settings()
     //jasmine_group必须和settings_fields函数中使用的名称匹配。
     register_setting( 'jasmine_group', 'jasmine_notice');
     register_setting( 'jasmine_group', 'jasmine_startDate');
-    register_setting( 'jasmine_group', 'jasmine_loveDate');
     register_setting( 'jasmine_group', 'jasmine_bilbil_uid');
     register_setting( 'jasmine_group', 'jasmine_CSND');
     register_setting( 'jasmine_group', 'jasmine_GitHub');
@@ -93,7 +92,7 @@ function register_jasmine_settings()
     register_setting( 'jasmine_group', 'jasmine_bilbil');
     register_setting( 'jasmine_group', 'jasmine_qq_he');
     register_setting( 'jasmine_group', 'jasmine_qq_she');
-    register_setting( 'jasmine_group', 'jasmine_love_date');
+    register_setting( 'jasmine_group', 'jasmine_loveDate');
     register_setting( 'jasmine_group', 'jasmine_record');
     register_setting( 'jasmine_group', 'jasmine_police_record');
     register_setting( 'jasmine_group', 'jasmine_police_href');
@@ -106,6 +105,10 @@ function register_jasmine_settings()
     register_setting( 'jasmine_group', 'jasmine_bilbil_type');
     register_setting( 'jasmine_group', 'jasmine_bilbil_describe');
     register_setting( 'jasmine_group', 'jasmine_bilbil_top_photo');
+
+    //默认数据
+    register_setting( 'jasmine_default', 'jasmine_author_data',array('default' => "checked"));
+    register_setting( 'jasmine_default', 'jasmine_copyright',array('default' => "checked"));
 }
 
 function add_bilbil_data()
@@ -145,6 +148,7 @@ function myAdminScripts() {
     wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
     wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
     wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
+    
 }  
 add_action( 'admin_enqueue_scripts', 'myAdminScripts' );
 /**
@@ -159,13 +163,10 @@ function my_options()
     if (!current_user_can('manage_options')) {
         wp_die(__('You do not have sufficient permissions to access this page.'));
     }
-    //  wp_enqueue_style('bootstrapCss', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css', '', '4.5.0', false);
-    // wp_enqueue_style('bootstrap_datepicker_css', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css', '', '1.9.0', false);
-    // wp_enqueue_script('JS3.5.1', 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', '', '3.5.1', true);
-    // wp_enqueue_script('popper1.16.0', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', '', '1.16.0', true);
-    // wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
-    // wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
-    // wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
+    //jasmine页面加载自定义js
+    wp_register_script( 'jasmine-theme-js',  get_template_directory_uri() . '/assets/js/jasmine-js.js', false, '', true);
+    wp_enqueue_script( 'jasmine-theme-js' );
+    //下面是主题自带表单，按需设置
     ?>
     <div class="container" style="margin-top: 50px">
       <div class="py-5 text-center">
@@ -179,7 +180,7 @@ function my_options()
               前端样式
             </button>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-              其他样式
+              默认选项
             </button>
           </p>
           <!--第一个表单-->
@@ -263,14 +264,6 @@ function my_options()
                   </div>
                   <div class="row">
                     <div class="col-md-12 bm-12">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">文章底部是否显示作者信息</label>
-                      </div>
-                    </div>  
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 bm-12">
                       <label for="extraCss">额外CSS</label>
                       <textarea  class="form-control" name="jasmine_extraCss" id="extraCss" placeholder="" ><?php echo esc_attr(get_option('jasmine_extraCss')); ?></textarea>
                     </div>
@@ -284,27 +277,29 @@ function my_options()
           <!--第二个表单-->
           <div class="collapse" id="collapseExample2" data-parent="#accordionExample">
               <div class="card card-body col-md-12">
-                <form class="needs-validation" name="form2">
+                <form class="needs-validation" method="post"  action ="options.php" name="form2">
+                  <?php settings_fields('jasmine_default');?>
+                  <?php do_settings_sections('jasmine_default');?>
                   <div class="row">
                     <div class="col-md-6 bm-6">
-                      <label for="firstName">First name</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" value="<?php echo esc_attr(get_option('jasmine_author_data')); ?>" <?php echo esc_attr(get_option('jasmine_author_data'));?> name="jasmine_author_data" id="author_data">
+                        <label class="custom-control-label" for="author_data">
+                          文章底部是否显示作者信息
+                        </label>
                       </div>
                     </div>
                     <div class="col-md-6 bm-6">
-                      <label for="firstName">First name</label>
-                      <input type="text" class="form-control" id="firstName" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Valid first name is required.
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" value="<?php echo esc_attr(get_option('jasmine_copyright')); ?>" <?php echo esc_attr(get_option('jasmine_copyright'));?> name="jasmine_copyright" id="copyright">
+                        <label class="custom-control-label" for="copyright">
+                          是否开启剪贴板版权标识
+                        </label>
                       </div>
-                    </div>
+                    </div>  
                   </div>
                   <hr class="mb-4">
-                  <input type="hidden" name="test_hidden" value="y"  />
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">确定</button>
-                  <?php submit_button(__('Reset', 'textdomain'), 'secondary');?>
+                  <?php submit_button(__('确定', 'textdomain'), 'btn btn-primary btn-lg btn-block', '', false);?>
                 </form>
               </div>
             </div>
@@ -324,12 +319,38 @@ function echoDate($postID)
 }
 add_shortcode('echo_date', 'echoDate');
 
+//添加短代码
 add_action('init', 'wpdocs_add_custom_shortcode');
 
 function wpdocs_add_custom_shortcode()
 {
     add_shortcode('bilbil', 'jasmine_bilbil');
     add_shortcode('footData','echo_footData');
+    add_shortcode('counPost','count_post');
+    add_shortcode('counComments','count_comments');
+    // add_shortcode('lastChange','last_change');
+}
+
+function last_change()
+{
+  global $wpdb;
+  $last = $wpdb->get_results("SELECT MAX(post_modified) AS MAX_m FROM
+$wpdb->posts WHERE (post_type = 'post' OR post_type = 'page') AND
+(post_status = 'publish' OR post_status = 'private')");
+  $last = date(‘Y-n-j’, strtotime($last[0]->MAX_m));
+  echo $last;
+}
+
+function count_comments()
+{
+  global $wpdb;
+  echo $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->comments");
+}
+
+function count_post()
+{
+  $count_posts = wp_count_posts(); 
+  echo $published_posts = $count_posts->publish;
 }
 
 function jasmine_bilbil($atts)

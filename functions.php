@@ -132,9 +132,17 @@ function echo_love_time()
 {
     $love_data = (get_option('jasmine_loveDate')) ?   get_option('jasmine_loveDate') : null ;
     $start_data = (get_option('jasmine_startDate')) ? get_option('jasmine_startDate') : null ;
+    $author_data = (get_option('jasmine_author_data')) ? get_option('jasmine_author_data') : null ;
+    $siteUrl = get_bloginfo('url');
+    $site_name = get_bloginfo('name');
+    $author_name = $site_name;//默认为站点名称
+    $clipboardCopyright = esc_attr(get_option('jasmine_copyright')) == 'checked'?'true':'false';
+    if (is_singular('post')) {
+        $author_name = get_the_author_meta('user_nicename');
+    }
     ?>
     <script type="text/javascript">
-        var jasmineConfig = {"siteUrl":"https:\/\/shawnzeng.com\/wp-content\/themes\/Giligili","siteStartTime":"<?php echo $start_data;?>","loveStartTime":"<?php echo $love_data;?>","ajaxUrl":"https:\/\/shawnzeng.com\/wp-admin\/admin-ajax.php","commentEditAgain":"1","loadPjax":"1","version":"5.2.5"};
+        var jasmineConfig = {"siteUrl":"<?php echo $site_name?>","siteStartTime":"<?php echo $start_data;?>","loveStartTime":"<?php echo $love_data;?>","ajaxUrl":"","commentEditAgain":"1","loadPjax":"","version":"5.2.5","clipboardCopyright":"<?php echo $clipboardCopyright;?>","author_name":"<?php echo $author_name;?>","site_name":"<?php echo $site_name?>","author_data":"<?php echo $author_data?>"};
     </script>
     <?php
 }

@@ -9,7 +9,7 @@
  * */
 get_header();
 ?>
-  <main role="main" id="main">
+  <main role="main" id="main" aria-live="polite" aria-atomic="true">
     <div class="container">
       <div class="row clearfix">
         <!--左边栏-->

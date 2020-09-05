@@ -57,6 +57,20 @@
           <div class="jasmine-comment-part">
             <h3>评论</h3>    
           </div>
+          <!-- Flexbox container for aligning the toasts -->
+          <div class="toast" class="d-flex justify-content-center align-items-center" style="position: absolute;top: 40%;right: 30%;" data-delay="2000">
+            <div class="toast-header">
+              <!-- <img src="..." class="rounded mr-2" alt="..."> -->
+              <strong class="mr-auto">友情提示</strong>
+              <small style="margin-left: 10px;">请保留版权标识</small>
+              <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="toast-body">
+             复制成功！
+            </div>
+          </div>
         </div>
         <!--右边栏-->
         <div class="col-md-3 column">
