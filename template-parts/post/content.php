@@ -12,58 +12,59 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="jasmine-article" <?php post_class(); ?>>
+<article id="post-<?php the_ID();?>" class="jasmine-article" <?php post_class();?>>
               <div class="jasmine-panel">
                 <div class="lazyload jasmine-article-img" style="background-image: url(<?php
-                    $image[1] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
-                    $image[2] = "https://api.ixiaowai.cn/api/api.php";
-                    $image[3] = "http://api.btstu.cn/sjbz/?lx=dongman";
-                    $image[4] = "http://api.btstu.cn/sjbz/?lx=suiji";
-                    $image[5] = "https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302";
-                    $image[6] = "https://api.loli.rocks/tianshijianglindaowoshenbian/index.php";
-                    $image[7] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
-                    $image[8] = "https://random.52ecy.cn/randbg.php";
-                    $image[9] = "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture";
-                    $image[10] = "http://www.dmoe.cc/random.php";
-                    $image[11] = "https://acg.yanwz.cn/api.php";
-                    $image[12] = "https://img.paulzzh.tech/touhou/random";
-                  if ( has_post_thumbnail() ) {
-                    //当前日志有缩略图
-                    $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "Full");echo $img_src[0];
-                  } else {
-                    //当前日志没有设置缩略图则随机上图片，有概率重复
-                    $id = mt_rand(1,12);
-                    echo esc_url($image[$id]);
-                  }
-                  ?>);">
+$image[1] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
+$image[2] = "https://api.ixiaowai.cn/api/api.php";
+$image[3] = "http://api.btstu.cn/sjbz/?lx=dongman";
+$image[4] = "http://api.btstu.cn/sjbz/?lx=suiji";
+$image[5] = "https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302";
+$image[6] = "https://api.loli.rocks/tianshijianglindaowoshenbian/index.php";
+$image[7] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
+$image[8] = "https://random.52ecy.cn/randbg.php";
+$image[9] = "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture";
+$image[10] = "http://www.dmoe.cc/random.php";
+$image[11] = "https://acg.yanwz.cn/api.php";
+$image[12] = "https://img.paulzzh.tech/touhou/random";
+if (has_post_thumbnail()) {
+	//当前日志有缩略图
+	$img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
+	echo $img_src[0];
+} else {
+	//当前日志没有设置缩略图则随机上图片，有概率重复
+	$id = mt_rand(1, 12);
+	echo esc_url($image[$id]);
+}
+?>);">
                   </div>
               </div>
               <div class="jasmine-content">
-                <h2><a href="<?php esc_url(the_permalink()); ?>"><?php the_title();?></a></h2>
+                <h2><a href="<?php esc_url(the_permalink());?>"><?php the_title();?></a></h2>
                 <p class="jasmine-content-foot">
-                  <?php echo get_the_excerpt();?>
+                  <?php echo get_the_excerpt(); ?>
                 </p>
                 <div>
                   <span class="jasmine-content-foot">
-                    <?php printf( __( '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-date" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <?php printf(__('<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-date" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"/>
   <path fill-rule="evenodd" d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
   <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z"/>
-</svg>: %s', 'textdomain' ), get_the_modified_date('Y-M-j') ); ?>
+</svg>: %s', 'textdomain'), get_the_time('Y-M-j'));?>
                   </span>
                   <span class="jasmine-content-foot">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
                       <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
-                    <?php echo get_comment_count(get_the_ID())['approved'];?>
+                    <?php echo get_comment_count(get_the_ID())['approved']; ?>
                   </span>
                   <span class="jasmine-content-foot">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
                       <path fill-rule="evenodd" d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                     </svg>
-                    1k
+                    <?php echo getPostViews(get_the_ID()); ?>
                   </span>
                   <span class="jasmine-content-foot">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-hand-thumbs-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -75,10 +76,10 @@
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                     </svg>
-                    <?php the_author(); ?>
+                    <?php the_author();?>
                   </span>
                   <span class="jasmine-content-foot">
-                    <?php edit_post_link('编辑','','');?><!--只有在登陆后才可见到，对日志进行编辑的链接-->
+                    <?php edit_post_link('编辑', '', '');?><!--只有在登陆后才可见到，对日志进行编辑的链接-->
                   </span>
                 </div>
               </div>

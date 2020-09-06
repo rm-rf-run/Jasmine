@@ -1,11 +1,11 @@
  (function($) {
      $(function() {
-        if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
-          alert('朋友，IE浏览器未适配哦~（QQ、360浏览器请关闭 IE 模式访问~）');
-        }
+         if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+             alert('朋友，IE浏览器未适配哦~（QQ、360浏览器请关闭 IE 模式访问~）');
+         }
          // console.log("%c ", "background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg) no-repeat center;padding-left:908px;padding-bottom: 511px;background-position: 50% 50%;background-size: cover")
-        console.log("%c Jasmine %c", "background:#24272A; color:#ffffff", "", "https://www.prettywordpress.com");
-        console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/rm-rf-run");
+         console.log("%c Jasmine %c", "background:#24272A; color:#ffffff", "", "https://www.prettywordpress.com");
+         console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/rm-rf-run");
          //滚动数字
          $('body').running();
          //导航栏回到顶部
@@ -116,27 +116,27 @@
          startTime();
 
          function add_copyright() {
-            document.body.addEventListener("copy", function (e) {
-                if (window.getSelection().toString().length > 30 && jasmineConfig.clipboardCopyright) {
-                    setClipboardText(e);
-                }
-                $('.toast').toast("show")
-            });
+             document.body.addEventListener("copy", function(e) {
+                 if (window.getSelection().toString().length > 30 && jasmineConfig.clipboardCopyright) {
+                     setClipboardText(e);
+                 }
+                 $('.toast').toast("show")
+             });
 
-            function setClipboardText(event) {
-                event.preventDefault();
-                var htmlData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)<br>" + "# 作者(Author)：" + jasmineConfig.author_name + "<br>" + "# 链接(URL)：" + window.location.href + "<br>" + "# 来源(Source)：" + jasmineConfig.site_name + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");;
-                var textData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。\n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)\n" + "# 作者(Author)：" + jasmineConfig.author_name + "\n" + "# 链接(URL)：" + window.location.href + "\n" + "# 来源(Source)：" + jasmineConfig.site_name + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
-                if (event.clipboardData) {
-                    event.clipboardData.setData("text/html", htmlData);
-                    event.clipboardData.setData("text/plain", textData);
-                } else if (window.clipboardData) {
-                    return window.clipboardData.setData("text", textData);
-                }
-            }
-        }
-        //剪贴板版权标识
-        add_copyright();
+             function setClipboardText(event) {
+                 event.preventDefault();
+                 var htmlData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)<br>" + "# 作者(Author)：" + jasmineConfig.author_name + "<br>" + "# 链接(URL)：" + window.location.href + "<br>" + "# 来源(Source)：" + jasmineConfig.site_name + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");;
+                 var textData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。\n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)\n" + "# 作者(Author)：" + jasmineConfig.author_name + "\n" + "# 链接(URL)：" + window.location.href + "\n" + "# 来源(Source)：" + jasmineConfig.site_name + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
+                 if (event.clipboardData) {
+                     event.clipboardData.setData("text/html", htmlData);
+                     event.clipboardData.setData("text/plain", textData);
+                 } else if (window.clipboardData) {
+                     return window.clipboardData.setData("text", textData);
+                 }
+             }
+         }
+         //剪贴板版权标识
+         add_copyright();
 
 
      })
