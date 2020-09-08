@@ -117,19 +117,17 @@ function add_bilbil_data() {
 			 * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
 			 *
 			 */
-			$b1 = file_get_contents("https://api.bilibili.com/x/space/acc/info?mid=" . $bilbil_uid . "&jsonp=jsonp");
-			$b2 = file_get_contents("https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
-			$contents1 = utf8_encode($b1);
-			$results1 = json_decode($contents1, true);
-			$contents = utf8_encode($b2);
-			$results = json_decode($contents, true);
+			$b1 = file_get_contents("compress.zlib://https://api.bilibili.com/x/space/acc/info?mid=" . $bilbil_uid . "&jsonp=jsonp");
+			$b2 = file_get_contents("compress.zlib://https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
+			$results1 = json_decode($b1, true);
+			$results = json_decode($b2, true);
 			update_option('jasmine_bilbil_following', $results['data']['following']);
 			update_option('jasmine_bilbil_follower', $results['data']['follower']);
 			update_option('jasmine_bilbil_gravatar', $results1['data']['face']);
 			update_option('jasmine_bilbil_name', $results1['data']['name']);
 			update_option('jasmine_bilbil_level', $results1['data']['level']);
 			update_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
-			update_option('jasmine_bilbil_describe', __($results1['data']['sign'], 'textdomain'));
+			update_option('jasmine_bilbil_describe', $results1['data']['sign']);
 			update_option('jasmine_bilbil_top_photo', $results1['data']['top_photo']);
 		}
 	}
