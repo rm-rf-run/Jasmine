@@ -1,13 +1,20 @@
 <?php
-/**
- * The sidebar containing the main widget area
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ /**
+ *  ::::::'##::::'###:::::'######::'##::::'##:'####:'##::: ##:'########:
+ *  :::::: ##:::'## ##:::'##... ##: ###::'###:. ##:: ###:: ##: ##.....::
+ *  :::::: ##::'##:. ##:: ##:::..:: ####'####:: ##:: ####: ##: ##:::::::
+ *  :::::: ##:'##:::. ##:. ######:: ## ### ##:: ##:: ## ## ##: ######:::
+ *  '##::: ##: #########::..... ##: ##. #: ##:: ##:: ##. ####: ##...::::
+ *   ##::: ##: ##.... ##:'##::: ##: ##:.:: ##:: ##:: ##:. ###: ##:::::::
+ *  . ######:: ##:::: ##:. ######:: ##:::: ##:'####: ##::. ##: ########:
+ *  :......:::..:::::..:::......:::..:::::..::....::..::::..::........::
  *
  * @package WordPress
- * @subpackage jasmine
- * @since jasmine 1.0
- * @version 1.0
+ * @Theme jasmine
+ *
+ * @author admin@prettywordpress.com
+ * @link https://www.prettywordpress.com
+ * Template Name: 侧边栏
  */
 
 //disable get_sidebar() 不使用

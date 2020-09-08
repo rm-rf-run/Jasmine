@@ -1,13 +1,20 @@
 <?php
 /**
- * 左边栏
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *  ::::::'##::::'###:::::'######::'##::::'##:'####:'##::: ##:'########:
+ *  :::::: ##:::'## ##:::'##... ##: ###::'###:. ##:: ###:: ##: ##.....::
+ *  :::::: ##::'##:. ##:: ##:::..:: ####'####:: ##:: ####: ##: ##:::::::
+ *  :::::: ##:'##:::. ##:. ######:: ## ### ##:: ##:: ## ## ##: ######:::
+ *  '##::: ##: #########::..... ##: ##. #: ##:: ##:: ##. ####: ##...::::
+ *   ##::: ##: ##.... ##:'##::: ##: ##:.:: ##:: ##:: ##:. ###: ##:::::::
+ *  . ######:: ##:::: ##:. ######:: ##:::: ##:'####: ##::. ##: ########:
+ *  :......:::..:::::..:::......:::..:::::..::....::..::::..::........::
  *
  * @package WordPress
- * @subpackage Jasmine
- * @since Jasmine 1.0
- * @version 1.0
+ * @Theme jasmine
+ *
+ * @author admin@prettywordpress.com
+ * @link https://www.prettywordpress.com
+ * Template Name: 左边栏
  */
 
 ?>
@@ -51,7 +58,7 @@ the_author_meta('nickname', $author_obj->ID);?>
   </dl>
   <dl class="text-center">
     <dt class="text-center">
-      <span class="animateNum" data-animatetype="num" data-animatetarget="<?php do_shortcode('[counComments]')?>" style=""><?php do_shortcode('[counComments]')?></span>
+      <span class="animateNum" data-animatetype="num" data-animatetarget="<?php do_shortcode('[countComments]')?>" style=""><?php do_shortcode('[countComments]')?></span>
     </dt>
     <dd class="text-center">
       评论
@@ -59,7 +66,7 @@ the_author_meta('nickname', $author_obj->ID);?>
   </dl>
   <dl class="text-center">
     <dt class="text-center">
-      <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+      <span class="animateNum" data-animatetype="num" data-animatetarget="<?php do_shortcode('[countViews]')?>" style=""><?php do_shortcode('[countViews]')?></span>
     </dt>
     <dd class="text-center">
       访问

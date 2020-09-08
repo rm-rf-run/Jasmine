@@ -16,17 +16,17 @@ Use it to make something cool, have fun, and share what you've learned with othe
 * {
     margin: 0px;
     padding: 0px;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/new3.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
 
 body {
     background-attachment: fixed;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/new3.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
 
 a:hover {
     text-decoration: none;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/new2.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 p,
@@ -36,20 +36,20 @@ h2,
 h3,
 h3,
 h5 {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/text1.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 
 span span {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/text1.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 
 div a {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/new3.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
 
 div a p,
 span {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/new3.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
 
 /*导航栏*/

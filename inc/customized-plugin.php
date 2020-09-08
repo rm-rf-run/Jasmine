@@ -317,7 +317,8 @@ function wpdocs_add_custom_shortcode() {
 	add_shortcode('bilbil', 'jasmine_bilbil');
 	add_shortcode('footData', 'echo_footData');
 	add_shortcode('counPost', 'count_post');
-	add_shortcode('counComments', 'count_comments');
+	add_shortcode('countComments', 'count_comments');
+  add_shortcode('countViews', 'getCountViews');
 	// add_shortcode('lastChange','last_change');
 }
 

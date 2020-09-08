@@ -1,12 +1,22 @@
-<?php /**
- * Jasmine index file
+<?php
+ /**
+ *  ::::::'##::::'###:::::'######::'##::::'##:'####:'##::: ##:'########:
+ *  :::::: ##:::'## ##:::'##... ##: ###::'###:. ##:: ###:: ##: ##.....::
+ *  :::::: ##::'##:. ##:: ##:::..:: ####'####:: ##:: ####: ##: ##:::::::
+ *  :::::: ##:'##:::. ##:. ######:: ## ### ##:: ##:: ## ## ##: ######:::
+ *  '##::: ##: #########::..... ##: ##. #: ##:: ##:: ##. ####: ##...::::
+ *   ##::: ##: ##.... ##:'##::: ##: ##:.:: ##:: ##:: ##:. ###: ##:::::::
+ *  . ######:: ##:::: ##:. ######:: ##:::: ##:'####: ##::. ##: ########:
+ *  :......:::..:::::..:::......:::..:::::..::....::..::::..::........::
  *
- * @category WordPress
- * @package  Jasmine
- * @author   吃饭用大碗的程序猿 <2671412803@qq.com>
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     https://github.com/rm-rf-run/Jasmine
- * */
+ * @package WordPress
+ * @Theme jasmine
+ *
+ * @author admin@prettywordpress.com
+ * @link https://www.prettywordpress.com
+ * Template Name: 文章归档
+ * Template Post Type: page
+ */
 get_header();
 ?>
   <main role="main" id="main" aria-live="polite" aria-atomic="true">
