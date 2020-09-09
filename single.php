@@ -34,15 +34,15 @@ setPostViews(get_the_ID());
             <?php if (have_posts()): ?>
             <?php while (have_posts()): the_post();?>
 							      <h1 class="jasmine-post-h1"><?php the_title()?></h1>
-							      <p style="color: #9d9d9d;font-size: 14px;">
+							      <p class="jasmine-label">
 							        <span>
 							          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tags-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							            <path fill-rule="evenodd" d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
 							            <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
 							          </svg>
-							          <?php echo get_the_tag_list('<span>标签: ', ', ', '</span>'); ?>
+							          <?php echo get_the_tag_list('<span>标签: ', '， ', '</span>'); ?>
 				              </span>
-				              <span>
+				              <span style="float: right;">
 				                最后编辑：<?php the_modified_time('Y年n月j日');?>
 				              </span>
 				            </p>
@@ -85,7 +85,7 @@ setPostViews(get_the_ID());
             <h3>评论</h3>
           </div>
           <!-- toasts -->
-          <div class="toast" class="d-flex justify-content-center align-items-center" style="position: absolute;top: -3%;right: 30%;" data-delay="2000">
+          <div class="toast" class="d-flex justify-content-center align-items-center" style="position: absolute;top: 10%;right: 30%;" data-delay="2000">
             <div class="toast-header">
               <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/tips.png" class="rounded mr-2" alt="...">
               <strong class="mr-auto">友情提示</strong>

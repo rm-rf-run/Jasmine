@@ -355,7 +355,7 @@ dl {
 }
 
 .jasmine-notice-div {
-    margin-top: -15px;
+    min-height: 50px;
 }
 
 .jasmine-notice-title {
@@ -1128,4 +1128,102 @@ svg {
 .jasmine-comment-part h3 {
     font-size: 20px;
     font-weight: 600;
+}
+
+.friend-link {
+    min-width: 254px;
+    min-height: 90px;
+    float: left;
+    width: 50%;
+    position: relative;
+    transition: all .3s ease-out;
+    border-radius: 8px;
+    list-style: none;
+}
+
+.friend-link-a {
+    display: block;
+    padding: 0 10px 0 90px;
+    height: 90px;
+    color: #555;
+}
+
+.friend-link-a h4 {
+    width: 130px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0;
+    padding-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.friend-link-a p {
+    margin: 10px 0;
+    line-height: 24px;
+}
+
+.friend-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin: 0;
+    border: 0;
+    transition: all .3s;
+}
+
+.friend-link * {
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    color: black;
+}
+
+.friend-link:hover {
+    background: cadetblue;
+}
+
+.friend-img:hover {
+    transform: rotate(0.1turn);
+    transition-delay: 0s;
+    transition-property: all;
+}
+
+.link-description {
+    height: 20px;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.jasmine-label {
+    color: #9d9d9d;
+    font-size: 14px;
+}
+
+.jasmine-label span a {
+    color: black;
+}
+
+.jasmine-division {
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 24px 0;
+    background-color: #dcdfe6;
+}
+.jasmine-division-center{
+    position: absolute;
+    left: 45%;
+    transform: translateX(-50%) translateY(-50%);
+    background: white;
+    width: 34px;
+    text-align: center;
+}
+.friend-ps{
+    color: #9d9d9d;
+    font-size: 14px;
+    text-align: center;
 }

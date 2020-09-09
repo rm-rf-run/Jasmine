@@ -17,6 +17,7 @@
  * Template Name: 文章归档
  * Template Post Type: page
  */
+setPostViews(get_the_ID());
 get_header();
 ?>
   <main role="main" id="main" aria-live="polite" aria-atomic="true">
