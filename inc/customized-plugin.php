@@ -133,14 +133,18 @@ function add_bilbil_data() {
 	}
 }
 
-function myAdminScripts() {
-	wp_enqueue_style('bootstrapCss', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css', '', '4.5.0', false);
-	wp_enqueue_style('bootstrap_datepicker_css', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css', '', '1.9.0', false);
-	//会和低版本jQuery冲突 wp_enqueue_script('JS3.5.1', 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', '', '3.5.1', true);
-	wp_enqueue_script('popper1.16.0', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', '', '1.16.0', true);
-	wp_enqueue_script('bootstrap4.5.0', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
-	wp_enqueue_script('bootstrap-datepicker1.9.0', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
-	wp_enqueue_script('datepicker_cn', 'https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
+function myAdminScripts($hook) {
+  if ( 'toplevel_page_JasminePage' != $hook ) {
+        return;
+    }
+  //队列不应特定于协议，请删除https
+	wp_enqueue_style('bootstrapCss', '//cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css', '', '4.5.0', false);
+	wp_enqueue_style('bootstrap_datepicker_css', '//cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css', '', '1.9.0', false);
+	//会和低版本jQuery冲突,duck不必 wp_enqueue_script('JS3.5.1', 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js', '', '3.5.1', true);
+	wp_enqueue_script('popper1.16.0', '//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', '', '1.16.0', true);
+	wp_enqueue_script('bootstrap4.5.0', '//cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js', '', '4.5.0', true);
+	wp_enqueue_script('bootstrap-datepicker1.9.0', '//cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js', '', '1.9.0', true);
+	wp_enqueue_script('datepicker_cn', '//cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.zh-CN.min.js', '', '1.9.0', true);
 
 }
 add_action('admin_enqueue_scripts', 'myAdminScripts');
