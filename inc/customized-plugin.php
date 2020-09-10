@@ -257,7 +257,7 @@ function my_options() {
                   <div class="row">
                     <div class="col-md-12 bm-12">
                       <label for="extraCss">额外CSS</label>
-                      <textarea  class="form-control" name="jasmine_extraCss" id="extraCss" placeholder="" ><?php echo esc_attr(get_option('jasmine_extraCss')); ?></textarea>
+                      <textarea  class="form-control" name="jasmine_extraCss" id="extraCss" placeholder="不用加<style></style>标签" ><?php echo esc_attr(get_option('jasmine_extraCss')); ?></textarea>
                     </div>
                   </div>
                   <hr class="mb-4">

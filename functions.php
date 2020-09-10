@@ -161,19 +161,15 @@ function getPostViews($postID) {
 }
 //为文章或者页面添加
 function setPostViews($postID) {
-	if (is_user_logged_in()){
-		//登录的用户不计算浏览量
-	}else{
-		$count_key = 'post_views_count';
-		$count = get_post_meta($postID, $count_key, true);
-		if ($count == '') {
-			$count = 0;
-			delete_post_meta($postID, $count_key);
-			add_post_meta($postID, $count_key, '0');
-		} else {
-			$count++;
-			update_post_meta($postID, $count_key, $count);
-		}
+	$count_key = 'post_views_count';
+	$count = get_post_meta($postID, $count_key, true);
+	if ($count == '') {
+		$count = 0;
+		delete_post_meta($postID, $count_key);
+		add_post_meta($postID, $count_key, '0');
+	} else {
+		$count++;
+		update_post_meta($postID, $count_key, $count);
 	}
 }
 //计算浏览量总和

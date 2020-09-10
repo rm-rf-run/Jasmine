@@ -1278,3 +1278,8 @@ svg {
 .btn:not(:disabled):not(.disabled) {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
+
+.jasmine-tag-cloud {
+    background: #fff;
+    border-radius: 4px;
+}
