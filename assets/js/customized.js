@@ -117,7 +117,7 @@
 
          function add_copyright() {
              document.body.addEventListener("copy", function(e) {
-                 if (window.getSelection().toString().length > 30 && jasmineConfig.clipboardCopyright) {
+                 if (window.getSelection().toString().length > 30 && jasmineConfig.clipboardCopyright == "true") {
                      setClipboardText(e);
                  }
                  $('.toast').toast("show")
@@ -137,6 +137,15 @@
          }
          //剪贴板版权标识
          add_copyright();
+
+         //随机添加标签样式
+         function getRandomInt(max) {
+          return Math.floor(Math.random() * Math.floor(max));
+        }
+         let labelData = ['badge badge-primary','badge badge-secondary','badge badge-success','badge badge-danger','badge badge-warning','badge badge-info','badge badge-dark'];
+         $(".jasmine-label a").each(function(index, element) {
+            $(this).addClass(labelData[getRandomInt(7)]);
+        });
 
 
      })

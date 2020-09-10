@@ -35,7 +35,8 @@ h1,
 h2,
 h3,
 h3,
-h5 {
+h5,
+h6 {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 
@@ -44,12 +45,12 @@ span span {
 }
 
 div a {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 div a p,
 span {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 /*导航栏*/
@@ -654,6 +655,7 @@ dl {
     width: 76px;
     line-height: 30px;
     margin-top: 2px;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 .jasmine-bilbil-btn-add a {
@@ -674,6 +676,7 @@ dl {
     width: 76px;
     line-height: 30px;
     margin-top: 2px;
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 .jasmine-bilbil-message a {
@@ -1214,7 +1217,8 @@ svg {
     margin: 24px 0;
     background-color: #dcdfe6;
 }
-.jasmine-division-center{
+
+.jasmine-division-center {
     position: absolute;
     left: 45%;
     transform: translateX(-50%) translateY(-50%);
@@ -1222,8 +1226,55 @@ svg {
     width: 34px;
     text-align: center;
 }
-.friend-ps{
+
+.friend-ps {
     color: #9d9d9d;
     font-size: 14px;
     text-align: center;
+}
+
+.jasmine-site-information {
+    border-radius: 4px;
+    background: #fff;
+}
+
+.jasmine-toast {
+    -webkit-pointer-events: none;
+    -moz-pointer-events: none;
+    -ms-pointer-events: none;
+    -o-pointer-events: none;
+    pointer-events: none;
+}
+
+.jasmine-toast button {
+    -webkit-pointer-events: all;
+    -moz-pointer-events: all;
+    -ms-pointer-events: all;
+    -o-pointer-events: all;
+    pointer-events: all;
+}
+
+.site-information-content {
+    padding: 1.5rem;
+}
+
+.site-information-content h5 {
+    border-left: 3px solid #f73859;
+    padding-left: 15px;
+}
+
+.site-information-content ul {
+    margin-left: 35px;
+}
+
+.site-information-requirement h6 {
+    color: #6c757d;
+}
+
+.site-information-requirement {
+    color: red;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }

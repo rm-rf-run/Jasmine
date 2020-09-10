@@ -10,6 +10,9 @@ remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'wp_generator'); //隐藏wordpress版本
 remove_filter('the_content', 'wptexturize'); //取消标点符号转义
 
+//禁止加载load-script.php
+define('CONCATENATE_SCRIPTS', false);
+
 /**
  *禁用表情
  */
@@ -49,6 +52,12 @@ function wpdx_disable_open_sans($translations, $text, $context, $domain)
     }
     return $translations;
 }
+function coolwp_remove_open_sans_from_wp_core() {
+    wp_deregister_style( 'open-sans' );
+    wp_register_style( 'open-sans', false );
+    wp_enqueue_style('open-sans','');
+}
+add_action( 'init', 'coolwp_remove_open_sans_from_wp_core' );
 
 //移除左上角W
 function annointed_admin_bar_remove()

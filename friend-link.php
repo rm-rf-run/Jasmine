@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  *  ::::::'##::::'###:::::'######::'##::::'##:'####:'##::: ##:'########:
  *  :::::: ##:::'## ##:::'##... ##: ###::'###:. ##:: ###:: ##: ##.....::
@@ -49,7 +49,7 @@ setPostViews(get_the_ID()); ?>
 								?>
 									<li class="friend-link">
 					        			<a class="friend-link-a" target="_blank" <?php echo 'href="' . $bookmark->link_url . '" title="' . $bookmark->link_url . '"';?> >
-					        				<?php if($bookmark->link_notes!=null && $bookmark->link_notes!='') 
+					        				<?php if($bookmark->link_notes!=null && $bookmark->link_notes!='')
 												echo '<img src="'.get_avatar_url($bookmark->link_notes).'" alt="'.$bookmark->link_name.'" class="avatar friend-img"  / >';
 											else
 												echo '<img src="https://api.ixiaowai.cn/api/api.php" alt="'.$bookmark->link_name.'" class="avatar friend-img"  / >';
@@ -61,11 +61,41 @@ setPostViews(get_the_ID()); ?>
 								<?php
 							}
 						} ?>
-					</ul>	
-				<?php endforeach; endif; ?>		
+					</ul>
+				<?php endforeach; endif; ?>
 				<?php endif; ?>
 			</div>
-		</div>	
+			<div class="jasmine-site-information">
+				<div class="site-information-content">
+					<h5>站点信息</h5>
+					<ul>
+					  <li><h6>名称 <code>rm-rf-run</code></h6></li>
+					  <li><h6>链接 <code>https://www.prettywordpress.com</code></h6></li>
+					  <li><h6>logo <code>https://blog.learm.cn/logo252.png</code></h6></li>
+					  <li><h6>描述 <code>你见我的时候，我已经是个被生活打磨好的人了。</code></h6></li>
+					</ul>
+					<h5>友链申请要求</h5>
+					<ul class="site-information-requirement">
+					  <li><h6>申请时请先加上本站的连接 (o°ω°o)</h6></li>
+					  <li><h6>原创博客，非采集站，全站 HTTPS 优先</h6></li>
+					  <li class="key"><h6>请勿提交 ico 或 分辨率小于 100x100 的图标</h6></li>
+					  <li><h6>网站内容遵守国家法律法规</h6></li>
+					</ul>
+					<h5>申请方式</h5>
+					<ul>
+						<li><h6>站长邮箱：<code>admin@prettywordpress.com</code></h6></li>
+						<li>
+							<h6>主题：申请友链</h6>
+							<p>
+								<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=admin@prettywordpress.com" target="_blank">
+									<button type="button" class="btn btn-primary">一键发送</button>
+								</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
         <!--右边栏-->
         <div class="col-md-3 column">
           <?php get_template_part('template-parts/sidebar/right-sidebar');?>
