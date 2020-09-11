@@ -315,7 +315,7 @@ function my_options() {
                     </div>
                     <div class="col-md-2 bm-2">
                       <label for="jasmine_siteDescription">站点描述</label>
-                      <input type="text" class="form-control" name="jasmine_siteDescription" id="jasmine_siteDescription" placeholder="默认为小兔叽" value="<?php echo esc_attr(get_option('jasmine_siteDescription')); ?>" >
+                      <input type="text" class="form-control" name="jasmine_siteDescription" id="jasmine_siteDescription" placeholder="默认为站点描述" value="<?php echo esc_attr(get_option('jasmine_siteDescription')); ?>" >
                     </div>
                     <div class="col-md-2 bm-2">
                       <label for="jasmine_siteEmail">站长邮箱</label>
