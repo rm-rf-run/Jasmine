@@ -38,6 +38,7 @@ get_header();
            endif;
            ?>
 			<?php
+        $i = 1;
 				if ( have_posts() ) :
 
             // 开始循环(Loop).
@@ -47,6 +48,7 @@ get_header();
                 *如果您想在子主题中覆盖它，那么就选择一个文件
                 *称为content-___.php（其中___是Post格式名），并且将被替代。
                 */
+                set_query_var( 'i', $i++ );//为需要导入的模板传参数i
                 get_template_part( 'template-parts/post/content', get_post_format() );
 				    endwhile;
 

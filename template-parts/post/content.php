@@ -39,9 +39,7 @@
                     	$img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
                     	echo $img_src[0];
                     } else {
-                    	//当前日志没有设置缩略图则随机上图片，有概率重复
-                    	$id = mt_rand(1, 12);
-                    	echo esc_url($image[$id]);
+                    	echo esc_url($image[$i]);
                     }
                     ?>);">
                 </div>
