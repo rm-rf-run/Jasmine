@@ -188,7 +188,7 @@ dl {
 }
 
 #avatar img {
-    transition: all .3s;
+    transition: all 1s;
 }
 
 #avatar img:hover {
@@ -399,7 +399,7 @@ dl {
     }
 }
 
-.jasmine-love svg {
+.jasmine-love i {
     color: red;
     -webkit-animation-name: scaleDraw;
     /*关键帧名称*/
@@ -681,10 +681,6 @@ dl {
 
 .jasmine-bilbil-message a {
     color: #fff;
-}
-
-svg {
-    margin-bottom: 3px;
 }
 
 .breadcrumb {
@@ -1283,7 +1279,38 @@ svg {
     background: #fff;
     border-radius: 4px;
 }
+
 .jasmine-post-archives {
     background: #fff;
     border-radius: 4px;
+}
+
+.thumbnail-shadow {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php);
+    color: white;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.author-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+    margin: 0;
+    border: 0;
+    border: 2px solid gray;
+    transition: all 1s;
+}
+
+.author-img:hover {
+    transform: rotate(0.5turn);
+    transition-delay: 0s;
+    transition-property: all;
 }

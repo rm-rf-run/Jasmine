@@ -114,9 +114,7 @@ the_author_meta('nickname', $author_obj->ID);?>
   if (get_option('jasmine_loveDate')) {
    ?>
     <div class="jasmine-love">
-      <img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_he'))){echo esc_attr(get_option('jasmine_qq_he'));}?>&s=100" class="jasmine-love-me" /><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-    </svg><img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_she'))){echo esc_attr(get_option('jasmine_qq_she'));}?>&s=100" class="jasmine-love-she" /><br/>
+      <img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_he'))){echo esc_attr(get_option('jasmine_qq_he'));}?>&s=100" class="jasmine-love-me" /><i class="fa fa-heart"></i><img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(get_option('jasmine_qq_she'))){echo esc_attr(get_option('jasmine_qq_she'));}?>&s=100" class="jasmine-love-she" /><br/>
       <span id="love_time"></span>
     </div>
    <?php
@@ -165,18 +163,13 @@ the_author_meta('nickname', $author_obj->ID);?>
   <div class="jasmine-bilbil-btn">
     <div class="jasmine-bilbil-btn-add">
       <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
-        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
-        </svg>
+        <i class="fa fa-plus"></i>
         <span>关注</span>
       </a>
     </div>
     <div class="jasmine-bilbil-message">
       <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://message.bilibili.com/#/whisper/mid'.esc_attr(get_option('jasmine_bilbil_uid'));}?>">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cursor" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z"/>
-        </svg>
+        <i class="fa fa-paper-plane"></i>
         <span>发消息</span>
       </a>
     </div>

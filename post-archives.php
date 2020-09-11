@@ -31,16 +31,41 @@ setPostViews(get_the_ID());?>
         <!--导航栏-->
         <?php get_template_part('template-parts/nav/nav-post');?>
         <div class="jasmine-post-archives">
-        	<div class="thumbnail-shadow">
+        	<div class="thumbnail-shadow" style="background-image: url(<?php
+                    $image[1] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
+                    $image[2] = "https://api.ixiaowai.cn/api/api.php";
+                    $image[3] = "http://api.btstu.cn/sjbz/?lx=dongman";
+                    $image[4] = "http://api.btstu.cn/sjbz/?lx=suiji";
+                    $image[5] = "https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302";
+                    $image[6] = "https://api.loli.rocks/tianshijianglindaowoshenbian/index.php";
+                    $image[7] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
+                    $image[8] = "https://random.52ecy.cn/randbg.php";
+                    $image[9] = "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture";
+                    $image[10] = "http://www.dmoe.cc/random.php";
+                    $image[11] = "https://acg.yanwz.cn/api.php";
+                    $image[12] = "https://img.paulzzh.tech/touhou/random";
+                    if (has_post_thumbnail()) {
+                        //当前日志有缩略图
+                        $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
+                        echo $img_src[0];
+                    } else {
+                        $id = mt_rand(1, 12);
+                        echo esc_url($image[$id]);
+                    }
+                    ?>);">
         		<h1 class="post-title">归档</h1>
 	        	<div class="post-info">
 		        	<span class="post-view">
-		        		<i class="memory memory-view"></i>&nbsp;19
+		        		<i class="fa fa-eye"></i>&nbsp;
+                    <?php echo getPostViews(get_the_ID()); ?>
 		        	</span>&nbsp;•&nbsp;
 		        	<span class="post-comments">
-		        		<i class="memory memory-comment"></i>&nbsp;<a href="http://localhost/wordpress/post-archives/#respond">0</a>
+		        		<i class="fa fa-comments"></i>&nbsp;
+                    <?php echo get_comment_count(get_the_ID())['approved']; ?>
 		        	</span>
-		        	<span class="post-edit">&nbsp;•&nbsp;<i class="memory memory-edit"></i>&nbsp;<a class="post-edit-link" href="http://localhost/wordpress/wp-admin/post.php?post=21&amp;action=edit">编辑</a>
+		        	<span class="post-edit">&nbsp;•&nbsp;
+                        <i class="fa fa-pencil-square-o"></i>&nbsp;
+                        <?php edit_post_link('编辑', '', '');?>
 		        	</span>
 		        </div>
 		    </div>
