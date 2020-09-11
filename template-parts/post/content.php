@@ -39,6 +39,7 @@
                     	$img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
                     	echo $img_src[0];
                     } else {
+                      $i = get_query_var('i');//获取传过来的i
                     	echo esc_url($image[$i]);
                     }
                     ?>);">

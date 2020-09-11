@@ -69,10 +69,10 @@ setPostViews(get_the_ID()); ?>
 				<div class="site-information-content">
 					<h5>站点信息</h5>
 					<ul>
-					  <li><h6>名称 <code>rm-rf-run</code></h6></li>
-					  <li><h6>链接 <code>https://www.prettywordpress.com</code></h6></li>
-					  <li><h6>logo <code>https://blog.learm.cn/logo252.png</code></h6></li>
-					  <li><h6>描述 <code>你见我的时候，我已经是个被生活打磨好的人了。</code></h6></li>
+					  <li><h6>名称 <code><?php echo get_option('jasmine_siteName')==true?get_option('jasmine_siteName'):get_bloginfo('name');?></code></h6></li>
+					  <li><h6>链接 <code><?php echo get_option('jasmine_siteHref')==true?get_option('jasmine_siteHref'):get_bloginfo('url');?></code></h6></li>
+					  <li><h6>logo <code><?php echo get_option('jasmine_siteLogo')==true?get_option('jasmine_siteLogo'):"master还没设置我呢QAQ";?></code></h6></li>
+					  <li><h6>描述 <code><?php echo get_option('jasmine_siteDescription')==true?get_option('jasmine_siteDescription'):get_bloginfo('description');?></code></h6></li>
 					</ul>
 					<h5>友链申请要求</h5>
 					<ul class="site-information-requirement">
@@ -83,11 +83,11 @@ setPostViews(get_the_ID()); ?>
 					</ul>
 					<h5>申请方式</h5>
 					<ul>
-						<li><h6>站长邮箱：<code>admin@prettywordpress.com</code></h6></li>
+						<li><h6>站长邮箱：<code><?php echo get_option('jasmine_siteEmail')==true?get_option('jasmine_siteEmail'):get_bloginfo('admin_email');?></code></h6></li>
 						<li>
 							<h6>主题：申请友链</h6>
 							<p>
-								<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=admin@prettywordpress.com" target="_blank">
+								<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php echo get_option('jasmine_siteKey')==true?get_option('jasmine_siteKey'):get_bloginfo('admin_email')?>" target="_blank">
 									<button type="button" class="btn btn-primary">一键发送</button>
 								</a>
 							</p>

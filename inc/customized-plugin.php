@@ -106,6 +106,12 @@ function register_jasmine_settings() {
 	//默认数据
 	register_setting('jasmine_default', 'jasmine_author_data', array('default' => "checked"));
 	register_setting('jasmine_default', 'jasmine_copyright', array('default' => "checked"));
+  register_setting('jasmine_default', 'jasmine_siteName');
+  register_setting('jasmine_default', 'jasmine_siteHref');
+  register_setting('jasmine_default', 'jasmine_siteLogo');
+  register_setting('jasmine_default', 'jasmine_siteDescription');
+  register_setting('jasmine_default', 'jasmine_siteEmail');
+  register_setting('jasmine_default', 'jasmine_siteKey');
 }
 
 function add_bilbil_data() {
@@ -292,6 +298,32 @@ function my_options() {
                           是否开启剪贴板版权标识
                         </label>
                       </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 bm-2">
+                      <label for="jasmine_siteName">站点名称</label>
+                      <input type="text" class="form-control" name="jasmine_siteName" id="jasmine_siteName" placeholder="默认为站点名称" value="<?php echo esc_attr(get_option('jasmine_siteName')); ?>" >
+                    </div>
+                    <div class="col-md-2 bm-2">
+                      <label for="jasmine_siteHref">站点链接</label>
+                      <input type="text" class="form-control" name="jasmine_siteHref" id="jasmine_siteHref" placeholder="默认就是站点首页" value="<?php echo esc_attr(get_option('jasmine_siteHref')); ?>">
+                    </div>
+                    <div class="col-md-2 bm-2">
+                      <label for="jasmine_siteLogo">站点LOGO</label>
+                      <input type="text" class="form-control" name="jasmine_siteLogo" id="jasmine_siteLogo" placeholder="站点LOGO地址" value="<?php echo esc_attr(get_option('jasmine_siteLogo')); ?>" >
+                    </div>
+                    <div class="col-md-2 bm-2">
+                      <label for="jasmine_siteDescription">站点描述</label>
+                      <input type="text" class="form-control" name="jasmine_siteDescription" id="jasmine_siteDescription" placeholder="默认为小兔叽" value="<?php echo esc_attr(get_option('jasmine_siteDescription')); ?>" >
+                    </div>
+                    <div class="col-md-2 bm-2">
+                      <label for="jasmine_siteEmail">站长邮箱</label>
+                      <input type="text" class="form-control" name="jasmine_siteEmail" id="jasmine_siteEmail" placeholder="默认为注册的邮箱" value="<?php echo esc_attr(get_option('jasmine_siteEmail')); ?>" >
+                    </div>
+                    <div class="col-md-2 bm-2">
+                      <label for="jasmine_siteKey">邮箱主题</label>
+                      <input type="text" class="form-control" name="jasmine_siteKey" id="jasmine_siteKey" placeholder="默认为申请友链" value="<?php echo esc_attr(get_option('jasmine_siteKey')); ?>" >
                     </div>
                   </div>
                   <hr class="mb-4">
