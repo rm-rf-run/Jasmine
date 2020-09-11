@@ -229,7 +229,7 @@ function memory_add_pages()
     global $pagenow;
     //判断是否为激活主题页面
     if ('themes.php' == $pagenow && isset($_GET['activated'])) {
-        //memory_add_page('归档','post-archives','post-archives.php');//页面标题、别名、页面模板
+        memory_add_page('归档','post-archives','post-archives.php');//页面标题、别名、页面模板
         memory_add_page('友情链接', 'friend-link', 'friend-link.php');
     }
 }

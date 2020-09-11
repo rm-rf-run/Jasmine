@@ -22,29 +22,29 @@
 <article id="post-<?php the_ID();?>" class="jasmine-article" <?php post_class();?>>
               <div class="jasmine-panel">
                 <div class="lazyload jasmine-article-img" style="background-image: url(<?php
-$image[1] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
-$image[2] = "https://api.ixiaowai.cn/api/api.php";
-$image[3] = "http://api.btstu.cn/sjbz/?lx=dongman";
-$image[4] = "http://api.btstu.cn/sjbz/?lx=suiji";
-$image[5] = "https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302";
-$image[6] = "https://api.loli.rocks/tianshijianglindaowoshenbian/index.php";
-$image[7] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
-$image[8] = "https://random.52ecy.cn/randbg.php";
-$image[9] = "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture";
-$image[10] = "http://www.dmoe.cc/random.php";
-$image[11] = "https://acg.yanwz.cn/api.php";
-$image[12] = "https://img.paulzzh.tech/touhou/random";
-if (has_post_thumbnail()) {
-	//当前日志有缩略图
-	$img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
-	echo $img_src[0];
-} else {
-	//当前日志没有设置缩略图则随机上图片，有概率重复
-	$id = mt_rand(1, 12);
-	echo esc_url($image[$id]);
-}
-?>);">
-                  </div>
+                    $image[1] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
+                    $image[2] = "https://api.ixiaowai.cn/api/api.php";
+                    $image[3] = "http://api.btstu.cn/sjbz/?lx=dongman";
+                    $image[4] = "http://api.btstu.cn/sjbz/?lx=suiji";
+                    $image[5] = "https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302";
+                    $image[6] = "https://api.loli.rocks/tianshijianglindaowoshenbian/index.php";
+                    $image[7] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
+                    $image[8] = "https://random.52ecy.cn/randbg.php";
+                    $image[9] = "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture";
+                    $image[10] = "http://www.dmoe.cc/random.php";
+                    $image[11] = "https://acg.yanwz.cn/api.php";
+                    $image[12] = "https://img.paulzzh.tech/touhou/random";
+                    if (has_post_thumbnail()) {
+                    	//当前日志有缩略图
+                    	$img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
+                    	echo $img_src[0];
+                    } else {
+                    	//当前日志没有设置缩略图则随机上图片，有概率重复
+                    	$id = mt_rand(1, 12);
+                    	echo esc_url($image[$id]);
+                    }
+                    ?>);">
+                </div>
               </div>
               <div class="jasmine-content">
                 <h2><a href="<?php esc_url(the_permalink());?>"><?php the_title();?></a></h2>

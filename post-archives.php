@@ -28,7 +28,7 @@ setPostViews(get_the_ID());?>
         </div>
         <!--中间栏-->
         <div class="col-md-6 column" id="pjax-container">
-        <!--导航栏-->	
+        <!--导航栏-->
         <?php get_template_part('template-parts/nav/nav-post');?>
         <div class="jasmine-post-archives">
         	<div class="thumbnail-shadow">
@@ -52,5 +52,5 @@ setPostViews(get_the_ID());?>
         </div>
       </div>
     </div>
-</main>	   	
+</main>
 <?php get_footer();
