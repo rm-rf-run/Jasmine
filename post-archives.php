@@ -75,6 +75,11 @@ setPostViews(get_the_ID());?>
                     ?>
 		        </div>
 		    </div>
+            <div class="jasmine-archives-content">
+                <?php if (have_posts()) : the_post(); ?>
+                    <?php archives_list();the_content(); ?>
+                <?php endif; ?>
+            </div>
         </div>
         </div>
         <!--右边栏-->

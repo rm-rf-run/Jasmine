@@ -258,3 +258,36 @@ function xintheme_unregisterWidgets()
     unregister_widget('WP_Widget_Tag_Cloud');
     unregister_widget('WP_Nav_Menu_Widget');
 }
+
+// 文章归档
+function archives_list() {
+    if( !$output = get_option('archives_list') ){
+        $output = '<div class="archives-content">';
+        $the_query = new WP_Query( 'posts_per_page=-1&ignore_sticky_posts=1&post_type=post' ); 
+        $year=0; $mon=0; $i=0; $j=0;
+        while ( $the_query->have_posts() ) : $the_query->the_post();
+            $year_tmp = get_the_time('Y');
+            $mon_tmp = get_the_time('M');
+            $y=$year; $m=$mon;
+            if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></li>';
+            if ($year != $year_tmp && $year > 0) $output .= '</ul>';
+            if ($year != $year_tmp) {
+                $year = $year_tmp;
+                $output .= '<h3 class="archives_year">'. $year .' 年</h3><ul class="archives_mon_list">'; //输出年份
+            }
+            if ($mon != $mon_tmp) {
+                $mon = $mon_tmp;
+                $output .= '<li><span class="archives_mon">'.$mon.'</span><ul class="archives_post_list">'; //输出月份
+            }
+            $output .= '<li>'.'<a class="no-des" href="'. get_permalink() .'">'.get_the_time('j日: ') . get_the_title() .'('. get_comments_number('0', '1', '%') .'条评论)</a></li>'; //输出文章日期和标题
+        endwhile;
+        wp_reset_postdata();
+        $output .= '</ul></li></ul></div>';
+        update_option('archives_list', $output);
+    }
+    echo $output;
+}
+function clear_archives_list_cache() {
+    update_option('archives_list', ''); // 清空 archives_list
+}
+add_action('save_post', 'clear_archives_list_cache'); // 新发表文章/修改文章时
