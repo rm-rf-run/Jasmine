@@ -400,7 +400,7 @@ beian.png' data-src='' data-was-processed='true'> <a href='" . esc_url($police_b
 	} else {
 		$date = $date . '-';
 	}
-	echo "版权所有 © " . $date . $this_year . " <a href='" . esc_url($bolg_href) . "'>" . esc_html($blog_name) . "</a> " . $police_beian_exit . " | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" . $beian . "</a><br/>Theme Jasmine By <span id='rm-rf-run'>rm-rf-run</span> With  | All Rights Reserved<br/>" . $startDate;
+	echo "版权所有 © " . $date . $this_year . " <a href='" . esc_url($bolg_href) . "'>" . esc_html($blog_name) . "</a> " . $police_beian_exit . " | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" . $beian . "</a><br/>Theme Jasmine By <a href='https://prettywordpress.com' target='_blank' ><span id='rm-rf-run'>rm-rf-run</span></a> With  | All Rights Reserved<br/>" . $startDate;
 }
 
 function echo_extraCss(){

@@ -32,7 +32,7 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
   <body <?php body_class();?>>
   <header class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-white head-nav ">
-      <a class="navbar-brand" href="<?php bloginfo('url');?>"><?php bloginfo('name');?></a>
+      <a class="navbar-brand link link--kukuri" href="<?php bloginfo('url');?>" style="color: #c5c2b8;" data-letters="<?php bloginfo('name');?>"><span><?php bloginfo('name');?></span></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <?php if (has_nav_menu('header-menu')) {
 	wp_nav_menu(

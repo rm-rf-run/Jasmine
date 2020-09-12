@@ -36,7 +36,7 @@ $(function() {
   });
   
   // here we create fuscia sparkles
-  $("h1").sparkleh({
+  $(".jasmine-post-content h1").sparkleh({
     count: 80,
     color: ["#ff0080","#ff0080","#0000FF"]
   });
@@ -54,13 +54,13 @@ $(function() {
   // for an image, the image needs to be fully loaded to set
   // the canvas to it's height/width.
   // speed allows us to control... the ... velocity 
-  $("#image").imagesLoaded( function() {
-    $(".img").sparkleh({
-      count: 25,
-      color: ["#00afec","#fb6f4a","#fdfec5"],
-    speed: 0.4
-    });
-  });
+  // $("#image").imagesLoaded( function() {
+  //   $(".img").sparkleh({
+  //     count: 25,
+  //     color: ["#00afec","#fb6f4a","#fdfec5"],
+  //   speed: 0.4
+  //   });
+  // });
 
 
 });

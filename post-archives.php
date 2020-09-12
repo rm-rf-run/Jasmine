@@ -63,10 +63,16 @@ setPostViews(get_the_ID());?>
 		        		<i class="fa fa-comments"></i>&nbsp;
                     <?php echo get_comment_count(get_the_ID())['approved']; ?>
 		        	</span>
-		        	<span class="post-edit">&nbsp;•&nbsp;
-                        <i class="fa fa-pencil-square-o"></i>&nbsp;
-                        <?php edit_post_link('编辑', '', '');?>
-		        	</span>
+                    <?php
+                        if (is_user_logged_in()) {
+                           ?>
+                                <span class="post-edit">&nbsp;•&nbsp;
+                                    <i class="fa fa-pencil-square-o"></i>&nbsp;
+                                    <?php edit_post_link('编辑', '', '');?>
+                                </span>
+                           <?php
+                        }
+                    ?>
 		        </div>
 		    </div>
         </div>
