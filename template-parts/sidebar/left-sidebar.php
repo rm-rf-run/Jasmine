@@ -135,7 +135,7 @@ the_author_meta('nickname', $author_obj->ID);?>
       </div>
       <div class="h-basic">
         <div>
-          <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
+          <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>" title="<?php if(!empty(get_option('jasmine_bilbil_name'))){echo esc_attr(get_option('jasmine_bilbil_name'));}?>">
             <span id="h-name"><?php if(!empty(get_option('jasmine_bilbil_name'))){echo esc_attr(get_option('jasmine_bilbil_name'));}?></span>
           </a>
           <a href="//www.bilibili.com/html/help.html#k" target="_blank" lvl="<?php if(!empty(get_option('jasmine_bilbil_level'))){echo esc_attr(get_option('jasmine_bilbil_level'));}?>" class="h-level m-level"></a>
@@ -155,7 +155,7 @@ the_author_meta('nickname', $author_obj->ID);?>
           <!---->
         </div>
         <div class="h-basic-spacing">
-          <h4 title="<?php if(!empty(get_option('jasmine_bilbil_describe'))){echo get_option('jasmine_bilbil_describe');}?>" class="h-sign">博客:www.prettywordpress.com</h4>
+          <h4 title="<?php if(!empty(get_option('jasmine_bilbil_describe'))){echo get_option('jasmine_bilbil_describe');}?>" class="h-sign"><?php if(!empty(get_option('jasmine_bilbil_describe'))){echo get_option('jasmine_bilbil_describe');}?></h4>
         </div>
       </div>
     </div>

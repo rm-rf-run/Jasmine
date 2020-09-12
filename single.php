@@ -39,6 +39,26 @@ setPostViews(get_the_ID());
                         <!-- <img src="https://acg.yanwz.cn/api.php" class="author-img"> -->
                         <?php echo get_simple_local_avatar(get_bloginfo('admin_email'), '50'); ?>
                       </div>
+                      <div class="jasmine-writingTime">
+                        <span>
+                          <i class="fa fa-clock-o" aria-hidden="true"></i>
+                          <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')); _e('前');?><!--确定两个时间戳之间的差异。-->
+                        </span>
+                        <div class="jasmine-article-info">
+                          <span>
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <?php echo 'By '.get_the_author();?>
+                          </span>
+                          <span>
+                            |&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"></i>
+                            <?php echo '浏览('.getPostViews(get_the_ID()).')';?>
+                          </span>
+                          <span>
+                            |&nbsp;&nbsp;<i class="fa fa-comments" aria-hidden="true"></i>
+                            <?php echo '评论('.get_comment_count(get_the_ID())['approved'].')';?>
+                          </span>
+                        </div>
+                      </div>
                     </div>
 							      <p class="jasmine-label">
 							        <span>

@@ -101,6 +101,9 @@ span {
 
 #user-info {
     margin-left: 8px;
+    font-style: italic;
+    font-size: larger;
+    font-variant: small-caps;
     padding: 10px 5px 5px 5px;
     width: 100%;
 }
@@ -537,6 +540,10 @@ dl {
     line-height: 18px;
     font-size: 18px;
     vertical-align: middle;
+    width: 72px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .m-level[lvl="1"] {
@@ -589,6 +596,10 @@ dl {
 
 .h-basic-spacing {
     margin-top: 8px;
+    width: 185px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .h-sign {
@@ -1298,14 +1309,13 @@ dl {
 }
 
 .author-img {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    top: 15px;
-    left: 15px;
     margin: 0;
     border: 0;
     border: 2px solid gray;
+    float: left;
     transition: all 1s;
 }
 
@@ -1313,4 +1323,24 @@ dl {
     transform: rotate(0.5turn);
     transition-delay: 0s;
     transition-property: all;
+}
+
+.post-meta-info {
+    display: inline-flex;
+    width: 100%;
+}
+.jasmine-writingTime{
+    padding-left: 10px;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.jasmine-article-info{
+    padding-top: 10px;
+    font-style: italic;
+    font-variant: small-caps;
+}
+
+.jasmine-article-info span{
+    margin-right: 5px;
 }
