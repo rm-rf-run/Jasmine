@@ -105,9 +105,7 @@ setPostViews(get_the_ID());
                 </a>
             </div>
           </div>
-          <div class="jasmine-comment-part">
-            <h3>评论</h3>
-          </div>
+          <?php comments_template();?>
           <!-- toasts -->
           <div class="toast jasmine-toast" class="d-flex justify-content-center align-items-center" style="position: absolute;top: 10%;right: 30%;" data-delay="2000">
             <div class="toast-header">

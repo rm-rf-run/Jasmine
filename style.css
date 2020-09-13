@@ -209,6 +209,9 @@ dl {
 
 .jasmine-content h2 {
     transition: all .3s;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .jasmine-article-img {
@@ -1132,6 +1135,7 @@ dl {
 }
 
 .jasmine-comment-part {
+    margin-top: 10px;
     background: #fff;
     border-radius: 4px;
     padding: 10px;
@@ -1407,18 +1411,70 @@ dl {
 .link--kukuri:hover::before {
     width: 100%;
 }
-.jasmine-archives-content{
+
+.jasmine-archives-content {
     padding: 15px;
 }
-.archives-content{
+
+.archives-content {
     padding: 15px;
 }
-.archives_mon_list{
+
+.archives_mon_list {
     padding-left: 35px
 }
-.archives_post_list{
+
+.archives_post_list {
     padding-left: 40px;
 }
-.no-des{
+
+.no-des {
     color: black;
+}
+.comment-respond{
+    margin: 15px;
+}
+.commentator{
+    display: table-cell;
+    padding-right: 10px;
+}
+.commentator .avatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 2px;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+}
+.comment-login{
+    padding-top: 4px;
+    font-size: 14px;
+    background-color: #fbf9f9;
+    border-radius: 5px;
+    border: 1px solid #e3e8e8;
+    padding-left: 10px;
+    width: 100%;
+    display: table-cell;
+    vertical-align: top;
+}
+.comment-login p{
+    margin: 0px;
+    padding: 0px;
+}
+.comment-textarea{
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fbf9f9;
+    border: 1px solid #e3e8e8;
+    border-radius: 5px;
+    color: #555;
+    height: 72px;
+    padding: 5px 10px;
+    line-height: normal;
+    margin: 10px 0 5px;
+    width: 100%;
 }

@@ -81,6 +81,7 @@ setPostViews(get_the_ID());?>
                 <?php endif; ?>
             </div>
         </div>
+        <?php comments_template();?>
         </div>
         <!--右边栏-->
         <div class="col-md-3 column">
