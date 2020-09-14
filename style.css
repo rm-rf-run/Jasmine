@@ -1295,6 +1295,15 @@ dl {
 .jasmine-tag-cloud {
     background: #fff;
     border-radius: 4px;
+    padding: 10px;
+}
+
+.jasmine-tag-cloud a{
+    display: inline-block;
+    padding: 5px 12px;
+    margin: 2px;
+    border-radius: 2px;
+    color: #fff;
 }
 
 .jasmine-post-archives {

@@ -9,7 +9,7 @@ require get_template_directory() . '/inc/customized-plugin.php';
 require get_template_directory() . '/inc/api.php';
 
 // Custom comment walker.
-require get_template_directory() . '/classes/class-twentytwenty-walker-comment.php';
+require get_template_directory() . '/inc/classes/class-twentytwenty-walker-comment.php';
 
 //注册菜单的名称
 function register_my_menus()

@@ -147,6 +147,18 @@
             $(this).addClass(labelData[getRandomInt(7)]);
         });
 
+        //标签随机颜色 
+        //获取十六进制颜色
+        function randomColor() {
+            var color = "";
+            for (var i = 0; i < 6; i++) {
+                color += (Math.random() * 16 | 0).toString(16);
+            }
+            return "#" + color;
+        }
+        $(".jasmine-tag-cloud a").each(function(index, element) {
+            $(this).css('background',randomColor());
+        });
 
      })
  })(jQuery);
