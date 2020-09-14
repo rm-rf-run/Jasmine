@@ -296,40 +296,40 @@ function clear_archives_list_cache() {
 add_action('save_post', 'clear_archives_list_cache'); // 新发表文章/修改文章时
 
 // bilibili smiles
-$bilismiliestrans = array();
-function push_bili_smilies()
-{
-    global $bilismiliestrans;
-    $smiles_path = __DIR__ . "/assets/images/smilies/bili/";
-    $name = array('baiyan', 'fadai', 'koubi', 'qinqin', 'weiqu', 'bishi', 'fanu', 'kun', 'se', 'weixiao', 'bizui', 'ganga', 'lengmo', 'shengbing', 'wunai', 'chan', 'guilian', 'liubixue', 'shengqi', 'xiaoku', 'daku', 'guzhang', 'liuhan', 'shuizhao', 'xieyanxiao', 'dalao', 'haixiu', 'liulei', 'sikao', 'yiwen', 'dalian', 'heirenwenhao', 'miantian', 'tiaokan', 'yun', 'dianzan', 'huaixiao', 'mudengkoudai', 'tiaopi', 'zaijian', 'doge', 'jingxia', 'nanguo', 'touxiao', 'zhoumei', 'facai', 'keai', 'outu', 'tuxue', 'zhuakuang');
-    $return_smiles = '';
-    for ($i = 0; $i < count($name); $i++) {
-        $img_size = getimagesize($smiles_path . $name[$i] . ".png");
-        $img_height = $img_size["1"];
-        // 选择面版
-        $return_smiles = $return_smiles . '<span class="emotion-secter emotion-item emotion-select-parent" onclick="grin(' . "'" . $name[$i] . "'" . ',type = \'Math\')" style="background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@2.9.4/img/bili/hd/ic_emoji_' . $name[$i] . '.png);"><div class="img emotion-select-child" style="background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@2.9.4/img/bili/' . $name[$i] . '.png);
-        animation-duration: ' . ($img_height / 32 * 40) . 'ms;
-        animation-timing-function: steps(' . ($img_height / 32) . ');
-        transform: translateY(-' . ($img_height - 32) . 'px);
-        height: ' . $img_height . 'px;
-        "></div></span>';
-        // 正文转换
-        $bilismiliestrans['{{' . $name[$i] . '}}'] = '<span class="emotion-inline emotion-item"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@2.9.4/img/bili/' . $name[$i] . '.png" class="img" style="/*background-image: url();*/
-        animation-duration: ' . ($img_height / 32 * 40) . 'ms;
-        animation-timing-function: steps(' . ($img_height / 32) . ');
-        transform: translateY(-' . ($img_height - 32) . 'px);
-        height: ' . $img_height . 'px;
-        "></span>';
-    }
-    return $return_smiles;
-}
-push_bili_smilies();
+// $bilismiliestrans = array();
+// function push_bili_smilies()
+// {
+//     global $bilismiliestrans;
+//     $smiles_path = __DIR__ . "/assets/images/smilies/bili/";
+//     $name = array('baiyan', 'fadai', 'koubi', 'qinqin', 'weiqu', 'bishi', 'fanu', 'kun', 'se', 'weixiao', 'bizui', 'ganga', 'lengmo', 'shengbing', 'wunai', 'chan', 'guilian', 'liubixue', 'shengqi', 'xiaoku', 'daku', 'guzhang', 'liuhan', 'shuizhao', 'xieyanxiao', 'dalao', 'haixiu', 'liulei', 'sikao', 'yiwen', 'dalian', 'heirenwenhao', 'miantian', 'tiaokan', 'yun', 'dianzan', 'huaixiao', 'mudengkoudai', 'tiaopi', 'zaijian', 'doge', 'jingxia', 'nanguo', 'touxiao', 'zhoumei', 'facai', 'keai', 'outu', 'tuxue', 'zhuakuang');
+//     $return_smiles = '';
+//     for ($i = 0; $i < count($name); $i++) {
+//         $img_size = getimagesize($smiles_path . $name[$i] . ".png");
+//         $img_height = $img_size["1"];
+//         // 选择面版
+//         $return_smiles = $return_smiles . '<span class="emotion-secter emotion-item emotion-select-parent" onclick="grin(' . "'" . $name[$i] . "'" . ',type = \'Math\')" style="background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@2.9.4/img/bili/hd/ic_emoji_' . $name[$i] . '.png);"><div class="img emotion-select-child" style="background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@2.9.4/img/bili/' . $name[$i] . '.png);
+//         animation-duration: ' . ($img_height / 32 * 40) . 'ms;
+//         animation-timing-function: steps(' . ($img_height / 32) . ');
+//         transform: translateY(-' . ($img_height - 32) . 'px);
+//         height: ' . $img_height . 'px;
+//         "></div></span>';
+//         // 正文转换
+//         $bilismiliestrans['{{' . $name[$i] . '}}'] = '<span class="emotion-inline emotion-item"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@2.9.4/img/bili/' . $name[$i] . '.png" class="img" style="/*background-image: url();*/
+//         animation-duration: ' . ($img_height / 32 * 40) . 'ms;
+//         animation-timing-function: steps(' . ($img_height / 32) . ');
+//         transform: translateY(-' . ($img_height - 32) . 'px);
+//         height: ' . $img_height . 'px;
+//         "></span>';
+//     }
+//     return $return_smiles;
+// }
+// push_bili_smilies();
 
-function bili_smile_filter($content)
-{
-    global $bilismiliestrans;
-    $content = str_replace(array_keys($bilismiliestrans), $bilismiliestrans, $content);
-    return $content;
-}
-add_filter('the_content', 'bili_smile_filter'); //替换文章关键词
-add_filter('comment_text', 'bili_smile_filter'); //替换评论关键词
+// function bili_smile_filter($content)
+// {
+//     global $bilismiliestrans;
+//     $content = str_replace(array_keys($bilismiliestrans), $bilismiliestrans, $content);
+//     return $content;
+// }
+// add_filter('the_content', 'bili_smile_filter'); //替换文章关键词
+// add_filter('comment_text', 'bili_smile_filter'); //替换评论关键词
