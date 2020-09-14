@@ -147,8 +147,7 @@
             $(this).addClass(labelData[getRandomInt(7)]);
         });
 
-        //标签随机颜色 
-        //获取十六进制颜色
+        //标签随机获取十六进制颜色
         function randomColor() {
             var color = "";
             for (var i = 0; i < 6; i++) {
