@@ -8,6 +8,11 @@ require get_template_directory() . '/inc/customized-plugin.php';
 //底部音乐
 require get_template_directory() . '/inc/api.php';
 
+//markdown
+require get_template_directory() . '/inc/markdown/MarkdownInterface.php';
+require get_template_directory() . '/inc/markdown/Markdown.php';
+require get_template_directory() . '/inc/markdown/MarkdownExtra.php';
+
 // Custom comment walker.
 require get_template_directory() . '/inc/classes/class-twentytwenty-walker-comment.php';
 
@@ -232,7 +237,7 @@ function memory_add_pages()
     global $pagenow;
     //判断是否为激活主题页面
     if ('themes.php' == $pagenow && isset($_GET['activated'])) {
-        memory_add_page('归档','post-archives','post-archives.php');//页面标题、别名、页面模板
+        memory_add_page('归档', 'post-archives', 'post-archives.php'); //页面标题、别名、页面模板
         memory_add_page('友情链接', 'friend-link', 'friend-link.php');
     }
 }
@@ -263,26 +268,37 @@ function xintheme_unregisterWidgets()
 }
 
 // 文章归档
-function archives_list() {
-    if( !$output = get_option('archives_list') ){
-        $output = '<div class="archives-content">';
-        $the_query = new WP_Query( 'posts_per_page=-1&ignore_sticky_posts=1&post_type=post' ); 
-        $year=0; $mon=0; $i=0; $j=0;
-        while ( $the_query->have_posts() ) : $the_query->the_post();
+function archives_list()
+{
+    if (!$output = get_option('archives_list')) {
+        $output    = '<div class="archives-content">';
+        $the_query = new WP_Query('posts_per_page=-1&ignore_sticky_posts=1&post_type=post');
+        $year      = 0;
+        $mon       = 0;
+        $i         = 0;
+        $j         = 0;
+        while ($the_query->have_posts()): $the_query->the_post();
             $year_tmp = get_the_time('Y');
-            $mon_tmp = get_the_time('M');
-            $y=$year; $m=$mon;
-            if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></li>';
-            if ($year != $year_tmp && $year > 0) $output .= '</ul>';
+            $mon_tmp  = get_the_time('M');
+            $y        = $year;
+            $m        = $mon;
+            if ($mon != $mon_tmp && $mon > 0) {
+                $output .= '</ul></li>';
+            }
+
+            if ($year != $year_tmp && $year > 0) {
+                $output .= '</ul>';
+            }
+
             if ($year != $year_tmp) {
                 $year = $year_tmp;
-                $output .= '<h3 class="archives_year">'. $year .' 年</h3><ul class="archives_mon_list">'; //输出年份
+                $output .= '<h3 class="archives_year">' . $year . ' 年</h3><ul class="archives_mon_list">'; //输出年份
             }
             if ($mon != $mon_tmp) {
                 $mon = $mon_tmp;
-                $output .= '<li><span class="archives_mon">'.$mon.'</span><ul class="archives_post_list">'; //输出月份
+                $output .= '<li><span class="archives_mon">' . $mon . '</span><ul class="archives_post_list">'; //输出月份
             }
-            $output .= '<li>'.'<a class="no-des" href="'. get_permalink() .'">'.get_the_time('j日: ') . get_the_title() .'('. get_comments_number('0', '1', '%') .'条评论)</a></li>'; //输出文章日期和标题
+            $output .= '<li>' . '<a class="no-des" href="' . get_permalink() . '">' . get_the_time('j日: ') . get_the_title() . '(' . get_comments_number('0', '1', '%') . '条评论)</a></li>'; //输出文章日期和标题
         endwhile;
         wp_reset_postdata();
         $output .= '</ul></li></ul></div>';
@@ -290,8 +306,18 @@ function archives_list() {
     }
     echo $output;
 }
-function clear_archives_list_cache() {
+function clear_archives_list_cache()
+{
     update_option('archives_list', ''); // 清空 archives_list
 }
 add_action('save_post', 'clear_archives_list_cache'); // 新发表文章/修改文章时
 
+//评论支持Markdown
+use \Michelf\MarkdownExtra;
+add_filter('pre_comment_content', 'markdownify_comment');
+function markdownify_comment($comment_content)
+{
+
+    return MarkdownExtra::defaultTransform($comment_content);
+
+}
