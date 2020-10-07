@@ -81,6 +81,8 @@ function register_jasmine_settings() {
 	register_setting('jasmine_group', 'jasmine_notice');
 	register_setting('jasmine_group', 'jasmine_startDate');
 	register_setting('jasmine_group', 'jasmine_bilbil_uid');
+  register_setting('jasmine_group', 'jasmine_zfb');
+  register_setting('jasmine_group', 'jasmine_wx');
 	register_setting('jasmine_group', 'jasmine_CSND');
 	register_setting('jasmine_group', 'jasmine_GitHub');
 	register_setting('jasmine_group', 'jasmine_weibo');
@@ -221,6 +223,18 @@ function my_options() {
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-md-12 bm-12">
+                      <label for="jasmine_zfb">支付宝收款二维码</label>
+                      <input type="text" size="60" value="<?php echo esc_attr(get_option('jasmine_zfb')); ?>" name="jasmine_zfb" id="jasmine_zfb"/> <a id="jasmine_zfb" class="upload btn btn-primary" href="#">上传</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 bm-12">
+                      <label for="jasmine_wx" style="margin-right: 16px;">微信收款二维码</label>
+                      <input type="text" size="60" value="<?php echo esc_attr(get_option('jasmine_wx')); ?>" name="jasmine_wx" id="jasmine_wx"/> <a id="jasmine_wx" class="upload btn btn-primary" href="#">上传</a>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-2 bm-2">
                       <label for="CSND">CSND</label>
                       <input type="text" class="form-control" name="jasmine_CSND" id="CSND" placeholder="填网址" value="<?php echo esc_attr(get_option('jasmine_CSND')); ?>" >
@@ -342,7 +356,7 @@ function my_options() {
                   <div class="row">
                     <div class="col-md-12 bm-12">
                       <label for="jasmine_bg">背景图片</label>
-                      <input type="text" size="60" value="<?php echo esc_attr(get_option('jasmine_bg')); ?>" name="jasmine_bg" id="jasmine_bg"/> <a id="jasmine_bg" class="jasmine_bg btn btn-primary" href="#">上传</a>
+                      <input type="text" size="60" value="<?php echo esc_attr(get_option('jasmine_bg')); ?>" name="jasmine_bg" id="jasmine_bg"/> <a id="jasmine_bg" class="upload btn btn-primary" href="#">上传</a>
                     </div>
                   </div>
                   <hr class="mb-4">

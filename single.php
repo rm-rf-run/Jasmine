@@ -85,10 +85,22 @@ setPostViews(get_the_ID());
                   <div class="jasmine-appreciation-img">
                     <ul class="jasmine-appreciation-ul">
                       <li class="jasmine-alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.3/img/other/AliPayQR.jpg" style="width: 130px;max-width: 130px;">
+                        <?php if(get_option('jasmine_zfb')){?>
+                          <img src="<?php echo esc_attr(get_option('jasmine_zfb'));?>" style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
+                        <?php }else{?>
+                          <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
+                            <p style="padding-top: 40%;">还没设置收款码</p>
+                          </div>  
+                        <?php }?>
                       </li>
                       <li class="jasmine-wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.3/img/other/WeChanQR.png" style="width: 130px;max-width: 130px;">
+                        <?php if(get_option('jasmine_wx')){?>
+                          <img src="<?php echo esc_attr(get_option('jasmine_wx'));?>" style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
+                        <?php }else{?>
+                          <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
+                            <p style="padding-top: 40%;">还没设置收款码</p>
+                          </div>  
+                        <?php }?>
                       </li>
                     </ul>
                   </div>
