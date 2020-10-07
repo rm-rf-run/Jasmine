@@ -5,6 +5,8 @@ require get_template_directory() . '/inc/author-avatars.php';
 require get_template_directory() . '/inc/optimization-speed.php';
 //主题自带插件
 require get_template_directory() . '/inc/customized-plugin.php';
+//网站SEO
+require get_template_directory() . '/inc/seo.php';
 //底部音乐
 require get_template_directory() . '/inc/api.php';
 
@@ -76,7 +78,7 @@ add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
 
 //添加一个自定义背景
 //选择填满屏幕
-add_theme_support('custom-background');
+// add_theme_support('custom-background');
 
 //随机文章
 function random_posts($posts_num = 5, $before = '<li>', $after = '</li>')

@@ -28,6 +28,14 @@
 if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
     </title>
     <?php wp_head();?>
+    <style type="text/css">
+      .jasmine-background{
+          background-image: url(<?php echo get_option('jasmine_bg');?>);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+      }
+    </style>
   </head>
   <body <?php body_class();?>>
   <header class="fixed-top">

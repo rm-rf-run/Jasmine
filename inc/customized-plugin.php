@@ -112,6 +112,11 @@ function register_jasmine_settings() {
   register_setting('jasmine_default', 'jasmine_siteDescription');
   register_setting('jasmine_default', 'jasmine_siteEmail');
   register_setting('jasmine_default', 'jasmine_siteKey');
+  register_setting('jasmine_default', 'jasmine_bg', array('default' => get_template_directory_uri() .'/assets/images/default_bg.jpg'));
+
+  //seo数据
+  register_setting('jasmine_seo', 'jasmine_home_keywords');
+  register_setting('jasmine_seo', 'jasmine_home_description');
 }
 
 function add_bilbil_data() {
@@ -170,6 +175,11 @@ function my_options() {
 	wp_enqueue_script('jasmine-theme-js');
 	//下面是主题自带表单，按需设置
 	?>
+  <style type="text/css">
+    .row{
+      margin-bottom: 15px;
+    }
+  </style>
     <div class="container" style="margin-top: 50px">
       <div class="py-5 text-center">
         <h2>Jasmine主题设置</h2>
@@ -183,6 +193,9 @@ function my_options() {
             </button>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
               默认选项
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+              SEO选项
             </button>
           </p>
           <!--第一个表单-->
@@ -302,19 +315,19 @@ function my_options() {
                   </div>
                   <div class="row">
                     <div class="col-md-2 bm-2">
-                      <label for="jasmine_siteName">站点名称</label>
+                      <label for="jasmine_siteName">友链名称</label>
                       <input type="text" class="form-control" name="jasmine_siteName" id="jasmine_siteName" placeholder="默认为站点名称" value="<?php echo esc_attr(get_option('jasmine_siteName')); ?>" >
                     </div>
                     <div class="col-md-2 bm-2">
-                      <label for="jasmine_siteHref">站点链接</label>
+                      <label for="jasmine_siteHref">友链链接</label>
                       <input type="text" class="form-control" name="jasmine_siteHref" id="jasmine_siteHref" placeholder="默认就是站点首页" value="<?php echo esc_attr(get_option('jasmine_siteHref')); ?>">
                     </div>
                     <div class="col-md-2 bm-2">
-                      <label for="jasmine_siteLogo">站点LOGO</label>
-                      <input type="text" class="form-control" name="jasmine_siteLogo" id="jasmine_siteLogo" placeholder="站点LOGO地址" value="<?php echo esc_attr(get_option('jasmine_siteLogo')); ?>" >
+                      <label for="jasmine_siteLogo">友链LOGO</label>
+                      <input type="text" class="form-control" name="jasmine_siteLogo" id="jasmine_siteLogo" placeholder="图片地址" value="<?php echo esc_attr(get_option('jasmine_siteLogo')); ?>" >
                     </div>
                     <div class="col-md-2 bm-2">
-                      <label for="jasmine_siteDescription">站点描述</label>
+                      <label for="jasmine_siteDescription">友链站点描述</label>
                       <input type="text" class="form-control" name="jasmine_siteDescription" id="jasmine_siteDescription" placeholder="默认为站点描述" value="<?php echo esc_attr(get_option('jasmine_siteDescription')); ?>" >
                     </div>
                     <div class="col-md-2 bm-2">
@@ -326,11 +339,42 @@ function my_options() {
                       <input type="text" class="form-control" name="jasmine_siteKey" id="jasmine_siteKey" placeholder="默认为申请友链" value="<?php echo esc_attr(get_option('jasmine_siteKey')); ?>" >
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-12 bm-12">
+                      <label for="jasmine_bg">背景图片</label>
+                      <input type="text" size="60" value="<?php echo esc_attr(get_option('jasmine_bg')); ?>" name="jasmine_bg" id="jasmine_bg"/> <a id="jasmine_bg" class="jasmine_bg btn btn-primary" href="#">上传</a>
+                    </div>
+                  </div>
                   <hr class="mb-4">
                   <?php submit_button(__('确定', 'textdomain'), 'btn btn-primary btn-lg btn-block', '', false);?>
                 </form>
               </div>
             </div>
+            <!--第三个表单-->
+            <div class="collapse" id="collapseExample3" data-parent="#accordionExample">
+              <div class="card card-body col-md-12">
+                <form class="needs-validation" method="post"  action ="options.php" name="form2">
+                  <?php settings_fields('jasmine_seo');?>
+                  <?php do_settings_sections('jasmine_seo');?>
+                  <div class="row">
+                    <div class="col-md-6 bm-6">
+                      <label for="jasmine_home_keywords">主页关键词</label>
+                      <input type="text" class="form-control" name="jasmine_home_keywords" id="jasmine_home_keywords" value="<?php echo esc_attr(get_option('jasmine_home_keywords')); ?>" >
+                    </div>
+                     <div class="col-md-6 bm-6">
+                      <label for="jasmine_home_description">主页描述</label>
+                      <input type="text" class="form-control" name="jasmine_home_description" id="jasmine_home_description" value="<?php echo esc_attr(get_option('jasmine_home_description')); ?>" >
+                    </div>
+                  </div>
+                  <div class="alert alert-primary" role="alert">
+                    seo详细内容请移步到seo.php中查看
+                  </div>
+                  <hr class="mb-4">
+                  <?php submit_button(__('确定', 'textdomain'), 'btn btn-primary btn-lg btn-block', '', false);?>
+                </form>
+              </div>
+            </div>
+        <!--所有表单结束-->    
         </div>
       </div>
     </div>
@@ -410,7 +454,12 @@ function echo_extraCss(){
 }
 
 //额外css
-add_action('wp_head','echo_extraCss')
+add_action('wp_head','echo_extraCss');
+
+//添加背景图片样式
+add_filter( 'body_class', function( $classes ) {
+    return array_merge( $classes, array( 'jasmine-background' ) );
+} );
 
 ?>
 
