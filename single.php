@@ -28,7 +28,7 @@ setPostViews(get_the_ID());
           <?php get_template_part('template-parts/sidebar/left-sidebar');?>
         </div>
         <!--中间栏-->
-        <div class="col-md-6 column" id="pjax-container">
+        <div class="col-md-7 column" id="pjax-container">
           <?php get_template_part('template-parts/nav/nav-post');?>
           <div class="jasmine-post-content">
             <?php if (have_posts()): ?>
@@ -117,7 +117,12 @@ setPostViews(get_the_ID());
                 </a>
             </div>
           </div>
-          <?php comments_template();?>
+          <?php
+            // 如果评论是开放的或者我们至少有一个评论，加载评论模板。
+               if ( comments_open() || get_comments_number() ) :
+                   comments_template();
+               endif;
+          ?>
           <!-- toasts -->
           <div class="toast jasmine-toast" class="d-flex justify-content-center align-items-center" style="position: absolute;top: 10%;right: 30%;" data-delay="2000">
             <div class="toast-header">
@@ -135,7 +140,7 @@ setPostViews(get_the_ID());
           <!-- end-->
         </div>
         <!--右边栏-->
-        <div class="col-md-3 column">
+        <div class="col-md-2 column">
           <?php get_template_part('template-parts/sidebar/right-sidebar');?>
         </div>
       </div>

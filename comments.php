@@ -1,5 +1,5 @@
 <?php
- /**
+/**
  *  ::::::'##::::'###:::::'######::'##::::'##:'####:'##::: ##:'########:
  *  :::::: ##:::'## ##:::'##... ##: ###::'###:. ##:: ###:: ##: ##.....::
  *  :::::: ##::'##:. ##:: ##:::..:: ####'####:: ##:: ####: ##: ##:::::::
@@ -16,124 +16,98 @@
  * @link https://www.prettywordpress.com
  * Template Name: 评论模块
  */
- if (post_password_required() ) {
+if (post_password_required()) {
     return;
 }
 ?>
 <div class="jasmine-comment-part">
-	<?php if ( $comments ) {
-	?>
-
-	<div class="comments" id="comments">
-
-		<?php
-		$comments_number = absint( get_comments_number() );
-		?>
-
-		<div class="comments-header section-inner small max-percentage">
-
-			<h2 class="comment-reply-title">
-			<?php
-			if ( ! have_comments() ) {
-				_e( 'Leave a comment', 'twentytwenty' );
-			} elseif ( '1' === $comments_number ) {
-				/* translators: %s: Post title. */
-				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'twentytwenty' ), get_the_title() );
-			} else {
-				printf(
-					/* translators: 1: Number of comments, 2: Post title. */
-					_nx(
-						'%1$s reply on &ldquo;%2$s&rdquo;',
-						'%1$s replies on &ldquo;%2$s&rdquo;',
-						$comments_number,
-						'comments title',
-						'twentytwenty'
-					),
-					number_format_i18n( $comments_number ),
-					get_the_title()
-				);
-			}
-
-			?>
-			</h2><!-- .comments-title -->
-
-		</div><!-- .comments-header -->
-
-		<div class="comments-inner section-inner thin max-percentage">
-
-			<?php
-			wp_list_comments(
-				array(
-					'walker'      => new TwentyTwenty_Walker_Comment(),
-					'avatar_size' => 120,
-					'style'       => 'div',
-				)
-			);
-
-			$comment_pagination = paginate_comments_links(
-				array(
-					'echo'      => false,
-					'end_size'  => 0,
-					'mid_size'  => 0,
-					'next_text' => __( 'Newer Comments', 'twentytwenty' ) . ' <span aria-hidden="true">&rarr;</span>',
-					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'twentytwenty' ),
-				)
-			);
-
-			if ( $comment_pagination ) {
-				$pagination_classes = '';
-
-				// If we're only showing the "Next" link, add a class indicating so.
-				if ( false === strpos( $comment_pagination, 'prev page-numbers' ) ) {
-					$pagination_classes = ' only-next';
-				}
-				?>
-
-				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'twentytwenty' ); ?>">
-					<?php echo wp_kses_post( $comment_pagination ); ?>
-				</nav>
-
-				<?php
-			}
-			?>
-
-		</div><!-- .comments-inner -->
-
-	</div><!-- comments -->
-
 	<?php
-}
-
-if ( comments_open() || pings_open() ) {
-
-	if ( $comments ) {
-		echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
-	}
-
-	comment_form(
-		array(
-			'class_form'         => 'section-inner thin max-percentage',
-			'title_reply'        => '评论',
-			'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h3>',
-		)
-	);
-
-} elseif ( is_single() ) {
-
-	if ( $comments ) {
-		echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
-	}
-
-	?>
-
-	<div class="comment-respond" id="respond">
-
-		<p class="comments-closed"><?php _e( 'Comments are closed.', 'twentytwenty' ); ?></p>
-
-	</div><!-- #respond -->
-
-	<?php
-}
+//声明变量
+$comment_send      = '发表评论';
+$comment_reply     = '发表一下你的评论呗';
+$comment_reply_to  = '回复';
+$comment_author    = 'Name';
+$comment_email     = 'E-Mail';
+$comment_body      = 'Comment';
+$comment_url       = 'Website';
+$comment_cookies_1 = ' 回复评论代表你同意网站的';
+$comment_cookies_2 = ' 隐私政策';
+$comment_before    = '';
+$comment_cancel    = '取消回复';
+$comment_bird      = '<div style="float:left;padding-top: 10px;"><img src="/prettywordpress/wordpress/wp-content/themes/Jasmine/assets/images/avatarBird.png" height="48" width="48"></div>';
+//Array
+$comments_args = array(
+    //Define Fields
+    'fields'               => array(
+        //Author field
+        'author_id' => '<div class="input-group mb-3"><div class="input-group-prepend" style="background-color: white;"><span class="input-group-text" id="basic-addon1" style="
+    background-color: white;
+    padding-right: 0px;
+    border-right: none;
+"><i class="fa fa-television" aria-hidden="true"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="" style="
+    border-left: none;
+">
+</div>',
+        //Author field
+        'author'    => '<p class="comment-form-author"><br /><input id="author" name="author" aria-required="true" placeholder="' . $comment_author . '"></input></p>',
+        //Email Field
+        'email'     => '<p class="comment-form-email"><br /><input id="email" name="email" placeholder="' . $comment_email . '"></input></p>',
+        //URL Field
+        'url'       => '<p class="comment-form-url"><br /><input id="url" name="url" placeholder="' . $comment_url . '"></input></p>',
+        //Cookies
+        'cookies'   => '<input type="checkbox" required>' . $comment_cookies_1 . '<a href="' . get_privacy_policy_url() . '">' . $comment_cookies_2 . '</a>',
+    ),
+    // Change the title of send button
+    'label_submit'         => __($comment_send),
+    // Change the title of the reply section
+    'title_reply'          => __($comment_reply),
+    // Change the title of the reply section
+    'title_reply_to'       => __($comment_reply_to),
+    //Cancel Reply Text
+    'cancel_reply_link'    => __($comment_cancel),
+    // Redefine your own textarea (the comment body).
+    'comment_field'        => '<p class="comment-form-comment"><br /><textarea id="comment" name="comment" aria-required="true" placeholder="' . $comment_body . '"></textarea></p>',
+    //Message Before Comment
+    'comment_notes_before' => __($comment_before),
+    // Remove "Text or HTML to be displayed after the set of comment fields".
+    'comment_notes_after'  => '',
+    //Submit Button ID
+    'id_submit'            => __('comment-submit'),
+    'title_reply_after'    => '</h3>' . $comment_bird,
+    //表单的id属性
+    'id_form'              => __('comment-form'),
+);
+comment_form($comments_args);
 ?>
-</div>
+    <?php if (have_comments()): ?>
+        <ol class="comment-list">
+            <?php
+wp_list_comments(array(
+    'style'       => 'ol',
+    'short_ping'  => true,
+    'avatar_size' => 54,
+));
+?>
+        </ol><!-- .comment-list -->
+
+        <?php
+// Are there comments to navigate through?
+if (get_comment_pages_count() > 1 && get_option('page_comments')):
+?>
+        <nav class="navigation comment-navigation" role="navigation">
+            <h1 class="screen-reader-text section-heading"><?php _e('Comment navigation', 'twentythirteen');?></h1>
+            <div class="nav-previous"><?php previous_comments_link(__('&amp;larr; Older Comments', 'twentythirteen'));?></div>
+            <div class="nav-next"><?php next_comments_link(__('Newer Comments &amp;rarr;', 'twentythirteen'));?></div>
+        </nav><!-- .comment-navigation -->
+        <?php endif; // Check for comment navigation ?>
+
+        <?php if (!comments_open() && get_comments_number()): ?>
+        <p class="no-comments"><?php _e('Comments are closed.', 'twentythirteen');?></p>
+        <?php endif;?>
+
+    <?php endif; // have_comments() ?>
+
+
+</div><!-- #comments -->

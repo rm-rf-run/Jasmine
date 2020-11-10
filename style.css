@@ -252,8 +252,8 @@ dl {
 
 .jasmine-content {
     position: relative;
-    margin-top: -37%;
-    padding-top: 15%;
+    margin-top: -31.5%;
+    padding-top: 11.5%;
     height: 200px;
     text-align: center;
     transition: all .3s;
@@ -311,7 +311,7 @@ dl {
 .jasmine-notice {
     background: #fff;
     border-radius: 8px;
-    padding: 16px 16px 6px 16px;
+    /*padding: 16px 16px 6px 16px;*/
     margin-bottom: 8px;
 }
 
@@ -446,13 +446,13 @@ dl {
 .jasmine-random-articles {
     background: #fff;
     border-radius: 8px;
-    padding: 16px 16px 6px 16px;
+    /*padding: 16px 16px 6px 16px;*/
     margin-bottom: 8px;
 }
 
 .jasmine-random-articles ul {
     list-style-type: decimal;
-    padding-left: 40px
+    padding-left: 15px
 }
 
 .jasmine-random-articles ul li a {
@@ -762,7 +762,7 @@ dl {
 .jasmine-appreciation-img {
     padding: 5px;
     position: absolute;
-    left: 128px;
+    left: 175px;
     animation: all .4s;
     display: none;
 }
@@ -1295,7 +1295,7 @@ dl {
 .jasmine-tag-cloud {
     background: #fff;
     border-radius: 4px;
-    padding: 10px;
+    /*padding: 10px;*/
 }
 
 .jasmine-tag-cloud a{
@@ -1486,4 +1486,7 @@ dl {
     line-height: normal;
     margin: 10px 0 5px;
     width: 100%;
+}
+.comment-form{
+    margin-left: 55px;
 }

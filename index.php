@@ -28,7 +28,7 @@ get_header();
           <?php get_template_part( 'template-parts/sidebar/left-sidebar');?>
         </div>
         <!--中间栏-->
-        <div class="col-md-6 column" id="pjax-container">
+        <div class="col-md-7 column" id="pjax-container">
         	<?php if ( is_home() && is_front_page() ) :
             //导入主页的面包屑导航
             get_template_part( 'template-parts/nav/nav-home');
@@ -71,7 +71,7 @@ get_header();
 			?>
         </div>
         <!--右边栏-->
-        <div class="col-md-3 column">
+        <div class="col-md-2 column">
           <?php get_template_part( 'template-parts/sidebar/right-sidebar');?>
         </div>
       </div>
