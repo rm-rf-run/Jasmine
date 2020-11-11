@@ -347,17 +347,15 @@ function mo_comment_fields_custom_order( $fields ) {
 //评论OwO表情
 function my_load_scripts($hook) {
 
-    wp_enqueue_style( 'owo', '//cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/inc/OwO/OwO.min.css', array(), '1.1.0', 'all' );
+    wp_enqueue_style( 'owo', get_template_directory_uri().'/inc/OwO/OwO.min.css', array(), '1.1.0', 'all' );
 
 }
 add_action('wp_enqueue_scripts', 'my_load_scripts');
 
 //定义OwO json，图片地址
-//define( 'OwO_API', get_bloginfo('template_directory').'/OwO/OwO.min.json' );
-define( 'OwO_API', 'https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/inc/OwO/OwO.min.json' );
-define( 'OwO_alu', 'https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/inc/OwO/alu' );
-define( 'OwO_paopao', 'https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/inc/OwO/paopao' );
-define( 'OwO_bili', 'https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/inc/OwO/bili' );
+define( 'OwO_API', get_template_directory_uri().'/inc/OwO/OwO.min.json' );
+define( 'OwO_alu', get_template_directory_uri().'/inc/OwO/alu' );
+define( 'OwO_paopao', get_template_directory_uri().'/inc/OwO/paopao' );
 
 function comment_add_owo($comment_text) {
     $data_OwO = array(
@@ -496,25 +494,7 @@ function comment_add_owo($comment_text) {
         '@[nico]' => '<img src="'.OwO_paopao.'/nico.png" alt="nico" style="vertical-align: middle;">',
         '@[OK]' => '<img src="'.OwO_paopao.'/OK.png" alt="OK" style="vertical-align: middle;">',
         '@[what]' => '<img src="'.OwO_paopao.'/what.png" alt="what" style="vertical-align: middle;">',
-        '@[baiyan]' => '<img src="'.OwO_bili.'/baiyan.png" alt="baiyan" style="vertical-align: middle;">',
     );
     return strtr($comment_text,$data_OwO);
 }
 add_filter( 'comment_text' , 'comment_add_owo', 20, 2);
-
-// bilibili smiles
-// $bilismiliestrans = array();
-// function push_bili_smilies()
-// {
-//     global $bilismiliestrans;
-//     $smiles_path = __DIR__ . "/images/smilies/bili/";
-//     $name = array('baiyan', 'fadai', 'koubi', 'qinqin', 'weiqu', 'bishi', 'fanu', 'kun', 'se', 'weixiao', 'bizui', 'ganga', 'lengmo', 'shengbing', 'wunai', 'chan', 'guilian', 'liubixue', 'shengqi', 'xiaoku', 'daku', 'guzhang', 'liuhan', 'shuizhao', 'xieyanxiao', 'dalao', 'haixiu', 'liulei', 'sikao', 'yiwen', 'dalian', 'heirenwenhao', 'miantian', 'tiaokan', 'yun', 'dianzan', 'huaixiao', 'mudengkoudai', 'tiaopi', 'zaijian', 'doge', 'jingxia', 'nanguo', 'touxiao', 'zhoumei', 'facai', 'keai', 'outu', 'tuxue', 'zhuakuang');
-//     $return_smiles = '';
-//     for ($i = 0; $i < count($name); $i++) {
-//         $img_size = getimagesize($smiles_path . $name[$i] . ".png");
-//         $img_height = $img_size["1"];
-        
-//     }
-//     return $return_smiles;
-// }
-// push_bili_smilies();

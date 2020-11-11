@@ -25,10 +25,10 @@ if (post_password_required()) {
 //声明变量
 $comment_send      = '发表评论';
 $comment_reply     = '发表一下你的评论呗';
-$comment_reply_to  = '回复';
+$comment_reply_to  = '回复 %s';
 $comment_author    = '昵称';
 $comment_email     = 'E-Mail';
-$comment_body      = '期待大佬的精彩发言';
+$comment_body      = '评论支持Markdown语法，期待大佬的精彩发言~';
 $comment_url       = 'Website';
 $comment_cookies_1 = ' 回复评论代表你同意网站的';
 $comment_cookies_2 = ' 隐私政策';
@@ -87,7 +87,7 @@ comment_form($comments_args);
 wp_list_comments(array(
     'style'       => 'ol',
     'short_ping'  => true,
-    'avatar_size' => 54,
+    'avatar_size' => 42,
 ));
 ?>
         </ol><!-- .comment-list -->
@@ -96,19 +96,26 @@ wp_list_comments(array(
 // Are there comments to navigate through?
 if (get_comment_pages_count() > 1 && get_option('page_comments')):
 ?>
-        <nav class="navigation comment-navigation" role="navigation">
-            <h1 class="screen-reader-text section-heading"><?php _e('Comment navigation', 'twentythirteen');?></h1>
-            <div class="nav-previous"><?php previous_comments_link(__('&amp;larr; Older Comments', 'twentythirteen'));?></div>
-            <div class="nav-next"><?php next_comments_link(__('Newer Comments &amp;rarr;', 'twentythirteen'));?></div>
+        <nav class="navigation comment-navigation" role="navigation" style="height: 20px;">
+            <div class="nav-previous" style="float: right;"><?php previous_comments_link(__('下一页', 'jasmine'));?></div>
+            <div class="nav-next" style="float: right;margin-right: 20px;"><?php next_comments_link(__('上一页', 'jasmine'));?></div>
         </nav><!-- .comment-navigation -->
         <?php endif; // Check for comment navigation ?>
 
         <?php if (!comments_open() && get_comments_number()): ?>
-        <p class="no-comments"><?php _e('Comments are closed.', 'twentythirteen');?></p>
+        <p class="no-comments"><?php _e('Comments are closed.', 'jasmine');?></p>
         <?php endif;?>
 
     <?php endif; // have_comments() ?>
 
+<?php
+    // If comments are closed and there are comments, let's leave a little note, shall we?
+    if (! comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments') ) :
+        ?>
+  <p class="no-comments">
+    <?php esc_html_e('Comments are closed.', 'jsamine'); ?>
+  </p>
+  <?php endif; ?>
 
 </div><!-- #comments -->
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/inc/OwO/OwO.min.js" ?>'></script>
