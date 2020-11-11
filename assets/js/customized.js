@@ -164,5 +164,13 @@
         POWERMODE.shake = false;    // 抖动特效  
         document.body.addEventListener('input', POWERMODE); // 为所有 input 标签都加上特效  
 
+        //页面切换标题效果
+        document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState == 'hidden') {
+            normal_title = document.title;
+            document.title = '去哪了你~';
+        } else document.title = normal_title;
+        });
+
      })
  })(jQuery);

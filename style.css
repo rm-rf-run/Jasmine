@@ -1667,3 +1667,6 @@ border-top: 1px solid #eee;
 .form-submit{
     margin-bottom: 40px;
 }
+.comment-form .input-group-prepend{
+    margin-right:0px;
+}

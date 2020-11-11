@@ -44,11 +44,11 @@ $comments_args = array(
   </div>
   <input type="text" class="form-control" placeholder="uuid或者QQ号" name="author_id" id="author_id"></div>',
         //Author field
-        'author'    => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-television" aria-hidden="true"></i></span>
+        'author'    => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
   </div>
   <input type="text" class="form-control" placeholder="'.$comment_author.'" name="author" id="author"></div>',
         //Email Field
-        'email'     => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+        'email'     => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
   </div>
   <input type="text" class="form-control" placeholder="'.$comment_email.'" name="email" id="email"></div>',
         //URL Field
