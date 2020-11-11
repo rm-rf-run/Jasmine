@@ -34,7 +34,7 @@ $comment_cookies_1 = ' 回复评论代表你同意网站的';
 $comment_cookies_2 = ' 隐私政策';
 $comment_before    = '';
 $comment_cancel    = '取消回复';
-$comment_bird      = '<div style="float:left;padding-top: 10px;"><img src="/prettywordpress/wordpress/wp-content/themes/Jasmine/assets/images/avatarBird.png" height="48" width="48"></div>';
+$comment_bird      = '<div style="float:left;padding-top: 10px;"><img src="'.get_template_directory_uri().'/assets/images/avatarBird.png" height="48" width="48"></div>';
 //Array
 $comments_args = array(
     //Define Fields
