@@ -26,9 +26,9 @@ if (post_password_required()) {
 $comment_send      = '发表评论';
 $comment_reply     = '发表一下你的评论呗';
 $comment_reply_to  = '回复';
-$comment_author    = 'Name';
+$comment_author    = '昵称';
 $comment_email     = 'E-Mail';
-$comment_body      = 'Comment';
+$comment_body      = '期待大佬的精彩发言';
 $comment_url       = 'Website';
 $comment_cookies_1 = ' 回复评论代表你同意网站的';
 $comment_cookies_2 = ' 隐私政策';
@@ -40,24 +40,23 @@ $comments_args = array(
     //Define Fields
     'fields'               => array(
         //Author field
-        'author_id' => '<div class="input-group mb-3"><div class="input-group-prepend" style="background-color: white;"><span class="input-group-text" id="basic-addon1" style="
-    background-color: white;
-    padding-right: 0px;
-    border-right: none;
-"><i class="fa fa-television" aria-hidden="true"></i></span>
+        'author_id' => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-television" aria-hidden="true"></i></span>
   </div>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="" style="
-    border-left: none;
-">
-</div>',
+  <input type="text" class="form-control" placeholder="uuid或者QQ号" name="author_id" id="author_id"></div>',
         //Author field
-        'author'    => '<p class="comment-form-author"><br /><input id="author" name="author" aria-required="true" placeholder="' . $comment_author . '"></input></p>',
+        'author'    => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-television" aria-hidden="true"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="'.$comment_author.'" name="author" id="author"></div>',
         //Email Field
-        'email'     => '<p class="comment-form-email"><br /><input id="email" name="email" placeholder="' . $comment_email . '"></input></p>',
+        'email'     => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="'.$comment_email.'" name="email" id="email"></div>',
         //URL Field
-        'url'       => '<p class="comment-form-url"><br /><input id="url" name="url" placeholder="' . $comment_url . '"></input></p>',
+        'url'       => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-globe " aria-hidden="true"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="'.$comment_url.'" name="url" id="url"></div>',
         //Cookies
-        'cookies'   => '<input type="checkbox" required>' . $comment_cookies_1 . '<a href="' . get_privacy_policy_url() . '">' . $comment_cookies_2 . '</a>',
+        'cookies'   => '<div style="padding-left: 10px;"><input type="checkbox" required>' . $comment_cookies_1 . '<a href="' . get_privacy_policy_url() . '">' . $comment_cookies_2 . '</a></div>',
     ),
     // Change the title of send button
     'label_submit'         => __($comment_send),
@@ -68,13 +67,14 @@ $comments_args = array(
     //Cancel Reply Text
     'cancel_reply_link'    => __($comment_cancel),
     // Redefine your own textarea (the comment body).
-    'comment_field'        => '<p class="comment-form-comment"><br /><textarea id="comment" name="comment" aria-required="true" placeholder="' . $comment_body . '"></textarea></p>',
+    'comment_field'        => '<div class="form-group OwO-textarea" style="padding-left: 10px;"><textarea class="form-control" id="comment" name="comment" aria-required="true" placeholder="' . $comment_body . '" maxlength="1000"></textarea></div>',
     //Message Before Comment
     'comment_notes_before' => __($comment_before),
     // Remove "Text or HTML to be displayed after the set of comment fields".
-    'comment_notes_after'  => '',
+    'comment_notes_after'  => '<div class="OwO"></div>',
     //Submit Button ID
     'id_submit'            => __('comment-submit'),
+    'class_submit'            => __('btn btn-primary'),
     'title_reply_after'    => '</h3>' . $comment_bird,
     //表单的id属性
     'id_form'              => __('comment-form'),
@@ -111,3 +111,14 @@ if (get_comment_pages_count() > 1 && get_option('page_comments')):
 
 
 </div><!-- #comments -->
+<script type="text/javascript" src="<?php bloginfo('template_directory');?>/inc/OwO/OwO.min.js" ?>'></script>
+		<script>var s = new OwO({
+			logo: 'OωO表情',
+			container: document.getElementsByClassName('OwO')[0],  //获取表情标签
+			target: document.getElementsByClassName('OwO-textarea')[0], //获取评论输入区
+			position: 'down',
+			width: '100%',
+			maxHeight: '210px',
+			api:"<?php echo OwO_API?>"
+		});
+		</script>

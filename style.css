@@ -252,8 +252,8 @@ dl {
 
 .jasmine-content {
     position: relative;
-    margin-top: -31.5%;
-    padding-top: 11.5%;
+    margin-top: -37%;
+    padding-top: 15%;
     height: 200px;
     text-align: center;
     transition: all .3s;
@@ -311,7 +311,7 @@ dl {
 .jasmine-notice {
     background: #fff;
     border-radius: 8px;
-    /*padding: 16px 16px 6px 16px;*/
+    padding: 16px 16px 6px 16px;
     margin-bottom: 8px;
 }
 
@@ -446,13 +446,13 @@ dl {
 .jasmine-random-articles {
     background: #fff;
     border-radius: 8px;
-    /*padding: 16px 16px 6px 16px;*/
+    padding: 16px 16px 6px 16px;
     margin-bottom: 8px;
 }
 
 .jasmine-random-articles ul {
     list-style-type: decimal;
-    padding-left: 15px
+    padding-left: 40px
 }
 
 .jasmine-random-articles ul li a {
@@ -762,7 +762,7 @@ dl {
 .jasmine-appreciation-img {
     padding: 5px;
     position: absolute;
-    left: 175px;
+    left: 128px;
     animation: all .4s;
     display: none;
 }
@@ -1295,7 +1295,7 @@ dl {
 .jasmine-tag-cloud {
     background: #fff;
     border-radius: 4px;
-    /*padding: 10px;*/
+    padding: 10px;
 }
 
 .jasmine-tag-cloud a{
@@ -1489,4 +1489,118 @@ dl {
 }
 .comment-form{
     margin-left: 55px;
+}
+.head-nav ul {
+  text-align: left;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  zoom: 1;
+  /* Second level menu items */
+}
+.head-nav ul:before {
+  content: '';
+  display: block;
+}
+.head-nav ul:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.head-nav ul li {
+  display: inline-block;
+  position: relative;
+}
+.head-nav ul li:hover > a,
+.head-nav ul li.focus > a {
+  /*background: #00bcff;*/
+  color: #007bff;
+}
+.head-nav ul li a {
+  padding: 20px 35px;
+  line-height: 1em;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.head-nav ul li a,
+.head-nav ul li a > * {
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.head-nav ul ul {
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  -o-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  z-index: 99999;
+  /* Third Level Items */
+}
+.head-nav ul ul a {
+  width: 200px;
+  padding: 15px 20px;
+}
+.head-nav ul ul li {
+  position: relative;
+  text-align: left;
+  /* Hovering over 2nd level items */
+}
+.head-nav ul ul li:hover > a,
+.head-nav ul ul li.focus > a {
+  /*background: #00bcff;*/
+  /*color: #ffffff;*/
+}
+.head-nav ul ul ul {
+  left: 100%;
+  top: 0;
+  margin-left: 0;
+}
+.head-nav ul li:hover > ul,
+.head-nav ul li.focus > ul {
+  visibility: visible;
+  opacity: 1;
+}
+.head-nav a {
+  display: block;
+  text-decoration: none;
+  /*color: #e2e2e2;*/
+  /*font-weight: bold;*/
+}
+.input-comment1{
+    padding-top: 15px;
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.input-comment1 input{
+    border-left: none;
+}
+.input-comment1 div span{
+    background-color: white;
+    padding-right: 0px;
+    border-right: none;
+}
+#comment-submit{
+    float: right;
+}
+.comment-owo{
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+.comment-owo span{
+    border: solid 1px #ddd;
+    padding: 3px;
+    border-radius: 5px;
 }

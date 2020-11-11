@@ -263,11 +263,11 @@ function my_options() {
                   <div class="row">
                     <div class="col-md-4 bm-4">
                       <label for="qq_he">男生的QQ号</label>
-                      <input type="text" class="form-control" name="jasmine_qq_he" id="qq_he" placeholder="填男生的QQ号" value="<?php echo esc_attr(get_option('jasmine_qq_he')); ?>" >
+                      <input type="text" class="form-control" name="jasmine_qq_he" id="qq_he" placeholder="男生的QQ号" value="<?php echo esc_attr(get_option('jasmine_qq_he')); ?>" >
                     </div>
                     <div class="col-md-4 bm-4">
                       <label for="qq_she">女生的QQ号</label>
-                      <input type="text" class="form-control" name="jasmine_qq_she" id="qq_she" placeholder="填女生的QQ号" value="<?php echo esc_attr(get_option('jasmine_qq_she')); ?>" >
+                      <input type="text" class="form-control" name="jasmine_qq_she" id="qq_she" placeholder="女生的QQ号" value="<?php echo esc_attr(get_option('jasmine_qq_she')); ?>" >
                     </div>
                     <div class="col-md-4 bm-4">
                       <label for="qq_she">恋爱日期</label>
@@ -388,7 +388,7 @@ function my_options() {
                 </form>
               </div>
             </div>
-        <!--所有表单结束-->    
+        <!--所有表单结束-->
         </div>
       </div>
     </div>

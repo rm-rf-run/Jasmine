@@ -7,7 +7,7 @@
      $("[type=submit]").removeClass("button");
      var upload_frame;
      var value_id;
-     $('.upload').live('click', function(event) {
+     $('.upload').on('click', function(event) {
          value_id = $(this).attr('id');
          event.preventDefault();
          if (upload_frame) {
