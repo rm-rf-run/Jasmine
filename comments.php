@@ -71,7 +71,7 @@ $comments_args = array(
     //Message Before Comment
     'comment_notes_before' => __($comment_before),
     // Remove "Text or HTML to be displayed after the set of comment fields".
-    'comment_notes_after'  => '<div class="OwO"></div>',
+    'comment_notes_after'  => '<div class="OwO" style="padding-left: 10px;"></div>',
     //Submit Button ID
     'id_submit'            => __('comment-submit'),
     'class_submit'            => __('btn btn-primary'),
