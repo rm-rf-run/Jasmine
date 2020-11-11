@@ -67,7 +67,7 @@ $comments_args = array(
     //Cancel Reply Text
     'cancel_reply_link'    => __($comment_cancel),
     // Redefine your own textarea (the comment body).
-    'comment_field'        => '<div class="form-group OwO-textarea" style="padding-left: 10px;"><textarea class="form-control" id="comment" name="comment" aria-required="true" placeholder="' . $comment_body . '" maxlength="1000"></textarea></div>',
+    'comment_field'        => '<div class="form-group" style="padding-left: 10px;"><textarea class="form-control OwO-textarea" id="comment" name="comment" aria-required="true" placeholder="' . $comment_body . '" maxlength="1000"></textarea></div>',
     //Message Before Comment
     'comment_notes_before' => __($comment_before),
     // Remove "Text or HTML to be displayed after the set of comment fields".
