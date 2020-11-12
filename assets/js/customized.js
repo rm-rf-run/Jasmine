@@ -3,7 +3,8 @@
          if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
              alert('朋友，IE浏览器未适配哦~（QQ、360浏览器请关闭 IE 模式访问~）');
          }
-         // console.log("%c ", "background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg) no-repeat center;padding-left:908px;padding-bottom: 511px;background-position: 50% 50%;background-size: cover")
+         console.clear();  // 清屏
+         console.log("%c ", "background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg) no-repeat center;padding-left:908px;padding-bottom: 511px;background-position: 50% 50%;background-size: cover")
          console.log("%c Jasmine %c", "background:#24272A; color:#ffffff", "", "https://www.prettywordpress.com");
          console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/rm-rf-run");
          //滚动数字
@@ -200,7 +201,6 @@
                     jsonp: 'callback',
                     jsonpCallback: 'portraitCallBack',
                     success: function(data) {
-                        console.log(data);
                         $('#author').val(data[qq][6]);    // 将返回的qq昵称填入到昵称input表单上，其中#author表示昵称input标签上的id，改成你自己的！
                         //alert('已获取昵称！'); // 弹出警告
                         setCookie('user_qq',qq);    // 设置cookie
