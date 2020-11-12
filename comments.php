@@ -21,7 +21,7 @@ if (post_password_required()) {
 }
 ?>
 <div class="jasmine-comment-part">
-	<?php
+    <?php
 //声明变量
 $comment_send      = '发表评论';
 $comment_reply     = '发表一下你的评论呗';
@@ -34,27 +34,27 @@ $comment_cookies_1 = ' 回复评论代表你同意网站的';
 $comment_cookies_2 = ' 隐私政策';
 $comment_before    = '';
 $comment_cancel    = '取消回复';
-$comment_bird      = '<div style="float:left;padding-top: 10px;"><img src="'.get_template_directory_uri().'/assets/images/avatarBird.png" height="48" width="48"></div>';
+$comment_bird      = '<div style="float:left;padding-top: 10px;"><img id="author_img" src="' . get_template_directory_uri() . '/assets/images/avatarBird.png" height="48" width="48" border-radius: 8px;></div>';
 //Array
 $comments_args = array(
     //Define Fields
     'fields'               => array(
         //Author field
-        'author_id' => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-television" aria-hidden="true"></i></span>
+        'qq' => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-television" aria-hidden="true"></i></span>
   </div>
-  <input type="text" class="form-control" placeholder="uuid或者QQ号" name="author_id" id="author_id"></div>',
+  <input type="text" class="form-control" placeholder="QQ号" name="author_qq" id="author_qq"></div>',
         //Author field
         'author'    => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
   </div>
-  <input type="text" class="form-control" placeholder="'.$comment_author.'" name="author" id="author"></div>',
+  <input type="text" class="form-control" placeholder="' . $comment_author . '" name="author" id="author"></div>',
         //Email Field
         'email'     => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
   </div>
-  <input type="text" class="form-control" placeholder="'.$comment_email.'" name="email" id="email"></div>',
+  <input type="text" class="form-control" placeholder="' . $comment_email . '" name="email" id="email"></div>',
         //URL Field
         'url'       => '<div class="input-group mb-3 input-comment1"><div class="input-group-prepend" ><span class="input-group-text" id="basic-addon1"><i class="fa fa-globe " aria-hidden="true"></i></span>
   </div>
-  <input type="text" class="form-control" placeholder="'.$comment_url.'" name="url" id="url"></div>',
+  <input type="text" class="form-control" placeholder="' . $comment_url . '" name="url" id="url"></div>',
         //Cookies
         'cookies'   => '<div style="padding-left: 10px;"><input type="checkbox" required>' . $comment_cookies_1 . '<a href="' . get_privacy_policy_url() . '">' . $comment_cookies_2 . '</a></div>',
     ),
@@ -74,7 +74,7 @@ $comments_args = array(
     'comment_notes_after'  => '<div class="OwO" style="padding-left: 10px;"></div>',
     //Submit Button ID
     'id_submit'            => __('comment-submit'),
-    'class_submit'            => __('btn btn-primary'),
+    'class_submit'         => __('btn btn-primary'),
     'title_reply_after'    => '</h3>' . $comment_bird,
     //表单的id属性
     'id_form'              => __('comment-form'),
@@ -97,35 +97,27 @@ wp_list_comments(array(
 if (get_comment_pages_count() > 1 && get_option('page_comments')):
 ?>
         <nav class="navigation comment-navigation" role="navigation" style="height: 20px;">
+            <?php if (!comments_open() && get_comments_number()): ?>
+        <p class="no-comments"><?php _e('抱歉，评论已关闭。', 'jasmine');?></p>
+        <?php endif;?>
             <div class="nav-previous" style="float: right;"><?php previous_comments_link(__('下一页', 'jasmine'));?></div>
             <div class="nav-next" style="float: right;margin-right: 20px;"><?php next_comments_link(__('上一页', 'jasmine'));?></div>
         </nav><!-- .comment-navigation -->
         <?php endif; // Check for comment navigation ?>
 
-        <?php if (!comments_open() && get_comments_number()): ?>
-        <p class="no-comments"><?php _e('Comments are closed.', 'jasmine');?></p>
-        <?php endif;?>
-
     <?php endif; // have_comments() ?>
 
-<?php
-    // If comments are closed and there are comments, let's leave a little note, shall we?
-    if (! comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments') ) :
-        ?>
-  <p class="no-comments">
-    <?php esc_html_e('Comments are closed.', 'jsamine'); ?>
-  </p>
-  <?php endif; ?>
-
 </div><!-- #comments -->
+<?php if (comments_open()):?>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/inc/OwO/OwO.min.js" ?>'></script>
-		<script>var s = new OwO({
-			logo: 'OωO表情',
-			container: document.getElementsByClassName('OwO')[0],  //获取表情标签
-			target: document.getElementsByClassName('OwO-textarea')[0], //获取评论输入区
-			position: 'down',
-			width: '100%',
-			maxHeight: '210px',
-			api:"<?php echo OwO_API?>"
-		});
-		</script>
+<script>var s = new OwO({
+    logo: 'OωO表情',
+    container: document.getElementsByClassName('OwO')[0],  //获取表情标签
+    target: document.getElementsByClassName('OwO-textarea')[0], //获取评论输入区
+    position: 'down',
+    width: '100%',
+    maxHeight: '210px',
+    api:"<?php echo OwO_API ?>"
+});
+</script>
+<?php endif; ?>

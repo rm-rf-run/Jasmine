@@ -160,8 +160,8 @@
         });
 
         //输入框打字冒光特效
-        POWERMODE.colorful = true;  // 冒光特效  
-        POWERMODE.shake = false;    // 抖动特效  
+        POWERMODE.colorful = true;  // 冒光特效
+        POWERMODE.shake = false;    // 抖动特效
         document.body.addEventListener('input', POWERMODE); // 为所有 input 标签都加上特效  
 
         //页面切换标题效果
@@ -171,6 +171,70 @@
             document.title = '去哪了你~';
         } else document.title = normal_title;
         });
+
+        // 设置cookie
+        function setCookie(a,c){var b=30;var d=new Date();d.setTime(d.getTime()+b*24*60*60*1000);document.cookie=a+"="+escape(c)+";expires="+d.toGMTString()}
+        // 获取cookie
+        function getCookie(b){var a,c=new RegExp("(^| )"+b+"=([^;]*)(;|$)");if(a=document.cookie.match(c)){return unescape(a[2])}else{return null}}
+
+        jasmine_js_getqqinfo();
+        // 核心函数
+        function jasmine_js_getqqinfo(){
+            // 获取cookie
+            if(getCookie('user_avatar') && getCookie('user_qq') ){
+                $('#author_img').attr('src',getCookie('user_avatar'));
+                $('#author_qq').val(getCookie('user_qq'));
+            }
+
+            $('#author_qq').on('blur',function(){
+                var qq=$('#author_qq').val(); // 获取访客填在qq表单上的qq数字，其中#author_qq表示QQ input标签上的id，改成你自己的！ 
+                $reg = /^[1-9]\d{4,9}$/;
+                if ($reg.test(qq)) {
+                    $('#email').val($.trim(qq)+'@qq.com'); // 将获取到的qq，改成qq邮箱填入邮箱表单，其中#email表示邮箱input标签上的id，改成你自己的！
+                // ajax方法获取昵称
+                $.ajax({
+                    type: 'get',
+                    //本地调试使用绝对路径
+                    url: jasmineConfig.siteUrl+'/wp-content/themes/Jasmine/inc/get_qqInfo.php?type=getqqnickname&qq='+qq,  // func_getqqinfo.php是后端处理文件，注意路径，127.0.0.1 改成你自己的域名
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    jsonpCallback: 'portraitCallBack',
+                    success: function(data) {
+                        console.log(data);
+                        $('#author').val(data[qq][6]);    // 将返回的qq昵称填入到昵称input表单上，其中#author表示昵称input标签上的id，改成你自己的！
+                        //alert('已获取昵称！'); // 弹出警告
+                        setCookie('user_qq',qq);    // 设置cookie
+                    },
+                    error: function() {
+                        // setCookie('user_qq', '', 30);
+                        $('#author_qq,#author,#email').val(''); // 如果获取失败则清空表单，注意input标签上的id，改成你自己的！
+                        //alert('糟糕，昵称获取失败！请重新填写。'); // 弹出警告
+                        console.log('糟糕，昵称获取失败！请重新填写。');
+                    }
+                });
+                // 获取头像
+                $.ajax({
+                    type: 'get',
+                    url: jasmineConfig.siteUrl+'/wp-content/themes/Jasmine/inc/get_qqInfo.php?type=getqqavatar&qq='+qq, // func_getqqinfo.php是后端处理文件，注意路径，127.0.0.1 改成你自己的域名！
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    jsonpCallback: 'qqavatarCallBack',
+                    success: function(data) {
+                        $('#author_img').attr('src',data[qq]);  // 将返回的qq头像设置到你评论表单区域显示头像的节点上，div.comment-user-avatar img表示头像节点img标签，改成你自己的！
+                        //alert('已获取头像！'); // 弹出警告
+                        setCookie('user_avatar',data[qq]);   // 设置cookie
+                    },
+                    error: function() {
+                        console.log('糟糕，获取头像失败了！请重新填写。');
+                        //alert('糟糕，获取头像失败了！请重新填写。'); // 弹出警告
+                        // setCookie('user_avatar','');
+                        $('#author_qq,#author,#email').val(''); // 清空表单
+                    }
+                });
+                }
+            });
+        }
+
 
      })
  })(jQuery);
