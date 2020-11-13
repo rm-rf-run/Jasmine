@@ -91,7 +91,7 @@ class Simple_Local_Avatars
         } elseif (substr($local_avatars[$size], 0, 4) != 'http') {
             $local_avatars[$size] = home_url($local_avatars[$size]);
         }
-
+        error_log('qqqqqqqq'.$local_avatars[$size]);
         $author_class = is_author($user_id) ? ' current-author' : '';
         $avatar       = "<img alt='" . esc_attr($alt) . "' src='" . $local_avatars[$size] . "' class='avatar avatar-{$size}{$author_class} photo' height='{$size}' width='{$size}' />";
 

@@ -19,7 +19,7 @@
 ?>
 
 <?php
-if (get_option('jasmine_notice')) {
+if (jasmine_option('jasmine_notice')) {
 	?>
 <div class="jasmine-notice">
   <div class="jasmine-notice-title">
@@ -27,7 +27,7 @@ if (get_option('jasmine_notice')) {
   </div>
   <div class="jasmine-notice-div">
   	<span class="jasmine-notice-span">
-	  	<?php echo esc_attr(get_option('jasmine_notice')); ?>
+	  	<?php echo esc_attr(jasmine_option('jasmine_notice')); ?>
   	</span>
   </div>
 </div>

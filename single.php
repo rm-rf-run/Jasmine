@@ -85,8 +85,8 @@ setPostViews(get_the_ID());
                   <div class="jasmine-appreciation-img">
                     <ul class="jasmine-appreciation-ul">
                       <li class="jasmine-alipay">
-                        <?php if(get_option('jasmine_zfb')){?>
-                          <img src="<?php echo esc_attr(get_option('jasmine_zfb'));?>" style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
+                        <?php if(jasmine_option('jasmine_zfb')){?>
+                          <img src="<?php echo esc_attr(jasmine_option('jasmine_zfb'));?>" style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                         <?php }else{?>
                           <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                             <p style="padding-top: 40%;">还没设置收款码</p>
@@ -94,8 +94,8 @@ setPostViews(get_the_ID());
                         <?php }?>
                       </li>
                       <li class="jasmine-wechat">
-                        <?php if(get_option('jasmine_wx')){?>
-                          <img src="<?php echo esc_attr(get_option('jasmine_wx'));?>" style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
+                        <?php if(jasmine_option('jasmine_wx')){?>
+                          <img src="<?php echo esc_attr(jasmine_option('jasmine_wx'));?>" style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                         <?php }else{?>
                           <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                             <p style="padding-top: 40%;">还没设置收款码</p>

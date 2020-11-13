@@ -1,22 +1,4 @@
 <?php
-//用户自定义头像功能
-require get_template_directory() . '/inc/author-avatars.php';
-//优化网站代码
-require get_template_directory() . '/inc/optimization-speed.php';
-//主题自带插件
-require get_template_directory() . '/inc/customized-plugin.php';
-//网站SEO
-require get_template_directory() . '/inc/seo.php';
-//导入OwO表情
-require get_template_directory() . '/inc/OwO.php';
-//定义数据
-require get_template_directory() . '/inc/jasmineConfig.php';
-
-//markdown
-require get_template_directory() . '/inc/markdown/MarkdownInterface.php';
-require get_template_directory() . '/inc/markdown/Markdown.php';
-require get_template_directory() . '/inc/markdown/MarkdownExtra.php';
-
 
 //注册菜单的名称
 function register_my_menus()
@@ -73,6 +55,9 @@ function lxtx_comment_body_class($content)
 
 add_theme_support('post-thumbnails', array('post')); // 给日志启用日志缩略图
 add_theme_support('post-thumbnails', array('page')); // 给页面启用日志缩略图
+
+// 去除顶部工具栏
+show_admin_bar(false);
 
 //将摘要长度更改为20个字
 function wpdocs_custom_excerpt_length($length)
@@ -151,13 +136,6 @@ function setPostViews($postID)
         $count++;
         update_post_meta($postID, $count_key, $count);
     }
-}
-//计算浏览量总和
-function getCountViews()
-{
-    global $wpdb;
-    $sum = $wpdb->get_var("SELECT sum(meta_value) FROM wp_postmeta WHERE meta_key = 'post_views_count'");
-    echo $sum;
 }
 
 // 激活主题创建页面
@@ -272,34 +250,26 @@ function clear_archives_list_cache()
 }
 add_action('save_post', 'clear_archives_list_cache'); // 新发表文章/修改文章时
 
-//评论支持Markdown
-use \Michelf\MarkdownExtra;
-add_filter('pre_comment_content', 'markdownify_comment');
-function markdownify_comment($comment_content)
-{
-
-    return MarkdownExtra::defaultTransform($comment_content);
-
-}
 
 //评论框字段顺序
 //Comment Field Order
-add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
-function mo_comment_fields_custom_order( $fields ) {
+add_filter('comment_form_fields', 'mo_comment_fields_custom_order');
+function mo_comment_fields_custom_order($fields)
+{
     $comment_field = $fields['comment'];
-    $author_field = $fields['author'];
-    $email_field = $fields['email'];
-    $url_field = $fields['url'];
+    $author_field  = $fields['author'];
+    $email_field   = $fields['email'];
+    $url_field     = $fields['url'];
     $cookies_field = $fields['cookies'];
-    unset( $fields['comment'] );
-    unset( $fields['author'] );
-    unset( $fields['email'] );
-    unset( $fields['url'] );
-    unset( $fields['cookies'] );
+    unset($fields['comment']);
+    unset($fields['author']);
+    unset($fields['email']);
+    unset($fields['url']);
+    unset($fields['cookies']);
     // the order of fields is the order below, change it as needed:
-    $fields['author'] = $author_field;
-    $fields['email'] = $email_field;
-    $fields['url'] = $url_field;
+    $fields['author']  = $author_field;
+    $fields['email']   = $email_field;
+    $fields['url']     = $url_field;
     $fields['comment'] = $comment_field;
     $fields['cookies'] = $cookies_field;
     // done ordering, now return the fields:
@@ -307,24 +277,27 @@ function mo_comment_fields_custom_order( $fields ) {
 }
 
 // 数据库插入评论表单的qq字段
-add_action('wp_insert_comment','jasmine_sql_insert_qq_field',10,2);
-function jasmine_sql_insert_qq_field($comment_ID,$commmentdata) {
+add_action('wp_insert_comment', 'jasmine_sql_insert_qq_field', 10, 2);
+function jasmine_sql_insert_qq_field($comment_ID, $commmentdata)
+{
     $qq = isset($_POST['author_qq']) ? $_POST['author_qq'] : false;
-    update_comment_meta($comment_ID,'author_qq',$qq); // author_qq 是表单name值，也是存储在数据库里的字段名字
+    update_comment_meta($comment_ID, 'author_qq', $qq); // author_qq 是表单name值，也是存储在数据库里的字段名字
 }
 // 后台评论中显示qq字段
-add_filter( 'manage_edit-comments_columns', 'add_comments_columns' );
-add_action( 'manage_comments_custom_column', 'output_comments_qq_columns', 10, 2 );
-function add_comments_columns( $columns ){
-    $columns[ 'author_qq' ] = __( 'QQ号' );        // 新增列名称
+add_filter('manage_edit-comments_columns', 'add_comments_columns');
+add_action('manage_comments_custom_column', 'output_comments_qq_columns', 10, 2);
+function add_comments_columns($columns)
+{
+    $columns['author_qq'] = __('QQ号'); // 新增列名称
     return $columns;
 }
-function output_comments_qq_columns( $column_name, $comment_id ){
-    switch( $column_name ) {
-        case "author_qq" :
-         // 这是输出值，可以拿来在前端输出，这里已经在钩子manage_comments_custom_column上输出了
-        echo get_comment_meta( $comment_id, 'author_qq', true );
-        break;
+function output_comments_qq_columns($column_name, $comment_id)
+{
+    switch ($column_name) {
+        case "author_qq":
+            // 这是输出值，可以拿来在前端输出，这里已经在钩子manage_comments_custom_column上输出了
+            echo get_comment_meta($comment_id, 'author_qq', true);
+            break;
     }
 }
 /**
@@ -332,25 +305,70 @@ function output_comments_qq_columns( $column_name, $comment_id ){
  * 若有qq字段则显示qq头像，若没有则显示gravatar
  */
 
-add_filter( 'get_avatar', 'jasmine_change_avatar', 10, 3 );
-function jasmine_change_avatar($avatar){
+add_filter('get_avatar', 'jasmine_change_avatar', 10, 3);
+function jasmine_change_avatar($avatar)
+{
     global $comment;
-    if( get_comment_meta( $comment->comment_ID, 'author_qq', true ) ){
-        $qq_number =  get_comment_meta( $comment->comment_ID, 'author_qq', true );
-        $qqavatar = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
-                preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches); // 匹配 http: 和 &t 之间的字符串
-        return '<img src="'.$matches[1].'" class="avatar avatar-40 photo" width="40" height="40"  alt="qq_avatar" />';
-    }else{
-        return $avatar ;
+    if($comment){
+        if (get_comment_meta($comment->comment_ID, 'author_qq', true)) {
+        $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
+        $qqavatar  = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
+        // preg_match 匹配 http: 和 &t 之间的字符串
+        // 如果提供了参数matches，它将被填充为搜索结果。
+        // $matches[0]将包含完整模式匹配到的文本,
+        // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
+        preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
+        return '<img src="' . $matches[1] . '" class="avatar avatar-40 photo" width="40" height="40"  alt="qq_avatar" />';
+    } else {
+        return $avatar;
+    }
     }
 }
+
+//添加短代码
+add_action('init', 'wpdocs_add_custom_shortcode');
+function wpdocs_add_custom_shortcode() {
+    add_shortcode('counPost', 'count_post');
+    add_shortcode('countComments', 'count_comments');
+    add_shortcode('countViews', 'getCountViews');
+}
+
+function count_comments() {
+    global $wpdb;
+    echo $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->comments");
+}
+
+function count_post() {
+    $count_posts = wp_count_posts();
+    echo $published_posts = $count_posts->publish;
+}
+
+function getCountViews()
+{
+    global $wpdb;
+    $sum = $wpdb->get_var("SELECT sum(meta_value) FROM wp_postmeta WHERE meta_key = 'post_views_count'");
+    echo $sum;
+}
+function echo_extraCss(){
+  if (jasmine_option('jasmine_extraCss')) {
+    echo '<style>'.jasmine_option('jasmine_extraCss').'</style>';
+  }
+}
+
+//额外css
+add_action('wp_head','echo_extraCss');
+
+//添加背景图片样式
+add_filter( 'body_class', function( $classes ) {
+    return array_merge( $classes, array( 'jasmine-background' ) );
+} );
 
 /**
  * Router
  */
 add_action('rest_api_init', function () {
     register_rest_route('qqinfo', '/qqinfo', array(
-        'methods' => 'GET',
+        'methods'  => 'GET',
         'callback' => 'portraitCallBack',
     ));
     // register_rest_route('qqinfo', '/qqinfo', array(
@@ -359,11 +377,94 @@ add_action('rest_api_init', function () {
     // ));
 });
 
-function portraitCallBack(){
+function portraitCallBack()
+{
     error_log("portraitCallBack");
 }
 
-function qqavatarCallBack(){
+function qqavatarCallBack()
+{
     error_log("qqavatarCallBack");
     $qq = $_GET['qq'];
+}
+
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
+
+require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+
+$optionsfile = locate_template( 'options.php' );
+load_template( $optionsfile );
+
+function prefix_options_menu_filter( $menu ) {
+    $menu['mode'] = 'menu';
+    $menu['page_title'] = __( 'jasmine主题设置', 'textdomain');
+    $menu['menu_title'] = __( 'jasmine主题设置', 'textdomain');
+    $menu['menu_slug'] = 'jasmine主题设置';
+    return $menu;
+}
+
+add_filter( 'optionsframework_menu', 'prefix_options_menu_filter' );
+
+add_action('bilbil_action', 'add_bilbil_data');
+do_action('bilbil_action');
+function add_bilbil_data(){
+    if (jasmine_option('bilbil_uid')) {
+    //使用file_get_contents需要将extension=php_openssl.dll前面的;去掉
+    /**
+     * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
+     *
+     */
+    $b1 = file_get_contents("compress.zlib://https://api.bilibili.com/x/space/acc/info?mid=" . $bilbil_uid . "&jsonp=jsonp");
+    $b2 = file_get_contents("compress.zlib://https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
+    $results1 = json_decode($b1, true);
+    $results = json_decode($b2, true);
+    get_option('jasmine_bilbil_following', $results['data']['following']);
+    get_option('jasmine_bilbil_follower', $results['data']['follower']);
+    get_option('jasmine_bilbil_gravatar', $results1['data']['face']);
+    get_option('jasmine_bilbil_name', $results1['data']['name']);
+    get_option('jasmine_bilbil_level', $results1['data']['level']);
+    get_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
+    get_option('jasmine_bilbil_describe', $results1['data']['sign']);
+    get_option('jasmine_bilbil_top_photo', $results1['data']['top_photo']);
+}
+}
+
+/*
+ * 使用本地图片作为头像，防止外源抽风问题
+ */
+function get_avatar_profile_url(){
+  if(jasmine_option('focus_logo')){
+    $avatar = jasmine_option('focus_logo');
+  }else{
+    $avatar = get_avatar_url(get_the_author_meta( 'ID' ));
+  }
+  return $avatar;
+}
+
+//用户自定义头像功能
+require get_template_directory() . '/inc/author-avatars.php';
+//优化网站代码
+require get_template_directory() . '/inc/optimization-speed.php';
+//主题自带插件
+// require get_template_directory() . '/inc/customized-plugin.php';
+//网站SEO
+require get_template_directory() . '/inc/seo.php';
+//导入OwO表情
+require get_template_directory() . '/inc/OwO.php';
+//定义数据
+require get_template_directory() . '/inc/jasmineConfig.php';
+
+//markdown
+require get_template_directory() . '/inc/markdown/MarkdownInterface.php';
+require get_template_directory() . '/inc/markdown/Markdown.php';
+require get_template_directory() . '/inc/markdown/MarkdownExtra.php';
+
+//评论支持Markdown
+use \Michelf\MarkdownExtra;
+add_filter('pre_comment_content', 'markdownify_comment');
+function markdownify_comment($comment_content)
+{
+
+    return MarkdownExtra::defaultTransform($comment_content);
+
 }

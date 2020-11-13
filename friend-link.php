@@ -67,10 +67,10 @@ setPostViews(get_the_ID()); ?>
 				<div class="site-information-content">
 					<h5>站点信息</h5>
 					<ul>
-					  <li><h6>名称 <code><?php echo get_option('jasmine_siteName')==true?get_option('jasmine_siteName'):get_bloginfo('name');?></code></h6></li>
-					  <li><h6>链接 <code><?php echo get_option('jasmine_siteHref')==true?get_option('jasmine_siteHref'):get_bloginfo('url');?></code></h6></li>
-					  <li><h6>logo <code><?php echo get_option('jasmine_siteLogo')==true?get_option('jasmine_siteLogo'):"master还没设置我呢QAQ";?></code></h6></li>
-					  <li><h6>描述 <code><?php echo get_option('jasmine_siteDescription')==true?get_option('jasmine_siteDescription'):get_bloginfo('description');?></code></h6></li>
+					  <li><h6>名称 <code><?php echo jasmine_option('jasmine_siteName')==true?jasmine_option('jasmine_siteName'):get_bloginfo('name');?></code></h6></li>
+					  <li><h6>链接 <code><?php echo jasmine_option('jasmine_siteHref')==true?jasmine_option('jasmine_siteHref'):get_bloginfo('url');?></code></h6></li>
+					  <li><h6>logo <code><?php echo jasmine_option('jasmine_siteLogo')==true?jasmine_option('jasmine_siteLogo'):"master还没设置我呢QAQ";?></code></h6></li>
+					  <li><h6>描述 <code><?php echo jasmine_option('jasmine_siteDescription')==true?jasmine_option('jasmine_siteDescription'):get_bloginfo('description');?></code></h6></li>
 					</ul>
 					<h5>友链申请要求</h5>
 					<ul class="site-information-requirement">
@@ -81,11 +81,11 @@ setPostViews(get_the_ID()); ?>
 					</ul>
 					<h5>申请方式</h5>
 					<ul>
-						<li><h6>站长邮箱：<code><?php echo get_option('jasmine_siteEmail')==true?get_option('jasmine_siteEmail'):get_bloginfo('admin_email');?></code></h6></li>
+						<li><h6>站长邮箱：<code><?php echo jasmine_option('jasmine_siteEmail')==true?jasmine_option('jasmine_siteEmail'):get_bloginfo('admin_email');?></code></h6></li>
 						<li>
 							<h6>主题：申请友链</h6>
 							<p>
-								<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php echo get_option('jasmine_siteKey')==true?get_option('jasmine_siteKey'):get_bloginfo('admin_email')?>" target="_blank">
+								<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php echo jasmine_option('jasmine_siteKey')==true?jasmine_option('jasmine_siteKey'):get_bloginfo('admin_email')?>" target="_blank">
 									<button type="button" class="btn btn-primary">一键发送</button>
 								</a>
 							</p>

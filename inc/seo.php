@@ -28,7 +28,7 @@ function wp_keywords()
 
         $keywords = substr_replace($keywords, '', -2);
     } elseif (is_home()) {
-        $keywords = esc_attr(get_option('jasmine_home_keywords')); //主页关键词设置
+        $keywords = esc_attr(jasmine_option('jasmine_home_keywords')); //主页关键词设置
     } elseif (is_tag()) {
         //标签页关键词设置
         $keywords = single_tag_title('', false);
@@ -79,7 +79,7 @@ function wp_description()
         }
 
     } elseif (is_home()) { //首页显示描述设置
-        $description = $blog_name . "-" . esc_attr(get_option('jasmine_home_description')); // 首頁要自己加
+        $description = $blog_name . "-" . esc_attr(jasmine_option('jasmine_home_description')); // 首頁要自己加
     } elseif (is_tag()) {
 //标签页显示描述设置
         $description = $blog_name . "有关 '" . single_tag_title('', false) . "' 的文章";

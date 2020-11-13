@@ -30,7 +30,7 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
     <?php wp_head();?>
     <style type="text/css">
       .jasmine-background{
-          background-image: url(<?php echo get_option('jasmine_bg');?>);
+          background-image: url(<?php echo jasmine_option('jasmine_bg');?>);
           background-size: cover;
           background-repeat: no-repeat;
           background-attachment: fixed;
