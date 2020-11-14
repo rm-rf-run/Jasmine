@@ -24,7 +24,7 @@
 <div id="about-me-1" class="d-flex">
   <div id="avatar" class="flex-column">
     <a href="<?php bloginfo('url');?>">
-      <?php echo get_simple_local_avatar(get_bloginfo('admin_email'), '50'); ?>
+      <?php echo get_avatar_profile_url(get_bloginfo('admin_email'), '50'); ?>
     </a>
   </div>
   <div id="user-info" class="flex-column">

@@ -1325,8 +1325,8 @@ dl {
 }
 
 .author-img {
-    width: 55px;
-    height: 55px;
+    /*width: 55px;
+    height: 55px;*/
     border-radius: 50%;
     margin: 0;
     border: 0;

@@ -122,7 +122,8 @@ function optionsframework_options()
 
     $options[] = array(
         'name' => __('个人头像', 'jasmine'),
-        'desc' => __('最佳尺寸130px*130px。', 'jasmine'),
+        'desc' => __('最佳尺寸我还没测过', 'jasmine'),
+        'std'  => get_template_directory_uri() . '/assets/images/dog.png',
         'id'   => 'focus_logo',
         'type' => 'upload');
 

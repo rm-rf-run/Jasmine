@@ -363,30 +363,6 @@ add_filter( 'body_class', function( $classes ) {
     return array_merge( $classes, array( 'jasmine-background' ) );
 } );
 
-/**
- * Router
- */
-add_action('rest_api_init', function () {
-    register_rest_route('qqinfo', '/qqinfo', array(
-        'methods'  => 'GET',
-        'callback' => 'portraitCallBack',
-    ));
-    // register_rest_route('qqinfo', '/qqinfo', array(
-    //     'methods' => 'GET',
-    //     'callback' => 'qqavatarCallBack',
-    // ));
-});
-
-function portraitCallBack()
-{
-    error_log("portraitCallBack");
-}
-
-function qqavatarCallBack()
-{
-    error_log("qqavatarCallBack");
-    $qq = $_GET['qq'];
-}
 
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
 
@@ -434,12 +410,13 @@ function add_bilbil_data(){
  */
 function get_avatar_profile_url(){
   if(jasmine_option('focus_logo')){
-    $avatar = jasmine_option('focus_logo');
+    $avatar = "<img alt='" . jasmine_option('author_name') . "' src='" . jasmine_option('focus_logo') . "' class='avatar avatar-50 photo' height='50' width='50' />";
   }else{
-    $avatar = get_avatar_url(get_the_author_meta( 'ID' ));
+    $avatar = "<img alt='" . jasmine_option('author_name') . "' src='" . get_avatar_url(get_bloginfo('admin_email')) . "' class='avatar avatar-50 photo' height='50' width='50' />";
   }
   return $avatar;
 }
+
 
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
@@ -453,18 +430,3 @@ require get_template_directory() . '/inc/seo.php';
 require get_template_directory() . '/inc/OwO.php';
 //定义数据
 require get_template_directory() . '/inc/jasmineConfig.php';
-
-//markdown
-require get_template_directory() . '/inc/markdown/MarkdownInterface.php';
-require get_template_directory() . '/inc/markdown/Markdown.php';
-require get_template_directory() . '/inc/markdown/MarkdownExtra.php';
-
-//评论支持Markdown
-use \Michelf\MarkdownExtra;
-add_filter('pre_comment_content', 'markdownify_comment');
-function markdownify_comment($comment_content)
-{
-
-    return MarkdownExtra::defaultTransform($comment_content);
-
-}

@@ -36,8 +36,7 @@ setPostViews(get_the_ID());
 							      <h1 class="jasmine-post-h1"><?php the_title()?></h1>
                     <div class="post-meta-info">
                       <div class="author-img">
-                        <!-- <img src="https://acg.yanwz.cn/api.php" class="author-img"> -->
-                        <?php echo get_simple_local_avatar(get_bloginfo('admin_email'), '50'); ?>
+                        <?php echo get_avatar_profile_url(get_bloginfo('admin_email'), '50'); ?>
                       </div>
                       <div class="jasmine-writingTime">
                         <span>
