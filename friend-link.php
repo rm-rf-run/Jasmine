@@ -67,25 +67,25 @@ setPostViews(get_the_ID()); ?>
 				<div class="site-information-content">
 					<h5>站点信息</h5>
 					<ul>
-					  <li><h6>名称 <code><?php echo jasmine_option('jasmine_siteName')==true?jasmine_option('jasmine_siteName'):get_bloginfo('name');?></code></h6></li>
-					  <li><h6>链接 <code><?php echo jasmine_option('jasmine_siteHref')==true?jasmine_option('jasmine_siteHref'):get_bloginfo('url');?></code></h6></li>
-					  <li><h6>logo <code><?php echo jasmine_option('jasmine_siteLogo')==true?jasmine_option('jasmine_siteLogo'):"master还没设置我呢QAQ";?></code></h6></li>
-					  <li><h6>描述 <code><?php echo jasmine_option('jasmine_siteDescription')==true?jasmine_option('jasmine_siteDescription'):get_bloginfo('description');?></code></h6></li>
+					  <li><h6>名称 <code><?php echo jasmine_option('jasmine_sitename')==true?jasmine_option('jasmine_sitename'):get_bloginfo('name');?></code></h6></li>
+					  <li><h6>链接 <code><?php echo jasmine_option('jasmine_sitehref')==true?jasmine_option('jasmine_sitehref'):get_bloginfo('url');?></code></h6></li>
+					  <li><h6>logo <code><?php echo jasmine_option('jasmine_sitelogo')==true?jasmine_option('jasmine_sitelogo'):"master还没设置我呢QAQ";?></code></h6></li>
+					  <li><h6>描述 <code><?php echo jasmine_option('jasmine_sitedescription')==true?jasmine_option('jasmine_sitedescription'):get_bloginfo('description');?></code></h6></li>
 					</ul>
 					<h5>友链申请要求</h5>
 					<ul class="site-information-requirement">
 					  <li><h6>申请时请先加上本站的连接 (o°ω°o)</h6></li>
 					  <li><h6>原创博客，非采集站，全站 HTTPS 优先</h6></li>
-					  <li class="key"><h6>请勿提交 ico 或 分辨率小于 100x100 的图标</h6></li>
+					  <li><h6>请勿提交 ico 或 分辨率小于 100x100 的图标</h6></li>
 					  <li><h6>网站内容遵守国家法律法规</h6></li>
 					</ul>
 					<h5>申请方式</h5>
 					<ul>
-						<li><h6>站长邮箱：<code><?php echo jasmine_option('jasmine_siteEmail')==true?jasmine_option('jasmine_siteEmail'):get_bloginfo('admin_email');?></code></h6></li>
+						<li><h6>站长邮箱：<code><?php echo jasmine_option('jasmine_siteemail')==true?jasmine_option('jasmine_siteemail'):get_bloginfo('admin_email');?></code></h6></li>
 						<li>
 							<h6>主题：申请友链</h6>
 							<p>
-								<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php echo jasmine_option('jasmine_siteKey')==true?jasmine_option('jasmine_siteKey'):get_bloginfo('admin_email')?>" target="_blank">
+								<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php echo jasmine_option('jasmine_sitekey')==true?jasmine_option('jasmine_sitekey'):get_bloginfo('admin_email')?>" target="_blank">
 									<button type="button" class="btn btn-primary">一键发送</button>
 								</a>
 							</p>

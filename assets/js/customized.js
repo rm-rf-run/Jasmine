@@ -118,7 +118,7 @@
 
          function add_copyright() {
              document.body.addEventListener("copy", function(e) {
-                 if (window.getSelection().toString().length > 30 && jasmineConfig.clipboardCopyright == "true") {
+                 if (window.getSelection().toString().length > 30 && jasmineConfig.clipboardCopyright == "1") {
                      setClipboardText(e);
                  }
                  $('.toast').toast("show")

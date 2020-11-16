@@ -36,7 +36,7 @@ setPostViews(get_the_ID());
 							      <h1 class="jasmine-post-h1"><?php the_title()?></h1>
                     <div class="post-meta-info">
                       <div class="author-img">
-                        <?php echo get_avatar_profile_url(get_bloginfo('admin_email'), '50'); ?>
+                        <?php echo get_simple_local_avatar(get_bloginfo('admin_email')); ?>
                       </div>
                       <div class="jasmine-writingTime">
                         <span>
@@ -89,7 +89,7 @@ setPostViews(get_the_ID());
                         <?php }else{?>
                           <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                             <p style="padding-top: 40%;">还没设置收款码</p>
-                          </div>  
+                          </div>
                         <?php }?>
                       </li>
                       <li class="jasmine-wechat">
@@ -98,7 +98,7 @@ setPostViews(get_the_ID());
                         <?php }else{?>
                           <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                             <p style="padding-top: 40%;">还没设置收款码</p>
-                          </div>  
+                          </div>
                         <?php }?>
                       </li>
                     </ul>

@@ -53,7 +53,6 @@ function optionsframework_init() {
 
 	// Load settings
 	$optionsframework_settings = get_option('optionsframework' );
-
 	// If the option has no saved data, load the defaults
 	if ( ! get_option( $optionsframework_settings['id'] ) ) {
 		optionsframework_setdefaults();

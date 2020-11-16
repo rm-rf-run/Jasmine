@@ -1,10 +1,5 @@
 
 <footer>
-<div style="display: block; border-radius: 4px;background-position-x: -40px;bottom: 227px;position: fixed;right: 20px;width: 62px;margin-left: 602px;cursor: pointer;background: #fff;">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  聊天室
-</button>
-</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

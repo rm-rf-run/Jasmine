@@ -24,7 +24,7 @@ function comment_add_owo($comment_text)
         '@(抽烟)'   => '<img src="' . OwO_alu . '/抽烟.png" alt="抽烟" style="vertical-align: middle;">',
         '@(呲牙)'   => '<img src="' . OwO_alu . '/呲牙.png" alt="呲牙" style="vertical-align: middle;">',
         '@(大囧)'   => '<img src="' . OwO_alu . '/大囧.png" alt="大囧" style="vertical-align: middle;">',
-        '@(得意)'   => '<img src="' . OwO_alu . '/alu/得意.png" alt="得意" style="vertical-align: middle;">',
+        '@(得意)'   => '<img src="' . OwO_alu . '/得意.png" alt="得意" style="vertical-align: middle;">',
         '@(愤怒)'   => '<img src="' . OwO_alu . '/愤怒.png" alt="愤怒" style="vertical-align: middle;">',
         '@(尴尬)'   => '<img src="' . OwO_alu . '/尴尬.png" alt="尴尬" style="vertical-align: middle;">',
         '@(高兴)'   => '<img src="' . OwO_alu . '/高兴.png" alt="高兴" style="vertical-align: middle;">',

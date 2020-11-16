@@ -4,7 +4,7 @@
 function register_my_menus()
 {
     register_nav_menus(
-        array('header-menu' => __('首页'))
+        array('header-menu' => __('首页','jasmine'))
     );
 }
 add_action('init', 'register_my_menus'); //初始化的时候启用
@@ -65,10 +65,6 @@ function wpdocs_custom_excerpt_length($length)
     return 20;
 }
 add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
-
-//添加一个自定义背景
-//选择填满屏幕
-// add_theme_support('custom-background');
 
 //随机文章
 function random_posts($posts_num = 5, $before = '<li>', $after = '</li>')
@@ -139,7 +135,7 @@ function setPostViews($postID)
 }
 
 // 激活主题创建页面
-function memory_add_page($title, $slug, $page_template = '')
+function jasmine_add_page($title, $slug, $page_template = '')
 {
     $allPages = get_pages(); //获取所有页面
     $exists   = false;
@@ -170,20 +166,20 @@ function memory_add_page($title, $slug, $page_template = '')
         }
     }
 }
-function memory_add_pages()
+function jasmine_add_pages()
 {
     global $pagenow;
     //判断是否为激活主题页面
     if ('themes.php' == $pagenow && isset($_GET['activated'])) {
-        memory_add_page('归档', 'post-archives', 'post-archives.php'); //页面标题、别名、页面模板
-        memory_add_page('友情链接', 'friend-link', 'friend-link.php');
+        jasmine_add_page('归档', 'post-archives', 'post-archives.php'); //页面标题、别名、页面模板
+        jasmine_add_page('友情链接', 'friend-link', 'friend-link.php');
     }
 }
-add_action('load-themes.php', 'memory_add_pages');
+add_action('load-themes.php', 'jasmine_add_pages');
 
 //禁用默认小工具
-add_action('widgets_init', 'xintheme_unregisterWidgets');
-function xintheme_unregisterWidgets()
+add_action('widgets_init', 'theme_unregisterWidgets');
+function theme_unregisterWidgets()
 {
     unregister_widget('WP_Widget_Archives');
     unregister_widget('WP_Widget_Calendar');
@@ -325,45 +321,6 @@ function jasmine_change_avatar($avatar)
     }
 }
 
-//添加短代码
-add_action('init', 'wpdocs_add_custom_shortcode');
-function wpdocs_add_custom_shortcode() {
-    add_shortcode('counPost', 'count_post');
-    add_shortcode('countComments', 'count_comments');
-    add_shortcode('countViews', 'getCountViews');
-}
-
-function count_comments() {
-    global $wpdb;
-    echo $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->comments");
-}
-
-function count_post() {
-    $count_posts = wp_count_posts();
-    echo $published_posts = $count_posts->publish;
-}
-
-function getCountViews()
-{
-    global $wpdb;
-    $sum = $wpdb->get_var("SELECT sum(meta_value) FROM wp_postmeta WHERE meta_key = 'post_views_count'");
-    echo $sum;
-}
-function echo_extraCss(){
-  if (jasmine_option('jasmine_extraCss')) {
-    echo '<style>'.jasmine_option('jasmine_extraCss').'</style>';
-  }
-}
-
-//额外css
-add_action('wp_head','echo_extraCss');
-
-//添加背景图片样式
-add_filter( 'body_class', function( $classes ) {
-    return array_merge( $classes, array( 'jasmine-background' ) );
-} );
-
-
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
 
 require_once dirname( __FILE__ ) . '/inc/options-framework.php';
@@ -384,7 +341,8 @@ add_filter( 'optionsframework_menu', 'prefix_options_menu_filter' );
 add_action('bilbil_action', 'add_bilbil_data');
 do_action('bilbil_action');
 function add_bilbil_data(){
-    if (jasmine_option('bilbil_uid')) {
+    if (jasmine_option('jasmine_bilbil_uid')) {
+    $bilbil_uid = jasmine_option('jasmine_bilbil_uid');
     //使用file_get_contents需要将extension=php_openssl.dll前面的;去掉
     /**
      * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
@@ -394,27 +352,80 @@ function add_bilbil_data(){
     $b2 = file_get_contents("compress.zlib://https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
     $results1 = json_decode($b1, true);
     $results = json_decode($b2, true);
-    get_option('jasmine_bilbil_following', $results['data']['following']);
-    get_option('jasmine_bilbil_follower', $results['data']['follower']);
-    get_option('jasmine_bilbil_gravatar', $results1['data']['face']);
-    get_option('jasmine_bilbil_name', $results1['data']['name']);
-    get_option('jasmine_bilbil_level', $results1['data']['level']);
-    get_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
-    get_option('jasmine_bilbil_describe', $results1['data']['sign']);
-    get_option('jasmine_bilbil_top_photo', $results1['data']['top_photo']);
+    update_option('jasmine_bilbil_following', $results['data']['following']);
+    update_option('jasmine_bilbil_follower', $results['data']['follower']);
+    update_option('jasmine_bilbil_gravatar', $results1['data']['face']);
+    update_option('jasmine_bilbil_name', $results1['data']['name']);
+    update_option('jasmine_bilbil_level', $results1['data']['level']);
+    update_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
+    update_option('jasmine_bilbil_describe', $results1['data']['sign']);
+    update_option('jasmine_bilbil_top_photo', $results1['data']['top_photo']);
 }
 }
 
-/*
- * 使用本地图片作为头像，防止外源抽风问题
- */
-function get_avatar_profile_url(){
-  if(jasmine_option('focus_logo')){
-    $avatar = "<img alt='" . jasmine_option('author_name') . "' src='" . jasmine_option('focus_logo') . "' class='avatar avatar-50 photo' height='50' width='50' />";
-  }else{
-    $avatar = "<img alt='" . jasmine_option('author_name') . "' src='" . get_avatar_url(get_bloginfo('admin_email')) . "' class='avatar avatar-50 photo' height='50' width='50' />";
+function echo_extraCss(){
+  if (jasmine_option('jasmine_extracss')) {
+    echo '<style>'.jasmine_option('jasmine_extracss').'</style>';
   }
-  return $avatar;
+}
+
+//额外css
+add_action('wp_head','echo_extraCss');
+
+//添加背景图片样式
+add_filter( 'body_class', function( $classes ) {
+    return array_merge( $classes, array( 'jasmine-background' ) );
+} );
+
+//添加短代码
+add_action('init', 'wpdocs_add_custom_shortcode');
+function wpdocs_add_custom_shortcode() {
+    add_shortcode('counPost', 'count_post');
+    add_shortcode('countComments', 'count_comments');
+    add_shortcode('footData', 'echo_footData');
+    add_shortcode('countViews', 'getCountViews');
+}
+
+function count_comments() {
+    global $wpdb;
+    echo $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->comments");
+}
+
+function count_post() {
+    $count_posts = wp_count_posts();
+    echo $published_posts = $count_posts->publish;
+}
+
+function getCountViews()
+{
+    global $wpdb;
+    $sum = $wpdb->get_var("SELECT sum(meta_value) FROM wp_postmeta WHERE meta_key = 'post_views_count'");
+    echo $sum;
+}
+
+function echo_footData() {
+    $date = esc_attr(explode("/", jasmine_option('jasmine_startdate'))[0]);
+    $this_year = date('Y');
+    $blog_name = get_bloginfo('name');
+    $bolg_href = get_bloginfo('url');
+    $beian = jasmine_option('jasmine_record');
+    $police_beian = jasmine_option('jasmine_police_record');
+    $police_beian_href = jasmine_option('jasmine_police_href');
+    $police_beian_exit = "未备案";
+    $startDate = "";
+    if (jasmine_option('jasmine_police_record')) {
+        $police_beian_exit = "<br/> <img class='lazy loaded' src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
+beian.png' data-src='' data-was-processed='true'> <a href='" . esc_url($police_beian_href) . "' rel='external nofollow' target='_blank'>" . esc_html($police_beian) . " </a>";
+    }
+    if (jasmine_option('jasmine_startdate')) {
+        $startDate = "本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
+    }
+    if ($date == $this_year) {
+        $date = "";
+    } else {
+        $date = $date . '-';
+    }
+    echo "版权所有 © " . $date . $this_year . " <a href='" . esc_url($bolg_href) . "'>" . esc_html($blog_name) . "</a> " . $police_beian_exit . " | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" . $beian . "</a><br/>Theme Jasmine By <a href='https://prettywordpress.com' target='_blank' ><span id='rm-rf-run'>rm-rf-run</span></a> With  | All Rights Reserved<br/>" . $startDate;
 }
 
 
@@ -422,8 +433,6 @@ function get_avatar_profile_url(){
 require get_template_directory() . '/inc/author-avatars.php';
 //优化网站代码
 require get_template_directory() . '/inc/optimization-speed.php';
-//主题自带插件
-// require get_template_directory() . '/inc/customized-plugin.php';
 //网站SEO
 require get_template_directory() . '/inc/seo.php';
 //导入OwO表情

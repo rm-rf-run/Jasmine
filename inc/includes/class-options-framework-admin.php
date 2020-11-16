@@ -200,8 +200,8 @@ class Options_Framework_Admin {
 				<?php settings_fields( 'optionsframework' ); ?>
 				<?php Options_Framework_Interface::optionsframework_fields(); /* Settings */ ?>
 				<div id="optionsframework-submit">
-					<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'theme-textdomain' ); ?>" />
-					<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'theme-textdomain' ); ?>" onclick="return confirm( '<?php print esc_js( __( '单击“确定”重置。任何主题设置都将丢失！', 'theme-textdomain' ) ); ?>' );" />
+					<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( '保存数据', 'jasmine' ); ?>" />
+					<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( '恢复默认设置', 'jasmine' ); ?>" onclick="return confirm( '<?php print esc_js( __( '单击“确定”重置。任何主题设置都将丢失！', 'jasmine' ) ); ?>' );" />
 					<div class="clear"></div>
 				</div>
 				</form>

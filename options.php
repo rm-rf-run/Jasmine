@@ -4,6 +4,9 @@
  */
 function optionsframework_option_name()
 {
+    $optionsframework_settings = get_option('optionsframework');
+    $optionsframework_settings['id'] = 'jasmine';
+    update_option('optionsframework', $optionsframework_settings);
     // Change this to use your theme slug
     return 'jasmine';
 }
@@ -68,29 +71,29 @@ function optionsframework_options()
     );
 
     // 将所有类别拉到一个数组中
-    $options_categories     = array();
-    $options_categories_obj = get_categories();
-    foreach ($options_categories_obj as $category) {
-        $options_categories[$category->cat_ID] = $category->cat_name;
-    }
+    // $options_categories     = array();
+    // $options_categories_obj = get_categories();
+    // foreach ($options_categories_obj as $category) {
+    //     $options_categories[$category->cat_ID] = $category->cat_name;
+    // }
 
     // 将所有标记拉入数组
-    $options_tags     = array();
-    $options_tags_obj = get_tags();
-    foreach ($options_tags_obj as $tag) {
-        $options_tags[$tag->term_id] = $tag->name;
-    }
+    // $options_tags     = array();
+    // $options_tags_obj = get_tags();
+    // foreach ($options_tags_obj as $tag) {
+    //     $options_tags[$tag->term_id] = $tag->name;
+    // }
 
     // 将所有页面放入数组中
-    $options_pages     = array();
-    $options_pages_obj = get_pages('sort_column=post_parent,menu_order');
-    $options_pages[''] = 'Select a page:';
-    foreach ($options_pages_obj as $page) {
-        $options_pages[$page->ID] = $page->post_title;
-    }
+    // $options_pages     = array();
+    // $options_pages_obj = get_pages('sort_column=post_parent,menu_order');
+    // $options_pages[''] = 'Select a page:';
+    // foreach ($options_pages_obj as $page) {
+    //     $options_pages[$page->ID] = $page->post_title;
+    // }
 
     // 如果使用图像单选按钮，请定义目录路径
-    $imagepath = get_template_directory_uri() . '/images/';
+    // $imagepath = get_template_directory_uri() . '/images/';
 
     $options = array();
 
@@ -110,7 +113,7 @@ function optionsframework_options()
         'name' => __('作者', 'jasmine'),
         'desc' => __('rm-rf-run', 'jasmine'),
         'id'   => 'author_name',
-        'std'  => '',
+        'std'  => 'rm-rf-run',
         'type' => 'text');
 
     $options[] = array(
@@ -130,7 +133,7 @@ function optionsframework_options()
     $options[] = array(
         'name' => __('建站日期', 'jasmine'),
         'desc' => __('格式2018/1/18', 'jasmine'),
-        'id'   => 'startDate',
+        'id'   => 'jasmine_startdate',
         'std'  => '',
         'type' => 'text');
 
@@ -209,7 +212,7 @@ function optionsframework_options()
     $options[] = array(
         'name' => __('额外CSS', 'jasmine'),
         'desc' => __('duck不必加style标签', 'jasmine'),
-        'id'   => 'jasmine_extraCss',
+        'id'   => 'jasmine_extracss',
         'std'  => '',
         'type' => 'textarea',
     );
@@ -228,6 +231,53 @@ function optionsframework_options()
     );
 
     $options[] = array(
+        'name' => __('友情链接', 'jasmine'),
+        'type' => 'heading',
+    );
+
+    $options[] = array(
+        'name' => __('友链名称', 'jasmine'),
+        'desc' => __('默认为站点名称', 'jasmine'),
+        'id'   => 'jasmine_sitename',
+        'std'  => '',
+        'type' => 'text');
+
+    $options[] = array(
+        'name' => __('友链链接', 'jasmine'),
+        'desc' => __('默认就是站点首页', 'jasmine'),
+        'id'   => 'jasmine_sitehref',
+        'std'  => '',
+        'type' => 'text');
+
+    $options[] = array(
+        'name' => __('友链LOGO', 'jasmine'),
+        'desc' => __('图片地址', 'jasmine'),
+        'id'   => 'jasmine_sitelogo',
+        'std'  => '',
+        'type' => 'text');
+
+    $options[] = array(
+        'name' => __('友链站点描述', 'jasmine'),
+        'desc' => __('默认为站点描述', 'jasmine'),
+        'id'   => 'jasmine_sitedescription',
+        'std'  => '',
+        'type' => 'text');
+
+    $options[] = array(
+        'name' => __('站长邮箱', 'jasmine'),
+        'desc' => __('默认为注册的邮箱', 'jasmine'),
+        'id'   => 'jasmine_siteemail',
+        'std'  => '',
+        'type' => 'text');
+
+    $options[] = array(
+        'name' => __('邮箱主题', 'jasmine'),
+        'desc' => __('默认为申请友链', 'jasmine'),
+        'id'   => 'jasmine_sitekey',
+        'std'  => '',
+        'type' => 'text');
+
+    $options[] = array(
         'name' => __('社交信息', 'jasmine'),
         'type' => 'heading',
     );
@@ -235,28 +285,28 @@ function optionsframework_options()
     $options[] = array(
         'name' => __('B站UID', 'jasmine'),
         'desc' => __('113314236', 'jasmine'),
-        'id'   => 'bilbil_uid',
-        'std'  => '',
-        'type' => 'text');
-
-    $options[] = array(
-        'name' => __('CSDN', 'jasmine'),
-        'desc' => __('CSND社区地址', 'jasmine'),
-        'id'   => 'jasmine_CSND',
+        'id'   => 'jasmine_bilbil_uid',
         'std'  => '',
         'type' => 'text');
 
     $options[] = array(
         'name' => __('bilibili', 'jasmine'),
         'desc' => __('B站地址', 'jasmine'),
-        'id'   => 'jasmine_bilbil_uid',
+        'id'   => 'jasmine_bilbil',
+        'std'  => '',
+        'type' => 'text');
+
+    $options[] = array(
+        'name' => __('CSDN', 'jasmine'),
+        'desc' => __('CSND社区地址', 'jasmine'),
+        'id'   => 'jasmine_csdn',
         'std'  => '',
         'type' => 'text');
 
     $options[] = array(
         'name' => __('GitHub', 'jasmine'),
         'desc' => __('GitHub地址', 'jasmine'),
-        'id'   => 'jasmine_GitHub',
+        'id'   => 'jasmine_gitHub',
         'std'  => '',
         'type' => 'text');
 
@@ -270,7 +320,7 @@ function optionsframework_options()
     $options[] = array(
         'name' => __('腾讯QQ', 'jasmine'),
         'desc' => __('QQ号', 'jasmine'),
-        'id'   => 'jasmine_QQ',
+        'id'   => 'jasmine_qq',
         'std'  => '',
         'type' => 'text');
 
@@ -278,13 +328,6 @@ function optionsframework_options()
         'name' => __('知乎', 'jasmine'),
         'desc' => __('知乎地址', 'jasmine'),
         'id'   => 'jasmine_zhihu',
-        'std'  => '',
-        'type' => 'text');
-
-    $options[] = array(
-        'name' => __('B站', 'jasmine'),
-        'desc' => __('B站地址', 'jasmine'),
-        'id'   => 'jasmine_bilbil',
         'std'  => '',
         'type' => 'text');
 
@@ -330,8 +373,8 @@ function optionsframework_options()
     $options[] = array(
         'name' => __('恋爱日期', 'jasmine'),
         'desc' => __('格式2018/1/18。PS:如果你还是单身，抱歉打扰了:)', 'jasmine'),
-        'id'   => 'jasmine_loveDate',
-        'std'  => '',
+        'id'   => 'jasmine_lovedate',
+        'std'  => "",
         'type' => 'text');
 
     $options[] = array(
@@ -363,18 +406,18 @@ function optionsframework_options()
         'type'  => 'text',
     );
 
-    $options[] = array(
-        'name'    => "Example Image Selector",
-        'desc'    => "Images for layout.",
-        'id'      => "example_images",
-        'std'     => "2c-l-fixed",
-        'type'    => "images",
-        'options' => array(
-            '1col-fixed' => $imagepath . '1col.png',
-            '2c-l-fixed' => $imagepath . '2cl.png',
-            '2c-r-fixed' => $imagepath . '2cr.png',
-        ),
-    );
+    // $options[] = array(
+    //     'name'    => "Example Image Selector",
+    //     'desc'    => "Images for layout.",
+    //     'id'      => "example_images",
+    //     'std'     => "2c-l-fixed",
+    //     'type'    => "images",
+    //     'options' => array(
+    //         '1col-fixed' => $imagepath . '1col.png',
+    //         '2c-l-fixed' => $imagepath . '2cl.png',
+    //         '2c-r-fixed' => $imagepath . '2cr.png',
+    //     ),
+    // );
 
     $options[] = array(
         'name'    => __('Multicheck', 'jasmine'),

@@ -24,18 +24,14 @@
 <div id="about-me-1" class="d-flex">
   <div id="avatar" class="flex-column">
     <a href="<?php bloginfo('url');?>">
-      <?php echo get_avatar_profile_url(get_bloginfo('admin_email'), '50'); ?>
+      <?php echo get_simple_local_avatar(get_bloginfo('admin_email')); ?>
     </a>
   </div>
   <div id="user-info" class="flex-column">
     <div>
       <a href="<?php bloginfo('url');?>">
-        <?php $author_obj = get_user_by('email', get_bloginfo('admin_email'));
-the_author_meta('nickname', $author_obj->ID);?>
+        <?php echo jasmine_option('author_name');?>
       </a>
-    </div>
-    <div>
-
     </div>
   </div>
 </div>
@@ -74,36 +70,34 @@ the_author_meta('nickname', $author_obj->ID);?>
   </dl>
 </div>
 <div class="item-rank"></div>
-<div id="about-me-3">
-  <div class="d-flex">
-    <div class="icon-badge">
+<div id="about-me-3 carouselExampleInterval" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <div class="d-flex carousel-inner">
+    <div class="carousel-item active">
       <a href="<?php if(!empty(jasmine_option('jasmine_bilbil'))){echo esc_attr(jasmine_option('jasmine_bilbil'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/bilbil.ico" alt="B站" data-toggle="tooltip" data-placement="top" title="B站">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/bilbil.ico" width="32" height="32" alt="B站" data-toggle="tooltip" data-placement="top" title="B站">
       </a>
-    </div>
-  	<div class="icon-badge">
-  		<a href="<?php if(!empty(jasmine_option('jasmine_CSND'))){echo esc_attr(jasmine_option('jasmine_CSND'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/csdn.ico" alt="CSDN" data-toggle="tooltip" data-placement="top" title="CSDN">
+      <a href="<?php if(!empty(jasmine_option('jasmine_csdn'))){echo esc_attr(jasmine_option('jasmine_csdn'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/csdn.ico" width="32" height="32" alt="CSDN" data-toggle="tooltip" data-placement="top" title="CSDN">
       </a>
-  	</div>
-    <div class="icon-badge">
-      <a href="tencent://message/?uin=<?php if(!empty(jasmine_option('jasmine_QQ'))){echo esc_attr(jasmine_option('jasmine_QQ'));}?>&Site=&Menu=yes">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/qq.png" alt="QQ" data-toggle="tooltip" data-placement="top" title="QQ">
+      <a href="tencent://message/?uin=<?php if(!empty(jasmine_option('jasmine_qq'))){echo esc_attr(jasmine_option('jasmine_qq'));}?>&Site=&Menu=yes">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/qq.png" width="32" height="32" alt="QQ" data-toggle="tooltip" data-placement="top" title="QQ">
       </a>
-    </div>
-    <div class="icon-badge">
-      <a href="<?php if(!empty(jasmine_option('jasmine_GitHub'))){echo esc_attr(jasmine_option('jasmine_GitHub'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/github.ico" alt="GitHub" data-toggle="tooltip" data-placement="top" title="GitHub">
+      <a href="<?php if(!empty(jasmine_option('jasmine_gitHub'))){echo esc_attr(jasmine_option('jasmine_gitHub'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/github.ico" width="32" height="32" alt="GitHub" data-toggle="tooltip" data-placement="top" title="GitHub">
       </a>
-    </div>
-    <div class="icon-badge">
       <a href="<?php if(!empty(jasmine_option('jasmine_zhihu'))){echo esc_attr(jasmine_option('jasmine_zhihu'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/zhihu.ico" alt="知乎" data-toggle="tooltip" data-placement="top" title="知乎">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/zhihu.ico" width="32" height="32" alt="知乎" data-toggle="tooltip" data-placement="top" title="知乎">
+      </a>
+      <a href="<?php if(!empty(jasmine_option('jasmine_weibo'))){echo esc_attr(jasmine_option('jasmine_weibo'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/weibo.ico" width="32" height="32" alt="weibo" data-toggle="tooltip" data-placement="top" title="weibo">
       </a>
     </div>
-    <div class="icon-badge">
-      <a href="<?php if(!empty(jasmine_option('jasmine_weibo'))){echo esc_attr(jasmine_option('jasmine_weibo'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/weibo.ico" alt="weibo" data-toggle="tooltip" data-placement="top" title="weibo">
+    <div class="carousel-item">
+      <a href="<?php if(!empty(jasmine_option('wangyiyun'))){echo esc_attr(jasmine_option('wangyiyun'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/wyy.ico" width="32" height="32" alt="网易云" data-toggle="tooltip" data-placement="top" title="网易云">
+      </a>
+      <a href="<?php if(!empty(jasmine_option('jasmine_twitter'))){echo esc_attr(jasmine_option('jasmine_twitter'));}?>">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/twitter.ico" width="32" height="32" alt="twitter" data-toggle="tooltip" data-placement="top" title="twitter">
       </a>
     </div>
   </div>
@@ -111,7 +105,7 @@ the_author_meta('nickname', $author_obj->ID);?>
 </div>
 
 <?php
-  if (jasmine_option('jasmine_loveDate')) {
+  if (jasmine_option('jasmine_lovedate')) {
    ?>
     <div class="jasmine-love">
       <img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(jasmine_option('jasmine_qq_he'))){echo esc_attr(jasmine_option('jasmine_qq_he'));}?>&s=100" class="jasmine-love-me" /><i class="fa fa-heart"></i><img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if(!empty(jasmine_option('jasmine_qq_she'))){echo esc_attr(jasmine_option('jasmine_qq_she'));}?>&s=100" class="jasmine-love-she" /><br/>
@@ -129,19 +123,19 @@ the_author_meta('nickname', $author_obj->ID);?>
   <div class="jasmine-bilbil-me">
     <div class="h-info clearfix">
       <div class="h-avatar">
-        <a href="<?php if(!empty(jasmine_option('jasmine_bilbil'))){echo esc_attr(jasmine_option('jasmine_bilbil'));}?>">
-          <img src="https://images.weserv.nl/?url=<?php if(!empty(jasmine_option('jasmine_bilbil_gravatar'))){echo esc_attr(jasmine_option('jasmine_bilbil_gravatar'));}?>" id="h-avatar">
+        <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
+          <img src="https://images.weserv.nl/?url=<?php if(!empty(get_option('jasmine_bilbil_gravatar'))){echo esc_attr(get_option('jasmine_bilbil_gravatar'));}?>" id="h-avatar">
         </a>
       </div>
       <div class="h-basic">
         <div>
-          <a href="<?php if(!empty(jasmine_option('jasmine_bilbil'))){echo esc_attr(jasmine_option('jasmine_bilbil'));}?>" title="<?php if(!empty(jasmine_option('jasmine_bilbil_name'))){echo esc_attr(jasmine_option('jasmine_bilbil_name'));}?>">
-            <span id="h-name"><?php if(!empty(jasmine_option('jasmine_bilbil_name'))){echo esc_attr(jasmine_option('jasmine_bilbil_name'));}?></span>
+          <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>" title="<?php if(!empty(get_option('jasmine_bilbil_name'))){echo esc_attr(jasmine_option('jasmine_bilbil_name'));}?>">
+            <span id="h-name"><?php if(!empty(get_option('jasmine_bilbil_name'))){echo esc_attr(get_option('jasmine_bilbil_name'));}?></span>
           </a>
-          <a href="//www.bilibili.com/html/help.html#k" target="_blank" lvl="<?php if(!empty(jasmine_option('jasmine_bilbil_level'))){echo esc_attr(jasmine_option('jasmine_bilbil_level'));}?>" class="h-level m-level"></a>
+          <a href="//www.bilibili.com/html/help.html#k" target="_blank" lvl="<?php if(!empty(get_option('jasmine_bilbil_level'))){echo esc_attr(get_option('jasmine_bilbil_level'));}?>" class="h-level m-level"></a>
           <a href="//account.bilibili.com/account/big" target="_blank" class="h-vipType">
-            <?php if(jasmine_option('jasmine_bilbil_type') !== false){
-                  $type = jasmine_option('jasmine_bilbil_type');
+            <?php if(get_option('jasmine_bilbil_type') !== false){
+                  $type = get_option('jasmine_bilbil_type');
                   if ($type === "0" ) {
                     echo "没有大会员";
                   }elseif ($type === "2" ) {
@@ -155,20 +149,20 @@ the_author_meta('nickname', $author_obj->ID);?>
           <!---->
         </div>
         <div class="h-basic-spacing">
-          <h4 title="<?php if(!empty(jasmine_option('jasmine_bilbil_describe'))){echo jasmine_option('jasmine_bilbil_describe');}?>" class="h-sign"><?php if(!empty(jasmine_option('jasmine_bilbil_describe'))){echo jasmine_option('jasmine_bilbil_describe');}?></h4>
+          <h4 title="<?php if(!empty(get_option('jasmine_bilbil_describe'))){echo get_option('jasmine_bilbil_describe');}?>" class="h-sign"><?php if(!empty(get_option('jasmine_bilbil_describe'))){echo get_option('jasmine_bilbil_describe');}?></h4>
         </div>
       </div>
     </div>
   </div>
   <div class="jasmine-bilbil-btn">
     <div class="jasmine-bilbil-btn-add">
-      <a href="<?php if(!empty(jasmine_option('jasmine_bilbil'))){echo esc_attr(jasmine_option('jasmine_bilbil'));}?>">
+      <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
         <i class="fa fa-plus"></i>
         <span>关注</span>
       </a>
     </div>
     <div class="jasmine-bilbil-message">
-      <a href="<?php if(!empty(jasmine_option('jasmine_bilbil_uid'))){echo 'https://message.bilibili.com/#/whisper/mid'.esc_attr(jasmine_option('jasmine_bilbil_uid'));}?>">
+      <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://message.bilibili.com/#/whisper/mid'.esc_attr(get_option('jasmine_bilbil_uid'));}?>">
         <i class="fa fa-paper-plane"></i>
         <span>发消息</span>
       </a>
@@ -177,20 +171,20 @@ the_author_meta('nickname', $author_obj->ID);?>
 </div>
 
 <div class="jasmine-bilbil-statistics">
-  <a href="<?php if(!empty(jasmine_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(jasmine_option('jasmine_bilbil_uid')).'/fans/follow';}?>" class="jasmine-bilbil-statistics-a">
+  <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/follow';}?>" class="jasmine-bilbil-statistics-a">
     <p class="statistics-data">
       关注数
     </p>
     <p class="statistics-data-num">
-     <?php if(!empty(jasmine_option('jasmine_bilbil_following'))){echo jasmine_option('jasmine_bilbil_following');}?>
+     <?php if(!empty(get_option('jasmine_bilbil_following'))){echo get_option('jasmine_bilbil_following');}?>
     </p>
   </a>
-  <a href="<?php if(!empty(jasmine_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(jasmine_option('jasmine_bilbil_uid')).'/fans/fans';}?>" class="jasmine-bilbil-statistics-a">
+  <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/fans';}?>" class="jasmine-bilbil-statistics-a">
     <p class="statistics-data">
       粉丝数
     </p>
     <p class="statistics-data-num">
-      <?php if(!empty(jasmine_option('jasmine_bilbil_follower'))){echo jasmine_option('jasmine_bilbil_follower');}?>
+      <?php if(!empty(get_option('jasmine_bilbil_follower'))){echo get_option('jasmine_bilbil_follower');}?>
     </p>
   </a>
 </div>
