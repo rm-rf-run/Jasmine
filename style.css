@@ -153,11 +153,13 @@ dl {
     background-color: #f5f6f7;
     width: 100%;
     margin: auto;
+    margin-bottom: 5px;
 }
 
 #about-me-3 {
     display: flex;
     margin-top: 5px;
+    padding-top: 5px;
 }
 
 #about-me-3 img {
@@ -1294,7 +1296,7 @@ dl {
 
 .jasmine-tag-cloud {
     background: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 10px;
 }
 

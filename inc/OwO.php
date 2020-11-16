@@ -12,9 +12,16 @@ add_action('wp_enqueue_scripts', 'my_load_scripts');
 define('OwO_API', get_template_directory_uri() . '/inc/OwO/OwO.min.json');
 define('OwO_alu', get_template_directory_uri() . '/inc/OwO/alu');
 define('OwO_paopao', get_template_directory_uri() . '/inc/OwO/paopao');
+define('OwO_bili', get_template_directory_uri() . '/inc/OwO/bili');
 
 function comment_add_owo($comment_text)
 {
+    $return_smiles = array();
+    $biliname = array('baiyan', 'fadai', 'koubi', 'qinqin', 'weiqu', 'bishi', 'fanu', 'kun', 'se', 'weixiao', 'bizui', 'ganga', 'lengmo', 'shengbing', 'wunai', 'chan', 'guilian', 'liubixue', 'shengqi', 'xiaoku', 'daku', 'guzhang', 'liuhan', 'shuizhao', 'xieyanxiao', 'dalao', 'haixiu', 'liulei', 'sikao', 'yiwen', 'dalian', 'heirenwenhao', 'miantian', 'tiaokan', 'yun', 'dianzan', 'huaixiao', 'mudengkoudai', 'tiaopi', 'zaijian', 'doge', 'jingxia', 'nanguo', 'touxiao', 'zhoumei', 'facai', 'keai', 'outu', 'tuxue', 'zhuakuang');
+    for ($i = 0; $i < count($biliname); $i++) {
+        $return_smiles['@'$biliname[$i]''] => '<img src="' . $biliname[$i] . '/'.$biliname[$i].'.png" alt="'.$biliname[$i].'" style="vertical-align: middle;">';
+    }
+
     $data_OwO = array(
         '@(暗地观察)' => '<img src="' . OwO_alu . '/暗地观察.png" alt="暗地观察" style="vertical-align: middle;">',
         '@(便便)'   => '<img src="' . OwO_alu . '/便便.png" alt="便便" style="vertical-align: middle;">',

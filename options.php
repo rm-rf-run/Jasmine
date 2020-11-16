@@ -4,7 +4,7 @@
  */
 function optionsframework_option_name()
 {
-    $optionsframework_settings = get_option('optionsframework');
+    $optionsframework_settings       = get_option('optionsframework');
     $optionsframework_settings['id'] = 'jasmine';
     update_option('optionsframework', $optionsframework_settings);
     // Change this to use your theme slug

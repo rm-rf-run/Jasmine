@@ -365,7 +365,7 @@ function add_bilbil_data(){
 
 function echo_extraCss(){
   if (jasmine_option('jasmine_extracss')) {
-    echo '<style>'.jasmine_option('jasmine_extracss').'</style>';
+    echo '<style type="text/css">'.jasmine_option('jasmine_extracss').'</style>';
   }
 }
 
@@ -425,9 +425,77 @@ beian.png' data-src='' data-was-processed='true'> <a href='" . esc_url($police_b
     } else {
         $date = $date . '-';
     }
-    echo "版权所有 © " . $date . $this_year . " <a href='" . esc_url($bolg_href) . "'>" . esc_html($blog_name) . "</a> " . $police_beian_exit . " | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" . $beian . "</a><br/>Theme Jasmine By <a href='https://prettywordpress.com' target='_blank' ><span id='rm-rf-run'>rm-rf-run</span></a> With  | All Rights Reserved<br/>" . $startDate;
+    echo "版权所有 © " . $date . $this_year . " <a href='" . esc_url($bolg_href) . "'>" . esc_html($blog_name) . "</a> " . $police_beian_exit . " | <a href='http://www.beian.miit.gov.cn/' rel='external nofollow' target='_blank'>" . $beian . "</a><br/>Theme <a href='https://github.com/rm-rf-run/Jasmine'><span id='rm-rf-run'>Jasmine</span><a/> By <a href='https://prettywordpress.com' target='_blank' ><span id='rm-rf-run'>rm-rf-run</span></a> With  | All Rights Reserved<br/>" . $startDate;
 }
 
+// 删除WordPress私密文章标题前的提示文字
+function title_format($content) {
+    return '%s';
+}
+add_filter('private_title_format', 'title_format');
+add_filter('protected_title_format', 'title_format');
+
+// RSS 中添加查看全文链接防采集
+function feed_read_more($content) {
+    return $content . '<p><a rel="bookmark" href="'.get_permalink().'" target="_blank">查看全文</a></p>';
+}
+add_filter ('the_excerpt_rss', 'feed_read_more');
+
+// 阻止站内文章互相Pingback
+function jasmine_noself_ping( &$links ) { 
+    $home = get_option( 'home' );
+    foreach ( $links as $l => $link )
+    if ( 0 === strpos( $link, $home ) )
+    unset($links[$l]); 
+}
+add_action('pre_ping','jasmine_noself_ping');
+
+// 主循环中显示文章类型
+function jasmine_posts_per_page($query){
+    if ( (is_home() || is_search()) && $query->is_main_query() )
+        $query->set( 'post_type', array( 'post', 'shuoshuo', 'douban' ) ); 
+    return $query;
+}
+
+// 说说
+function create_shuoshuo() {
+    $labels = array(
+        'name'               => _x( '说说', 'jasmine' ),
+        'singular_name'      => _x( '说说', 'jasmine' ),
+        'add_new'            => _x( '新建说说', 'jasmine' ),
+        'add_new_item'       => __( '新建一个说说', 'jasmine' ),
+        'edit_item'          => __( '编辑说说', 'jasmine' ),
+        'new_item'           => __( '新说说', 'jasmine' ),
+        'all_items'          => __( '所有说说', 'jasmine' ),
+        'view_item'          => __( '查看说说', 'jasmine' ),
+        'search_items'       => __( '搜索说说', 'jasmine' ),
+        'not_found'          => __( '没有找到有关说说', 'jasmine' ),
+        'not_found_in_trash' => __( '回收站里面没有相关说说', 'jasmine' ),
+        'parent_item_colon'  => '',
+        'menu_name'          => '说说'
+    );
+    $args = array(
+        'labels'        => $labels,
+        'description'   => '写条说说',
+        'public'        => true,
+        'menu_position' => 5,
+        'menu_icon'     => 'dashicons-format-status',
+        'supports'      => array( 'title', 'editor', 'author', 'comments', 'thumbnail', 'tag'),
+        'taxonomies'    => array( 'shuoshuo',  'post_tag' ),
+        'has_archive'   => true
+    );
+    register_post_type( 'shuoshuo', $args );
+}
+add_action( 'init', 'create_shuoshuo' );
+add_action( 'add_meta_boxes', 'jasmine_add_shuoshuo_box' );
+function jasmine_add_shuoshuo_box(){
+    add_meta_box( 'jasmine_shuoshuo_sticky', '置顶', 'jasmine_shuoshuo_sticky', 'shuoshuo', 'side', 'high' );
+}
+function jasmine_shuoshuo_sticky (){ ?>
+    <input id="super-sticky" name="sticky" type="checkbox" value="sticky" <?php checked( is_sticky() ); ?> /><label for="super-sticky" class="selectit">置顶本条说说</label>
+<?php
+}
+add_action('pre_get_posts','jasmine_posts_per_page');
 
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
