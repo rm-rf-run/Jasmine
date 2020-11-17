@@ -100,7 +100,7 @@
           <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/twitter.ico" width="32" height="32" alt="twitter" data-toggle="tooltip" data-placement="top" title="twitter">
       </a>
       <a href="<?php echo get_bloginfo('rss2_url'); ?>">
-        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/rss.png" width="32" height="32" alt="Rss" data-toggle="tooltip" data-placement="top" title="Rss"></img>
+        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/rss.png" width="22" height="22" alt="Rss" data-toggle="tooltip" data-placement="top" title="Rss"></img>
       </a>
     </div>
   </div>

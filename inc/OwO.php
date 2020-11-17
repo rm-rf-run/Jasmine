@@ -16,10 +16,16 @@ define('OwO_bili', get_template_directory_uri() . '/inc/OwO/bili');
 
 function comment_add_owo($comment_text)
 {
+    $smiles_path = __DIR__ . "/images/bili/";
     $return_smiles = array();
     $biliname = array('baiyan', 'fadai', 'koubi', 'qinqin', 'weiqu', 'bishi', 'fanu', 'kun', 'se', 'weixiao', 'bizui', 'ganga', 'lengmo', 'shengbing', 'wunai', 'chan', 'guilian', 'liubixue', 'shengqi', 'xiaoku', 'daku', 'guzhang', 'liuhan', 'shuizhao', 'xieyanxiao', 'dalao', 'haixiu', 'liulei', 'sikao', 'yiwen', 'dalian', 'heirenwenhao', 'miantian', 'tiaokan', 'yun', 'dianzan', 'huaixiao', 'mudengkoudai', 'tiaopi', 'zaijian', 'doge', 'jingxia', 'nanguo', 'touxiao', 'zhoumei', 'facai', 'keai', 'outu', 'tuxue', 'zhuakuang');
     for ($i = 0; $i < count($biliname); $i++) {
-        $return_smiles['@'$biliname[$i]''] => '<img src="' . $biliname[$i] . '/'.$biliname[$i].'.png" alt="'.$biliname[$i].'" style="vertical-align: middle;">';
+        $img_size = getimagesize($smiles_path . $biliname[$i] . ".png");
+        $img_height = $img_size["1"];
+        $return_smiles['@['.$biliname[$i].']'] = '<span class="emotion-inline emotion-item"><img src="https://cdn.jsdelivr.net/gh/rm-rf-run/cdn@1.0/img/bili/' .$biliname[$i].'.png" class="img" alt="'.$biliname[$i].'" style="animation-duration: ' . ($img_height / 32 * 40) . 'ms;
+        animation-timing-function: steps(' . ($img_height / 32) . ');
+        transform: translateY(-' . ($img_height - 32) . 'px);
+        height: ' . $img_height . 'px;"></span>';
     }
 
     $data_OwO = array(
@@ -159,6 +165,6 @@ function comment_add_owo($comment_text)
         '@[OK]'   => '<img src="' . OwO_paopao . '/OK.png" alt="OK" style="vertical-align: middle;">',
         '@[what]' => '<img src="' . OwO_paopao . '/what.png" alt="what" style="vertical-align: middle;">',
     );
-    return strtr($comment_text, $data_OwO);
+    return strtr($comment_text, array_merge($data_OwO,$return_smiles));
 }
 add_filter('comment_text', 'comment_add_owo', 20, 2);
