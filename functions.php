@@ -1,5 +1,5 @@
 <?php
-
+define('JASMINE_VERSION', wp_get_theme()->get('Version'));
 //注册菜单的名称
 function register_my_menus()
 {
@@ -544,6 +544,14 @@ function save_markdown_comment($comment_ID, $comment_approved)
     $wpdb->query("UPDATE wp_comments SET comment_markdown='" . $comment_content . "' WHERE comment_ID='" . $comment_ID . "';");
 }
 add_action('comment_post', 'save_markdown_comment', 10, 2);
+
+/**
+ * Enqueue scripts and styles.
+ */
+function jasmine_scripts(){
+    wp_enqueue_style('jasmine_css', get_stylesheet_uri(), array(), JASMINE_VERSION);
+}
+add_action('admin_enqueue_scripts', 'jasmine_scripts');
 
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';

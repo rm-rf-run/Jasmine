@@ -1726,6 +1726,7 @@ dl {
     font-size: .8125rem;
     line-height: 1.6153846154;
 }
+
 .emotion-inline {
     padding-left: 0 !important;
     padding-right: 0 !important
@@ -1761,6 +1762,7 @@ dl {
         -webkit-transform: translateY(0);
         transform: translateY(0)
     }
+
     to {
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%)
@@ -1772,6 +1774,7 @@ dl {
         -webkit-transform: translateY(0);
         transform: translateY(0)
     }
+
     to {
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%)
