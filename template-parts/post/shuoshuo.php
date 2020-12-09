@@ -14,13 +14,11 @@
  *
  * @author admin@prettywordpress.com
  * @link https://www.prettywordpress.com
- * Template Name: 首页文章内容
+ * Template Name: 首页说说内容
  */
-
 ?>
-
 <article id="post-<?php the_ID();?>" class="jasmine-article" <?php post_class();?>>
-              <div class="jasmine-panel">
+<div class="jasmine-panel">
                 <div class="lazyload jasmine-article-img" style="background-image: url(<?php
                       $image = explode(",",jasmine_option("jasmine_post_api"));
                     if (has_post_thumbnail()) {
@@ -64,4 +62,4 @@
                   </span>
                 </div>
               </div>
-						</article>
+</article>

@@ -38,18 +38,24 @@ get_header();
            endif;
            ?>
 			<?php
-        $i = 1;
+        $i = 0;
 				if ( have_posts() ) :
 
             // 开始循环(Loop).
 				    while ( have_posts() ) : the_post();
-                /*
+                // error_log(explode(",",jasmine_option("jasmine_post_api")),3,"D:\wamp\www\prettywordpress\wordpress\wp-content/debug.log");
+                if (strcmp("shuoshuo",get_post_type())==0) {
+                  set_query_var( 'i', $i++ );
+                  get_template_part( 'template-parts/post/shuoshuo', get_post_format() );
+                } else {
+                  /*
                 *包含内容的帖子格式特定模板。
                 *如果您想在子主题中覆盖它，那么就选择一个文件
                 *称为content-___.php（其中___是Post格式名），并且将被替代。
                 */
                 set_query_var( 'i', $i++ );//为需要导入的模板传参数i
                 get_template_part( 'template-parts/post/content', get_post_format() );
+                }
 				    endwhile;
 
             //分页

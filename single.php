@@ -33,6 +33,19 @@ setPostViews(get_the_ID());
           <div class="jasmine-post-content">
             <?php if (have_posts()): ?>
             <?php while (have_posts()): the_post();?>
+                    <div class="jasmine-post-help">
+                        <span class="jasmine-post-help-font">
+                          <a href="javascript:addFontSize();">
+                            <font>A+</font>
+                          </a>
+                        </span>
+                        <span class="jasmine-post-help-width">
+                          <a href="javascript:addWidth();">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                      </div>
 							      <h1 class="jasmine-post-h1"><?php the_title()?></h1>
                     <div class="post-meta-info">
                       <div class="author-img">

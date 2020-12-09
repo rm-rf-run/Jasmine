@@ -62,8 +62,10 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
 			'theme_location' => 'header-menu', //(string)要使用的主题位置。必须向register_nav_menu（）注册，以便用户选择。
 			// 'items_wrap' => '',//(string)应该如何包装列表项。默认值为带有ID和类的ul。使用带编号占位符的printf（）格式。
 			// 'item_spacing' => '',//(string)是否在菜单的HTML中保留空格。接受“保留”或“丢弃”。默认为“保留”。默认值：array（）
-		)
-	);
+		));
+  ?>
+    <input type="" name="">
+  <?php
 }?>
       </div>
     </nav>
