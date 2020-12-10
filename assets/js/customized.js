@@ -226,12 +226,38 @@
              });
          };
          //点击字体增大
-         function addFontSize() {
-             console.log("111");
-         }
+         $('.jasmine-post-help-font').click(function(){
+            $('#jasmine-post-main').toggleClass("add-fontsize");
+         })
          //点击增大文章内容宽度
-         function addWidth() {
-             console.log("111");
-         }
+         $('.jasmine-post-help-width').click(function(){
+            var bool = $('#hide-column').hasClass("hide-block");
+            if(bool){
+                $('#hide-column').removeClass("hide-block");
+                $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
+                $('.jasmine-appreciation-img').css("left","22%");
+                var width = $('.jasmine-post-h1').width();
+                var height = $('.jasmine-post-h1').height();
+                $('.jasmine-post-content h1 canvas').css("width",width);
+                $('.jasmine-post-content h1 canvas').css("height",height);
+            }else{
+                $('#hide-column').addClass("hide-block");
+                $('#pjax-container').removeClass("col-md-6").addClass("col-md-9");
+                $('.jasmine-appreciation-img').css("left","32%");
+                var width = $('.jasmine-post-h1').width();
+                var height = $('.jasmine-post-h1').height();
+                $('.jasmine-post-content h1 canvas').css("width",width);
+                $('.jasmine-post-content h1 canvas').css("height",height);
+            }
+         })
+
+         $('#menu-login.have-login').click(function(e) {
+            var theEvent = window.event || e;
+            theEvent.stopPropagation();
+            $('#personal-menu').fadeToggle(250);
+        });
+        $('body').on('click', function() {
+            $('#personal-menu').fadeOut(250);
+        });
      })
  })(jQuery);

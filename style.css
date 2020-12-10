@@ -13,70 +13,54 @@ Text Domain: Jasmine
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
 * {
     margin: 0px;
     padding: 0px;
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
-
 body {
     background-attachment: fixed;
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
-
 a:hover {
     text-decoration: none;
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
-
-p,
-span,
-h1,
-h2,
-h3,
-h3,
-h5,
-h6 {
+p, span, h1, h2, h3, h3, h5, h6 {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
-
 span span {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
-
 div a {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
-
-div a p,
-span {
+div a p, span {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
-
+input {
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
+}
 /*导航栏*/
 
 .head-nav {
     padding-right: 20%;
     padding-left: 20%;
     background-color: #fff;
+    height: 42px;
 }
-
 .head-nav .navbar-brand {
     font-size: 22px;
     padding: .3125rem;
 }
-
-
 .head-nav a {
     color: black;
 }
-
-
 #main {
-    margin-top: 85px;
+    margin-top: 70px;
     min-height: 800px;
 }
-
 /*关于我*/
 
 #about-me {
@@ -85,22 +69,18 @@ span {
     padding: 16px 16px 6px 16px;
     background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);
 }
-
 #about-me-1 a {
     color: #555666;
     cursor: pointer;
     text-decoration: none;
 }
-
 #avatar {
     width: 50px;
     height: 50px;
 }
-
 .avatar {
     border-radius: 50%;
 }
-
 #user-info {
     margin-left: 8px;
     font-style: italic;
@@ -109,45 +89,36 @@ span {
     padding: 10px 5px 5px 5px;
     width: 100%;
 }
-
 .flex-column {
     -webkit-box-orient: vertical !important;
     -webkit-box-direction: normal !important;
     -ms-flex-direction: column !important;
     flex-direction: column !important;
 }
-
 .d-flex {
     display: flex !important;
 }
-
 .text-center {
     text-align: center;
 }
-
 #about-me-2>* {
     width: 100%;
 }
-
 #about-me-2 {
     padding: 9px 0px;
 }
-
 dt {
     color: #4a4d52;
     font-size: 14px;
     font-weight: 500;
     line-height: 22px;
 }
-
 dd {
     color: #999aaa;
 }
-
 dl {
     margin-bottom: 0px;
 }
-
 .item-rank {
     height: 1px;
     background-color: #f5f6f7;
@@ -155,36 +126,29 @@ dl {
     margin: auto;
     margin-bottom: 5px;
 }
-
 #about-me-3 {
     display: flex;
     margin-top: 5px;
     padding-top: 5px;
 }
-
 #about-me-3 img {
     width: 36px;
     height: 36px;
     border-radius: 50%;
 }
-
 .jasmine-nav {
     background: #fff;
     border-radius: 4px;
 }
-
 .jasmine-nav li a {
     color: #999aaa;
 }
-
 .jasmine-nav li {
     margin-left: 5px;
 }
-
 .icon-badge {
     margin-right: 2px;
 }
-
 .jasmine-article {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -193,29 +157,24 @@ dl {
     border-radius: 4px;
     transition: all .2s;
 }
-
 #avatar img {
     transition: all 1s;
 }
-
 #avatar img:hover {
     transform: rotate(1turn);
     transition-delay: 0s;
     transition-property: all;
     filter: 2px;
 }
-
 .jasmine-content h2 a {
     color: #fff !important;
 }
-
 .jasmine-content h2 {
     transition: all .3s;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
 .jasmine-article-img {
     min-height: 200px;
     position: relative;
@@ -225,12 +184,10 @@ dl {
     border-radius: 4px;
     transition: all .3s;
 }
-
 .jasmine-panel {
     overflow: hidden;
     border-radius: 4px;
 }
-
 .jasmine-article:hover .jasmine-article-img {
     transform: scale(1.3, 1.3);
     /* IE 9 */
@@ -240,18 +197,15 @@ dl {
     filter: blur(5px);
     box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
 }
-
 .jasmine-article:hover h2 {
     transform: translateY(-20px) scale(1.2);
     opacity: 1;
     padding: 0 60px;
 }
-
 .jasmine-article:hover .jasmine-content-foot {
     transform: translateY(5px);
     opacity: 1;
 }
-
 .jasmine-content {
     position: relative;
     margin-top: -37%;
@@ -263,13 +217,11 @@ dl {
     background-color: rgba(0, 0, 0, .3);
     color: #fff;
 }
-
 .jasmine-content-foot {
     margin-right: 5px;
     opacity: 0;
     transition: all .3s;
 }
-
 .pagination {
     -ms-flex-pack: center !important;
     justify-content: center !important;
@@ -279,7 +231,6 @@ dl {
     list-style: none;
     border-radius: .25rem;
 }
-
 /**
  * 重写分页样式
  */
@@ -295,7 +246,6 @@ dl {
     border: 1px solid #dee2e6;
     border-radius: 8px;
 }
-
 /**
  * 重写分页样式
  */
@@ -309,21 +259,18 @@ dl {
     list-style: none;
     border-radius: .25rem;
 }
-
 .jasmine-notice {
     background: #fff;
     border-radius: 8px;
     padding: 16px 16px 6px 16px;
     margin-bottom: 8px;
 }
-
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 
 ::-webkit-scrollbar {
     width: 9px;
     height: 9px
 }
-
 /*定义滚动条轨道*/
 
 ::-webkit-scrollbar-track {
@@ -332,7 +279,6 @@ dl {
     -moz-border-radius: 2em;
     border-radius: 2em
 }
-
 /*定义滑块 内阴影+圆角*/
 
 ::-webkit-scrollbar-thumb {
@@ -342,7 +288,6 @@ dl {
     -moz-border-radius: 2em;
     border-radius: 2em
 }
-
 .to-top {
     position: fixed;
     display: none;
@@ -356,29 +301,23 @@ dl {
     background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/asserts/space-to-top.png);
     background-position: -40px -44px;
 }
-
 .to-top.fly {
     transform: translateY(-1000px);
 }
-
 .to-top.transition {
     transition: transform .3s ease-in;
 }
-
 .jasmine-notice-div {
     min-height: 50px;
 }
-
 .jasmine-notice-title {
     text-align: center;
     font-weight: bolder;
     font-family: cursive;
 }
-
 .jasmine-notice-title title {
     display: block;
 }
-
 .jasmine-love {
     background: #fff;
     border-radius: 8px;
@@ -386,29 +325,23 @@ dl {
     padding-top: 5px;
     margin-bottom: 8px;
 }
-
 @keyframes scaleDraw {
-
     /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
     0% {
         transform: scale(1);
         /*开始为原始大小*/
     }
-
     25% {
         transform: scale(1.1);
         /*放大1.1倍*/
     }
-
     50% {
         transform: scale(1);
     }
-
     75% {
         transform: scale(1.1);
     }
 }
-
 .jasmine-love i {
     color: red;
     -webkit-animation-name: scaleDraw;
@@ -420,7 +353,6 @@ dl {
     -webkit-animation-duration: 3s;
     /*动画所花费的时间*/
 }
-
 .jasmine-love-me {
     width: 50px;
     height: 50px;
@@ -432,7 +364,6 @@ dl {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
     border: 2px solid #fff;
 }
-
 .jasmine-love-she {
     width: 50px;
     height: 50px;
@@ -444,39 +375,31 @@ dl {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .1), 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
     border: 2px solid #fff;
 }
-
 .jasmine-random-articles {
     background: #fff;
     border-radius: 8px;
     padding: 16px 16px 6px 16px;
     margin-bottom: 8px;
 }
-
 .jasmine-random-articles ul {
     list-style-type: decimal;
     padding-left: 40px
 }
-
 .jasmine-random-articles ul li a {
     color: #212529;
 }
-
 .jasmine-random-articles ul li a:hover {
     color: #409eff;
 }
-
 .jasmine-random-articles title {
     display: block;
 }
-
 .jasmine-random-articles-div div:first-child {
     display: inline-block;
 }
-
 .jasmine-random-articles-div div:last-child {
     display: inline-block;
 }
-
 .jasmine-bilbil {
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
@@ -486,7 +409,6 @@ dl {
     position: relative;
     background-image: url(http://images.weserv.nl/?url=http://i0.hdslb.com/bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png@2200w_400h_1o.webp);
 }
-
 .jasmine-bilbil-gradient {
     position: absolute;
     bottom: 0;
@@ -496,27 +418,22 @@ dl {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAABdCAMAAADNEjtLAAABEVBMVEUDAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAAADAACnjvHuAAAAW3RSTlMBAgMEBQYHCAkKCwwNDxAREhQVFhgZGxweHyEiJCUnKSosLS8xMjQ2ODk7PT5AQkNFR0hKTE5PUVNUVldZW1xeX2FiZGVnaGprbG5vcHFzdHV2d3h5ent8fX5/XoZ4lgAAAPVJREFUeAHt1AERADAQAiDdrX/mDyKEIAAAjGkDsOk3AAIEECCAAAEECCBAAAECCBBAgAACBBAggAABBAggQAABAggQQIAAAgQQIIAAAQQIIEAAAQIIEECAAAIEECCAAAEECAgQQIAAAgQQIIAAAQQIIEAAAQIIEECAAAIEECCAAAEECCBAAAECCBBAgAACBBAggAABBAggQAABAggQQIAAAgQQIIAAAQECCBBAgAACBBAggAABBAggQAABAggQQIAAAgQQIIAAAQQIIEAAAQIIEECAAAIEECCAAAEECCBAAAECCBBAgAACBAQIIEAAAQIseAEYdZ9sAcJDX4ICAAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
 }
-
 .jasmine-bilbil-me {
     position: relative;
     z-index: 1;
 }
-
 .h-basic a:first-child {
     color: black !important;
 }
-
 .h-basic a:last-child {
     color: #fff !important;
 }
-
 .jasmine-bilbil-me div:first-child {
     margin-left: 5px;
     padding-bottom: 10px;
     display: block;
     margin-top: 5px;
 }
-
 .h-avatar {
     position: relative;
     float: left;
@@ -525,7 +442,6 @@ dl {
     border: 2px solid hsla(0, 0%, 100%, .4);
     border-radius: 52px;
 }
-
 #h-avatar {
     width: 50px;
     height: 50px;
@@ -533,13 +449,11 @@ dl {
     border-radius: 48px;
     color: #fff;
 }
-
 .h-basic {
     float: left;
     font-size: 0;
     margin: 10px 0 0 0px;
 }
-
 #h-name {
     display: inline-block;
     margin-right: 5px;
@@ -552,31 +466,24 @@ dl {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
 .m-level[lvl="1"] {
     background-position: -21px -46px;
 }
-
 .m-level[lvl="2"] {
     background-position: -21px -82px;
 }
-
 .m-level[lvl="3"] {
     background-position: -21px -118px;
 }
-
 .m-level[lvl="4"] {
     background-position: -21px -154px;
 }
-
 .m-level[lvl="5"] {
     background-position: -21px -190px;
 }
-
 .m-level[lvl="6"] {
     background-position: -21px -226px;
 }
-
 .m-level {
     display: inline-block;
     width: 28px;
@@ -587,7 +494,6 @@ dl {
     background-repeat: no-repeat;
     background-position: 999px 999px;
 }
-
 .h-vipType {
     display: inline-block;
     height: 16px;
@@ -600,7 +506,6 @@ dl {
     vertical-align: middle;
     margin-right: 5px;
 }
-
 .h-basic-spacing {
     margin-top: 8px;
     width: 185px;
@@ -608,7 +513,6 @@ dl {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
 .h-sign {
     color: #d6dee4;
     font-size: 12px;
@@ -617,7 +521,6 @@ dl {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .jasmine-bilbil-statistics {
     background: #fff;
     height: 75px;
@@ -625,7 +528,6 @@ dl {
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
 }
-
 .jasmine-bilbil-statistics-a {
     display: -ms-flexbox;
     -ms-flex-direction: column;
@@ -639,14 +541,12 @@ dl {
     text-align: center;
     box-sizing: border-box;
 }
-
 .statistics-data {
     line-height: 14px;
     font-size: 12px;
     color: #99a2aa;
     margin-bottom: 0px;
 }
-
 .statistics-data-num {
     line-height: 16px;
     margin-top: 5px;
@@ -654,11 +554,9 @@ dl {
     font-size: 12px;
     margin-bottom: 0px;
 }
-
 .jasmine-bilbil-btn {
     padding-left: 15%;
 }
-
 .jasmine-bilbil-btn-add {
     background: #f25d8e;
     box-shadow: 0 0 0 2px #fff;
@@ -675,11 +573,9 @@ dl {
     margin-top: 2px;
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
-
 .jasmine-bilbil-btn-add a {
     color: #fff;
 }
-
 .jasmine-bilbil-message {
     background: rgba(0, 0, 0, .45);
     box-shadow: 0 0 0 2px hsla(0, 0%, 100%, .3);
@@ -696,84 +592,69 @@ dl {
     margin-top: 2px;
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
-
 .jasmine-bilbil-message a {
     color: #fff;
 }
-
 .breadcrumb {
     color: #99a2aa;
     font-size: 15px;
     background: #fff;
 }
-
 .breadcrumb a {
     color: #99a2aa;
 }
-
 .breadcrumb a:hover {
     color: #007bff;
 }
-
 .jasmine-post-content {
     background: #fff;
     border-radius: 4px;
     padding: 12px 16px;
     margin-bottom: 10px;
 }
-
 .jasmine-post-content-foot {
     text-align: center;
     border-bottom: 1px dashed #ddd;
     border-top: 1px dashed #ddd;
-    height: 50px;
     padding-top: 2%;
+    padding-bottom: 2%;
 }
-
 .jasmine-post-content-foot div {
     display: inline-block;
 }
-
 .jasmine-post-content-foot a {
     color: #b3b3b3;
 }
-
 .jasmine-post-content-foot a:hover {
     color: #888;
 }
-
 .jasmine-appreciation {
     margin: auto;
     width: 48px;
     height: 48px;
     margin-bottom: 15px;
 }
-
 .jasmine-appreciation-icon {
     color: rebeccapurple;
     cursor: pointer;
 }
-
 .jasmine-appreciation-ul {
     margin: 0px;
     padding: 0px;
     background: #f5f5f5;
     text-align: center;
 }
-
 .jasmine-appreciation-img {
     padding: 5px;
     position: absolute;
-    left: 128px;
+    left: 22%;
     animation: all .4s;
     display: none;
 }
-
 .jasmine-appreciation-img ul li {
     display: inline-block;
     margin: 10px;
 }
-
 .jasmine-appreciation-ul::before {
     content: "";
     width: 0;
@@ -787,344 +668,233 @@ dl {
     right: 0;
     margin: 0 auto;
 }
-
 .jasmine-appreciation-ul li:after {
     display: block;
     padding: 5px 0 0;
     font-size: 13px;
     color: #555;
 }
-
 .jasmine-alipay:after {
     content: "支付宝";
 }
-
 .jasmine-wechat:after {
     content: "微信";
 }
-
 .jasmine-appreciation:hover .jasmine-appreciation-img {
     display: block;
 }
-
 #foot {
     text-align: center;
     margin-bottom: 10px;
     margin-top: 30px;
     color: black;
 }
-
 #foot a {
     color: black;
 }
-
 /* start */
+
 .my-face {
     animation: my-face 5s infinite ease-in-out;
     display: inline-block;
     margin: 0 5px;
 }
-
 @-webkit-keyframes my-face {
-
-    2%,
-    24%,
-    80% {
+    2%, 24%, 80% {
         -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
         transform: translate(0, 1.5px) rotate(1.5deg)
     }
-
-    4%,
-    68%,
-    98% {
+    4%, 68%, 98% {
         -webkit-transform: translate(0, -1.5px) rotate(-.5deg);
         transform: translate(0, -1.5px) rotate(-.5deg)
     }
-
-    38%,
-    6% {
+    38%, 6% {
         -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
         transform: translate(0, 1.5px) rotate(-1.5deg)
     }
-
-    8%,
-    86% {
+    8%, 86% {
         -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
         transform: translate(0, -1.5px) rotate(-1.5deg)
     }
-
-    10%,
-    72% {
+    10%, 72% {
         -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
         transform: translate(0, 2.5px) rotate(1.5deg)
     }
-
-    12%,
-    64%,
-    78%,
-    96% {
+    12%, 64%, 78%, 96% {
         -webkit-transform: translate(0, -.5px) rotate(1.5deg);
         transform: translate(0, -.5px) rotate(1.5deg)
     }
-
-    14%,
-    54% {
+    14%, 54% {
         -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
         transform: translate(0, -1.5px) rotate(1.5deg)
     }
-
     16% {
         -webkit-transform: translate(0, -.5px) rotate(-1.5deg);
         transform: translate(0, -.5px) rotate(-1.5deg)
     }
-
-    18%,
-    22% {
+    18%, 22% {
         -webkit-transform: translate(0, .5px) rotate(-1.5deg);
         transform: translate(0, .5px) rotate(-1.5deg)
     }
-
-    20%,
-    36%,
-    46% {
+    20%, 36%, 46% {
         -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
         transform: translate(0, -1.5px) rotate(2.5deg)
     }
-
-    26%,
-    50% {
+    26%, 50% {
         -webkit-transform: translate(0, .5px) rotate(.5deg);
         transform: translate(0, .5px) rotate(.5deg)
     }
-
     28% {
         -webkit-transform: translate(0, .5px) rotate(1.5deg);
         transform: translate(0, .5px) rotate(1.5deg)
     }
-
-    30%,
-    40%,
-    62%,
-    76%,
-    88% {
+    30%, 40%, 62%, 76%, 88% {
         -webkit-transform: translate(0, -.5px) rotate(2.5deg);
         transform: translate(0, -.5px) rotate(2.5deg)
     }
-
-    32%,
-    34%,
-    66% {
+    32%, 34%, 66% {
         -webkit-transform: translate(0, 1.5px) rotate(-.5deg);
         transform: translate(0, 1.5px) rotate(-.5deg)
     }
-
     42% {
         -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
         transform: translate(0, 2.5px) rotate(-1.5deg)
     }
-
-    44%,
-    70% {
+    44%, 70% {
         -webkit-transform: translate(0, 1.5px) rotate(.5deg);
         transform: translate(0, 1.5px) rotate(.5deg)
     }
-
-    48%,
-    74%,
-    82% {
+    48%, 74%, 82% {
         -webkit-transform: translate(0, -.5px) rotate(.5deg);
         transform: translate(0, -.5px) rotate(.5deg)
     }
-
-    52%,
-    56%,
-    60% {
+    52%, 56%, 60% {
         -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
         transform: translate(0, 2.5px) rotate(2.5deg)
     }
-
     58% {
         -webkit-transform: translate(0, .5px) rotate(2.5deg);
         transform: translate(0, .5px) rotate(2.5deg)
     }
-
     84% {
         -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
         transform: translate(0, 1.5px) rotate(2.5deg)
     }
-
     90% {
         -webkit-transform: translate(0, 2.5px) rotate(-.5deg);
         transform: translate(0, 2.5px) rotate(-.5deg)
     }
-
     92% {
         -webkit-transform: translate(0, .5px) rotate(-.5deg);
         transform: translate(0, .5px) rotate(-.5deg)
     }
-
     94% {
         -webkit-transform: translate(0, 2.5px) rotate(.5deg);
         transform: translate(0, 2.5px) rotate(.5deg)
     }
-
-    0%,
-    100% {
+    0%, 100% {
         -webkit-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0)
     }
 }
-
 @keyframes my-face {
-
-    2%,
-    24%,
-    80% {
+    2%, 24%, 80% {
         -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
         transform: translate(0, 1.5px) rotate(1.5deg)
     }
-
-    4%,
-    68%,
-    98% {
+    4%, 68%, 98% {
         -webkit-transform: translate(0, -1.5px) rotate(-.5deg);
         transform: translate(0, -1.5px) rotate(-.5deg)
     }
-
-    38%,
-    6% {
+    38%, 6% {
         -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
         transform: translate(0, 1.5px) rotate(-1.5deg)
     }
-
-    8%,
-    86% {
+    8%, 86% {
         -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
         transform: translate(0, -1.5px) rotate(-1.5deg)
     }
-
-    10%,
-    72% {
+    10%, 72% {
         -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
         transform: translate(0, 2.5px) rotate(1.5deg)
     }
-
-    12%,
-    64%,
-    78%,
-    96% {
+    12%, 64%, 78%, 96% {
         -webkit-transform: translate(0, -.5px) rotate(1.5deg);
         transform: translate(0, -.5px) rotate(1.5deg)
     }
-
-    14%,
-    54% {
+    14%, 54% {
         -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
         transform: translate(0, -1.5px) rotate(1.5deg)
     }
-
     16% {
         -webkit-transform: translate(0, -.5px) rotate(-1.5deg);
         transform: translate(0, -.5px) rotate(-1.5deg)
     }
-
-    18%,
-    22% {
+    18%, 22% {
         -webkit-transform: translate(0, .5px) rotate(-1.5deg);
         transform: translate(0, .5px) rotate(-1.5deg)
     }
-
-    20%,
-    36%,
-    46% {
+    20%, 36%, 46% {
         -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
         transform: translate(0, -1.5px) rotate(2.5deg)
     }
-
-    26%,
-    50% {
+    26%, 50% {
         -webkit-transform: translate(0, .5px) rotate(.5deg);
         transform: translate(0, .5px) rotate(.5deg)
     }
-
     28% {
         -webkit-transform: translate(0, .5px) rotate(1.5deg);
         transform: translate(0, .5px) rotate(1.5deg)
     }
-
-    30%,
-    40%,
-    62%,
-    76%,
-    88% {
+    30%, 40%, 62%, 76%, 88% {
         -webkit-transform: translate(0, -.5px) rotate(2.5deg);
         transform: translate(0, -.5px) rotate(2.5deg)
     }
-
-    32%,
-    34%,
-    66% {
+    32%, 34%, 66% {
         -webkit-transform: translate(0, 1.5px) rotate(-.5deg);
         transform: translate(0, 1.5px) rotate(-.5deg)
     }
-
     42% {
         -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
         transform: translate(0, 2.5px) rotate(-1.5deg)
     }
-
-    44%,
-    70% {
+    44%, 70% {
         -webkit-transform: translate(0, 1.5px) rotate(.5deg);
         transform: translate(0, 1.5px) rotate(.5deg)
     }
-
-    48%,
-    74%,
-    82% {
+    48%, 74%, 82% {
         -webkit-transform: translate(0, -.5px) rotate(.5deg);
         transform: translate(0, -.5px) rotate(.5deg)
     }
-
-    52%,
-    56%,
-    60% {
+    52%, 56%, 60% {
         -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
         transform: translate(0, 2.5px) rotate(2.5deg)
     }
-
     58% {
         -webkit-transform: translate(0, .5px) rotate(2.5deg);
         transform: translate(0, .5px) rotate(2.5deg)
     }
-
     84% {
         -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
         transform: translate(0, 1.5px) rotate(2.5deg)
     }
-
     90% {
         -webkit-transform: translate(0, 2.5px) rotate(-.5deg);
         transform: translate(0, 2.5px) rotate(-.5deg)
     }
-
     92% {
         -webkit-transform: translate(0, .5px) rotate(-.5deg);
         transform: translate(0, .5px) rotate(-.5deg)
     }
-
     94% {
         -webkit-transform: translate(0, 2.5px) rotate(.5deg);
         transform: translate(0, 2.5px) rotate(.5deg)
     }
-
-    0%,
-    100% {
+    0%, 100% {
         -webkit-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0)
     }
 }
-
 /* end */
 
 .jasmine-post-h1 {
@@ -1132,24 +902,20 @@ dl {
     border-left: 5px solid #2f889a;
     border-right: 5px solid #2f889a;
 }
-
 #rm-rf-run {
     font-size: 20px;
     font-weight: 500;
 }
-
 .jasmine-comment-part {
     margin-top: 10px;
     background: #fff;
     border-radius: 4px;
     padding: 10px;
 }
-
 .jasmine-comment-part h3 {
     font-size: 20px;
     font-weight: 600;
 }
-
 .friend-link {
     min-width: 254px;
     min-height: 90px;
@@ -1160,14 +926,12 @@ dl {
     border-radius: 8px;
     list-style: none;
 }
-
 .friend-link-a {
     display: block;
     padding: 0 10px 0 90px;
     height: 90px;
     color: #555;
 }
-
 .friend-link-a h4 {
     width: 130px;
     white-space: nowrap;
@@ -1178,12 +942,10 @@ dl {
     font-size: 16px;
     font-weight: 600;
 }
-
 .friend-link-a p {
     margin: 10px 0;
     line-height: 24px;
 }
-
 .friend-img {
     width: 60px;
     height: 60px;
@@ -1195,38 +957,31 @@ dl {
     border: 0;
     transition: all .3s;
 }
-
 .friend-link * {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
     color: black;
 }
-
 .friend-link:hover {
     background: cadetblue;
 }
-
 .friend-img:hover {
     transform: rotate(0.1turn);
     transition-delay: 0s;
     transition-property: all;
 }
-
 .link-description {
     height: 20px;
     white-space: normal;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
 .jasmine-label {
     color: #9d9d9d;
     font-size: 14px;
 }
-
 .jasmine-label span a {
     color: black;
 }
-
 .jasmine-division {
     display: block;
     height: 1px;
@@ -1234,7 +989,6 @@ dl {
     margin: 24px 0;
     background-color: #dcdfe6;
 }
-
 .jasmine-division-center {
     position: absolute;
     left: 45%;
@@ -1243,18 +997,15 @@ dl {
     width: 34px;
     text-align: center;
 }
-
 .friend-ps {
     color: #9d9d9d;
     font-size: 14px;
     text-align: center;
 }
-
 .jasmine-site-information {
     border-radius: 4px;
     background: #fff;
 }
-
 .jasmine-toast {
     -webkit-pointer-events: none;
     -moz-pointer-events: none;
@@ -1262,7 +1013,6 @@ dl {
     -o-pointer-events: none;
     pointer-events: none;
 }
-
 .jasmine-toast button {
     -webkit-pointer-events: all;
     -moz-pointer-events: all;
@@ -1270,38 +1020,30 @@ dl {
     -o-pointer-events: all;
     pointer-events: all;
 }
-
 .site-information-content {
     padding: 1.5rem;
 }
-
 .site-information-content h5 {
     border-left: 3px solid #f73859;
     padding-left: 15px;
 }
-
 .site-information-content ul {
     margin-left: 35px;
 }
-
 .site-information-requirement h6 {
     color: #6c757d;
 }
-
 .site-information-requirement {
     color: red;
 }
-
 .btn:not(:disabled):not(.disabled) {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
-
 .jasmine-tag-cloud {
     background: #fff;
     border-radius: 8px;
     padding: 10px;
 }
-
 .jasmine-tag-cloud a {
     display: inline-block;
     padding: 5px 12px;
@@ -1309,12 +1051,10 @@ dl {
     border-radius: 8px;
     color: #fff;
 }
-
 .jasmine-post-archives {
     background: #fff;
     border-radius: 4px;
 }
-
 .thumbnail-shadow {
     text-align: center;
     padding-top: 50px;
@@ -1327,7 +1067,6 @@ dl {
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
 }
-
 .author-img {
     /*width: 55px;
     height: 55px;*/
@@ -1338,34 +1077,28 @@ dl {
     float: left;
     transition: all 1s;
 }
-
 .author-img:hover {
     transform: rotate(0.5turn);
     transition-delay: 0s;
     transition-property: all;
 }
-
 .post-meta-info {
     display: inline-flex;
     width: 100%;
 }
-
 .jasmine-writingTime {
     padding-left: 10px;
     font-size: 12px;
     padding-top: 5px;
 }
-
 .jasmine-article-info {
     padding-top: 10px;
     font-style: italic;
     font-variant: small-caps;
 }
-
 .jasmine-article-info span {
     margin-right: 5px;
 }
-
 .link {
     outline: none;
     text-decoration: none;
@@ -1375,18 +1108,15 @@ dl {
     color: #9e9ba4;
     display: inline-block;
 }
-
 .link--kukuri {
     text-transform: uppercase;
     font-weight: 900;
     overflow: hidden;
     color: #c5c2b8;
 }
-
 .link--kukuri:hover {
     color: #c5c2b8;
 }
-
 .link--kukuri::after {
     content: '';
     position: absolute;
@@ -1403,12 +1133,10 @@ dl {
     -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }
-
 .link--kukuri:hover::after {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
 }
-
 .link--kukuri::before {
     content: attr(data-letters);
     position: absolute;
@@ -1420,40 +1148,31 @@ dl {
     -webkit-transition: width 0.4s 0.3s;
     transition: width 0.4s 0.3s;
 }
-
 .link--kukuri:hover::before {
     width: 100%;
 }
-
 .jasmine-archives-content {
     padding: 15px;
 }
-
 .archives-content {
     padding: 15px;
 }
-
 .archives_mon_list {
     padding-left: 35px
 }
-
 .archives_post_list {
     padding-left: 40px;
 }
-
 .no-des {
     color: black;
 }
-
 .comment-respond {
     margin: 15px;
 }
-
 .commentator {
     display: table-cell;
     padding-right: 10px;
 }
-
 .commentator .avatar {
     width: 48px;
     height: 48px;
@@ -1463,7 +1182,6 @@ dl {
     -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
 }
-
 .comment-login {
     padding-top: 4px;
     font-size: 14px;
@@ -1475,12 +1193,10 @@ dl {
     display: table-cell;
     vertical-align: top;
 }
-
 .comment-login p {
     margin: 0px;
     padding: 0px;
 }
-
 .comment-textarea {
     font-size: 12px;
     text-align: left;
@@ -1497,11 +1213,9 @@ dl {
     margin: 10px 0 5px;
     width: 100%;
 }
-
 .comment-form {
     margin-left: 55px;
 }
-
 .head-nav ul {
     text-align: left;
     list-style: none;
@@ -1510,46 +1224,45 @@ dl {
     zoom: 1;
     /* Second level menu items */
 }
-
-.head-nav ul:before {
-    content: '';
-    display: block;
+.head-nav ul.navbar-nav li.nav-item ul:before {
+    position: absolute;
+    content: "\f0d8";
+    font: normal normal normal 14px/1 FontAwesome;
+    width: 180px;
+    height: 11px;
+    font-size: 35px;
+    top: -10px;
+    left: 0px;
+    color: #7D7D7D;
+    padding-left: 10px;
+    line-height: 12px;
+    overflow: hidden;
 }
-
-.head-nav ul:after {
-    content: '';
-    display: table;
-    clear: both;
+.head-nav ul.navbar-nav li.nav-item ul li ul:before {
+    content: "";
 }
-
 .head-nav ul li {
     display: inline-block;
     position: relative;
 }
-
-.head-nav ul li:hover>a,
-.head-nav ul li.focus>a {
+.head-nav ul li:hover>a, .head-nav ul li.focus>a {
     /*background: #00bcff;*/
     color: #007bff;
 }
-
-.head-nav ul li a {
-    padding: 20px 35px;
+.head-nav ul.navbar-nav li a {
+    padding: 13px 35px;
     line-height: 1em;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-.head-nav ul li a,
-.head-nav ul li a>* {
+.head-nav ul li a, .head-nav ul li a>* {
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
-
 .head-nav ul ul {
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
@@ -1565,113 +1278,92 @@ dl {
     left: 0;
     background-color: white;
     z-index: 99999;
+    border-radius: 8px;
     /* Third Level Items */
 }
-
 .head-nav ul ul a {
     width: 200px;
     padding: 15px 20px;
 }
-
 .head-nav ul ul li {
     position: relative;
     text-align: left;
     /* Hovering over 2nd level items */
 }
-
-.head-nav ul ul li:hover>a,
-.head-nav ul ul li.focus>a {
+.head-nav ul ul li:hover>a, .head-nav ul ul li.focus>a {
     /*background: #00bcff;*/
     /*color: #ffffff;*/
 }
-
 .head-nav ul ul ul {
     left: 100%;
     top: 0;
     margin-left: 0;
 }
-
-.head-nav ul li:hover>ul,
-.head-nav ul li.focus>ul {
+.head-nav ul li:hover>ul, .head-nav ul li.focus>ul {
     visibility: visible;
     opacity: 1;
 }
-
 .head-nav a {
     display: block;
     text-decoration: none;
     /*color: #e2e2e2;*/
     /*font-weight: bold;*/
 }
-
 .input-comment1 {
     padding-top: 15px;
     width: 50%;
     float: left;
     padding-left: 10px;
 }
-
 .input-comment1 input {
     border-left: none;
 }
-
 .input-comment1 div span {
     background-color: white;
     padding-right: 0px;
     border-right: none;
 }
-
 #comment-submit {
     float: right;
 }
-
 .comment-owo {
     padding-left: 10px;
     margin-bottom: 5px;
 }
-
 .comment-owo span {
     border: solid 1px #ddd;
     padding: 3px;
     border-radius: 5px;
 }
-
 .comment-list {
     list-style: none;
     margin: 0;
     padding-top: 30px;
 }
-
 .comment-list .comment-body {
     border-top: 1px solid #eee;
     padding: 20px 0;
     position: relative;
 }
-
 .comment-list .children {
     list-style: none;
     margin: 0;
 }
-
 .comment-list .children>li {
     padding-left: .875em;
 }
-
 .comment-list .says {
     display: none;
 }
-
 .comment-author {
     color: #1a1a1a;
     margin-bottom: .4375em;
 }
-
 .comment-author a {
     color: #1a1a1a;
     font-weight: 700;
     margin-bottom: .4375em;
 }
-
 .comment-meta {
     margin-bottom: 10px;
     margin-left: 40px;
@@ -1680,7 +1372,6 @@ dl {
     font-size: .8125rem;
     line-height: 1.6153846154;
 }
-
 .comment-meta a {
     margin-bottom: 10px;
     /*margin-left: 40px;*/
@@ -1689,7 +1380,6 @@ dl {
     font-size: .8125rem;
     line-height: 1.6153846154;
 }
-
 .comment-list p {
     margin-left: 61px;
     font-size: 16px;
@@ -1697,29 +1387,23 @@ dl {
     clear: both;
     display: block;
 }
-
 .comment-body div.reply {
     position: absolute;
     top: 17px;
     right: 0;
 }
-
 #cancel-comment-reply-link {
     color: black;
 }
-
 .form-submit {
     margin-bottom: 40px;
 }
-
 .comment-form .input-group-prepend {
     margin-right: 0px;
 }
-
 .no-comments {
     float: left;
 }
-
 .comment-awaiting-moderation {
     margin-bottom: 10px;
     margin-left: 40px;
@@ -1728,12 +1412,10 @@ dl {
     font-size: .8125rem;
     line-height: 1.6153846154;
 }
-
 .emotion-inline {
     padding-left: 0 !important;
     padding-right: 0 !important
 }
-
 .emotion-item {
     margin: 6px;
     display: inline-block;
@@ -1743,14 +1425,12 @@ dl {
     border-radius: 4px;
     margin-bottom: -8px
 }
-
 .emotion-item .img {
     -webkit-animation: im-emotion-step 1.08s steps(27) infinite;
     animation: im-emotion-step 1.08s steps(27) infinite;
     animation-duration: 1.08s;
     animation-timing-function: steps(27)
 }
-
 .emotion-item .img {
     width: 32px;
     height: 864px;
@@ -1758,43 +1438,169 @@ dl {
     background: top/32px no-repeat;
     background-image: none
 }
-
 @-webkit-keyframes im-emotion-step {
     0% {
         -webkit-transform: translateY(0);
         transform: translateY(0)
     }
-
     to {
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%)
     }
 }
-
 @keyframes im-emotion-step {
     0% {
         -webkit-transform: translateY(0);
         transform: translateY(0)
     }
-
     to {
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%)
     }
 }
-
-.jasmine-post-help{
+.jasmine-post-help {
     width: 100%;
     height: 50px;
 }
-.jasmine-post-help-font{
+.jasmine-post-help-font {
     float: left;
     font-weight: 600;
     border: 1px solid #ddd;
     padding: 5px;
 }
-.jasmine-post-help-width{
+.jasmine-post-help-width {
     float: right;
     border: 1px solid #ddd;
     padding: 5px;
+}
+#jasmine-pc-menu #searchform {
+    position: relative;
+    margin: 5px 10px;
+}
+#jasmine-pc-menu #searchform .fa-search {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    color: #635f5f;
+}
+#jasmine-pc-menu #searchform #s {
+    height: 32px;
+    line-height: 32px;
+    width: 120px;
+    border-radius: 16px;
+    background-color: #fbf9f9;
+    border: 1px solid #e3e8e8;
+    color: #635f5f;
+    font-size: 14px;
+    padding: 0 10px 0 30px;
+    transition: width .5s;
+    -moz-transition: width .5s;
+    -webkit-transition: width .5s;
+    -o-transition: width .5s;
+    transition-delay: .1s;
+    -moz-transition-delay: .1s;
+    -webkit-transition-delay: .1s;
+    -o-transition-delay: .1s;
+}
+#jasmine-pc-menu #searchform #s:focus {
+    width: 200px;
+    border: 2px solid #00BBFF;
+}
+#jasmine-pc-menu #personal-menu {
+    display: none;
+    max-width: 100%;
+    position: absolute;
+    right: 20.5%;
+    top: 48px;
+    padding: 0;
+    background: white;
+    z-index: 1;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+}
+#jasmine-pc-menu #personal-menu ul {
+    list-style: none;
+}
+#jasmine-pc-menu #personal-menu li {
+    display: block;
+    line-height: 42px;
+    font-size: 14px;
+    text-shadow: none;
+    text-decoration: none;
+    color: #635f5f;
+    text-align: center;
+    padding: 0 16px;
+}
+#jasmine-pc-menu #personal-menu:before {
+    position: absolute;
+    top: -7px;
+    left: 78px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-style: solid;
+    border-width: 0px 7px 7px 7px;
+    z-index: 1;
+    border-color: #fff transparent;
+}
+#pc-menu #personal-menu:after {
+    position: absolute;
+    top: -8px;
+    left: 77px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-style: solid;
+    border-width: 0px 8px 8px 8px;
+    z-index: 0;
+    border-color: #ded8d8 transparent;
+}
+.hide-block {
+    display: none;
+}
+.add-fontsize {
+    font-size: x-large;
+}
+.shuoshuo-head-img {
+    min-height: 100px;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.shuoshuo-main {
+    padding: 5px;
+}
+.shuoshuo-main img {
+    float: left;
+}
+.shuoshuo-author a {
+    color: black;
+    font-weight: bold;
+}
+.shuoshuo-content{
+    margin-left: 54px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.shuoshuo-content a{
+    color: #eb7350;
+}
+.shuoshuo-content a:before{
+    content: '#';
+}
+.shuoshuo-content a:after{
+    content: '#';
+}
+.jasmine-shuoshuo-article{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 4px;
+}
+.page-more{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
 }

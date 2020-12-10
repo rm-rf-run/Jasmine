@@ -35,15 +35,11 @@ setPostViews(get_the_ID());
             <?php while (have_posts()): the_post();?>
                     <div class="jasmine-post-help">
                         <span class="jasmine-post-help-font">
-                          <a href="javascript:addFontSize();">
-                            <font>A+</font>
-                          </a>
+                          <font>A+</font>
                         </span>
                         <span class="jasmine-post-help-width">
-                          <a href="javascript:addWidth();">
-                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                          </a>
+                          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                          <i class="fa fa-chevron-right" aria-hidden="true"></i>
                         </span>
                       </div>
 							      <h1 class="jasmine-post-h1"><?php the_title()?></h1>
@@ -88,7 +84,7 @@ setPostViews(get_the_ID());
 				                最后编辑：<?php the_modified_time('Y年n月j日');?>
 				              </span>
 				            </p>
-							            <?php the_content()?>
+							            <div id="jasmine-post-main"><?php the_content()?></div>
 							          <?php endwhile;?>
             <?php endif;?>
             <div class="jasmine-appreciation">
@@ -152,7 +148,7 @@ setPostViews(get_the_ID());
           <!-- end-->
         </div>
         <!--右边栏-->
-        <div class="col-md-3 column">
+        <div class="col-md-3 column" id="hide-column">
           <?php get_template_part('template-parts/sidebar/right-sidebar');?>
         </div>
       </div>
