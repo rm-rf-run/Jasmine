@@ -35,7 +35,7 @@
                 </div>
               </div>
               <div class="jasmine-content">
-                <h2><a href="<?php esc_url(the_permalink());?>"><?php the_title();?></a></h2>
+                <h2><a href="<?php esc_url(the_permalink());?>" title="<?php the_title(); ?>"><?php the_title();?></a></h2>
                 <p class="jasmine-content-foot">
                   <?php echo get_the_excerpt(); ?>
                 </p>
@@ -53,7 +53,7 @@
                   </span>
                   <span class="jasmine-content-foot">
                     <i class="fa fa-thumbs-o-up"></i>
-                  1k
+                  <?php if( get_post_meta($post->ID,'jasmine_like',true) ){ echo get_post_meta($post->ID,'jasmine_like',true); } else { echo '0'; }?>
                   </span>
                   <span class="jasmine-content-foot">
                     <i class="fa fa-user"></i>

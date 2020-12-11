@@ -4,7 +4,7 @@ define('JASMINE_VERSION', wp_get_theme()->get('Version'));
 function register_my_menus()
 {
     register_nav_menus(
-        array('header-menu' => __('首页','jasmine'))
+        array('header-menu' => __('首页', 'jasmine'))
     );
 }
 add_action('init', 'register_my_menus'); //初始化的时候启用
@@ -246,7 +246,6 @@ function clear_archives_list_cache()
 }
 add_action('save_post', 'clear_archives_list_cache'); // 新发表文章/修改文章时
 
-
 //评论框字段顺序
 //Comment Field Order
 add_filter('comment_form_fields', 'mo_comment_fields_custom_order');
@@ -305,117 +304,148 @@ add_filter('get_avatar', 'jasmine_change_avatar', 10, 3);
 function jasmine_change_avatar($avatar)
 {
     global $comment;
-    if($comment){
+    if ($comment) {
         if (get_comment_meta($comment->comment_ID, 'author_qq', true)) {
-        $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
-        $qqavatar  = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
-        // preg_match 匹配 http: 和 &t 之间的字符串
-        // 如果提供了参数matches，它将被填充为搜索结果。
-        // $matches[0]将包含完整模式匹配到的文本,
-        // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
-        preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
-        return '<img src="' . $matches[1] . '" class="avatar avatar-40 photo" width="40" height="40"  alt="qq_avatar" />';
-    } else {
-        return $avatar;
-    }
+            $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
+            $qqavatar  = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
+            // preg_match 匹配 http: 和 &t 之间的字符串
+            // 如果提供了参数matches，它将被填充为搜索结果。
+            // $matches[0]将包含完整模式匹配到的文本,
+            // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
+            preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
+            return '<img src="' . $matches[1] . '" class="avatar avatar-40 photo" width="40" height="40"  alt="qq_avatar" />';
+        } else {
+            return $avatar;
+        }
     }
 }
 
-define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
+define('OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/');
 
-require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+require_once dirname(__FILE__) . '/inc/options-framework.php';
 
-$optionsfile = locate_template( 'options.php' );
-load_template( $optionsfile );
+$optionsfile = locate_template('options.php');
+load_template($optionsfile);
 
-function prefix_options_menu_filter( $menu ) {
-    $menu['mode'] = 'menu';
-    $menu['page_title'] = __( 'jasmine主题设置', 'textdomain');
-    $menu['menu_title'] = __( 'jasmine主题设置', 'textdomain');
-    $menu['menu_slug'] = 'jasmine主题设置';
+function prefix_options_menu_filter($menu)
+{
+    $menu['mode']       = 'menu';
+    $menu['page_title'] = __('jasmine主题设置', 'textdomain');
+    $menu['menu_title'] = __('jasmine主题设置', 'textdomain');
+    $menu['menu_slug']  = 'jasmine主题设置';
     return $menu;
 }
 
-add_filter( 'optionsframework_menu', 'prefix_options_menu_filter' );
+add_filter('optionsframework_menu', 'prefix_options_menu_filter');
 
 add_action('bilbil_action', 'add_bilbil_data');
 do_action('bilbil_action');
-function add_bilbil_data(){
+function add_bilbil_data()
+{
     if (jasmine_option('jasmine_bilbil_uid')) {
-    $bilbil_uid = jasmine_option('jasmine_bilbil_uid');
-    //使用file_get_contents需要将extension=php_openssl.dll前面的;去掉
-    /**
-     * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
-     *
-     */
-    if(get_option('jasmine_bilbil_gravatar')){
-        return;
+        $bilbil_uid = jasmine_option('jasmine_bilbil_uid');
+        //使用file_get_contents需要将extension=php_openssl.dll前面的;去掉
+        /**
+         * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
+         *
+         */
+        if (get_option('jasmine_bilbil_gravatar')) {
+            return;
+        }
+        $b1       = file_get_contents("compress.zlib://https://api.bilibili.com/x/space/acc/info?mid=" . $bilbil_uid . "&jsonp=jsonp");
+        $b2       = file_get_contents("compress.zlib://https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
+        $results1 = json_decode($b1, true);
+        $results  = json_decode($b2, true);
+        update_option('jasmine_bilbil_following', $results['data']['following']);
+        update_option('jasmine_bilbil_follower', $results['data']['follower']);
+        update_option('jasmine_bilbil_gravatar', $results1['data']['face']);
+        update_option('jasmine_bilbil_name', $results1['data']['name']);
+        update_option('jasmine_bilbil_level', $results1['data']['level']);
+        update_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
+        update_option('jasmine_bilbil_describe', $results1['data']['sign']);
+        update_option('jasmine_bilbil_top_photo', $results1['data']['top_photo']);
     }
-    $b1 = file_get_contents("compress.zlib://https://api.bilibili.com/x/space/acc/info?mid=" . $bilbil_uid . "&jsonp=jsonp");
-    $b2 = file_get_contents("compress.zlib://https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
-    $results1 = json_decode($b1, true);
-    $results = json_decode($b2, true);
-    update_option('jasmine_bilbil_following', $results['data']['following']);
-    update_option('jasmine_bilbil_follower', $results['data']['follower']);
-    update_option('jasmine_bilbil_gravatar', $results1['data']['face']);
-    update_option('jasmine_bilbil_name', $results1['data']['name']);
-    update_option('jasmine_bilbil_level', $results1['data']['level']);
-    update_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
-    update_option('jasmine_bilbil_describe', $results1['data']['sign']);
-    update_option('jasmine_bilbil_top_photo', $results1['data']['top_photo']);
-}
 }
 
-function echo_extraCss(){
-  if (jasmine_option('jasmine_extracss')) {
-    echo '<style type="text/css">'.jasmine_option('jasmine_extracss').'</style>';
-  }
+function echo_extraCss()
+{
+    if (jasmine_option('jasmine_extracss')) {
+        echo '<style type="text/css">' . jasmine_option('jasmine_extracss') . '</style>';
+    }
 }
 
 //额外css
-add_action('wp_head','echo_extraCss');
+add_action('wp_head', 'echo_extraCss');
 
 //添加背景图片样式
-add_filter( 'body_class', function( $classes ) {
-    return array_merge( $classes, array( 'jasmine-background' ) );
-} );
+add_filter('body_class', function ($classes) {
+    return array_merge($classes, array('jasmine-background'));
+});
 
 //添加短代码
 add_action('init', 'wpdocs_add_custom_shortcode');
-function wpdocs_add_custom_shortcode() {
+function wpdocs_add_custom_shortcode()
+{
     add_shortcode('counPost', 'count_post');
+    add_shortcode('countShuoshuo', 'count_shuoshuo');
     add_shortcode('countComments', 'count_comments');
     add_shortcode('footData', 'echo_footData');
     add_shortcode('countViews', 'getCountViews');
 }
 
-function count_comments() {
-    global $wpdb;
-    echo $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->comments");
+function count_shuoshuo()
+{
+    $count_posts = wp_count_posts($post_type = 'shuoshuo');
+    if (!$count_posts->publish || !is_numeric($count_posts->publish)) {
+        echo "0";
+    } else {
+        echo $published_posts = $count_posts->publish;
+    }
 }
 
-function count_post() {
+function count_comments()
+{
+    global $wpdb;
+    $comments = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->comments");
+    if (!$comments || !is_numeric($comments)) {
+        echo "0";
+    } else {
+        echo $comments;
+    }
+}
+
+function count_post()
+{
     $count_posts = wp_count_posts();
-    echo $published_posts = $count_posts->publish;
+    if (!$count_posts->publish || !is_numeric($count_posts->publish)) {
+        echo "0";
+    } else {
+        echo $published_posts = $count_posts->publish;
+    }
 }
 
 function getCountViews()
 {
     global $wpdb;
     $sum = $wpdb->get_var("SELECT sum(meta_value) FROM wp_postmeta WHERE meta_key = 'post_views_count'");
-    echo $sum;
+    if (!$sum || !is_numeric($sum)) {
+        echo "0";
+    } else {
+        echo $sum;
+    }
 }
 
-function echo_footData() {
-    $date = esc_attr(explode("/", jasmine_option('jasmine_startdate'))[0]);
-    $this_year = date('Y');
-    $blog_name = get_bloginfo('name');
-    $bolg_href = get_bloginfo('url');
-    $beian = jasmine_option('jasmine_record');
-    $police_beian = jasmine_option('jasmine_police_record');
+function echo_footData()
+{
+    $date              = esc_attr(explode("/", jasmine_option('jasmine_startdate'))[0]);
+    $this_year         = date('Y');
+    $blog_name         = get_bloginfo('name');
+    $bolg_href         = get_bloginfo('url');
+    $beian             = jasmine_option('jasmine_record');
+    $police_beian      = jasmine_option('jasmine_police_record');
     $police_beian_href = jasmine_option('jasmine_police_href');
     $police_beian_exit = "未备案";
-    $startDate = "";
+    $startDate         = "";
     if (jasmine_option('jasmine_police_record')) {
         $police_beian_exit = "<br/> <img class='lazy loaded' src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
 beian.png' data-src='' data-was-processed='true'> <a href='" . esc_url($police_beian_href) . "' rel='external nofollow' target='_blank'>" . esc_html($police_beian) . " </a>";
@@ -432,50 +462,99 @@ beian.png' data-src='' data-was-processed='true'> <a href='" . esc_url($police_b
 }
 
 // 删除WordPress私密文章标题前的提示文字
-function title_format($content) {
+function title_format($content)
+{
     return '%s';
 }
 add_filter('private_title_format', 'title_format');
 add_filter('protected_title_format', 'title_format');
 
 // RSS 中添加查看全文链接防采集
-function feed_read_more($content) {
-    return $content . '<p><a rel="bookmark" href="'.get_permalink().'" target="_blank">查看全文</a></p>';
+function feed_read_more($content)
+{
+    return $content . '<p><a rel="bookmark" href="' . get_permalink() . '" target="_blank">查看全文</a></p>';
 }
-add_filter ('the_excerpt_rss', 'feed_read_more');
+add_filter('the_excerpt_rss', 'feed_read_more');
 
 // 阻止站内文章互相Pingback
-function jasmine_noself_ping( &$links ) { 
-    $home = get_option( 'home' );
-    foreach ( $links as $l => $link )
-    if ( 0 === strpos( $link, $home ) )
-    unset($links[$l]); 
+function jasmine_noself_ping(&$links)
+{
+    $home = get_option('home');
+    foreach ($links as $l => $link) {
+        if (0 === strpos($link, $home)) {
+            unset($links[$l]);
+        }
+    }
+
 }
-add_action('pre_ping','jasmine_noself_ping');
+add_action('pre_ping', 'jasmine_noself_ping');
+
+// 点赞功能
+add_action('wp_ajax_nopriv_jasmine_like', 'jasmine_like');
+add_action('wp_ajax_jasmine_like', 'jasmine_like');
+function jasmine_like()
+{
+    global $wpdb, $post;
+    $id     = $_POST["jasmine_id"];
+    $action = $_POST["jasmine_action"];
+    if ($action == 'jasmine_like') {
+        $jasmine_raters = get_post_meta($id, 'jasmine_like', true);
+        $expire         = time() + 99999999;
+        $domain         = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false; // make cookies work with localhost
+        setcookie('jasmine_like_' . $id, $id, $expire, '/', $domain, false);
+        if (!$jasmine_raters || !is_numeric($jasmine_raters)) {
+            update_post_meta($id, 'jasmine_like', 1);
+        } else {
+            update_post_meta($id, 'jasmine_like', ($jasmine_raters + 1));
+        }
+        echo get_post_meta($id, 'jasmine_like', true);
+    }
+    die;
+}
 
 // 主循环中显示文章类型
-function jasmine_posts_per_page($query){
-    if ( (is_home() || is_search()) && $query->is_main_query() )
-        $query->set( 'post_type', array( 'post', 'shuoshuo', 'douban' ) ); 
+function jasmine_posts_per_page($query)
+{
+    if ((is_home() || is_search()) && $query->is_main_query()) {
+        $query->set('post_type', array('post', 'shuoshuo'));
+    }
+
     return $query;
 }
+//
+function onlyShuoshuo($query)
+{
+    if ($query->is_home() && $query->is_main_query() && !is_admin()) {
+        $query->set('post_type', 'shuoshuo');
+    }
+}
+// add_action('pre_get_posts', 'onlyShuoshuo');
+//
+function onlyPost($query)
+{
+    if ($query->is_home() && $query->is_main_query() && !is_admin()) {
+        $query->set('post_type', 'post');
+    }
+}
+// add_action('pre_get_posts', 'onlyPost');
 
 // 说说
-function create_shuoshuo() {
+function create_shuoshuo()
+{
     $labels = array(
-        'name'               => _x( '说说', 'jasmine' ),
-        'singular_name'      => _x( '说说', 'jasmine' ),
-        'add_new'            => _x( '新建说说', 'jasmine' ),
-        'add_new_item'       => __( '新建一个说说', 'jasmine' ),
-        'edit_item'          => __( '编辑说说', 'jasmine' ),
-        'new_item'           => __( '新说说', 'jasmine' ),
-        'all_items'          => __( '所有说说', 'jasmine' ),
-        'view_item'          => __( '查看说说', 'jasmine' ),
-        'search_items'       => __( '搜索说说', 'jasmine' ),
-        'not_found'          => __( '没有找到有关说说', 'jasmine' ),
-        'not_found_in_trash' => __( '回收站里面没有相关说说', 'jasmine' ),
+        'name'               => _x('说说', 'jasmine'),
+        'singular_name'      => _x('说说', 'jasmine'),
+        'add_new'            => _x('新建说说', 'jasmine'),
+        'add_new_item'       => __('新建一个说说', 'jasmine'),
+        'edit_item'          => __('编辑说说', 'jasmine'),
+        'new_item'           => __('新说说', 'jasmine'),
+        'all_items'          => __('所有说说', 'jasmine'),
+        'view_item'          => __('查看说说', 'jasmine'),
+        'search_items'       => __('搜索说说', 'jasmine'),
+        'not_found'          => __('没有找到有关说说', 'jasmine'),
+        'not_found_in_trash' => __('回收站里面没有相关说说', 'jasmine'),
         'parent_item_colon'  => '',
-        'menu_name'          => '说说'
+        'menu_name'          => '说说',
     );
     $args = array(
         'labels'        => $labels,
@@ -483,30 +562,33 @@ function create_shuoshuo() {
         'public'        => true,
         'menu_position' => 5,
         'menu_icon'     => 'dashicons-format-status',
-        'supports'      => array( 'title', 'editor', 'author', 'comments', 'thumbnail', 'tag'),
-        'taxonomies'    => array( 'shuoshuo',  'post_tag' ),
-        'has_archive'   => true
+        'supports'      => array('title', 'editor', 'author', 'comments', 'thumbnail', 'tag'),
+        'taxonomies'    => array('shuoshuo', 'post_tag'),
+        'has_archive'   => true,
     );
-    register_post_type( 'shuoshuo', $args );
+    register_post_type('shuoshuo', $args);
 }
-add_action( 'init', 'create_shuoshuo' );
-add_action( 'add_meta_boxes', 'jasmine_add_shuoshuo_box' );
-function jasmine_add_shuoshuo_box(){
-    add_meta_box( 'jasmine_shuoshuo_sticky', '置顶', 'jasmine_shuoshuo_sticky', 'shuoshuo', 'side', 'high' );
+add_action('init', 'create_shuoshuo');
+add_action('add_meta_boxes', 'jasmine_add_shuoshuo_box');
+function jasmine_add_shuoshuo_box()
+{
+    add_meta_box('jasmine_shuoshuo_sticky', '置顶', 'jasmine_shuoshuo_sticky', 'shuoshuo', 'side', 'high');
 }
-function jasmine_shuoshuo_sticky (){ ?>
-    <input id="super-sticky" name="sticky" type="checkbox" value="sticky" <?php checked( is_sticky() ); ?> /><label for="super-sticky" class="selectit">置顶本条说说</label>
+function jasmine_shuoshuo_sticky()
+{?>
+    <input id="super-sticky" name="sticky" type="checkbox" value="sticky" <?php checked(is_sticky());?> /><label for="super-sticky" class="selectit">置顶本条说说</label>
 <?php
 }
-add_action('pre_get_posts','jasmine_posts_per_page');
+add_action('pre_get_posts', 'jasmine_posts_per_page');
 
 /*
  * Ajax评论
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' ) ) { wp_die(__('请升级到4.4以上版本','jasmine')); }
+if (version_compare($GLOBALS['wp_version'], '4.4-alpha', '<')) {wp_die(__('请升级到4.4以上版本', 'jasmine'));}
 // 提示
-if(!function_exists('siren_ajax_comment_err')) {
-    function siren_ajax_comment_err($t) {
+if (!function_exists('siren_ajax_comment_err')) {
+    function siren_ajax_comment_err($t)
+    {
         header('HTTP/1.0 500 Internal Server Error');
         header('Content-Type: text/plain;charset=UTF-8');
         echo $t;
@@ -530,18 +612,18 @@ function markdown_parser($incoming_comment)
     }
     $comment_markdown_content = $incoming_comment['comment_content'];
     include 'inc/Parsedown.php';
-    $Parsedown = new Parsedown();
+    $Parsedown                           = new Parsedown();
     $incoming_comment['comment_content'] = $Parsedown->setUrlsLinked(false)->text($incoming_comment['comment_content']);
     return $incoming_comment;
 }
 add_filter('preprocess_comment', 'markdown_parser');
-remove_filter( 'comment_text', 'make_clickable', 9 );
+remove_filter('comment_text', 'make_clickable', 9);
 
 //保存Markdown评论
 function save_markdown_comment($comment_ID, $comment_approved)
 {
     global $wpdb, $comment_markdown_content;
-    $comment = get_comment($comment_ID);
+    $comment         = get_comment($comment_ID);
     $comment_content = $comment_markdown_content;
     //store markdow content
     $wpdb->query("UPDATE wp_comments SET comment_markdown='" . $comment_content . "' WHERE comment_ID='" . $comment_ID . "';");
@@ -551,7 +633,8 @@ add_action('comment_post', 'save_markdown_comment', 10, 2);
 /**
  * Enqueue scripts and styles.
  */
-function jasmine_scripts(){
+function jasmine_scripts()
+{
     wp_enqueue_style('jasmine_css', get_stylesheet_uri(), array(), JASMINE_VERSION);
 }
 add_action('admin_enqueue_scripts', 'jasmine_scripts');

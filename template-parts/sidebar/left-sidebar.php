@@ -46,7 +46,7 @@
   </dl>
   <dl class="text-center">
     <dt class="text-center">
-      <span class="animateNum" data-animatetype="num" data-animatetarget="2140" style="">2140</span>
+      <span class="animateNum" data-animatetype="num" data-animatetarget="<?php do_shortcode('[countShuoshuo]')?>" style=""><?php do_shortcode('[countShuoshuo]')?></span>
     </dt>
     <dd class="text-center">
       说说

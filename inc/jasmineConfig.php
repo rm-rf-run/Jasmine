@@ -13,6 +13,8 @@ jasmineConfig.siteUrl = "<?php echo get_bloginfo('url'); ?>";
 
 jasmineConfig.site_name = "<?php echo get_bloginfo('name'); ?>";
 
+jasmineConfig.ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>";
+
 jasmineConfig.author_name = jasmineConfig.site_name; //默认为站点名称
 
 jasmineConfig.clipboardCopyright = "<?php echo esc_attr(jasmine_option('jasmine_copyright')); ?>";

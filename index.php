@@ -70,14 +70,6 @@ get_header();
                   'next_text'          => __( '下一页', 'textdomain' )
                 )
               );
-            //WordPress 分页判断当前是第一页或最后一页
-            $current = $wp_query->query_vars['paged']; // 当前处于第几页，注意下标从1开始
-            $max_page = $wp_query->max_num_pages; // 最大页数
-            if($current == 1) {
-            };
-            if($current = $max_page) {
-              echo '<div class="page-more">你已到达了世界的尽头(｡・`ω´･)！</div>';
-            };
 
         else :
     _e( 'Sorry, no posts matched your criteria.', 'textdomain' );

@@ -33,10 +33,13 @@ p, span, h1, h2, h3, h3, h5, h6 {
 span span {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
+div span {
+    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
+}
 div a {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
-div a p, span {
+div a p {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 input {
@@ -58,7 +61,7 @@ input {
     color: black;
 }
 #main {
-    margin-top: 70px;
+    padding-top: 70px;
     min-height: 800px;
 }
 /*关于我*/
@@ -1569,7 +1572,9 @@ dl {
     border-top-left-radius: 4px;
 }
 .shuoshuo-main {
-    padding: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .shuoshuo-main img {
     float: left;
@@ -1578,29 +1583,57 @@ dl {
     color: black;
     font-weight: bold;
 }
-.shuoshuo-content{
+.shuoshuo-content {
     margin-left: 54px;
-    margin-top: 2px;
-    margin-bottom: 2px;
 }
-
-.shuoshuo-content a{
+.shuoshuo-content a {
     color: #eb7350;
 }
-.shuoshuo-content a:before{
+.shuoshuo-content a:before {
     content: '#';
 }
-.shuoshuo-content a:after{
+.shuoshuo-content a:after {
     content: '#';
 }
-.jasmine-shuoshuo-article{
+.jasmine-shuoshuo-article {
     margin-top: 15px;
     margin-bottom: 15px;
     background: #fff;
     border-radius: 4px;
 }
-.page-more{
+.shuoshuo-footer {
+    background-color: #fcfcfc;
+    overflow: hidden;
+    border-top: 1px solid #e3e8e8;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.shuoshuo-footer span.shuoshuo-span {
+    display: inline-block;
+    zoom: 1;
+    float: left;
+    width: 25%;
     text-align: center;
-    margin-top: 30px;
-    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    border-right: 1px solid #e3e8e8;
+    font-size: 14px;
+}
+.shuoshuo-footer a {
+    color: #635f5f;
+}
+.have-like i {
+    color: red;
+}
+
+.toast-message .toast-body {
+    background: rgba(17, 17, 17, .9);
+    color: #fff;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.35);
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 0;
+    padding: 12px 25px;
 }

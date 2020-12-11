@@ -38,31 +38,33 @@ if (has_post_thumbnail()) {
 		- <?php echo human_time_diff(get_the_time('U'), current_time('timestamp'));
 _e('前'); ?>
 		</span>
-		<span style="display: block;margin-left: 54px;">发布了一条说说</span>
+		<span style="display: block;margin-left: 54px;">发布了一条说说&nbsp;&nbsp;<?php edit_post_link('编辑', '', '');?><!--只有在登陆后才可见到，对日志进行编辑的链接--></span>
 		<div class="shuoshuo-content">
            <?php the_tags('', ' ', '');
 the_content();?>
         </div>
 	</div>
 	<div class="shuoshuo-footer">
-        <span class="">
-        <i class="fa fa-comments"></i>
-        <?php echo get_comment_count(get_the_ID())['approved']; ?>
-      </span>
-      <span class="">
+      <span class="shuoshuo-span">
         <i class="fa fa-eye"></i>
         <?php echo getPostViews(get_the_ID()); ?>
       </span>
-      <span class="">
+      <span class="shuoshuo-span">
+        <i class="fa fa-comments"></i>
+        <?php echo get_comment_count(get_the_ID())['approved']; ?>
+      </span>
+      <span class="post-like shuoshuo-span">
+        <a href="javascript:;" data-action="jasmine_like" data-id="<?php the_ID(); ?>" class="like<?php if(isset($_COOKIE['jasmine_like_'.$post->ID])) echo ' have-like';?>">
+      <span class="like-count">
         <i class="fa fa-thumbs-o-up"></i>
-      1k
+        <?php if( get_post_meta($post->ID,'jasmine_like',true) ){ echo get_post_meta($post->ID,'jasmine_like',true); } else { echo '0'; }?>
       </span>
-      <span class="">
-        <i class="fa fa-user"></i>
-        <?php the_author();?>
+      </a>
       </span>
-      <span class="">
-        <?php edit_post_link('编辑', '', '');?><!--只有在登陆后才可见到，对日志进行编辑的链接-->
+      <span class="shuoshuo-span">
+          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <i class="fa fa-ellipsis-h" aria-hidden="true"></i> 阅读
+          </a>
       </span>
 	</div>
 </article>

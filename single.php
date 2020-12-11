@@ -132,7 +132,7 @@ setPostViews(get_the_ID());
                endif;
           ?>
           <!-- toasts -->
-          <div class="toast jasmine-toast" class="d-flex justify-content-center align-items-center" style="position: absolute;top: 10%;right: 30%;" data-delay="2000">
+          <div class="toast jasmine-toast" class="d-flex justify-content-center align-items-center" style="position: fixed;top: 20%;right: 0;" data-delay="5000">
             <div class="toast-header">
               <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/tips.png" class="rounded mr-2" alt="...">
               <strong class="mr-auto">友情提示</strong>

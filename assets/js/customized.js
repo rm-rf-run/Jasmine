@@ -107,7 +107,7 @@
                  if (window.getSelection().toString().length > 30 && jasmineConfig.clipboardCopyright == "1") {
                      setClipboardText(e);
                  }
-                 $('.toast').toast("show")
+                 $('.jasmine-toast').toast("show")
              });
 
              function setClipboardText(event) {
@@ -193,14 +193,13 @@
                          jsonpCallback: 'portraitCallBack',
                          success: function(data) {
                              $('#author').val(data[qq][6]); // 将返回的qq昵称填入到昵称input表单上，其中#author表示昵称input标签上的id，改成你自己的！
-                             //alert('已获取昵称！'); // 弹出警告
+                             createMessage('已获取昵称！'); // 弹出警告
                              setCookie('user_qq', qq); // 设置cookie
                          },
                          error: function() {
-                             // setCookie('user_qq', '', 30);
+                             setCookie('user_qq', '', 30);
                              $('#author_qq,#author,#email').val(''); // 如果获取失败则清空表单，注意input标签上的id，改成你自己的！
-                             //alert('糟糕，昵称获取失败！请重新填写。'); // 弹出警告
-                             console.log('糟糕，昵称获取失败！请重新填写。');
+                             createMessage('糟糕，昵称获取失败！请重新填写。');
                          }
                      });
                      // 获取头像
@@ -212,13 +211,12 @@
                          jsonpCallback: 'qqavatarCallBack',
                          success: function(data) {
                              $('#author_img').attr('src', data[qq]); // 将返回的qq头像设置到你评论表单区域显示头像的节点上，div.comment-user-avatar img表示头像节点img标签，改成你自己的！
-                             //alert('已获取头像！'); // 弹出警告
+                             createMessage('已获取头像！'); // 弹出警告
                              setCookie('user_avatar', data[qq]); // 设置cookie
                          },
                          error: function() {
-                             console.log('糟糕，获取头像失败了！请重新填写。');
-                             //alert('糟糕，获取头像失败了！请重新填写。'); // 弹出警告
-                             // setCookie('user_avatar','');
+                             createMessage('糟糕，获取头像失败了！请重新填写。');
+                             setCookie('user_avatar','');
                              $('#author_qq,#author,#email').val(''); // 清空表单
                          }
                      });
@@ -226,38 +224,72 @@
              });
          };
          //点击字体增大
-         $('.jasmine-post-help-font').click(function(){
-            $('#jasmine-post-main').toggleClass("add-fontsize");
+         $('.jasmine-post-help-font').click(function() {
+             $('#jasmine-post-main').toggleClass("add-fontsize");
          })
          //点击增大文章内容宽度
-         $('.jasmine-post-help-width').click(function(){
-            var bool = $('#hide-column').hasClass("hide-block");
-            if(bool){
-                $('#hide-column').removeClass("hide-block");
-                $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
-                $('.jasmine-appreciation-img').css("left","22%");
-                var width = $('.jasmine-post-h1').width();
-                var height = $('.jasmine-post-h1').height();
-                $('.jasmine-post-content h1 canvas').css("width",width);
-                $('.jasmine-post-content h1 canvas').css("height",height);
-            }else{
-                $('#hide-column').addClass("hide-block");
-                $('#pjax-container').removeClass("col-md-6").addClass("col-md-9");
-                $('.jasmine-appreciation-img').css("left","32%");
-                var width = $('.jasmine-post-h1').width();
-                var height = $('.jasmine-post-h1').height();
-                $('.jasmine-post-content h1 canvas').css("width",width);
-                $('.jasmine-post-content h1 canvas').css("height",height);
-            }
+         $('.jasmine-post-help-width').click(function() {
+             var bool = $('#hide-column').hasClass("hide-block");
+             if (bool) {
+                 $('#hide-column').removeClass("hide-block");
+                 $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
+                 $('.jasmine-appreciation-img').css("left", "22%");
+                 var width = $('.jasmine-post-h1').width();
+                 var height = $('.jasmine-post-h1').height();
+                 $('.jasmine-post-content h1 canvas').css("width", width);
+                 $('.jasmine-post-content h1 canvas').css("height", height);
+             } else {
+                 $('#hide-column').addClass("hide-block");
+                 $('#pjax-container').removeClass("col-md-6").addClass("col-md-9");
+                 $('.jasmine-appreciation-img').css("left", "32%");
+                 var width = $('.jasmine-post-h1').width();
+                 var height = $('.jasmine-post-h1').height();
+                 $('.jasmine-post-content h1 canvas').css("width", width);
+                 $('.jasmine-post-content h1 canvas').css("height", height);
+             }
          })
-
+         //点击登录
          $('#menu-login.have-login').click(function(e) {
-            var theEvent = window.event || e;
-            theEvent.stopPropagation();
-            $('#personal-menu').fadeToggle(250);
-        });
-        $('body').on('click', function() {
-            $('#personal-menu').fadeOut(250);
-        });
+             var theEvent = window.event || e;
+             theEvent.stopPropagation();
+             $('#personal-menu').fadeToggle(250);
+         });
+         $('body').on('click', function() {
+             $('#personal-menu').fadeOut(250);
+         });
+         // 消息弹窗
+         function createMessage(message, time = 5000) {
+             if ($(".message").length > 0) {
+                 $(".message").remove();
+             }
+             var html = '';
+             html += '<div class="message"><div data-delay="'+time+'" class="toast toast-message" style="position: fixed; bottom: 0; right: 0;">';
+             html += '<div class="toast-body"><span>' + message + '</span></div></div></div>';
+             $("body").append(html);
+             $('.toast-message').toast('show');
+             setTimeout("$('.message').remove()", time);
+         }
+         // 点赞
+         $(document).on('click', '.post-like a', function() {
+             if ($(this).hasClass('have-like')) {
+                 createMessage('你已经点过赞啦(･∀･)！');
+                 return false;
+             } else {
+                 $(this).addClass('have-like');
+                 var id = $(this).data("id"),
+                     action = $(this).data('action'),
+                     rateHolder = $(this).children('.like-count');
+                 var ajax_data = {
+                     action: action,
+                     jasmine_id: id,
+                     jasmine_action: action
+                 };
+                 $.post(jasmineConfig.ajaxUrl, ajax_data, function(data) {
+                     $(rateHolder).html('<i class="fa fa-thumbs-o-up"></i>'+data);
+                     createMessage('୧(๑•̀⌄•́๑)૭感谢你的小心心！');
+                 });
+                 return false;
+             }
+         });
      })
  })(jQuery);
