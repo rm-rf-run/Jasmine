@@ -24,7 +24,7 @@
     <a class="nav-link active" href="#">全部</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">文章</a>
+    <a class="nav-link" href="javascript:;" data-action="jasmine_like">文章</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">说说</a>

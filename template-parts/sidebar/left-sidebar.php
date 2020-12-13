@@ -70,37 +70,35 @@
   </dl>
 </div>
 <div class="item-rank"></div>
-<div id="about-me-3 carouselExampleInterval" class="carousel slide" data-ride="carousel" data-interval="3000">
-  <div class="d-flex carousel-inner">
-    <div class="carousel-item active">
+<div id="about-me-3 carouselExampleInterval">
+  <div class="d-flex ">
+    <div class="">
       <a href="<?php if(!empty(jasmine_option('jasmine_bilbil'))){echo esc_attr(jasmine_option('jasmine_bilbil'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/bilbil.ico" width="32" height="32" alt="B站" data-toggle="tooltip" data-placement="top" title="B站">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/bilbil.ico" width="22" height="22" alt="B站" data-toggle="tooltip" data-placement="top" title="B站">
       </a>
       <a href="<?php if(!empty(jasmine_option('jasmine_csdn'))){echo esc_attr(jasmine_option('jasmine_csdn'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/csdn.ico" width="32" height="32" alt="CSDN" data-toggle="tooltip" data-placement="top" title="CSDN">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/csdn.ico" width="22" height="22" alt="CSDN" data-toggle="tooltip" data-placement="top" title="CSDN">
       </a>
       <a href="tencent://message/?uin=<?php if(!empty(jasmine_option('jasmine_qq'))){echo esc_attr(jasmine_option('jasmine_qq'));}?>&Site=&Menu=yes">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/qq.png" width="32" height="32" alt="QQ" data-toggle="tooltip" data-placement="top" title="QQ">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/qq.png" width="22" height="22" alt="QQ" data-toggle="tooltip" data-placement="top" title="QQ">
       </a>
       <a href="<?php if(!empty(jasmine_option('jasmine_gitHub'))){echo esc_attr(jasmine_option('jasmine_gitHub'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/github.ico" width="32" height="32" alt="GitHub" data-toggle="tooltip" data-placement="top" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/github.ico" width="22" height="22" alt="GitHub" data-toggle="tooltip" data-placement="top" title="GitHub">
       </a>
       <a href="<?php if(!empty(jasmine_option('jasmine_zhihu'))){echo esc_attr(jasmine_option('jasmine_zhihu'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/zhihu.ico" width="32" height="32" alt="知乎" data-toggle="tooltip" data-placement="top" title="知乎">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/zhihu.ico" width="22" height="22" alt="知乎" data-toggle="tooltip" data-placement="top" title="知乎">
       </a>
       <a href="<?php if(!empty(jasmine_option('jasmine_weibo'))){echo esc_attr(jasmine_option('jasmine_weibo'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/weibo.ico" width="32" height="32" alt="weibo" data-toggle="tooltip" data-placement="top" title="weibo">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/weibo.ico" width="22" height="22" alt="weibo" data-toggle="tooltip" data-placement="top" title="weibo">
       </a>
-    </div>
-    <div class="carousel-item">
       <a href="<?php if(!empty(jasmine_option('wangyiyun'))){echo esc_attr(jasmine_option('wangyiyun'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/wyy.ico" width="32" height="32" alt="网易云" data-toggle="tooltip" data-placement="top" title="网易云">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/wyy.ico" width="22" height="22" alt="网易云" data-toggle="tooltip" data-placement="top" title="网易云">
       </a>
       <a href="<?php if(!empty(jasmine_option('jasmine_twitter'))){echo esc_attr(jasmine_option('jasmine_twitter'));}?>">
-          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/twitter.ico" width="32" height="32" alt="twitter" data-toggle="tooltip" data-placement="top" title="twitter">
+          <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/twitter.ico" width="22" height="22" alt="twitter" data-toggle="tooltip" data-placement="top" title="twitter">
       </a>
       <a href="<?php echo get_bloginfo('rss2_url'); ?>">
-        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/rss.png" width="22" height="22" alt="Rss" data-toggle="tooltip" data-placement="top" title="Rss"></img>
+        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/rss.png" width="15" height="15" alt="Rss" data-toggle="tooltip" data-placement="top" title="Rss"></img>
       </a>
     </div>
   </div>
@@ -127,7 +125,7 @@
     <div class="h-info clearfix">
       <div class="h-avatar">
         <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
-          <img src="https://images.weserv.nl/?url=<?php if(!empty(get_option('jasmine_bilbil_gravatar'))){echo esc_attr(get_option('jasmine_bilbil_gravatar'));}?>" id="h-avatar">
+          <img src="<?php if(!empty(get_option('jasmine_bilbil_gravatar'))){echo esc_attr(get_option('jasmine_bilbil_gravatar'));}?>" id="h-avatar">
         </a>
       </div>
       <div class="h-basic">

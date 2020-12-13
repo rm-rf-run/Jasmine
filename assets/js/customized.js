@@ -48,18 +48,6 @@
          });
          //二维码收钱
          $('[data-toggle="tooltip"]').tooltip();
-         //pajx
-         // $(document).pjax('a', '#pjax-container');
-         //  tocbot.init({
-         //   // Where to render the table of contents.
-         //   tocSelector: '.js-toc',
-         //   // Where to grab the headings to build the table of contents.
-         //   contentSelector: '.js-toc-content',
-         //   // Which headings to grab inside of the contentSelector element.
-         //   headingSelector: 'h1, h2, h3',
-         //   // For headings inside relative or absolute positioned containers within content.
-         //   hasInnerContainers: true,
-         // });
          //建站日期
          function startTime() {
              function show_date_time() {
@@ -216,7 +204,7 @@
                          },
                          error: function() {
                              createMessage('糟糕，获取头像失败了！请重新填写。');
-                             setCookie('user_avatar','');
+                             setCookie('user_avatar', '');
                              $('#author_qq,#author,#email').val(''); // 清空表单
                          }
                      });
@@ -248,6 +236,17 @@
                  $('.jasmine-post-content h1 canvas').css("height", height);
              }
          })
+         //监听页面跳转还原页面
+         window.addEventListener('onbeforeunload', function() {
+             console.log("11");
+             $('#hide-column').removeClass("hide-block");
+             $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
+             $('.jasmine-appreciation-img').css("left", "22%");
+             var width = $('.jasmine-post-h1').width();
+             var height = $('.jasmine-post-h1').height();
+             $('.jasmine-post-content h1 canvas').css("width", width);
+             $('.jasmine-post-content h1 canvas').css("height", height);
+         });
          //点击登录
          $('#menu-login.have-login').click(function(e) {
              var theEvent = window.event || e;
@@ -263,12 +262,62 @@
                  $(".message").remove();
              }
              var html = '';
-             html += '<div class="message"><div data-delay="'+time+'" class="toast toast-message" style="position: fixed; bottom: 0; right: 0;">';
+             html += '<div class="message"><div data-delay="' + time + '" class="toast toast-message" style="position: fixed; bottom: 0; right: 0;">';
              html += '<div class="toast-body"><span>' + message + '</span></div></div></div>';
              $("body").append(html);
              $('.toast-message').toast('show');
              setTimeout("$('.message').remove()", time);
          }
+         /***pjax开始***/
+         $(document).pjax('a', '#pjax-container', {
+             fragment: '#pjax-container',
+             timeout: 8000,
+             type: 'GET'
+         });
+         //进度条
+         $(document).on('pjax:start', function() {
+             NProgress.start();
+         });
+         $(document).on('pjax:end', function() {
+             NProgress.done();
+         });
+         $(document).on('ready pjax:end', function(event) {
+             //点击字体增大
+             $('.jasmine-post-help-font').click(function() {
+                 $('#jasmine-post-main').toggleClass("add-fontsize");
+             })
+             //点击增大文章内容宽度
+             $('.jasmine-post-help-width').click(function() {
+                 var bool = $('#hide-column').hasClass("hide-block");
+                 if (bool) {
+                     $('#hide-column').removeClass("hide-block");
+                     $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
+                     $('.jasmine-appreciation-img').css("left", "22%");
+                     var width = $('.jasmine-post-h1').width();
+                     var height = $('.jasmine-post-h1').height();
+                     $('.jasmine-post-content h1 canvas').css("width", width);
+                     $('.jasmine-post-content h1 canvas').css("height", height);
+                 } else {
+                     $('#hide-column').addClass("hide-block");
+                     $('#pjax-container').removeClass("col-md-6").addClass("col-md-9");
+                     $('.jasmine-appreciation-img').css("left", "32%");
+                     var width = $('.jasmine-post-h1').width();
+                     var height = $('.jasmine-post-h1').height();
+                     $('.jasmine-post-content h1 canvas').css("width", width);
+                     $('.jasmine-post-content h1 canvas').css("height", height);
+                 }
+             })
+         })
+         $(document).on('pjax:click', function() {
+             $('#hide-column').removeClass("hide-block");
+             $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
+             $('.jasmine-appreciation-img').css("left", "22%");
+             var width = $('.jasmine-post-h1').width();
+             var height = $('.jasmine-post-h1').height();
+             $('.jasmine-post-content h1 canvas').css("width", width);
+             $('.jasmine-post-content h1 canvas').css("height", height);
+         });
+         /***pjax结束***/
          // 点赞
          $(document).on('click', '.post-like a', function() {
              if ($(this).hasClass('have-like')) {
@@ -285,8 +334,29 @@
                      jasmine_action: action
                  };
                  $.post(jasmineConfig.ajaxUrl, ajax_data, function(data) {
-                     $(rateHolder).html('<i class="fa fa-thumbs-o-up"></i>'+data);
+                     $(rateHolder).html('<i class="fa fa-thumbs-o-up"></i>' + data);
                      createMessage('୧(๑•̀⌄•́๑)૭感谢你的小心心！');
+                 });
+                 return false;
+             }
+         });
+         // 文章分类
+         $(document).on('click', '.jasmine-nav a', function() {
+             if ($(this).hasClass('active')) {
+                 createMessage('这里就是啦！');
+                 return false;
+             } else {
+                 $('.jasmine-nav a').removeClass('active');
+                 $(this).addClass('active');
+                 var id = $(this).data("id"),
+                     action = $(this).data('action');
+                 var ajax_data = {
+                     action: action,
+                     post_id: id,
+                     post_action: action
+                 };
+                 $.post(jasmineConfig.ajaxUrl, ajax_data, function(data) {
+                     createMessage('点击成功！');
                  });
                  return false;
              }

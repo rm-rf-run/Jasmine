@@ -356,14 +356,18 @@ function add_bilbil_data()
         $b2       = file_get_contents("compress.zlib://https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
         $results1 = json_decode($b1, true);
         $results  = json_decode($b2, true);
+        $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($results1['data']['face'])));
+        $topPhoto = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($results1['data']['top_photo'])));
+        $background = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents('http://i0.hdslb.com/bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png@2200w_400h_1o.webp')));
         update_option('jasmine_bilbil_following', $results['data']['following']);
         update_option('jasmine_bilbil_follower', $results['data']['follower']);
-        update_option('jasmine_bilbil_gravatar', $results1['data']['face']);
+        update_option('jasmine_bilbil_gravatar', $gravatar);
         update_option('jasmine_bilbil_name', $results1['data']['name']);
         update_option('jasmine_bilbil_level', $results1['data']['level']);
         update_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
         update_option('jasmine_bilbil_describe', $results1['data']['sign']);
-        update_option('jasmine_bilbil_top_photo', $results1['data']['top_photo']);
+        update_option('jasmine_bilbil_top_photo', $topPhoto);
+        update_option('jasmine_bilbil_background', $background);
     }
 }
 

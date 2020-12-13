@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/assets/js/runningJs/css/jquery.running.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css" integrity="sha256-no0c5ccDODBwp+9hSmV5VvPpKwHCpbVzXHexIkupM6U=" crossorigin="anonymous">
     <!-- end -->
     <title>
         <?php $title = wp_title('', false);
