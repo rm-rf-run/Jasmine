@@ -62,7 +62,7 @@ if (isset($_GET['post'])) {
             break;
         default:$postType = array('post', 'shuoshuo');
     }
-    $args = array('post' => $orderby, 'order' => 'DESC');
+    $args = array('post_type' => $postType, 'order' => 'DESC');
     $arms = array_merge($args, $wp_query->query);
     query_posts($arms);
 }

@@ -1640,3 +1640,7 @@ dl {
 .breadcrumb {
     padding: .56rem 1rem;
 }
+.current {
+    font-weight: bolder;
+    color: black !important;
+}
