@@ -211,42 +211,6 @@
                  }
              });
          };
-         //点击字体增大
-         $('.jasmine-post-help-font').click(function() {
-             $('#jasmine-post-main').toggleClass("add-fontsize");
-         })
-         //点击增大文章内容宽度
-         $('.jasmine-post-help-width').click(function() {
-             var bool = $('#hide-column').hasClass("hide-block");
-             if (bool) {
-                 $('#hide-column').removeClass("hide-block");
-                 $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
-                 $('.jasmine-appreciation-img').css("left", "22%");
-                 var width = $('.jasmine-post-h1').width();
-                 var height = $('.jasmine-post-h1').height();
-                 $('.jasmine-post-content h1 canvas').css("width", width);
-                 $('.jasmine-post-content h1 canvas').css("height", height);
-             } else {
-                 $('#hide-column').addClass("hide-block");
-                 $('#pjax-container').removeClass("col-md-6").addClass("col-md-9");
-                 $('.jasmine-appreciation-img').css("left", "32%");
-                 var width = $('.jasmine-post-h1').width();
-                 var height = $('.jasmine-post-h1').height();
-                 $('.jasmine-post-content h1 canvas').css("width", width);
-                 $('.jasmine-post-content h1 canvas').css("height", height);
-             }
-         })
-         //监听页面跳转还原页面
-         window.addEventListener('onbeforeunload', function() {
-             console.log("11");
-             $('#hide-column').removeClass("hide-block");
-             $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
-             $('.jasmine-appreciation-img').css("left", "22%");
-             var width = $('.jasmine-post-h1').width();
-             var height = $('.jasmine-post-h1').height();
-             $('.jasmine-post-content h1 canvas').css("width", width);
-             $('.jasmine-post-content h1 canvas').css("height", height);
-         });
          //点击登录
          $('#menu-login.have-login').click(function(e) {
              var theEvent = window.event || e;
@@ -281,7 +245,13 @@
          $(document).on('pjax:end', function() {
              NProgress.done();
          });
+         //ready pjax:end方法是在pjax请求之后重新初始化插件
          $(document).on('ready pjax:end', function(event) {
+            $(".jasmine-post-content h1").sparkleh({
+                count: 80,
+                color: ["#ff0080", "#ff0080", "#0000FF"]
+            });
+            jasmine_js_getqqinfo();
              //点击字体增大
              $('.jasmine-post-help-font').click(function() {
                  $('#jasmine-post-main').toggleClass("add-fontsize");
@@ -290,16 +260,16 @@
              $('.jasmine-post-help-width').click(function() {
                  var bool = $('#hide-column').hasClass("hide-block");
                  if (bool) {
-                     $('#hide-column').removeClass("hide-block");
                      $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
+                     $('#hide-column').removeClass("hide-block");
                      $('.jasmine-appreciation-img').css("left", "22%");
                      var width = $('.jasmine-post-h1').width();
                      var height = $('.jasmine-post-h1').height();
                      $('.jasmine-post-content h1 canvas').css("width", width);
                      $('.jasmine-post-content h1 canvas').css("height", height);
                  } else {
-                     $('#hide-column').addClass("hide-block");
                      $('#pjax-container').removeClass("col-md-6").addClass("col-md-9");
+                     $('#hide-column').addClass("hide-block");
                      $('.jasmine-appreciation-img').css("left", "32%");
                      var width = $('.jasmine-post-h1').width();
                      var height = $('.jasmine-post-h1').height();
@@ -307,7 +277,9 @@
                      $('.jasmine-post-content h1 canvas').css("height", height);
                  }
              })
+
          })
+         //还原文章样式
          $(document).on('pjax:click', function() {
              $('#hide-column').removeClass("hide-block");
              $('#pjax-container').removeClass("col-md-9").addClass("col-md-6");
@@ -336,27 +308,6 @@
                  $.post(jasmineConfig.ajaxUrl, ajax_data, function(data) {
                      $(rateHolder).html('<i class="fa fa-thumbs-o-up"></i>' + data);
                      createMessage('୧(๑•̀⌄•́๑)૭感谢你的小心心！');
-                 });
-                 return false;
-             }
-         });
-         // 文章分类
-         $(document).on('click', '.jasmine-nav a', function() {
-             if ($(this).hasClass('active')) {
-                 createMessage('这里就是啦！');
-                 return false;
-             } else {
-                 $('.jasmine-nav a').removeClass('active');
-                 $(this).addClass('active');
-                 var id = $(this).data("id"),
-                     action = $(this).data('action');
-                 var ajax_data = {
-                     action: action,
-                     post_id: id,
-                     post_action: action
-                 };
-                 $.post(jasmineConfig.ajaxUrl, ajax_data, function(data) {
-                     createMessage('点击成功！');
                  });
                  return false;
              }

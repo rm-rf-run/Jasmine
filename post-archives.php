@@ -84,7 +84,7 @@ setPostViews(get_the_ID());?>
         <?php comments_template();?>
         </div>
         <!--右边栏-->
-        <div class="col-md-3 column">
+        <div class="col-md-3 column" id="hide-column">
           <?php get_template_part('template-parts/sidebar/right-sidebar');?>
         </div>
       </div>

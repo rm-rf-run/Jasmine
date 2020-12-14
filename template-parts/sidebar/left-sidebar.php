@@ -157,13 +157,13 @@
   </div>
   <div class="jasmine-bilbil-btn">
     <div class="jasmine-bilbil-btn-add">
-      <a href="<?php if(!empty(get_option('jasmine_bilbil'))){echo esc_attr(get_option('jasmine_bilbil'));}?>">
+      <a href="<?php if(!empty(jasmine_option('jasmine_bilbil'))){echo esc_attr(jasmine_option('jasmine_bilbil'));}?>">
         <i class="fa fa-plus"></i>
         <span>关注</span>
       </a>
     </div>
     <div class="jasmine-bilbil-message">
-      <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://message.bilibili.com/#/whisper/mid'.esc_attr(get_option('jasmine_bilbil_uid'));}?>">
+      <a href="<?php if(!empty(jasmine_option('jasmine_bilbil_uid'))){echo 'https://message.bilibili.com/#/whisper/mid'.esc_attr(jasmine_option('jasmine_bilbil_uid'));}?>">
         <i class="fa fa-paper-plane"></i>
         <span>发消息</span>
       </a>
@@ -172,7 +172,7 @@
 </div>
 
 <div class="jasmine-bilbil-statistics">
-  <a href="<?php if(!empty(get_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(get_option('jasmine_bilbil_uid')).'/fans/follow';}?>" class="jasmine-bilbil-statistics-a">
+  <a href="<?php if(!empty(jasmine_option('jasmine_bilbil_uid'))){echo 'https://space.bilibili.com/'.esc_attr(jasmine_option('jasmine_bilbil_uid')).'/fans/follow';}?>" class="jasmine-bilbil-statistics-a">
     <p class="statistics-data">
       关注数
     </p>

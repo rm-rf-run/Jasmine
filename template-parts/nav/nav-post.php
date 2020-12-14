@@ -22,10 +22,10 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     当前位置：
-    <li><a href="<?php bloginfo('url');?>">首页</a></li>
-    <?php if (get_the_category()){?>
-    <li>&nbsp;>&nbsp;<a href=""><?php the_category(', ');} ?></a></li>
-    <?php if (is_singular()){?>
-    <li>&nbsp;>&nbsp;<a href=""><?php the_title();}?></a></li>
+    <li><a href="<?php bloginfo('url');?>" rel="bookmark">首页</a></li>
+    <?php $category = get_the_category();if ($category) {?>
+    <li>&nbsp;>&nbsp;<a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" rel="bookmark"><?php the_category(', ');}?></a></li>
+    <?php if (is_singular()) {?>
+    <li>&nbsp;>&nbsp;<a href="<?php esc_url(the_permalink());?>" rel="bookmark"><?php the_title();}?></a></li>
   </ol>
 </nav>

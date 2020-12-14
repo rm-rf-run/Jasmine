@@ -109,7 +109,6 @@ if (get_comment_pages_count() > 1 && get_option('page_comments')):
 
 </div><!-- #comments -->
 <?php if (comments_open()):?>
-<script type="text/javascript" src="<?php bloginfo('template_directory');?>/inc/OwO/OwO.min.js" ?>'></script>
 <script>var s = new OwO({
     logo: 'OωO表情',
     container: document.getElementsByClassName('OwO')[0],  //获取表情标签
