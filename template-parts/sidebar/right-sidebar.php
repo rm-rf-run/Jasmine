@@ -51,5 +51,5 @@ if (jasmine_option('jasmine_notice')) {
 </div>
 
 <div class="jasmine-tag-cloud">
-	 <?php wp_tag_cloud('smallest=12&largest=18&unit=px&number=20&post_type=post');?>
+	 <?php wp_tag_cloud('smallest=12&largest=18&unit=px&number=20');?>
 </div>
