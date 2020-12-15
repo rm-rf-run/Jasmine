@@ -1640,7 +1640,7 @@ dl {
 .breadcrumb {
     padding: .56rem 1rem;
 }
-.current {
+.nav-current {
     font-weight: bolder;
     color: black !important;
 }

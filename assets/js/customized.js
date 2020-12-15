@@ -247,6 +247,25 @@
          });
          //ready pjax:end方法是在pjax请求之后重新初始化插件
          $(document).on('ready pjax:end', function(event) {
+            var id = 1;
+            $("#pjax-container").children("h1,h2,h3,h4,h5").each(function () {
+                // entry-content 为正文容器的 class，根据自己的情况修改
+                //var hyphenated = $(this).text().replace(/\s/g, '-');
+                // 如果你希望使用中文 id 的话就用上面这行，注意非ANSI编码文字会导致无法跳转
+                var hyphenated = "jasmine-" + id;
+                $(this).attr('id', hyphenated);
+                id++;
+            });
+            tocbot.init({
+              // 显示目录的位置。
+              tocSelector: '.toc',
+              // 获取标题以构建目录的位置。
+              contentSelector: '#pjax-container',
+              // 要在contentSelector元素内部获取哪些标题。
+              headingSelector: 'h1, h2, h3',
+              // 对于内容中相对或绝对位置容器内的标题。
+              hasInnerContainers: true,
+            });
             $(".jasmine-post-content h1").sparkleh({
                 count: 80,
                 color: ["#ff0080", "#ff0080", "#0000FF"]
