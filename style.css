@@ -1047,6 +1047,7 @@ dl {
     background: #fff;
     border-radius: 8px;
     padding: 10px;
+    margin-bottom: 8px;
 }
 .jasmine-tag-cloud a {
     display: inline-block;
@@ -1643,4 +1644,9 @@ dl {
 .nav-current {
     font-weight: bolder;
     color: black !important;
+}
+.toc-content{
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
 }
