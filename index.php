@@ -17,7 +17,6 @@
  * Template Name: 文章归档
  * Template Post Type: page
  */
-setPostViews(get_the_ID());
 get_header();
 ?>
   <main role="main" id="main" aria-live="polite" aria-atomic="true">
@@ -72,7 +71,7 @@ if (have_posts()):
 
     // 开始循环(Loop).
     while (have_posts()): the_post();
-        // error_log(explode(",",jasmine_option("jasmine_post_api")),3,"D:\wamp\www\prettywordpress\wordpress\wp-content/debug.log");
+        // error_log(get_the_ID(),3,"D:\wamp\www\prettywordpress\wordpress\wp-content/debug.log");
         if (strcmp("shuoshuo", get_post_type()) == 0) {
             set_query_var('i', $i++);
             get_template_part('template-parts/post/shuoshuo', get_post_format());

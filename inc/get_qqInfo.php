@@ -2,7 +2,6 @@
 header("content-Type: text/html; charset=utf-8");
 $type = @$_GET['type'] ? $_GET['type'] : '';
 if(empty($type)){
-    //header("Location:http://www.inlojv.com/");
     exit;
 }
 if($type == "getqqnickname"){

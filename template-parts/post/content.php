@@ -16,7 +16,6 @@
  * @link https://www.prettywordpress.com
  * Template Name: 首页文章内容
  */
-
 ?>
 
 <article id="post-<?php the_ID();?>" class="jasmine-article" <?php post_class();?>>

@@ -517,10 +517,9 @@ function jasmine_like()
 // 主循环中显示文章类型
 function jasmine_posts_per_page($query)
 {
-    if ((is_home() || is_search()) && $query->is_main_query()) {
+    if ($query->is_main_query()) {
         $query->set('post_type', array('post', 'shuoshuo'));
     }
-
     return $query;
 }
 
@@ -548,7 +547,7 @@ function create_shuoshuo()
         'public'        => true,
         'menu_position' => 5,
         'menu_icon'     => 'dashicons-format-status',
-        'supports'      => array('title', 'editor', 'author', 'comments', 'thumbnail', 'tag'),
+        'supports'      => array('title', 'editor', 'author', 'comments', 'thumbnail'),
         'taxonomies'    => array('shuoshuo', 'post_tag'),
         'has_archive'   => true,
     );
