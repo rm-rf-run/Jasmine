@@ -3,7 +3,7 @@
          if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
              alert('朋友，IE浏览器未适配哦~（QQ、360浏览器请关闭 IE 模式访问~）');
          }
-         console.clear(); // 清屏
+         // console.clear(); // 清屏
          // console.log("%c ", "background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg) no-repeat center;padding-left:908px;padding-bottom: 511px;background-position: 50% 50%;background-size: cover")
          console.log("%c Jasmine %c", "background:#24272A; color:#ffffff", "", "https://www.prettywordpress.com");
          console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/rm-rf-run");
@@ -232,46 +232,60 @@
              $('.toast-message').toast('show');
              setTimeout("$('.message').remove()", time);
          }
-         /***pjax开始***/
-         $(document).pjax('a', '#pjax-container', {
-             fragment: '#pjax-container',
-             timeout: 8000,
-             type: 'GET'
-         });
-         //进度条
-         $(document).on('pjax:start', function() {
-             NProgress.start();
-         });
-         $(document).on('pjax:end', function() {
-             NProgress.done();
-         });
-         //ready pjax:end方法是在pjax请求之后重新初始化插件
-         $(document).on('ready pjax:end', function(event) {
-            var id = 1;
-            $("#pjax-container").children("h1,h2,h3,h4,h5").each(function () {
-                // entry-content 为正文容器的 class，根据自己的情况修改
-                //var hyphenated = $(this).text().replace(/\s/g, '-');
-                // 如果你希望使用中文 id 的话就用上面这行，注意非ANSI编码文字会导致无法跳转
-                var hyphenated = "jasmine-" + id;
-                $(this).attr('id', hyphenated);
-                id++;
-            });
-            tocbot.init({
-              // 显示目录的位置。
-              tocSelector: '.toc',
-              // 获取标题以构建目录的位置。
-              contentSelector: '#pjax-container',
-              // 要在contentSelector元素内部获取哪些标题。
-              headingSelector: 'h1, h2, h3',
-              // 对于内容中相对或绝对位置容器内的标题。
-              hasInnerContainers: true,
-            });
-            $(".jasmine-post-content h1").sparkleh({
-                count: 80,
-                color: ["#ff0080", "#ff0080", "#0000FF"]
-            });
-            jasmine_js_getqqinfo();
-             //点击字体增大
+         //判断是否为客户端
+         function judgeClient() {
+             var os = function() {
+                 var ua = navigator.userAgent,
+                     isWindowsPhone = /(?:Windows Phone)/.test(ua),
+                     isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+                     isAndroid = /(?:Android)/.test(ua),
+                     isFireFox = /(?:Firefox)/.test(ua),
+                     isChrome = /(?:Chrome|CriOS)/.test(ua),
+                     isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+                     isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+                     isPc = !isPhone && !isAndroid && !isSymbian;
+                 return {
+                     isTablet: isTablet,
+                     isPhone: isPhone,
+                     isAndroid: isAndroid,
+                     isPc: isPc
+                 };
+             }();
+             if (os.isAndroid || os.isPhone) {
+                 // alert("-----");
+             } else {
+                 // alert("--1---");
+             }
+         }
+         judgeClient();
+         //h标签添加id
+         function titleAddId() {
+             var id = 1;
+             if ($("#jasmine-post-main").find("h1,h2,h3,h4,h5").length > 0) {
+                 $('.catalog').removeClass('hide-block');
+                 $("#jasmine-post-main").find("h1,h2,h3,h4,h5").each(function() {
+                     var hyphenated = "jasmine-" + id;
+                     $(this).attr('id', hyphenated);
+                     id++;
+                 });
+                 tocbot.init({
+                     // 显示目录的位置。
+                     tocSelector: '.toc',
+                     // 获取标题以构建目录的位置。
+                     contentSelector: '#jasmine-post-main',
+                     // 要在contentSelector元素内部获取哪些标题。
+                     headingSelector: 'h1, h2, h3, h4, h5',
+                     // 对于内容中相对或绝对位置容器内的标题。
+                     hasInnerContainers: true,
+                 });
+             } else {
+                 $('.catalog').addClass('hide-block');
+             }
+         }
+         titleAddId();
+         //还原样式
+         function contentDisplay(){
+            //点击字体增大
              $('.jasmine-post-help-font').click(function() {
                  $('#jasmine-post-main').toggleClass("add-fontsize");
              })
@@ -296,7 +310,31 @@
                      $('.jasmine-post-content h1 canvas').css("height", height);
                  }
              })
-
+         }
+         contentDisplay();
+         /***pjax开始***/
+         $(document).pjax('a', '#pjax-container', {
+             fragment: '#pjax-container',
+             timeout: 8000,
+             type: 'GET'
+         });
+         //进度条
+         $(document).on('pjax:start', function() {
+             NProgress.start();
+         });
+         $(document).on('pjax:end', function() {
+             NProgress.done();
+         });
+         //ready pjax:end方法是在pjax请求之后重新初始化插件
+         $(document).on('ready pjax:end', function(event) {
+             titleAddId();
+             judgeClient();
+             $(".jasmine-post-content h1").sparkleh({
+                 count: 80,
+                 color: ["#ff0080", "#ff0080", "#0000FF"]
+             });
+             jasmine_js_getqqinfo();
+             contentDisplay();
          })
          //还原文章样式
          $(document).on('pjax:click', function() {

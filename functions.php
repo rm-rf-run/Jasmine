@@ -393,6 +393,11 @@ function wpdocs_add_custom_shortcode()
     add_shortcode('countComments', 'count_comments');
     add_shortcode('footData', 'echo_footData');
     add_shortcode('countViews', 'getCountViews');
+    add_shortcode('showCommtents', 'showCommtents');
+}
+
+function showCommtents(){
+
 }
 
 function count_shuoshuo()
@@ -517,7 +522,7 @@ function jasmine_like()
 // 主循环中显示文章类型
 function jasmine_posts_per_page($query)
 {
-    if ($query->is_main_query()) {
+    if ((is_home() || is_search() || is_tag()) && $query->is_main_query()) {
         $query->set('post_type', array('post', 'shuoshuo'));
     }
     return $query;
@@ -634,3 +639,5 @@ require get_template_directory() . '/inc/seo.php';
 require get_template_directory() . '/inc/OwO.php';
 //定义数据
 require get_template_directory() . '/inc/jasmineConfig.php';
+//引入API
+require get_template_directory() . '/inc/api.php';

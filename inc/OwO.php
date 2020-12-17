@@ -16,7 +16,7 @@ define('OwO_bili', get_template_directory_uri() . '/inc/OwO/bili');
 
 function comment_add_owo($comment_text)
 {
-    $smiles_path = __DIR__ . "/images/bili/";
+    $smiles_path = OwO_bili . "/";
     $return_smiles = array();
     $biliname = array('baiyan', 'fadai', 'koubi', 'qinqin', 'weiqu', 'bishi', 'fanu', 'kun', 'se', 'weixiao', 'bizui', 'ganga', 'lengmo', 'shengbing', 'wunai', 'chan', 'guilian', 'liubixue', 'shengqi', 'xiaoku', 'daku', 'guzhang', 'liuhan', 'shuizhao', 'xieyanxiao', 'dalao', 'haixiu', 'liulei', 'sikao', 'yiwen', 'dalian', 'heirenwenhao', 'miantian', 'tiaokan', 'yun', 'dianzan', 'huaixiao', 'mudengkoudai', 'tiaopi', 'zaijian', 'doge', 'jingxia', 'nanguo', 'touxiao', 'zhoumei', 'facai', 'keai', 'outu', 'tuxue', 'zhuakuang');
     for ($i = 0; $i < count($biliname); $i++) {
