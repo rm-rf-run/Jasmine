@@ -47,8 +47,8 @@ setPostViews(get_the_ID()); ?>
 								?>
 									<li class="friend-link">
 					        			<a class="friend-link-a" target="_blank" <?php echo 'href="' . $bookmark->link_url . '" title="' . $bookmark->link_url . '"';?> >
-					        				<?php if($bookmark->link_notes!=null && $bookmark->link_notes!='')
-												echo '<img src="'.get_avatar_url($bookmark->link_notes).'" alt="'.$bookmark->link_name.'" class="avatar friend-img"  / >';
+					        				<?php if($bookmark->link_image!=null && $bookmark->link_image!='')
+												echo '<img src="'.$bookmark->link_image.'" alt="'.$bookmark->link_name.'" class="avatar friend-img"  / >';
 											else
 												echo '<img src="https://api.ixiaowai.cn/api/api.php" alt="'.$bookmark->link_name.'" class="avatar friend-img"  / >';
 											echo '<h4>'.$bookmark->link_name.'</h4>';

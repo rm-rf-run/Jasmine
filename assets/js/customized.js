@@ -280,6 +280,7 @@
                  });
              } else {
                  $('.catalog').addClass('hide-block');
+                 if ($('.toc').length) tocbot.destroy();
              }
          }
          titleAddId();
