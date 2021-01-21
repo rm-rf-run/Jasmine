@@ -616,6 +616,11 @@ dl {
     border-radius: 4px;
     padding: 12px 16px;
     margin-bottom: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.jasmine-post-content img{
+max-width: 500px;
 }
 .jasmine-post-content-foot {
     text-align: center;
