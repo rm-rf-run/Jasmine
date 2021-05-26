@@ -45,6 +45,46 @@ div a p {
 input {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
+@media screen and (max-width: 575.98px) {
+    .col-md-3, .fixed-top,.catalog {
+        display: none;
+    }
+    .shuoshuo-content img{
+        max-width: calc(100vw - 105px) !important;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .col-md-3, .fixed-top,.catalog {
+        display: none;
+    }
+    .shuoshuo-content img{
+        max-width: calc(100vw - 150px) !important;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .col-md-3, .fixed-top,.catalog {
+        display: none;
+    }
+    .shuoshuo-content img{
+        max-width: calc(100vw - 550px) !important;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .col-md-3, .fixed-top,.catalog {
+        display: block;
+    }
+    .shuoshuo-content img{
+        max-width: calc(100vw - 900px) !important;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .col-md-3, .fixed-top,.catalog {
+        display: block;
+    }
+    .shuoshuo-content img{
+        max-width: calc(100vw - 94px) !important;
+    }
+}
 /*导航栏*/
 
 .head-nav {
@@ -71,7 +111,7 @@ input {
     border-radius: 4px;
     padding: 16px 16px 6px 16px;
     background: white;
-    /*background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);*/
+    background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);
 }
 #about-me-1 a {
     color: #555666;
@@ -619,8 +659,8 @@ dl {
     word-wrap: break-word;
     word-break: break-all;
 }
-.jasmine-post-content img{
-max-width: 500px;
+.jasmine-post-content img {
+    max-width: 500px;
 }
 .jasmine-post-content-foot {
     text-align: center;
@@ -1602,6 +1642,9 @@ max-width: 500px;
 }
 .shuoshuo-content a:after {
     content: '#';
+}
+.shuoshuo-content img {
+    max-width: 476px;
 }
 .jasmine-shuoshuo-article {
     margin-top: 15px;
