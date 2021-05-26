@@ -46,28 +46,43 @@ input {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 @media screen and (max-width: 575.98px) {
-    .col-md-3, .fixed-top,.catalog {
+    .col-md-3, .fixed-top, .catalog {
         display: none;
+    }
+    #mobile-header{
+        display: block;
     }
 }
 @media screen and (min-width: 576px) and (max-width: 767.98px) {
-    .col-md-3, .fixed-top,.catalog {
+    .col-md-3, .fixed-top, .catalog {
         display: none;
+    }
+    #mobile-header{
+        display: block;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
-    .col-md-3, .fixed-top,.catalog {
+    .col-md-3, .fixed-top, .catalog {
         display: none;
+    }
+    #mobile-header{
+        display: block;
     }
 }
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {
     .col-md-3, .fixed-top {
         display: block;
     }
+    #mobile-header{
+        display: none;
+    }
 }
 @media screen and (min-width: 1200px) {
     .col-md-3, .fixed-top {
         display: block;
+    }
+    #mobile-header{
+        display: none;
     }
 }
 /*导航栏*/
@@ -179,6 +194,7 @@ dl {
     margin-right: 2px;
 }
 .jasmine-article {
+    position: relative;
     margin-top: 15px;
     margin-bottom: 15px;
     background: #fff;
@@ -214,6 +230,8 @@ dl {
     transition: all .3s;
 }
 .jasmine-panel {
+    position: absolute;
+    width: 100%;
     overflow: hidden;
     border-radius: 4px;
 }
@@ -236,8 +254,8 @@ dl {
     opacity: 1;
 }
 .jasmine-content {
-    position: relative;
-    margin-top: -37%;
+    position: absolute;
+    width: 100%;
     padding-top: 15%;
     height: 200px;
     text-align: center;
@@ -636,7 +654,7 @@ dl {
 .breadcrumb a:hover {
     color: #007bff;
 }
-#jasmine-post-main img{
+#jasmine-post-main img {
     height: 100%;
     width: 100%;
 }

@@ -89,3 +89,5 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
     </nav>
     </div>
   </header>
+
+<header id="mobile-header"></header>
