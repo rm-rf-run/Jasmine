@@ -49,40 +49,25 @@ input {
     .col-md-3, .fixed-top,.catalog {
         display: none;
     }
-    .shuoshuo-content img{
-        max-width: calc(100vw - 105px) !important;
-    }
 }
 @media screen and (min-width: 576px) and (max-width: 767.98px) {
     .col-md-3, .fixed-top,.catalog {
         display: none;
-    }
-    .shuoshuo-content img{
-        max-width: calc(100vw - 150px) !important;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
     .col-md-3, .fixed-top,.catalog {
         display: none;
     }
-    .shuoshuo-content img{
-        max-width: calc(100vw - 550px) !important;
-    }
 }
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {
-    .col-md-3, .fixed-top,.catalog {
+    .col-md-3, .fixed-top {
         display: block;
-    }
-    .shuoshuo-content img{
-        max-width: calc(100vw - 900px) !important;
     }
 }
 @media screen and (min-width: 1200px) {
-    .col-md-3, .fixed-top,.catalog {
+    .col-md-3, .fixed-top {
         display: block;
-    }
-    .shuoshuo-content img{
-        max-width: calc(100vw - 94px) !important;
     }
 }
 /*导航栏*/
@@ -651,6 +636,10 @@ dl {
 .breadcrumb a:hover {
     color: #007bff;
 }
+#jasmine-post-main img{
+    height: 100%;
+    width: 100%;
+}
 .jasmine-post-content {
     background: #fff;
     border-radius: 4px;
@@ -658,9 +647,6 @@ dl {
     margin-bottom: 10px;
     word-wrap: break-word;
     word-break: break-all;
-}
-.jasmine-post-content img {
-    max-width: 500px;
 }
 .jasmine-post-content-foot {
     text-align: center;
@@ -1644,7 +1630,8 @@ dl {
     content: '#';
 }
 .shuoshuo-content img {
-    max-width: 476px;
+    height: 100%;
+    width: 100%;
 }
 .jasmine-shuoshuo-article {
     margin-top: 15px;
