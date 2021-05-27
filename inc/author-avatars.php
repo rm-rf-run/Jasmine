@@ -34,7 +34,8 @@ class Simple_Local_Avatars
         $size = (int) $size;
 
         if (empty($alt)) {
-            $alt = get_the_author_meta('display_name', $user_id);
+            // $alt = get_the_author_meta('display_name', $user_id);
+            $alt = get_bloginfo('name');
         }
 
         $author_class = is_author($user_id) ? ' current-author' : '';

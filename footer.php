@@ -1,5 +1,5 @@
 
-<footer>
+<footer id="footer">
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -35,6 +35,7 @@
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/runningJs/js/jquery.running.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-autohidingnavbar@4.0.0/dist/jquery.bootstrap-autohidingnavbar.min.js" integrity="sha256-Jbr5aqov83eQaJnnSDDIY36ROZFKxkED7kSM2yp7gvw=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/customized.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/mobile-customized.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animatext.js@0.0.0/js/dist/animatext.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/jquery.pjax.js"></script>

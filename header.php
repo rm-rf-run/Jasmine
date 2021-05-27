@@ -42,7 +42,8 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
   <header class="fixed-top">
     <div id="jasmine-pc-menu">
       <nav class="navbar navbar-expand-lg navbar-white head-nav ">
-      <a class="navbar-brand link link--kukuri" href="<?php bloginfo('url');?>" style="color: #c5c2b8;" data-letters="<?php bloginfo('name');?>"><span><?php bloginfo('name');?></span></a>
+      <span id="nav-bars"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></span>
+      <a class="navbar-brand link link--kukuri" href="<?php bloginfo('url');?>" style="color: #c5c2b8;" id="site-name" data-letters="<?php bloginfo('name');?>"><span><?php bloginfo('name');?></span></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <?php if (has_nav_menu('header-menu')) {
     wp_nav_menu(
@@ -90,4 +91,20 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
     </div>
   </header>
 
-<header id="mobile-header"></header>
+<header id="mobile-header">
+  <div id="mobile-user-info">
+      <?php echo get_simple_local_avatar(get_bloginfo('admin_email'),100); ?>
+      <h3><?php echo jasmine_option('author_name');?></h3>
+        <?php if (has_nav_menu('header-menu')) {
+    wp_nav_menu(
+        array(
+            'menu_id'        => 'mobile-header-ul',
+            'fallback_cb'    => false,
+            'theme_location' => 'header-menu',
+            'container_id'     => 'mobile-nav',
+        ));
+  }
+    ?>
+  </div>
+</header>
+<div id="mobile-shade"></div>
