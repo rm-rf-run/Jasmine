@@ -587,15 +587,6 @@ dl {
 .jasmine-random-articles ul li a:hover {
     color: #409eff;
 }
-.jasmine-random-articles title {
-    display: block;
-}
-.jasmine-random-articles-div div:first-child {
-    display: inline-block;
-}
-.jasmine-random-articles-div div:last-child {
-    display: inline-block;
-}
 .jasmine-bilbil {
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
@@ -1884,4 +1875,32 @@ dl {
 }
 #mobile-header-ul a{
     color: white;
+}
+.jasmine-left-comment-part{
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 16px 6px 16px;
+    margin-bottom: 8px;
+}
+.jasmine-left-comment-part img{
+    border: 2px solid gray;
+    float: left;
+}
+#toc-catalog{
+    position:absolute;
+    z-index: 999;
+    transform:translateX(-50%) translateY(-50%);
+    -moz-transform:translateX(-50%) translateY(-50%);
+    -webkit-transform:translateX(-50%) translateY(-50%);
+    -ms-transform:translateX(-50%) translateY(-50%);
+}
+.jasmine-item-title{
+    padding: 0 0 10px;
+    display: block;
+}
+.jasmine-left-comment-list{
+}
+.jasmine-left-comment-item{
+    padding-left: 50px;
+    margin-bottom: 5px;
 }

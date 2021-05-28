@@ -35,14 +35,7 @@ if (jasmine_option('jasmine_notice')) {
 }
 ?>
 <div class="jasmine-random-articles">
-	<div class="jasmine-random-articles-div">
-		<div>
-			<i class="fa fa-bookmark"></i>
-		</div>
-		<div>
-			<title>随机文章</title>
-		</div>
-	</div>
+	<span class="jasmine-item-title"><i class="fa fa-bookmark"></i>    随机文章</span>
 	<ul>
 		<?php random_posts(); ?>
 	</ul>

@@ -436,6 +436,14 @@ function optionsframework_options()
         'type' => 'color',
     );
 
+    $options[] = array(
+        'name' => __('手机端导航栏背景图片', 'jasmine'),
+        'desc' => __('手机端导航栏背景图片', 'jasmine'),
+        'std'  => '',
+        'id'   => 'jasmine_bg',
+        'type' => 'upload',
+    );
+
     // $options[] = array('name' => __('Typography', 'jasmine'),
     //     'desc'                    => __('Example typography.', 'jasmine'),
     //     'id'                      => "example_typography",

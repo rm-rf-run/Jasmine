@@ -116,12 +116,7 @@ setPostViews(get_the_ID());
             </div>
               <div class="jasmine-post-content-foot">
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow">
-                  <div>
-                    <i class="fa fa-cc"></i>
-                  </div>
-                  <div>
-                    知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议
-                  </div>
+                  <i class="fa fa-cc"></i>    知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议
                 </a>
             </div>
           </div>
@@ -147,9 +142,8 @@ setPostViews(get_the_ID());
           </div>
           <!-- end-->
           <!--toc-->
-          <div class="catalog hide-block">
-            <div class="jasmine-random-articles-div">
-              <div><i class="fa fa-bars" aria-hidden="true" style="margin-right: 4px;"></i></div><div>目录</div> </div>
+          <div class="catalog hide-block" id="toc-catalog">
+            <span class="jasmine-item-title"><i class="fa fa-bars" aria-hidden="true" style="margin-right: 4px;"></i>    目录</span>
             <div class="toc-content">
             <div class="toc">
             </div>
