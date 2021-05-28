@@ -45,7 +45,7 @@ div a p {
 input {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
-@media screen and (max-width: 575.98px) {
+@media only screen and (max-width: 575.98px) {
     .col-md-3, #navbarSupportedContent, .catalog {
         display: none;
     }
@@ -99,62 +99,7 @@ input {
         overflow: hidden;
     }
 }
-@media screen and (min-width: 576px) and (max-width: 767.98px) {
-    .col-md-3, #navbarSupportedContent, .catalog {
-        display: none;
-    }
-    #mobile-shade {
-        z-index: 999
-    }
-    #mobile-user-info {
-        text-align: center;
-        padding: 22px 15px 20px 15px;
-    }
-    #mobile-user-info img {
-        border: 3px solid #fff;
-    }
-    .fixed-top.show, #main.show, #footer.show, #mobile-shade.show, #mobile-header.show {
-        -webkit-transform: translate3D(250px, 0, 0);
-        transform: translate3D(250px, 0, 0);
-    }
-    .fixed-top, #main, #footer, #mobile-shade, #mobile-header {
-        transition: all .3s;
-        -moz-transition: all .3s;
-        -webkit-transition: all .3s;
-        -o-transition: all .3s;
-    }
-    .head-nav {
-        padding-right: unset !important;
-        padding-left: 10px !important;
-    }
-    #site-name {
-        margin: auto;
-    }
-    .col-md-6 {
-        flex: none;
-        max-width: none;
-    }
-    #mobile-header, #nav-bars {
-        display: block;
-    }
-    .jasmine-background {
-        background-image: none !important;
-        background-color: rgb(224, 241, 251);
-    }
-    #mobile-header {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        z-index: 997;
-        -webkit-box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
-        box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
-        overflow: hidden;
-    }
-}
-@media screen and (min-width: 768px) and (max-width: 991.98px) {
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
     .col-md-3, #navbarSupportedContent, .catalog {
         display: none;
     }
@@ -209,7 +154,62 @@ input {
         overflow: hidden;
     }
 }
-@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+    .col-md-3, #navbarSupportedContent, .catalog {
+        display: none;
+    }
+    #mobile-shade {
+        z-index: 999
+    }
+    #mobile-user-info {
+        text-align: center;
+        padding: 22px 15px 20px 15px;
+    }
+    #mobile-user-info img {
+        border: 3px solid #fff;
+    }
+    .fixed-top.show, #main.show, #footer.show, #mobile-shade.show, #mobile-header.show {
+        -webkit-transform: translate3D(250px, 0, 0);
+        transform: translate3D(250px, 0, 0);
+    }
+    .fixed-top, #main, #footer, #mobile-shade, #mobile-header {
+        transition: all .3s;
+        -moz-transition: all .3s;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+    }
+    .head-nav {
+        padding-right: unset !important;
+        padding-left: 10px !important;
+    }
+    #site-name {
+        margin: auto;
+    }
+    .col-md-6 {
+        flex: none;
+        max-width: none;
+    }
+    #mobile-header, #nav-bars {
+        display: block;
+    }
+    .jasmine-background {
+        background-image: none !important;
+        background-color: rgb(224, 241, 251);
+    }
+    #mobile-header {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        z-index: 997;
+        -webkit-box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
+        box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
+        overflow: hidden;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     .col-md-3, #navbarSupportedContent {
         display: block;
     }
@@ -219,8 +219,11 @@ input {
     #mobile-header, #nav-bars {
         display: none;
     }
+    .jasmine-bilbil-btn-add,.jasmine-bilbil-message{
+            width: 65px !important;
+    }
 }
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     .col-md-3, #navbarSupportedContent {
         display: block;
     }
