@@ -257,7 +257,7 @@ input {
     border-radius: 4px;
     padding: 16px 16px 6px 16px;
     background: white;
-    background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);
+    /*background: url(https://s1.ax1x.com/2020/05/23/Yjguu9.jpg);*/
 }
 #about-me-1 a {
     color: #555666;
@@ -830,6 +830,7 @@ dl {
 }
 .jasmine-appreciation {
     margin: auto;
+    position: relative;
     width: 48px;
     height: 48px;
     margin-bottom: 15px;
@@ -845,9 +846,10 @@ dl {
     text-align: center;
 }
 .jasmine-appreciation-img {
+    width: 315px;
     padding: 5px;
     position: absolute;
-    left: 22%;
+    left: -275%;
     animation: all .4s;
     display: none;
 }
@@ -1268,7 +1270,7 @@ dl {
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
 }
-.author-img {
+.author-img img{
     /*width: 55px;
     height: 55px;*/
     border-radius: 50%;
@@ -1278,7 +1280,7 @@ dl {
     float: left;
     transition: all 1s;
 }
-.author-img:hover {
+.author-img img:hover {
     transform: rotate(0.5turn);
     transition-delay: 0s;
     transition-property: all;
@@ -1864,6 +1866,7 @@ dl {
     z-index: unset;
 }
 #mobile-header {
+    top: 0;
     background-color: rgb(127, 196, 225);
 }
 #mobile-nav {
@@ -1875,4 +1878,7 @@ dl {
 }
 #mobile-header-ul li ul {
     padding-left: 20px;
+}
+#mobile-header-ul a{
+    color: white;
 }

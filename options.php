@@ -390,21 +390,21 @@ function optionsframework_options()
         'type' => 'textarea',
     );
 
-    $options[] = array(
-        'name' => __('Check to Show a Hidden Text Input', 'jasmine'),
-        'desc' => __('Click here and see what happens.', 'jasmine'),
-        'id'   => 'example_showhidden',
-        'type' => 'checkbox',
-    );
+    // $options[] = array(
+    //     'name' => __('Check to Show a Hidden Text Input', 'jasmine'),
+    //     'desc' => __('Click here and see what happens.', 'jasmine'),
+    //     'id'   => 'example_showhidden',
+    //     'type' => 'checkbox',
+    // );
 
-    $options[] = array(
-        'name'  => __('Hidden Text Input', 'jasmine'),
-        'desc'  => __('This option is hidden unless activated by a checkbox click.', 'jasmine'),
-        'id'    => 'example_text_hidden',
-        'std'   => 'Hello',
-        'class' => 'hidden',
-        'type'  => 'text',
-    );
+    // $options[] = array(
+    //     'name'  => __('Hidden Text Input', 'jasmine'),
+    //     'desc'  => __('This option is hidden unless activated by a checkbox click.', 'jasmine'),
+    //     'id'    => 'example_text_hidden',
+    //     'std'   => 'Hello',
+    //     'class' => 'hidden',
+    //     'type'  => 'text',
+    // );
 
     // $options[] = array(
     //     'name'    => "Example Image Selector",
@@ -419,38 +419,38 @@ function optionsframework_options()
     //     ),
     // );
 
-    $options[] = array(
-        'name'    => __('Multicheck', 'jasmine'),
-        'desc'    => __('Multicheck description.', 'jasmine'),
-        'id'      => 'example_multicheck',
-        'std'     => $multicheck_defaults, // These items get checked by default
-        'type'    => 'multicheck',
-        'options' => $multicheck_array,
-    );
+    // $options[] = array(
+    //     'name'    => __('Multicheck', 'jasmine'),
+    //     'desc'    => __('Multicheck description.', 'jasmine'),
+    //     'id'      => 'example_multicheck',
+    //     'std'     => $multicheck_defaults, // These items get checked by default
+    //     'type'    => 'multicheck',
+    //     'options' => $multicheck_array,
+    // );
 
     $options[] = array(
-        'name' => __('Colorpicker', 'jasmine'),
-        'desc' => __('No color selected by default.', 'jasmine'),
-        'id'   => 'example_colorpicker',
+        'name' => __('手机端背景颜色', 'jasmine'),
+        'desc' => __('默认情况下未选择颜色。', 'jasmine'),
+        'id'   => 'jasmine_mobile_background_color',
         'std'  => '',
         'type' => 'color',
     );
 
-    $options[] = array('name' => __('Typography', 'jasmine'),
-        'desc'                    => __('Example typography.', 'jasmine'),
-        'id'                      => "example_typography",
-        'std'                     => $typography_defaults,
-        'type'                    => 'typography',
-    );
+    // $options[] = array('name' => __('Typography', 'jasmine'),
+    //     'desc'                    => __('Example typography.', 'jasmine'),
+    //     'id'                      => "example_typography",
+    //     'std'                     => $typography_defaults,
+    //     'type'                    => 'typography',
+    // );
 
-    $options[] = array(
-        'name'    => __('Custom Typography', 'jasmine'),
-        'desc'    => __('Custom typography options.', 'jasmine'),
-        'id'      => "custom_typography",
-        'std'     => $typography_defaults,
-        'type'    => 'typography',
-        'options' => $typography_options,
-    );
+    // $options[] = array(
+    //     'name'    => __('Custom Typography', 'jasmine'),
+    //     'desc'    => __('Custom typography options.', 'jasmine'),
+    //     'id'      => "custom_typography",
+    //     'std'     => $typography_defaults,
+    //     'type'    => 'typography',
+    //     'options' => $typography_options,
+    // );
 
     $options[] = array(
         'name' => __('文本编辑器', 'jasmine'),

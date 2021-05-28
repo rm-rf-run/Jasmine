@@ -18,5 +18,14 @@
      		$("#mobile-shade").removeClass('show');
      		$("#mobile-shade").css("z-index","unset");
          });
+     	// 点击隐藏侧边导航栏
+     	$(document).on('click', '#mobile-header-ul a', function() {
+     		$(".fixed-top").removeClass('show');
+     		$("#main").removeClass('show');
+     		$("#footer").removeClass('show');
+     		$("#mobile-header").removeClass('show');
+     		$("#mobile-shade").removeClass('show');
+     		$("#mobile-shade").css("z-index","unset");
+         });
      })
  })(jQuery);
