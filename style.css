@@ -1882,6 +1882,9 @@ dl {
     padding: 16px 16px 6px 16px;
     margin-bottom: 8px;
 }
+.jasmine-left-comment-part a{
+    color: #999aaa;
+}
 .jasmine-left-comment-part img{
     border: 2px solid gray;
     float: left;
@@ -1903,4 +1906,7 @@ dl {
 .jasmine-left-comment-item{
     padding-left: 50px;
     margin-bottom: 5px;
+}
+.left-post-comment {
+    color: #000;
 }

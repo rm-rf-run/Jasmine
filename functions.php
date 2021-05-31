@@ -305,8 +305,8 @@ function jasmine_change_avatar($avatar)
 {
     global $comment;
     if ($comment) {
-        if (get_comment_meta($comment->comment_ID, 'author_qq', true)) {
-            $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
+        $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
+        if ($qq_number) {
             $qqavatar  = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
             // preg_match 匹配 http: 和 &t 之间的字符串
             // 如果提供了参数matches，它将被填充为搜索结果。
@@ -641,3 +641,11 @@ require get_template_directory() . '/inc/OwO.php';
 require get_template_directory() . '/inc/jasmineConfig.php';
 //引入API
 require get_template_directory() . '/inc/api.php';
+
+//检测主题更新
+// require get_template_directory() . '/inc/theme-update-checker.php';
+
+// $example_update_checker = new ThemeUpdateChecker(
+//     'Jasmine',
+//     'http://yigujin.cn/ info.json '
+// );

@@ -191,17 +191,18 @@
 </div>
 
 <div class="jasmine-left-comment-part">
-  <span class="jasmine-item-title"><i class="fa fa-commenting-o" aria-hidden="true"></i>    最近评论</span>
+  <span class="jasmine-item-title"><i class="fa fa-commenting-o" aria-hidden="true"></i>    最新评论</span>
   <?php 
 $user_ids = get_users(array('fields' => 'ID'));
   $args = array(
     'status' => 'approve',
+    'number'  => '5',
     'author__not_in' => $user_ids,
 );
  
 $comments = get_comments( $args );
 foreach ( $comments as $comment ) {
-  ?><div class="jasmine-left-comment-list"><?php
+  ?><div class="jasmine-left-comment-list"><a href="<?php echo get_comment_link($comment->comment_ID);?>"><?php
   $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
   if ($qq_number) {
             $qqavatar  = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
@@ -211,8 +212,9 @@ foreach ( $comments as $comment ) {
             echo get_avatar($comment->comment_author_email,40);
         }
     ?><div class="jasmine-left-comment-item"><?php
-    echo $comment->comment_author."你阿斯顿撒啊实打实大师大萨达阿达是的撒大萨达阿萨德撒".$comment->comment_content."<br>".get_comment_link($comment->comment_ID);;
-    ?></div></div><?php
+    echo $comment->post_title."<br>";
+    echo "<span class='left-post-comment'>".$comment->comment_author."：".$comment->comment_content."</span><br>";
+    ?></div></a></div><?php
 }?>
 </div>
 

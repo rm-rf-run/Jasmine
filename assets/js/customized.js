@@ -285,8 +285,8 @@
          }
          titleAddId();
          //还原样式
-         function contentDisplay(){
-            //点击字体增大
+         function contentDisplay() {
+             //点击字体增大
              $('.jasmine-post-help-font').click(function() {
                  $('#jasmine-post-main').toggleClass("add-fontsize");
              })
@@ -372,24 +372,26 @@
          });
          // toc拖拽
          function dragFunc(id) {
-            var Drag = document.getElementById(id);
-            Drag.onmousedown = function(event) {
-                var ev = event || window.event;
-                event.stopPropagation();
-                var disX = ev.clientX - Drag.offsetLeft;
-                var disY = ev.clientY - Drag.offsetTop;
-                document.onmousemove = function(event) {
-                    var ev = event || window.event;
-                    Drag.style.left = ev.clientX - disX + "px";
-                    Drag.style.top = ev.clientY - disY + "px";
-                    Drag.style.cursor = "move";
-                };
-            };
-            Drag.onmouseup = function() {
-                document.onmousemove = null;
-                this.style.cursor = "default";
-            };
-        };
-        dragFunc("toc-catalog");
+             var Drag = document.getElementById(id);
+             if (Drag) {
+                 Drag.onmousedown = function(event) {
+                     var ev = event || window.event;
+                     event.stopPropagation();
+                     var disX = ev.clientX - Drag.offsetLeft;
+                     var disY = ev.clientY - Drag.offsetTop;
+                     document.onmousemove = function(event) {
+                         var ev = event || window.event;
+                         Drag.style.left = ev.clientX - disX + "px";
+                         Drag.style.top = ev.clientY - disY + "px";
+                         Drag.style.cursor = "move";
+                     };
+                 };
+                 Drag.onmouseup = function() {
+                     document.onmousemove = null;
+                     this.style.cursor = "default";
+                 };
+             }
+         };
+         dragFunc("toc-catalog");
      })
  })(jQuery);
