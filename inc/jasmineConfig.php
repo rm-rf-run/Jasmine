@@ -14,18 +14,21 @@ jasmineConfig.siteUrl = "<?php echo get_bloginfo('url'); ?>";
 jasmineConfig.site_name = "<?php echo get_bloginfo('name'); ?>";
 
 jasmineConfig.ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>";
-
-jasmineConfig.author_name = jasmineConfig.site_name; //默认为站点名称
+//默认为站点名称
+jasmineConfig.author_name = "<?php if(is_singular('post')){
+	echo get_the_author_meta('user_nicename');
+}else{echo get_bloginfo('name');}?>";
 
 jasmineConfig.clipboardCopyright = "<?php echo esc_attr(jasmine_option('jasmine_copyright')); ?>";
 
-if ("<?php echo is_singular('post') ?>") {
-        $author_name = "<?php get_the_author_meta('user_nicename');?>";
-}
-
 jasmineConfig.qq_api_url = "<?php echo rest_url('qqinfo'); ?>";
 jasmineConfig.cookie_version_control = "1";
+console.log("SQL  请求数：", "<?php echo get_num_queries()?>");
+console.log("页面生成耗时", "<?php echo timer_stop(0)?>");
 /*End of Initial Variables*/
 </script>
-<?php }
+<?php
+// 打印sql
+// global $wpdb; "<pre>".print_r($wpdb->queries)."</pre>";
+}
 add_action('wp_head', 'font_end_js_control');
