@@ -662,15 +662,15 @@ function password_protected_change($content)
 {
     global $post;
     $img = esc_url(jasmine_option('jasmine_post_password_img'));
-    if (!empty($post->post_password) && stripslashes($_COOKIE['wp-postpass_' . COOKIEHASH]) != $post->post_password) {
+    if (!empty($post->post_password) && stripslashes(@$_COOKIE['wp-postpass_' . COOKIEHASH]) != $post->post_password) {
         $output = '
-        <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post">
+        <form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
         <div id="post-password-content">
-            <img src="'.$img.'" width="auto" height="auto">
+            <img src="'.$img.'">
             <div class="post-pass-word">这是一篇受保护的密码，请输入访问密码！</div><br>
             <div class="input-group mb-2" id="post-password-input">
                 <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
+                  <div class="input-group-text" style="height: 38px;"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
                 </div>
                 <input class="form-control" name="post_password" class="input" type="password" />
             </div><br>
@@ -678,8 +678,6 @@ function password_protected_change($content)
                  <input type="submit" name="Submit" class="btn btn-primary" value="' . __("点击访问") . '" />
             </div>  
         </div>
-        
- 
         </form>
         ';
         return $output;
@@ -688,7 +686,7 @@ function password_protected_change($content)
     }
 }
 
-add_filter('the_content', 'password_protected_change');
+add_filter('the_password_form', 'password_protected_change');
 
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
