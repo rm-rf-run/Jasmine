@@ -301,6 +301,7 @@
                      var height = $('.jasmine-post-h1').height();
                      $('.jasmine-post-content h1 canvas').css("width", width);
                      $('.jasmine-post-content h1 canvas').css("height", height);
+                     $('#post-password-input').css("width", "300px");
                  } else {
                      $('#pjax-container').removeClass("col-md-6").addClass("col-md-9");
                      $('#hide-column').addClass("hide-block");
@@ -309,6 +310,7 @@
                      var height = $('.jasmine-post-h1').height();
                      $('.jasmine-post-content h1 canvas').css("width", width);
                      $('.jasmine-post-content h1 canvas').css("height", height);
+                     $('#post-password-input').css("width", "495px");
                  }
              })
          }

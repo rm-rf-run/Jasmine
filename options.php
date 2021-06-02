@@ -231,6 +231,14 @@ function optionsframework_options()
     );
 
     $options[] = array(
+        'name' => __('加密文章的显示图', 'jasmine'),
+        'desc' => __('加密文章的显示图', 'jasmine'),
+        'std'  => get_template_directory_uri() . '/assets/images/lolisister.gif',
+        'id'   => 'jasmine_post_password_img',
+        'type' => 'upload',
+    );
+
+    $options[] = array(
         'name' => __('友情链接', 'jasmine'),
         'type' => 'heading',
     );

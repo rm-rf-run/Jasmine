@@ -42,6 +42,7 @@ if (jasmine_option('jasmine_notice')) {
 </div>
 
 <div class="jasmine-tag-cloud">
+    <span class="jasmine-item-title"><i class="fa fa-tags"></i>    热门标签</span>
 	 <?php wp_tag_cloud('smallest=12&largest=18&unit=px&number=20');?>
 </div>
 
