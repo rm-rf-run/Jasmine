@@ -10,7 +10,13 @@ function register_my_menus()
 
 add_action('init', 'register_my_menus'); //初始化的时候启用
 
-//为指定菜单的li标签设置样式
+/**
+ * 为指定菜单的li标签设置样式
+ * @param $classes
+ * @param $item
+ * @param $args
+ * @return string[]
+ */
 function wpdocs_channel_nav_class($classes, $item, $args)
 {
     //在进行涉及变量的逻辑比较时，始终将变量放在右侧，将常量，文字或函数调用放在左侧。如果双方都不是变量，则顺序并不重要。
@@ -25,7 +31,14 @@ function wpdocs_channel_nav_class($classes, $item, $args)
 
 add_filter('nav_menu_css_class', 'wpdocs_channel_nav_class', 10, 4);
 
-//删除
+/**
+ * 删除菜单一些link的attributes
+ *
+ * @param $atts
+ * @param $item
+ * @param $args
+ * @return mixed
+ */
 function sonliss_menu_link_atts($atts, $item, $args)
 {
     $atts['class'] = 'nav-link';
@@ -34,9 +47,13 @@ function sonliss_menu_link_atts($atts, $item, $args)
 
 add_filter('nav_menu_link_attributes', 'sonliss_menu_link_atts', 10, 3);
 
-//自定义头像
 // add_filter( 'avatar_defaults', 'newgravatar' );
 
+/**
+ * 自定义头像
+ * @param $avatar_defaults
+ * @return mixed
+ */
 function newgravatar($avatar_defaults)
 {
     $myavatar = get_bloginfo('template_directory') . '/assets/images/gravatar.jpg';
@@ -46,6 +63,9 @@ function newgravatar($avatar_defaults)
 
 /**
  * 说明：直接去掉函数 comment_class() 和 body_class() 中输出的 "comment-author-" 和 "author-"
+ *
+ * @param $content
+ * @return string|string[]|null
  */
 function lxtx_comment_body_class($content)
 {
@@ -64,7 +84,12 @@ add_theme_support('post-thumbnails', array('page')); // 给页面启用日志缩
 // 去除顶部工具栏
 show_admin_bar(false);
 
-//将摘要长度更改为20个字
+/**
+ * 将摘要长度更改为20个字
+ *
+ * @param $length
+ * @return int
+ */
 function wpdocs_custom_excerpt_length($length)
 {
     return 20;
@@ -72,40 +97,55 @@ function wpdocs_custom_excerpt_length($length)
 
 add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
 
-//随机文章
-function random_posts($posts_num = 5, $before = '<li>', $after = '</li>')
+/**
+ * 热门文章 缓存五分钟 默认展示5条
+ *
+ * @param int $posts_num
+ * @param string $before
+ * @param string $after
+ */
+function popular_posts($posts_num = 5, $before = '<li>', $after = '</li>')
 {
-    global $wpdb;
-    $sql = "SELECT ID, post_title,guid
-            FROM $wpdb->posts
+    if ($cache = wp_cache_get('right_popular_posts', 'popular_posts')) {
+        echo $cache;
+    } else {
+        global $wpdb;
+        $sql = "SELECT t1.ID, t1.post_title, t1.guid, t2.meta_value as postView
+            FROM $wpdb->posts t1 left join $wpdb->postmeta t2 on t1.id = t2.post_id and t2.`meta_key`='post_views_count'
             WHERE post_status = 'publish' ";
-    $sql .= "AND post_title != '' ";
-    $sql .= "AND post_password ='' ";
-    $sql .= "AND post_type = 'post' ";
-    $sql .= "ORDER BY RAND() LIMIT 0 , $posts_num ";
-    $randposts = $wpdb->get_results($sql);
-    $output = '';
-    foreach ($randposts as $randpost) {
-        $post_title = stripslashes($randpost->post_title);
-        $lenth = mb_strlen($post_title, 'utf-8');
-        if ($lenth >= 10) {
-            $post_title_short = mb_substr($post_title, 0, 10, 'utf-8') . "...";
-        } else {
-            $post_title_short = $post_title;
+        $sql .= "AND t1.post_title != '' ";
+        $sql .= "AND t1.post_password ='' ";
+        $sql .= "AND t1.post_type = 'post' ORDER BY CAST(t2.meta_value AS DECIMAL) DESC LIMIT 0, $posts_num";
+        $popularPosts = $wpdb->get_results($sql);
+        $output = '';
+        foreach ($popularPosts as $popularPost) {
+            $post_title = stripslashes($popularPost->post_title);
+            $length = mb_strlen($post_title, 'utf-8');
+            if ($length >= 10) {
+                $post_title_short = mb_substr($post_title, 0, 10, 'utf-8') . "...";
+            } else {
+                $post_title_short = $post_title;
+            }
+            $permalink = get_permalink($popularPost->ID);
+            $output .= $before . '<a href="'
+                . $permalink . '"  rel="bookmark" title="';
+            $output .= $post_title . '">' . $post_title_short . '<i class="fa fa-fire popular-posts" aria-hidden="true"></i><span class="popular-posts-view">' . $popularPost->postView . '</span>' . '</a>';
+            $output .= $after;
         }
-        $permalink = get_permalink($randpost->ID);
-        $output .= $before . '<a href="'
-            . $permalink . '"  rel="bookmark" title="';
-        $output .= $post_title . '">' . $post_title_short . '</a>';
-        $output .= $after;
+        echo $output;
+        wp_cache_add('right_popular_posts', $output, 'popular_posts', 5 * MINUTE_IN_SECONDS);
     }
-    echo $output;
 }
 
 //添加友情链接
 add_filter('pre_option_link_manager_enabled', '__return_true');
 
-// 文章浏览量
+/**
+ * 文章浏览量
+ *
+ * @param $number
+ * @return string
+ */
 function restyle_text($number)
 {
     if ($number >= 1000) {
@@ -115,6 +155,12 @@ function restyle_text($number)
     }
 }
 
+/**
+ * 通过文章id获取文章浏览量
+ *
+ * @param $postID
+ * @return string
+ */
 function getPostViews($postID)
 {
     $count_key = 'post_views_count';
@@ -127,7 +173,11 @@ function getPostViews($postID)
     return restyle_text($count);
 }
 
-//为文章或者页面添加
+/**
+ * 为文章或者页面添加浏览量
+ *
+ * @param $postID
+ */
 function setPostViews($postID)
 {
     $count_key = 'post_views_count';
@@ -142,7 +192,13 @@ function setPostViews($postID)
     }
 }
 
-// 激活主题创建页面
+/**
+ * 激活主题创建页面
+ *
+ * @param $title
+ * @param $slug
+ * @param string $page_template
+ */
 function jasmine_add_page($title, $slug, $page_template = '')
 {
     $allPages = get_pages(); //获取所有页面
@@ -174,6 +230,7 @@ function jasmine_add_page($title, $slug, $page_template = '')
         }
     }
 }
+
 
 function jasmine_add_pages()
 {
@@ -211,7 +268,9 @@ function theme_unregisterWidgets()
     unregister_widget('WP_Nav_Menu_Widget');
 }
 
-// 文章归档
+/**
+ * 文章归档
+ */
 function archives_list()
 {
     if (!$output = get_option('archives_list')) {
@@ -258,9 +317,13 @@ function clear_archives_list_cache()
 
 add_action('save_post', 'clear_archives_list_cache'); // 新发表文章/修改文章时
 
-//评论框字段顺序
-//Comment Field Order
 add_filter('comment_form_fields', 'mo_comment_fields_custom_order');
+/**
+ * 评论框字段顺序
+ *
+ * @param $fields
+ * @return mixed
+ */
 function mo_comment_fields_custom_order($fields)
 {
     $comment_field = $fields['comment'];
@@ -283,8 +346,13 @@ function mo_comment_fields_custom_order($fields)
     return $fields;
 }
 
-// 数据库插入评论表单的qq字段
 add_action('wp_insert_comment', 'jasmine_sql_insert_qq_field', 10, 2);
+/**
+ * 数据库插入评论表单的qq字段
+ *
+ * @param $comment_ID
+ * @param $commmentdata
+ */
 function jasmine_sql_insert_qq_field($comment_ID, $commmentdata)
 {
     $qq = isset($_POST['author_qq']) ? $_POST['author_qq'] : false;
@@ -310,12 +378,15 @@ function output_comments_qq_columns($column_name, $comment_id)
     }
 }
 
+add_filter('get_avatar', 'jasmine_change_avatar', 10, 3);
+
 /**
  * 修改后台头像
  * 若有qq字段则显示qq头像，若没有则显示gravatar
+ *
+ * @param $avatar
+ * @return string
  */
-
-add_filter('get_avatar', 'jasmine_change_avatar', 10, 3);
 function jasmine_change_avatar($avatar)
 {
     global $comment;
@@ -658,15 +729,15 @@ function jasmine_scripts()
 
 add_action('admin_enqueue_scripts', 'jasmine_scripts');
 
+// 修改受保护文章的提示文案
 function password_protected_change($content)
 {
     global $post;
-    $img = esc_url(jasmine_option('jasmine_post_password_img'));
     if (!empty($post->post_password) && stripslashes(@$_COOKIE['wp-postpass_' . COOKIEHASH]) != $post->post_password) {
         $output = '
-        <form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
+        <form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post">
         <div id="post-password-content">
-            <img src="'.$img.'">
+            <img src="' . esc_url(jasmine_option('jasmine_post_password_img')) . '">
             <div class="post-pass-word">这是一篇受保护的密码，请输入访问密码！</div><br>
             <div class="input-group mb-2" id="post-password-input">
                 <div class="input-group-prepend">
@@ -687,6 +758,29 @@ function password_protected_change($content)
 }
 
 add_filter('the_password_form', 'password_protected_change');
+
+function author_skill()
+{
+    $all_skills = array('java', 'javascript', 'c', 'swift', 'solidity', 'rust', 'typescript', 'python', 'kotlin', 'haskell', 'scala', 'matlab', 'lua', 'perl', 'go');
+    $pre_data = 'jasmine_skill_';
+    $output = '';
+    foreach ($all_skills as $all_skill) {
+        $skill = jasmine_option($pre_data . $all_skill);
+        if ($skill > 0) {
+            $color = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+            $output .= '
+            <div class="skill-list-prograss">
+                <div class="text-bold"><span>' . $all_skill . '</span></div>
+                <div class="prograss prograss-list">
+                    <div class="bar animateBar" data-animatetarget="' . $skill . '" style="background: '.$color.'"></div>
+                </div>
+                <span class="prograss-font-list">' . $skill . '%</span>
+            </div>
+            ';
+        }
+    }
+    echo $output;
+}
 
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';

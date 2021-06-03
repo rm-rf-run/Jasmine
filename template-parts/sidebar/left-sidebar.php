@@ -256,7 +256,9 @@ if (jasmine_option('jasmine_bilbil_uid')) {
             </p>
         </a>
     </div>
-
+    <?php
+}
+?>
     <div class="jasmine-left-comment-part">
         <span class="jasmine-item-title"><i class="fa fa-commenting-o" aria-hidden="true"></i>    最新评论</span>
         <?php
@@ -294,6 +296,3 @@ if (jasmine_option('jasmine_bilbil_uid')) {
         } ?>
     </div>
 
-    <?php
-}
-?>

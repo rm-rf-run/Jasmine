@@ -685,8 +685,8 @@ dl {
 }
 
 .jasmine-random-articles ul {
-    list-style-type: decimal;
-    padding-left: 40px
+    list-style-type: none;
+    padding-left: 15px;
 }
 
 .jasmine-random-articles ul li a {
@@ -2226,22 +2226,73 @@ dl {
     color: #f56c6c;
 }
 
-#post-password-content{
+#post-password-content {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
 }
 
-#post-password-content img{
+#post-password-content img {
     width: auto !important;
 }
 
-#post-password-input{
+#post-password-input {
     width: 300px;
-    margin-top: .5rem!important
+    margin-top: .5rem !important
 }
-#post-password-submit{
+
+#post-password-submit {
     width: 300px;
     text-align: center;
     margin-bottom: 15px;
+}
+
+.popular-posts {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.jasmine-random-articles ul li a .popular-posts-view {
+    font-size: 12px;
+    color: #999aaa;
+    line-height: 24px;
+}
+
+.jasmine-random-articles ul li a .popular-posts {
+    color: #f56c6c;
+}
+
+.jasmine-github-card {
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.jasmine-prograss {
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 10px;
+}
+
+.prograss-list {
+    display: inline-block;
+    margin-top: 5px !important;
+    height: 8px !important;
+    border-radius: 6px !important;
+}
+
+.prograss-list div {
+    border-radius: 6px !important;
+}
+.prograss-font-list{
+    font-size: 12px !important;
+}
+
+.text-bold{
+    font-weight: 600!important;
+}
+
+.author-skill{
+    padding-left: 15px;
 }
