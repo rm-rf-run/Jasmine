@@ -52,13 +52,6 @@ if (jasmine_option('jasmine_notice')) {
     <?php
 }
 ?>
-<!--<div class="jasmine-github-card">-->
-<!--    <img src="https://github-readme-stats.vercel.app/api/pin/?username=rm-rf-run&repo=Jasmine&show_icons=true&card_width=255px&theme=vue&show_owner=true">-->
-<!--</div>-->
-<!---->
-<!--<div class="jasmine-github-card">-->
-<!--    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rm-rf-run&card_width=255px">-->
-<!--</div>-->
 
 <div class="jasmine-tag-cloud">
     <span class="jasmine-item-title"><i class="fa fa-tags"></i>    热门标签</span>

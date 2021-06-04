@@ -45,7 +45,14 @@
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/assets/js/input-stars.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory');?>/inc/OwO/OwO.min.js"></script>
+    <!-- 引入依赖 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
     <!-- end -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.1/build/styles/atom-one-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.1/build/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.1/build/languages/go.min.js"></script>
   <?php wp_footer();?>
   </body>
 </html>

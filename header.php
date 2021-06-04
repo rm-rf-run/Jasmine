@@ -36,6 +36,14 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
           background-repeat: no-repeat;
           background-attachment: fixed;
       }
+      #mobile-header{
+          top:0;
+          background-image: url(<?php echo jasmine_option('jasmine_mobile_bg'); ?>);
+          background-position: center top;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-size: cover;
+      }
     </style>
   </head>
   <body <?php body_class();?>>
@@ -106,5 +114,6 @@ if ($title == ""): echo bloginfo('name');else:echo $title;endif;?>
   }
     ?>
   </div>
+    <div class="mobile-menu-plur"></div>
 </header>
 <div id="mobile-shade"></div>

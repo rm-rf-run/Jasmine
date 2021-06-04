@@ -2154,14 +2154,10 @@ dl {
     z-index: unset;
 }
 
-#mobile-header {
-    top: 0;
-    background-color: rgb(127, 196, 225);
-}
-
 #mobile-nav {
     text-align: left;
-    padding-left: 16%;
+    padding-left: 10%;
+    margin-top: 25px;
 }
 
 #mobile-nav ul {
@@ -2295,4 +2291,14 @@ dl {
 
 .author-skill{
     padding-left: 15px;
+}
+.mobile-menu-plur{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: .3;
+    filter: blur(2px);
+    background-color: #000;
+    top: 0;
 }

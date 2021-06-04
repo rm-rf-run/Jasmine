@@ -772,7 +772,7 @@ function author_skill()
             <div class="skill-list-prograss">
                 <div class="text-bold"><span>' . $all_skill . '</span></div>
                 <div class="prograss prograss-list">
-                    <div class="bar animateBar" data-animatetarget="' . $skill . '" style="background: '.$color.'"></div>
+                    <div class="bar animateBar" data-animatetarget="' . $skill . '" style="background: ' . $color . '"></div>
                 </div>
                 <span class="prograss-font-list">' . $skill . '%</span>
             </div>

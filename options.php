@@ -167,6 +167,14 @@ function optionsframework_options()
     );
 
     $options[] = array(
+        'name' => __('手机端导航栏背景图片', 'jasmine'),
+        'desc' => __('手机端导航栏背景图片', 'jasmine'),
+        'std' => get_template_directory_uri() . '/assets/images/mobile_bg.jpg',
+        'id' => 'jasmine_mobile_bg',
+        'type' => 'upload',
+    );
+
+    $options[] = array(
         'name' => __('站点公告', 'jasmine'),
         'desc' => __('今日公告信息', 'jasmine'),
         'id' => 'jasmine_notice',
@@ -569,22 +577,6 @@ function optionsframework_options()
     //     'options' => $multicheck_array,
     // );
 
-    $options[] = array(
-        'name' => __('手机端背景颜色', 'jasmine'),
-        'desc' => __('默认情况下未选择颜色。', 'jasmine'),
-        'id' => 'jasmine_mobile_background_color',
-        'std' => '',
-        'type' => 'color',
-    );
-
-    $options[] = array(
-        'name' => __('手机端导航栏背景图片', 'jasmine'),
-        'desc' => __('手机端导航栏背景图片', 'jasmine'),
-        'std' => '',
-        'id' => 'jasmine_bg',
-        'type' => 'upload',
-    );
-
     // $options[] = array('name' => __('Typography', 'jasmine'),
     //     'desc'                    => __('Example typography.', 'jasmine'),
     //     'id'                      => "example_typography",
@@ -601,10 +593,10 @@ function optionsframework_options()
     //     'options' => $typography_options,
     // );
 
-    $options[] = array(
-        'name' => __('文本编辑器', 'jasmine'),
-        'type' => 'heading',
-    );
+//    $options[] = array(
+//        'name' => __('文本编辑器', 'jasmine'),
+//        'type' => 'heading',
+//    );
 
     /**
      * For $settings options see:
@@ -614,19 +606,19 @@ function optionsframework_options()
      * 'textarea_name' is set by the 'id' you choose
      */
 
-    $wp_editor_settings = array(
-        'wpautop' => true, // Default
-        'textarea_rows' => 5,
-        'tinymce' => array('plugins' => 'wordpress,wplink'),
-    );
-
-    $options[] = array(
-        'name' => __('Default Text Editor', 'jasmine'),
-        'desc' => sprintf(__('You can also pass settings to the editor.  Read more about wp_editor in <a href="%1$s" target="_blank">the WordPress codex</a>', 'jasmine'), 'http://codex.wordpress.org/Function_Reference/wp_editor'),
-        'id' => 'example_editor',
-        'type' => 'editor',
-        'settings' => $wp_editor_settings,
-    );
+//    $wp_editor_settings = array(
+//        'wpautop' => true, // Default
+//        'textarea_rows' => 5,
+//        'tinymce' => array('plugins' => 'wordpress,wplink'),
+//    );
+//
+//    $options[] = array(
+//        'name' => __('Default Text Editor', 'jasmine'),
+//        'desc' => sprintf(__('You can also pass settings to the editor.  Read more about wp_editor in <a href="%1$s" target="_blank">the WordPress codex</a>', 'jasmine'), 'http://codex.wordpress.org/Function_Reference/wp_editor'),
+//        'id' => 'example_editor',
+//        'type' => 'editor',
+//        'settings' => $wp_editor_settings,
+//    );
 
     return $options;
 }
