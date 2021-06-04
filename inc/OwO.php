@@ -1,13 +1,5 @@
 <?php
 //评论OwO表情
-function my_load_scripts($hook)
-{
-
-    wp_enqueue_style('owo', get_template_directory_uri() . '/inc/OwO/OwO.min.css', array(), '1.1.0', 'all');
-
-}
-add_action('wp_enqueue_scripts', 'my_load_scripts');
-
 //定义OwO json，图片地址
 define('OwO_API', get_template_directory_uri() . '/inc/OwO/OwO.min.json');
 define('OwO_alu', get_template_directory_uri() . '/inc/OwO/alu');
