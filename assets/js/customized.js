@@ -321,6 +321,7 @@
         });
         //ready pjax:end方法是在pjax请求之后重新初始化插件
         $(document).on('ready pjax:end', function (event) {
+            reloadAbleJSFn('support',jasmineConfig.siteUrl+'/wp-content/themes/Jasmine/inc/js/support.js');
             titleAddId();
             $(".jasmine-post-content h1").sparkleh({
                 count: 80,
@@ -329,7 +330,7 @@
             jasmine_js_getqqinfo();
             contentDisplay();
             initOwO();
-            hljs.highlightAll('Atom One Dark');
+            hljs.highlightAll();
         })
         //还原文章样式
         $(document).on('pjax:click', function () {
@@ -342,6 +343,18 @@
             $('.jasmine-post-content h1 canvas').css("height", height);
         });
         /***pjax结束***/
+        function reloadAbleJSFn(id,newJS)
+        {
+            var oldjs = null;
+            var t = null;
+            var oldjs = document.getElementById(id);
+            if(oldjs) oldjs.parentNode.removeChild(oldjs);
+            var scriptObj = document.createElement("script");
+            scriptObj.src = newJS;
+            scriptObj.type = "text/javascript";
+            scriptObj.id = id;
+            document.getElementsByTagName("head")[0].appendChild(scriptObj);
+        }
         // 点赞
         $(document).on('click', '.post-like a', function () {
             if ($(this).hasClass('have-like')) {

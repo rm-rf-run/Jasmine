@@ -17,7 +17,7 @@
  * Template Name: 文章页
  * Template Post Type: page
  */
-setPostViews(get_the_ID());
+setPostViews( get_the_ID() );
 ?>
 <?php get_header() ?>
     <main role="main" id="main">
@@ -25,14 +25,14 @@ setPostViews(get_the_ID());
             <div class="row clearfix">
                 <!--左边栏-->
                 <div class="col-md-3 column">
-                    <?php get_template_part('template-parts/sidebar/left-sidebar'); ?>
+					<?php get_template_part( 'template-parts/sidebar/left-sidebar' ); ?>
                 </div>
                 <!--中间栏-->
                 <div class="col-md-6 column" id="pjax-container">
-                    <?php get_template_part('template-parts/nav/nav-post'); ?>
+					<?php get_template_part( 'template-parts/nav/nav-post' ); ?>
                     <div class="jasmine-post-content">
-                        <?php if (have_posts()): ?>
-                            <?php while (have_posts()): the_post(); ?>
+						<?php if ( have_posts() ): ?>
+							<?php while ( have_posts() ): the_post(); ?>
                                 <div class="jasmine-post-help">
                         <span class="jasmine-post-help-font">
                           <font>A+</font>
@@ -45,13 +45,13 @@ setPostViews(get_the_ID());
                                 <h1 class="jasmine-post-h1"><?php the_title() ?></h1>
                                 <div class="post-meta-info">
                                     <div class="author-img">
-                                        <?php echo get_simple_local_avatar(get_bloginfo('admin_email')); ?>
+										<?php echo get_simple_local_avatar( get_bloginfo( 'admin_email' ) ); ?>
                                     </div>
                                     <div class="jasmine-writingTime">
                         <span>
                           <i class="fa fa-clock-o" aria-hidden="true"></i>
-                            <?php echo human_time_diff(get_the_time('U'), current_time('timestamp'));
-                            _e('前'); ?><!--确定两个时间戳之间的差异。-->
+	                        <?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) );
+	                        _e( '前' ); ?><!--确定两个时间戳之间的差异。-->
                         </span>
                                         <div class="jasmine-article-info">
                           <span>
@@ -60,11 +60,11 @@ setPostViews(get_the_ID());
                           </span>
                                             <span>
                             |&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"></i>
-                            <?php echo '浏览(' . getPostViews(get_the_ID()) . ')'; ?>
+                            <?php echo '浏览(' . getPostViews( get_the_ID() ) . ')'; ?>
                           </span>
                                             <span>
                             |&nbsp;&nbsp;<i class="fa fa-comments" aria-hidden="true"></i>
-                            <?php echo '评论(' . get_comment_count(get_the_ID())['approved'] . ')'; ?>
+                            <?php echo '评论(' . get_comment_count( get_the_ID() )['approved'] . ')'; ?>
                           </span>
                                         </div>
                                     </div>
@@ -73,45 +73,45 @@ setPostViews(get_the_ID());
 							        <span>
 							          <i class="fa fa-tags"></i>
 							          <?php
-                                      $data = get_the_tag_list('<span>标签: ', '&nbsp;', '</span>');
-                                      if ($data) {
-                                          echo $data;
-                                      } else {
-                                          echo '没有标签噢~';
-                                      }
-                                      ?>
+							          $data = get_the_tag_list( '<span>标签: ', '&nbsp;', '</span>' );
+							          if ( $data ) {
+								          echo $data;
+							          } else {
+								          echo '没有标签噢~';
+							          }
+							          ?>
 				              </span>
                                     <span style="float: right;">
-				                最后编辑：<?php the_modified_time('Y年n月j日'); ?>
+				                最后编辑：<?php the_modified_time( 'Y年n月j日' ); ?>
 				              </span>
                                 </p>
                                 <div id="jasmine-post-main"><?php the_content() ?></div>
-                            <?php endwhile; ?>
-                        <?php endif; ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
                         <div class="jasmine-appreciation">
                             <div>
                                 <i class="fa fa-qrcode fa-4x"></i>
                                 <div class="jasmine-appreciation-img">
                                     <ul class="jasmine-appreciation-ul">
                                         <li class="jasmine-alipay">
-                                            <?php if (jasmine_option('jasmine_zfb')) { ?>
-                                                <img src="<?php echo esc_attr(jasmine_option('jasmine_zfb')); ?>"
+											<?php if ( jasmine_option( 'jasmine_zfb' ) ) { ?>
+                                                <img src="<?php echo esc_attr( jasmine_option( 'jasmine_zfb' ) ); ?>"
                                                      style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
-                                            <?php } else { ?>
+											<?php } else { ?>
                                                 <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                                                     <p style="padding-top: 40%;">还没设置收款码</p>
                                                 </div>
-                                            <?php } ?>
+											<?php } ?>
                                         </li>
                                         <li class="jasmine-wechat">
-                                            <?php if (jasmine_option('jasmine_wx')) { ?>
-                                                <img src="<?php echo esc_attr(jasmine_option('jasmine_wx')); ?>"
+											<?php if ( jasmine_option( 'jasmine_wx' ) ) { ?>
+                                                <img src="<?php echo esc_attr( jasmine_option( 'jasmine_wx' ) ); ?>"
                                                      style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
-                                            <?php } else { ?>
+											<?php } else { ?>
                                                 <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
                                                     <p style="padding-top: 40%;">还没设置收款码</p>
                                                 </div>
-                                            <?php } ?>
+											<?php } ?>
                                         </li>
                                     </ul>
                                 </div>
@@ -125,12 +125,12 @@ setPostViews(get_the_ID());
                             </a>
                         </div>
                     </div>
-                    <?php
-                    // 如果评论是开放的或者我们至少有一个评论，加载评论模板。
-                    if (comments_open() || get_comments_number()) :
-                        comments_template();
-                    endif;
-                    ?>
+					<?php
+					// 如果评论是开放的或者我们至少有一个评论，加载评论模板。
+					if ( comments_open() || get_comments_number() ) :
+						comments_template();
+					endif;
+					?>
                     <!-- toasts -->
                     <div class="toast jasmine-toast" class="d-flex justify-content-center align-items-center"
                          style="position: fixed;top: 20%;right: 0;" data-delay="5000">
@@ -161,7 +161,7 @@ setPostViews(get_the_ID());
                 </div>
                 <!--右边栏-->
                 <div class="col-md-3 column" id="hide-column">
-                    <?php get_template_part('template-parts/sidebar/right-sidebar'); ?>
+					<?php get_template_part( 'template-parts/sidebar/right-sidebar' ); ?>
                 </div>
             </div>
             <div class="row clearfix">
