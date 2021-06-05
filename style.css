@@ -60,6 +60,9 @@ input {
     }
 
     #mobile-shade {
+        width: 100%;
+        height: 100%;
+        position: fixed;
         z-index: 999
     }
 
@@ -126,6 +129,9 @@ input {
     }
 
     #mobile-shade {
+        width: 100%;
+        height: 100%;
+        position: fixed;
         z-index: 999
     }
 
@@ -193,6 +199,9 @@ input {
     }
 
     #mobile-shade {
+        width: 100%;
+        height: 100%;
+        position: fixed;
         z-index: 999
     }
 
@@ -2147,12 +2156,6 @@ dl {
     padding-left: 24px;
 }
 
-#mobile-shade {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: unset;
-}
 
 #mobile-nav {
     text-align: left;

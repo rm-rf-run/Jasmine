@@ -286,7 +286,9 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                         wp_cache_add($cacheKey . $qq_number, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                     }
                 } else {
-                    echo get_avatar($comment->comment_author_email, 40);
+	                $randomAvatar = get_bloginfo('template_directory') . '/assets/images/random/ic_avatar'.mt_rand(1,11);
+	                $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
+	                _e($img);
                 }
                 ?></a>
             <div class="jasmine-left-comment-item"><?php
