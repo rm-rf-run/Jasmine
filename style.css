@@ -5,6 +5,9 @@ Author: rm-rf-run
 Author URI: http://www.prettywordpress.com/
 Description: 使用bootstrap制作的wordpress模板
 Version: 1.0
+Requires at least: 5.4.6
+Tested up to: 5.4.6
+Requires PHP: 7.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: Grid Layout,Blog,小部件
@@ -54,6 +57,40 @@ input {
     cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 
+/*wordpress 必要css*/
+.wp-caption {
+
+}
+
+.wp-caption-text {
+
+}
+
+.screen-reader-text {
+
+}
+
+.gallery-caption {
+
+}
+
+.bypostauthor {
+
+}
+
+.alignright {
+
+}
+
+.alignleft {
+
+}
+
+.aligncenter {
+
+}
+
+/**end**/
 @media only screen and (max-width: 575.98px) {
     .col-md-3, #navbarSupportedContent, .catalog {
         display: none;
@@ -2284,18 +2321,20 @@ dl {
 .prograss-list div {
     border-radius: 6px !important;
 }
-.prograss-font-list{
+
+.prograss-font-list {
     font-size: 12px !important;
 }
 
-.text-bold{
-    font-weight: 600!important;
+.text-bold {
+    font-weight: 600 !important;
 }
 
-.author-skill{
+.author-skill {
     padding-left: 15px;
 }
-.mobile-menu-plur{
+
+.mobile-menu-plur {
     position: absolute;
     z-index: -1;
     width: 100%;

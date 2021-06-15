@@ -106,7 +106,7 @@ get_header();
                         );
 
                     else:
-                        _e('Sorry, no posts matched your criteria.', 'textdomain');
+                        _e('Sorry, no posts matched your criteria.', 'jasmine');
                     endif;
                     ?>
                 </div>

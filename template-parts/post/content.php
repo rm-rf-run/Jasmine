@@ -38,7 +38,7 @@
         <p class="jasmine-content-foot">
             <?php
             if (post_password_required()) {
-                echo _e('文章已加密');
+                echo _e('文章已加密','jasmine');
             } else {
                 echo get_the_excerpt();
             }

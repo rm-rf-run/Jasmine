@@ -622,9 +622,9 @@ function jasmine_posts_per_page($query)
 function create_shuoshuo()
 {
     $labels = array(
-        'name' => _x('说说', 'jasmine'),
-        'singular_name' => _x('说说', 'jasmine'),
-        'add_new' => _x('新建说说', 'jasmine'),
+        'name' => __('说说', 'jasmine'),
+        'singular_name' => __('说说', 'jasmine'),
+        'add_new' => __('新建说说', 'jasmine'),
         'add_new_item' => __('新建一个说说', 'jasmine'),
         'edit_item' => __('编辑说说', 'jasmine'),
         'new_item' => __('新说说', 'jasmine'),

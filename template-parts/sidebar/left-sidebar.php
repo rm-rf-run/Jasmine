@@ -277,18 +277,18 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                 $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
                 if ($qq_number) {
                     if ($cache = wp_cache_get($cacheKey . $qq_number, 'qq_avatar')) {
-                        _e($cache);
+                        echo esc_html(__($cache));
                     } else {
                         $qq_avatar = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
                         preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
                         $img = "<img src='{$matches[1]}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
-                        _e($img);
+                        echo esc_html(__($img));
                         wp_cache_add($cacheKey . $qq_number, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                     }
                 } else {
 	                $randomAvatar = get_bloginfo('template_directory') . '/assets/images/random/ic_avatar'.mt_rand(1,11);
 	                $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
-	                _e($img);
+                    echo esc_html(__($img));
                 }
                 ?></a>
             <div class="jasmine-left-comment-item"><?php

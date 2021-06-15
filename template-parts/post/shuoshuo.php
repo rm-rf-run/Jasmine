@@ -36,7 +36,7 @@ if (has_post_thumbnail()) {
 		</span>
 		<span style="color: #999;font-size: 14px;">
 		- <?php echo human_time_diff(get_the_time('U'), current_time('timestamp'));
-_e('前'); ?>
+_e('前','jasmine'); ?>
 		</span>
 		<span style="display: block;margin-left: 54px;">发布了一条说说&nbsp;&nbsp;<?php edit_post_link('编辑', '', '');?><!--只有在登陆后才可见到，对日志进行编辑的链接--></span>
 		<div class="shuoshuo-content">

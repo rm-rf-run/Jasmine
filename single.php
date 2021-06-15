@@ -51,7 +51,7 @@ setPostViews( get_the_ID() );
                         <span>
                           <i class="fa fa-clock-o" aria-hidden="true"></i>
 	                        <?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) );
-	                        _e( '前' ); ?><!--确定两个时间戳之间的差异。-->
+	                        _e( '前' ,'jasmine'); ?><!--确定两个时间戳之间的差异。-->
                         </span>
                                         <div class="jasmine-article-info">
                           <span>
