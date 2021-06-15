@@ -24,7 +24,16 @@
         <div id="about-me-1" class="d-flex">
             <div id="avatar" class="flex-column">
                 <a href="<?php bloginfo('url'); ?>">
-                    <?php echo get_simple_local_avatar(get_bloginfo('admin_email')); ?>
+                    <?php
+                    $cacheKey = 'left_qq_avatar_'.get_bloginfo('admin_email');
+                    if ($cache = wp_cache_get($cacheKey, 'qq_avatar')) {
+                        echo __($cache);
+                    }else{
+                        $img = get_simple_local_avatar(get_bloginfo('admin_email'));
+                        echo $img;
+                        wp_cache_add($cacheKey, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
+                    }
+                    ?>
                 </a>
             </div>
             <div id="user-info" class="flex-column">
@@ -142,12 +151,29 @@
 if (jasmine_option('jasmine_lovedate')) {
     ?>
     <div class="jasmine-love">
-        <img src="http://q1.qlogo.cn/g?b=qq&nk=<?php if (!empty(jasmine_option('jasmine_qq_he'))) {
-            echo esc_attr(jasmine_option('jasmine_qq_he'));
-        } ?>&s=100" class="jasmine-love-me"/><i class="fa fa-heart"></i><img
-                src="http://q1.qlogo.cn/g?b=qq&nk=<?php if (!empty(jasmine_option('jasmine_qq_she'))) {
-                    echo esc_attr(jasmine_option('jasmine_qq_she'));
-                } ?>&s=100" class="jasmine-love-she"/><br/>
+        <?php
+        $cacheKeyHe = 'qq_love'.jasmine_option('jasmine_qq_he');
+        if ($cache = wp_cache_get($cacheKeyHe, 'qq_avatar')) {
+            echo __($cache);
+        } else {
+            $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_he'));
+            preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
+            $imgHe = "<img src='{$matches[1]}' class='jasmine-love-me'/><i class='fa fa-heart'></i>";
+            echo __($imgHe);
+            wp_cache_add($cacheKeyHe, $imgHe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
+        }
+        $cacheKeyShe = 'qq_love'.jasmine_option('jasmine_qq_she');
+        if ($cacshe = wp_cache_get($cacheKeyShe, 'qq_avatar')) {
+            echo __($cacshe);
+        } else {
+            $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_she'));
+            preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
+            $imgShe = "<img src='{$matches[1]}' class='jasmine-love-she'/>";
+            echo __($imgShe);
+            wp_cache_add($cacheKeyShe, $imgShe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
+        }
+        ?>
+        <br/>
         <span id="love_time"></span>
     </div>
     <?php
@@ -277,18 +303,18 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                 $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
                 if ($qq_number) {
                     if ($cache = wp_cache_get($cacheKey . $qq_number, 'qq_avatar')) {
-                        echo esc_html(__($cache));
+                        echo __($cache);
                     } else {
-                        $qq_avatar = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
+                        $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
                         preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
                         $img = "<img src='{$matches[1]}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
-                        echo esc_html(__($img));
+                        echo __($img);
                         wp_cache_add($cacheKey . $qq_number, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                     }
                 } else {
 	                $randomAvatar = get_bloginfo('template_directory') . '/assets/images/random/ic_avatar'.mt_rand(1,11);
 	                $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
-                    echo esc_html(__($img));
+                    echo __($img);
                 }
                 ?></a>
             <div class="jasmine-left-comment-item"><?php
