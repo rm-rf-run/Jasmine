@@ -393,13 +393,21 @@ function jasmine_change_avatar($avatar)
     if ($comment) {
         $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
         if ($qq_number) {
-            $qqavatar = file_get_contents('http://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
-            // preg_match 匹配 http: 和 &t 之间的字符串
-            // 如果提供了参数matches，它将被填充为搜索结果。
-            // $matches[0]将包含完整模式匹配到的文本,
-            // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
-            preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
-            return '<img src="' . $matches[1] . '" class="avatar avatar-40 photo" width="40" height="40"  alt="qq_avatar" />';
+            $cacheKey = "admin_avatar" . $qq_number;
+            if ($cache = wp_cache_get($cacheKey, 'qq_avatar')) {
+                echo __($cache);
+            }else{
+                $qqavatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
+                // preg_match 匹配 http: 和 &t 之间的字符串
+                // 如果提供了参数matches，它将被填充为搜索结果。
+                // $matches[0]将包含完整模式匹配到的文本,
+                // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
+                preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
+                $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
+                $img = '<img src="' . $gravatar . '" class="avatar avatar-40 photo" width="40" height="40"  alt="qq_avatar" />';
+                wp_cache_add($cacheKey, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
+                return $img;
+            }
         } else {
             return $avatar;
         }
