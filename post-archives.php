@@ -34,14 +34,14 @@ setPostViews(get_the_ID());?>
         	<div class="thumbnail-shadow" style="background-image: url(<?php
                     $image[1] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
                     $image[2] = "https://api.ixiaowai.cn/api/api.php";
-                    $image[3] = "http://api.btstu.cn/sjbz/?lx=dongman";
-                    $image[4] = "http://api.btstu.cn/sjbz/?lx=suiji";
+                    $image[3] = "https://api.btstu.cn/sjbz/?lx=dongman";
+                    $image[4] = "https://api.btstu.cn/sjbz/?lx=suiji";
                     $image[5] = "https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302";
                     $image[6] = "https://api.loli.rocks/tianshijianglindaowoshenbian/index.php";
                     $image[7] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
                     $image[8] = "https://random.52ecy.cn/randbg.php";
                     $image[9] = "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture";
-                    $image[10] = "http://www.dmoe.cc/random.php";
+                    $image[10] = "https://www.dmoe.cc/random.php";
                     $image[11] = "https://acg.yanwz.cn/api.php";
                     $image[12] = "https://img.paulzzh.tech/touhou/random";
                     if (has_post_thumbnail()) {
