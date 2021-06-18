@@ -535,7 +535,7 @@ function optionsframework_options()
         'name' => __('首页文章随机图', 'jasmine'),
         'desc' => __('文章有略缩图则显示略缩图，没有则根据文章显示下标获取对应api的图片，api使用英文逗号分隔', 'jasmine'),
         'id' => 'jasmine_post_api',
-        'std' => 'https://api.ixiaowai.cn/gqapi/gqapi.php,https://api.ixiaowai.cn/api/api.php,https://api.btstu.cn/sjbz/?lx=dongman,https://api.btstu.cn/sjbz/?lx=suiji,https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302,https://api.loli.rocks/tianshijianglindaowoshenbian/index.php,https://api.ixiaowai.cn/gqapi/gqapi.php,https://random.52ecy.cn/randbg.php,https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture,https://www.dmoe.cc/random.php,https://acg.yanwz.cn/api.php,https://img.paulzzh.tech/touhou/random',
+        'std' => 'https://api.ixiaowai.cn/gqapi/gqapi.php,https://api.ixiaowai.cn/api/api.php,https://api.btstu.cn/sjbz/?lx=dongman,https://api.btstu.cn/sjbz/?lx=suiji,https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302,https://api.ixiaowai.cn/gqapi/gqapi.php,https://random.52ecy.cn/randbg.php,https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture,https://www.dmoe.cc/random.php,https://acg.yanwz.cn/api.php,https://img.paulzzh.tech/touhou/random',
         'type' => 'textarea',
     );
 
