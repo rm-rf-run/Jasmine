@@ -15,9 +15,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/inc/css/support-font.css">
-    <link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/inc/css/support.css">
-    <link href="<?php bloginfo( 'template_directory' ); ?>/style.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/css/support-font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/css/support.css">
+    <link href="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/style.css" rel="stylesheet" media="screen">
     <title>
 		<?php $title = wp_title( '', false );
 		if ( $title == "" ): echo bloginfo( 'name' );
@@ -79,9 +79,9 @@
       <?php if ( is_user_logged_in() ) { ?>
       <div id=" personal-menu">
                 <ul id="personal-menu-ul">
-                    <li><a href="<?php echo get_option( 'home' ); ?>/wp-admin">后台&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                    <li><a href="<?php echo get_option( 'home' ); ?>/wp-admin">后台&nbsp;<i
                                     class="fa fa-tachometer" aria-hidden="true"></i></a></li>
-                    <li><a href="<?php echo get_option( 'home' ); ?>/wp-login.php?action=logout">登出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                    <li><a href="<?php echo get_option( 'home' ); ?>/wp-login.php?action=logout">登出&nbsp;<i
                                     class="fa fa-sign-out" aria-hidden="true"></i> </a></li>
                 </ul>
             </div>

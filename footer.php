@@ -26,9 +26,9 @@
 		<?php do_shortcode( '[footData]' ) ?>
     </div>
 </footer>
-<script type="text/javascript" data-cfasync="true" id="support" src="<?php bloginfo( 'template_directory' ); ?>/inc/js/support.js"></script>
-<script type="text/javascript" data-cfasync="true" src="<?php bloginfo( 'template_directory' ); ?>/assets/js/customized.js"></script>
-<script type="text/javascript" data-cfasync="true" src="<?php bloginfo( 'template_directory' ); ?>/assets/js/mobile-customized.js"></script>
+<script type="text/javascript" data-cfasync="true" id="support" src="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/js/support.js"></script>
+<script type="text/javascript" data-cfasync="true" src="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/js/customized.js"></script>
+<script type="text/javascript" data-cfasync="true" src="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/js/mobile-customized.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

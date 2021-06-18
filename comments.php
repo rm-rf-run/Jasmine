@@ -34,7 +34,7 @@ if (post_password_required()) {
     $comment_cookies_2 = ' 隐私政策';
     $comment_before = '';
     $comment_cancel = '取消回复';
-    $comment_bird = '<div style="float:left;padding-top: 10px;"><img id="author_img" src="' . get_template_directory_uri() . '/assets/images/avatarBird.png" height="48" width="48" style="border-radius: 8px;"></div>';
+    $comment_bird = '<div style="float:left;padding-top: 10px;"><img class="lazyload" id="author_img" src="' . get_template_directory_uri() . '/assets/images/avatarBird.png" height="48" width="48" style="border-radius: 8px;"></div>';
     //Array
     $comments_args = array(
         //Define Fields

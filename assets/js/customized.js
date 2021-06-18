@@ -321,7 +321,7 @@
         });
         //ready pjax:end方法是在pjax请求之后重新初始化插件
         $(document).on('ready pjax:end', function (event) {
-            reloadAbleJSFn('support',jasmineConfig.siteUrl+'/wp-content/themes/Jasmine/inc/js/support.js');
+            reloadAbleJSFn('support','https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/js/support.js');
             titleAddId();
             $(".jasmine-post-content h1").sparkleh({
                 count: 80,
@@ -330,7 +330,7 @@
             jasmine_js_getqqinfo();
             contentDisplay();
             initOwO();
-            hljs.highlightAll();
+            lazyload();
         })
         //还原文章样式
         $(document).on('pjax:click', function () {
@@ -419,6 +419,6 @@
         }
 
         initOwO();
-        hljs.highlightAll();
+        lazyload();
     })
 })(jQuery);
