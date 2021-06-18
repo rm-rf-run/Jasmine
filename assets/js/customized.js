@@ -309,7 +309,6 @@
         /***pjax开始***/
         $(document).pjax('a', '#pjax-container', {
             fragment: '#pjax-container',
-            timeout: 8000,
             type: 'GET'
         });
         //进度条
