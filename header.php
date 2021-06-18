@@ -26,7 +26,7 @@
 	<?php wp_head(); ?>
     <style type="text/css">
         .jasmine-background {
-            background-image: url(<?php echo jasmine_option('jasmine_bg'); ?>);
+            background-image: url(<?php $img_file  = file_get_contents(jasmine_option('jasmine_bg'));echo 'data:image/jpg;base64,' . base64_encode($img_file); ?>);
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -34,7 +34,7 @@
 
         #mobile-header {
             top: 0;
-            background-image: url(<?php echo jasmine_option('jasmine_mobile_bg'); ?>);
+            background-image: url(<?php $img_file  = file_get_contents(jasmine_option('jasmine_mobile_bg'));echo 'data:image/jpg;base64,' . base64_encode($img_file); ?>);
             background-position: center top;
             background-repeat: no-repeat;
             background-attachment: scroll;
