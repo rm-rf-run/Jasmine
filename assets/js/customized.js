@@ -412,7 +412,7 @@
                     position: 'down',
                     width: '100%',
                     maxHeight: '210px',
-                    api: jasmineConfig.siteUrl+'/wp-content/themes/Jasmine/inc/OwO/OwO.min.json'
+                    api: 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/OwO/OwO.min.json'
                 });
             }
         }

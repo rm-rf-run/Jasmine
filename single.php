@@ -95,7 +95,7 @@ setPostViews( get_the_ID() );
                                     <ul class="jasmine-appreciation-ul">
                                         <li class="jasmine-alipay">
 											<?php if ( jasmine_option( 'jasmine_zfb' ) ) { ?>
-                                                <img class="lazyload" src="<?php echo esc_attr( jasmine_option( 'jasmine_zfb' ) ); ?>"
+                                                <img class="lazyload" data-src="<?php echo esc_attr( jasmine_option( 'jasmine_zfb' ) ); ?>"
                                                      style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
 											<?php } else { ?>
                                                 <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
@@ -105,7 +105,7 @@ setPostViews( get_the_ID() );
                                         </li>
                                         <li class="jasmine-wechat">
 											<?php if ( jasmine_option( 'jasmine_wx' ) ) { ?>
-                                                <img class="lazyload" src="<?php echo esc_attr( jasmine_option( 'jasmine_wx' ) ); ?>"
+                                                <img class="lazyload" data-src="<?php echo esc_attr( jasmine_option( 'jasmine_wx' ) ); ?>"
                                                      style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
 											<?php } else { ?>
                                                 <div style="width: 130px;max-width: 130px;height: 130px;max-height: 130px;">
@@ -135,7 +135,7 @@ setPostViews( get_the_ID() );
                     <div class="toast jasmine-toast" class="d-flex justify-content-center align-items-center"
                          style="position: fixed;top: 20%;right: 0;" data-delay="5000">
                         <div class="toast-header">
-                            <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/tips.png"
+                            <img data-src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/tips.png"
                                  class="rounded mr-2 lazyload" alt="...">
                             <strong class="mr-auto">友情提示</strong>
                             <small style="margin-left: 10px;">请保留版权标识</small>

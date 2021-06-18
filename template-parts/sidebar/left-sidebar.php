@@ -159,7 +159,7 @@ if (jasmine_option('jasmine_lovedate')) {
             $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_he'));
             preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
             $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
-            $imgHe = "<img src='{$gravatar}' class='jasmine-love-me lazyload'/><i class='fa fa-heart'></i>";
+            $imgHe = "<img data-src='{$gravatar}' class='jasmine-love-me lazyload'/><i class='fa fa-heart'></i>";
             echo __($imgHe);
             wp_cache_add($cacheKeyHe, $imgHe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
         }
@@ -170,7 +170,7 @@ if (jasmine_option('jasmine_lovedate')) {
             $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_she'));
             preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
             $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
-            $imgShe = "<img src='{$gravatar}' class='jasmine-love-she lazyload'/>";
+            $imgShe = "<img data-src='{$gravatar}' class='jasmine-love-she lazyload'/>";
             echo __($imgShe);
             wp_cache_add($cacheKeyShe, $imgShe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
         }

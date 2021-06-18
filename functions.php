@@ -404,13 +404,13 @@ function jasmine_change_avatar($avatar)
                 // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
                 preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
                 $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
-                $img = '<img src="' . $gravatar . '" class="avatar avatar-40 photo lazyload" width="40" height="40"  alt="qq_avatar" />';
+                $img = '<img data-src="' . $gravatar . '" class="avatar avatar-40 photo lazyload" width="40" height="40"  alt="qq_avatar" />';
                 wp_cache_add($cacheKey, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                 return $img;
             }
         } else {
             $randomAvatar = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/random/ic_avatar'.mt_rand(1,11).'.jpg';
-            $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
+            $img = "<img data-src='{$randomAvatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
             return $img;
         }
     }
@@ -551,7 +551,7 @@ function echo_footData()
     $police_beian_exit = "未备案";
     $startDate = "";
     if (jasmine_option('jasmine_police_record')) {
-        $police_beian_exit = "<br/> <img class='lazyload' src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
+        $police_beian_exit = "<br/> <img class='lazyload' data-src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
 beian.png' data-src='' data-was-processed='true'> <a href='" . esc_url($police_beian_href) . "' rel='external nofollow' target='_blank'>" . esc_html($police_beian) . " </a>";
     }
     if (jasmine_option('jasmine_startdate')) {
@@ -747,7 +747,7 @@ function password_protected_change($content)
         $output = '
         <form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post">
         <div id="post-password-content">
-            <img class="lazyload" src="' . esc_url(jasmine_option('jasmine_post_password_img')) . '">
+            <img class="lazyload" data-src="' . esc_url(jasmine_option('jasmine_post_password_img')) . '">
             <div class="post-pass-word">这是一篇受保护的密码，请输入访问密码！</div><br>
             <div class="input-group mb-2" id="post-password-input">
                 <div class="input-group-prepend">

@@ -14,7 +14,7 @@ function comment_add_owo($comment_text)
     for ($i = 0; $i < count($biliname); $i++) {
         $img_size = getimagesize($smiles_path . $biliname[$i] . ".png");
         $img_height = $img_size["1"];
-        $return_smiles['@['.$biliname[$i].']'] = '<span class="emotion-inline emotion-item"><img src="https://cdn.jsdelivr.net/gh/rm-rf-run/cdn@1.0/img/bili/' .$biliname[$i].'.png" class="img" alt="'.$biliname[$i].'" style="animation-duration: ' . ($img_height / 32 * 40) . 'ms;
+        $return_smiles['@['.$biliname[$i].']'] = '<span class="emotion-inline emotion-item"><img data-src="https://cdn.jsdelivr.net/gh/rm-rf-run/cdn@1.0/img/bili/' .$biliname[$i].'.png" class="img" alt="'.$biliname[$i].'" style="animation-duration: ' . ($img_height / 32 * 40) . 'ms;
         animation-timing-function: steps(' . ($img_height / 32) . ');
         transform: translateY(-' . ($img_height - 32) . 'px);
         height: ' . $img_height . 'px;"></span>';

@@ -20,7 +20,7 @@
 
 <article id="post-<?php the_ID(); ?>" class="jasmine-article" <?php post_class(); ?>>
     <div class="jasmine-panel">
-        <div class="lazyload jasmine-article-img" style="background-image: url(<?php
+        <div class="jasmine-article-img" style="background-image: url(<?php
         $image = explode(",", jasmine_option("jasmine_post_api"));
         if (has_post_thumbnail()) {
             //当前日志有缩略图
