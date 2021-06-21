@@ -40,8 +40,7 @@ setPostViews(get_the_ID());?>
                     $image[6] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
                     $image[7] = "https://random.52ecy.cn/randbg.php";
                     $image[8] = "https://www.dmoe.cc/random.php";
-                    $image[9] = "https://acg.yanwz.cn/api.php";
-                    $image[10] = "https://img.paulzzh.tech/touhou/random";
+                    $image[9] = "https://img.paulzzh.tech/touhou/random";
                     if (has_post_thumbnail()) {
                         //当前日志有缩略图
                         $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
