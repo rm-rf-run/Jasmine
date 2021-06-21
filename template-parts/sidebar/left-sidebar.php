@@ -93,53 +93,53 @@
                     <a href="<?php if (!empty(jasmine_option('jasmine_bilbil'))) {
                         echo esc_attr(jasmine_option('jasmine_bilbil'));
                     } ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/bilbil.ico" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/bilbil.ico" width="22"
                              height="22" alt="B站" data-toggle="tooltip" data-placement="top" title="B站">
                     </a>
                     <a href="<?php if (!empty(jasmine_option('jasmine_csdn'))) {
                         echo esc_attr(jasmine_option('jasmine_csdn'));
                     } ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/csdn.ico" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/csdn.ico" width="22"
                              height="22" alt="CSDN" data-toggle="tooltip" data-placement="top" title="CSDN">
                     </a>
                     <a href="tencent://message/?uin=<?php if (!empty(jasmine_option('jasmine_qq'))) {
                         echo esc_attr(jasmine_option('jasmine_qq'));
                     } ?>&Site=&Menu=yes">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/qq.png" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/qq.png" width="22"
                              height="22" alt="QQ" data-toggle="tooltip" data-placement="top" title="QQ">
                     </a>
                     <a href="<?php if (!empty(jasmine_option('jasmine_gitHub'))) {
                         echo esc_attr(jasmine_option('jasmine_gitHub'));
                     } ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/github.ico" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/github.ico" width="22"
                              height="22" alt="GitHub" data-toggle="tooltip" data-placement="top" title="GitHub">
                     </a>
                     <a href="<?php if (!empty(jasmine_option('jasmine_zhihu'))) {
                         echo esc_attr(jasmine_option('jasmine_zhihu'));
                     } ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/zhihu.ico" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/zhihu.ico" width="22"
                              height="22" alt="知乎" data-toggle="tooltip" data-placement="top" title="知乎">
                     </a>
                     <a href="<?php if (!empty(jasmine_option('jasmine_weibo'))) {
                         echo esc_attr(jasmine_option('jasmine_weibo'));
                     } ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/weibo.ico" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/weibo.ico" width="22"
                              height="22" alt="weibo" data-toggle="tooltip" data-placement="top" title="weibo">
                     </a>
                     <a href="<?php if (!empty(jasmine_option('wangyiyun'))) {
                         echo esc_attr(jasmine_option('wangyiyun'));
                     } ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/wyy.ico" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/wyy.ico" width="22"
                              height="22" alt="网易云" data-toggle="tooltip" data-placement="top" title="网易云">
                     </a>
                     <a href="<?php if (!empty(jasmine_option('jasmine_twitter'))) {
                         echo esc_attr(jasmine_option('jasmine_twitter'));
                     } ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/twitter.ico" width="22"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/twitter.ico" width="22"
                              height="22" alt="twitter" data-toggle="tooltip" data-placement="top" title="twitter">
                     </a>
                     <a href="<?php echo get_bloginfo('rss2_url'); ?>">
-                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/rss.png" width="15"
+                        <img src="https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/rss.png" width="15"
                              height="15" alt="Rss" data-toggle="tooltip" data-placement="top" title="Rss"></img>
                     </a>
                 </div>
@@ -159,7 +159,7 @@ if (jasmine_option('jasmine_lovedate')) {
             $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_he'));
             preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
             $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
-            $imgHe = "<img data-src='{$gravatar}' class='jasmine-love-me lazyload'/><i class='fa fa-heart'></i>";
+            $imgHe = "<img src='{$gravatar}' class='jasmine-love-me'/><i class='fa fa-heart'></i>";
             echo __($imgHe);
             wp_cache_add($cacheKeyHe, $imgHe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
         }
@@ -170,7 +170,7 @@ if (jasmine_option('jasmine_lovedate')) {
             $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_she'));
             preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
             $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
-            $imgShe = "<img data-src='{$gravatar}' class='jasmine-love-she lazyload'/>";
+            $imgShe = "<img src='{$gravatar}' class='jasmine-love-she'/>";
             echo __($imgShe);
             wp_cache_add($cacheKeyShe, $imgShe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
         }
@@ -193,7 +193,7 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                     <a href="<?php if (!empty(get_option('jasmine_bilbil'))) {
                         echo esc_attr(get_option('jasmine_bilbil'));
                     } ?>">
-                        <img class="lazyload" src="<?php if (!empty(get_option('jasmine_bilbil_gravatar'))) {
+                        <img src="<?php if (!empty(get_option('jasmine_bilbil_gravatar'))) {
                             echo esc_attr(get_option('jasmine_bilbil_gravatar'));
                         } ?>" id="h-avatar">
                     </a>
@@ -229,11 +229,8 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                         <!---->
                     </div>
                     <div class="h-basic-spacing">
-                        <h4 title="<?php if (!empty(get_option('jasmine_bilbil_describe'))) {
-                            echo get_option('jasmine_bilbil_describe');
-                        } ?>" class="h-sign"><?php if (!empty(get_option('jasmine_bilbil_describe'))) {
-                                echo get_option('jasmine_bilbil_describe');
-                            } ?></h4>
+                        <?php $describe = get_option('jasmine_bilbil_describe');
+                        echo '<h4 title="'.$describe.'" class="h-sign">'.$describe.'</h4>';?>
                     </div>
                 </div>
             </div>
@@ -248,9 +245,7 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                 </a>
             </div>
             <div class="jasmine-bilbil-message">
-                <a href="<?php if (!empty(jasmine_option('jasmine_bilbil_uid'))) {
-                    echo 'https://message.bilibili.com/#/whisper/mid' . esc_attr(jasmine_option('jasmine_bilbil_uid'));
-                } ?>">
+                <a href="<?php echo 'https://message.bilibili.com/#/whisper/mid' . esc_attr(jasmine_option('jasmine_bilbil_uid'));?>">
                     <i class="fa fa-paper-plane"></i>
                     <span>发消息</span>
                 </a>
@@ -259,9 +254,7 @@ if (jasmine_option('jasmine_bilbil_uid')) {
     </div>
 
     <div class="jasmine-bilbil-statistics">
-        <a href="<?php if (!empty(jasmine_option('jasmine_bilbil_uid'))) {
-            echo 'https://space.bilibili.com/' . esc_attr(jasmine_option('jasmine_bilbil_uid')) . '/fans/follow';
-        } ?>" class="jasmine-bilbil-statistics-a">
+        <a href="<?php echo 'https://space.bilibili.com/' . esc_attr(jasmine_option('jasmine_bilbil_uid')) . '/fans/follow'; ?>" class="jasmine-bilbil-statistics-a">
             <p class="statistics-data">
                 关注数
             </p>
@@ -271,9 +264,7 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                 } ?>
             </p>
         </a>
-        <a href="<?php if (!empty(get_option('jasmine_bilbil_uid'))) {
-            echo 'https://space.bilibili.com/' . esc_attr(get_option('jasmine_bilbil_uid')) . '/fans/fans';
-        } ?>" class="jasmine-bilbil-statistics-a">
+        <a href="<?php  echo 'https://space.bilibili.com/' . esc_attr(get_option('jasmine_bilbil_uid')) . '/fans/fans'; ?>" class="jasmine-bilbil-statistics-a">
             <p class="statistics-data">
                 粉丝数
             </p>
@@ -311,13 +302,13 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                         $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
                         preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
                         $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
-                        $img = "<img src='{$gravatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
+                        $img = "<img src='{$gravatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
                         echo __($img);
                         wp_cache_add($cacheKey . $qq_number, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                     }
                 } else {
 	                $randomAvatar = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/random/ic_avatar'.mt_rand(1,11).'.jpg';
-	                $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
+	                $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
                     echo __($img);
                 }
                 ?></a>

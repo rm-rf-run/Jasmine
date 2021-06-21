@@ -1,10 +1,10 @@
 <?php
 //评论OwO表情
 //定义OwO json，图片地址
-define('OwO_API', get_template_directory_uri() . '/inc/OwO/OwO.min.json');
-define('OwO_alu', get_template_directory_uri() . '/inc/OwO/alu');
-define('OwO_paopao', get_template_directory_uri() . '/inc/OwO/paopao');
-define('OwO_bili', get_template_directory_uri() . '/inc/OwO/bili');
+const OwO_API = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/OwO/OwO.min.json';
+const OwO_alu = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/OwO/alu';
+const OwO_paopao = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/OwO/paopao';
+const OwO_bili = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/OwO/bili';
 
 function comment_add_owo($comment_text)
 {

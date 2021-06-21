@@ -40,7 +40,7 @@ class Simple_Local_Avatars
 
         $author_class = is_author($user_id) ? ' current-author' : '';
         $img_file  = 'data:image/jpg;base64,' .base64_encode(file_get_contents($local_avatars['full']));
-        $avatar       = "<img alt='" . esc_attr($alt) . "' src='" . $img_file . "' class='avatar avatar-{$size}{$author_class} photo lazyload' height='{$size}' width='{$size}' />";
+        $avatar       = "<img alt='" . esc_attr($alt) . "' src='" . $img_file . "' data-src='". $img_file ."' class='avatar avatar-{$size}{$author_class} photo lazyload' height='{$size}' width='{$size}' />";
 
         return apply_filters('simple_local_avatar', $avatar);
     }

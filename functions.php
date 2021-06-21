@@ -404,13 +404,13 @@ function jasmine_change_avatar($avatar)
                 // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
                 preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
                 $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
-                $img = '<img data-src="' . $gravatar . '" class="avatar avatar-40 photo lazyload" width="40" height="40"  alt="qq_avatar" />';
+                $img = '<img src="' . $gravatar . '" data-src="' . $gravatar . '" class="avatar avatar-40 photo lazyload" width="40" height="40"  alt="qq_avatar" />';
                 wp_cache_add($cacheKey, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                 return $img;
             }
         } else {
             $randomAvatar = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/random/ic_avatar'.mt_rand(1,11).'.jpg';
-            $img = "<img data-src='{$randomAvatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
+            $img = "<img src='{$randomAvatar}' data-src='{$randomAvatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
             return $img;
         }
     }
@@ -436,6 +436,7 @@ add_filter('optionsframework_menu', 'prefix_options_menu_filter');
 
 add_action('bilbil_action', 'add_bilbil_data');
 do_action('bilbil_action');
+// 定时任务里面设置每天更新一次数据
 function add_bilbil_data()
 {
     if (jasmine_option('jasmine_bilbil_uid')) {
@@ -445,7 +446,7 @@ function add_bilbil_data()
          * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
          *
          */
-        if (get_option('jasmine_bilbil_gravatar')) {
+        if ($bilbil_uid == get_option('jasmine_bilbil_uid')) {
             return;
         }
         $b1 = file_get_contents("compress.zlib://https://api.bilibili.com/x/space/acc/info?mid=" . $bilbil_uid . "&jsonp=jsonp");
@@ -454,6 +455,7 @@ function add_bilbil_data()
         $results = json_decode($b2, true);
         $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($results1['data']['face'])));
         $topPhoto = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($results1['data']['top_photo'])));
+        update_option('jasmine_bilbil_uid', $bilbil_uid);
         update_option('jasmine_bilbil_following', $results['data']['following']);
         update_option('jasmine_bilbil_follower', $results['data']['follower']);
         update_option('jasmine_bilbil_gravatar', $gravatar);
@@ -489,12 +491,6 @@ function wpdocs_add_custom_shortcode()
     add_shortcode('countComments', 'count_comments');
     add_shortcode('footData', 'echo_footData');
     add_shortcode('countViews', 'getCountViews');
-    add_shortcode('showCommtents', 'showCommtents');
-}
-
-function showCommtents()
-{
-
 }
 
 function count_shuoshuo()
@@ -551,8 +547,9 @@ function echo_footData()
     $police_beian_exit = "未备案";
     $startDate = "";
     if (jasmine_option('jasmine_police_record')) {
-        $police_beian_exit = "<br/> <img class='lazyload' data-src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
-beian.png' data-src='' data-was-processed='true'> <a href='" . esc_url($police_beian_href) . "' rel='external nofollow' target='_blank'>" . esc_html($police_beian) . " </a>";
+        $police_beian_exit = "<br/> <img class='lazyload' src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
+beian.png' data-src='https://cdn.jsdelivr.net/gh/rm-rf-run/Jasmine/assets/images/
+beian.png' data-was-processed='true'> <a href='" . esc_url($police_beian_href) . "' rel='external nofollow' target='_blank'>" . esc_html($police_beian) . " </a>";
     }
     if (jasmine_option('jasmine_startdate')) {
         $startDate = "本博客已萌萌哒<span class='my-face'>╭(●｀∀´●)╯╰(●’◡’●)╮</span>运行了<span id='run_time'></span>";
@@ -747,7 +744,7 @@ function password_protected_change($content)
         $output = '
         <form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post">
         <div id="post-password-content">
-            <img class="lazyload" data-src="' . esc_url(jasmine_option('jasmine_post_password_img')) . '">
+            <img class="lazyload" src="' . esc_url(jasmine_option('jasmine_post_password_img')) . '" data-src="' . esc_url(jasmine_option('jasmine_post_password_img')) . '">
             <div class="post-pass-word">这是一篇受保护的密码，请输入访问密码！</div><br>
             <div class="input-group mb-2" id="post-password-input">
                 <div class="input-group-prepend">
@@ -804,6 +801,8 @@ require get_template_directory() . '/inc/OwO.php';
 require get_template_directory() . '/inc/jasmineConfig.php';
 //引入API
 require get_template_directory() . '/inc/api.php';
+//引入定时任务
+require get_template_directory() . '/inc/timed_task.php';
 
 //检测主题更新
 // require get_template_directory() . '/inc/theme-update-checker.php';
