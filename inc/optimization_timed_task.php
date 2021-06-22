@@ -1,21 +1,12 @@
 <?php
 // 定时任务
-add_filter( 'cron_schedules', 'cron_add_weekly' );
 
-function cron_add_weekly( $schedules ) {
-    // Adds once weekly to the existing schedules.
-    $schedules['thirtyly'] = array(
-        'interval' => 30,
-        'display' => __( 'Once thirtyly' )
-    );
-    return $schedules;
-}
 //激活Jasmine主题时添加哔哩哔哩定时任务
 add_action('after_switch_theme', 'bilbil_activation');
 
 function bilbil_activation() {
     if (! wp_next_scheduled ( 'bilbil_daily_event')) {
-        wp_schedule_event( time(), 'thirtyly', 'bilbil_daily_event');
+        wp_schedule_event( time(), 'daily', 'bilbil_daily_event');
     }
 }
 
@@ -49,7 +40,7 @@ function do_bilbil_daily() {
 do_action( 'switch_theme', 'my_deactivation' );
 
 function my_deactivation() {
-    wp_clear_scheduled_hook( 'bilbil_daily_event' );
     error_log("哔哩哔哩定时任务结束");
+    wp_clear_scheduled_hook( 'bilbil_daily_event' );
 }
 // 哔哩哔哩定时任务结束
