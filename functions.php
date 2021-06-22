@@ -242,7 +242,7 @@ function jasmine_add_pages()
     }
 }
 
-add_action('load-themes.php', 'jasmine_add_pages');
+add_action('after_switch_theme ', 'jasmine_add_pages');
 
 //禁用默认小工具
 add_action('widgets_init', 'theme_unregisterWidgets');
@@ -802,7 +802,7 @@ require get_template_directory() . '/inc/jasmineConfig.php';
 //引入API
 require get_template_directory() . '/inc/api.php';
 //引入定时任务
-require get_template_directory() . '/inc/timed_task.php';
+require get_template_directory() . '/inc/optimization_timed_task.php';
 
 //检测主题更新
 // require get_template_directory() . '/inc/theme-update-checker.php';

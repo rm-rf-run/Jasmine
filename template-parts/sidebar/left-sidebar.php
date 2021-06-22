@@ -184,29 +184,36 @@ if (jasmine_option('jasmine_lovedate')) {
 
 <?php
 if (jasmine_option('jasmine_bilbil_uid')) {
+    $jasmine_bilbil = esc_attr(jasmine_option('jasmine_bilbil'));
+    $jasmine_bilbil_name = esc_attr(get_option('jasmine_bilbil_name'));
+    $jasmine_bilbil_uid = esc_attr(get_option('jasmine_bilbil_uid'));
     ?>
     <div class="jasmine-bilbil">
         <div class="jasmine-bilbil-gradient"></div>
         <div class="jasmine-bilbil-me">
             <div class="h-info clearfix">
                 <div class="h-avatar">
-                    <a href="<?php if (!empty(get_option('jasmine_bilbil'))) {
-                        echo esc_attr(get_option('jasmine_bilbil'));
-                    } ?>">
-                        <img src="<?php if (!empty(get_option('jasmine_bilbil_gravatar'))) {
-                            echo esc_attr(get_option('jasmine_bilbil_gravatar'));
-                        } ?>" id="h-avatar">
-                    </a>
+                        <?php
+                        $bilbilCacheKey = 'bilbil_'.$jasmine_bilbil;
+                        if ($cache = wp_cache_get($bilbilCacheKey, 'bilbil_avatar')) {
+                            echo __($cache);
+                        } else {
+                            $bilbil_gravatar = get_option('jasmine_bilbil_gravatar');
+                            $bilbil_gravatarImg = "<a href='{$jasmine_bilbil}' ><img src='{$bilbil_gravatar}' id='h-avatar'/> </a>";
+                            echo __($bilbil_gravatarImg);
+                            wp_cache_add($bilbilCacheKey, $bilbil_gravatarImg, 'bilbil_avatar', 12 * HOUR_IN_SECONDS);
+                        }
+                        ?>
                 </div>
                 <div class="h-basic">
                     <div>
-                        <a href="<?php if (!empty(get_option('jasmine_bilbil'))) {
-                            echo esc_attr(get_option('jasmine_bilbil'));
-                        } ?>" title="<?php if (!empty(get_option('jasmine_bilbil_name'))) {
+                        <a href="<?php if (!empty($jasmine_bilbil)) {
+                            echo $jasmine_bilbil;
+                        } ?>" title="<?php if (!empty($jasmine_bilbil_name)) {
                             echo esc_attr(jasmine_option('jasmine_bilbil_name'));
                         } ?>">
-                            <span id="h-name"><?php if (!empty(get_option('jasmine_bilbil_name'))) {
-                                    echo esc_attr(get_option('jasmine_bilbil_name'));
+                            <span id="h-name"><?php if (!empty($jasmine_bilbil_name)) {
+                                    echo esc_attr($jasmine_bilbil_name);
                                 } ?></span>
                         </a>
                         <a href="//www.bilibili.com/html/help.html#k" target="_blank"
@@ -237,15 +244,15 @@ if (jasmine_option('jasmine_bilbil_uid')) {
         </div>
         <div class="jasmine-bilbil-btn">
             <div class="jasmine-bilbil-btn-add">
-                <a href="<?php if (!empty(jasmine_option('jasmine_bilbil'))) {
-                    echo esc_attr(jasmine_option('jasmine_bilbil'));
+                <a href="<?php if (!empty($jasmine_bilbil)) {
+                    echo $jasmine_bilbil;
                 } ?>">
                     <i class="fa fa-plus"></i>
                     <span>关注</span>
                 </a>
             </div>
             <div class="jasmine-bilbil-message">
-                <a href="<?php echo 'https://message.bilibili.com/#/whisper/mid' . esc_attr(jasmine_option('jasmine_bilbil_uid'));?>">
+                <a href="<?php echo 'https://message.bilibili.com/#/whisper/mid' . $jasmine_bilbil_uid;?>">
                     <i class="fa fa-paper-plane"></i>
                     <span>发消息</span>
                 </a>
@@ -254,7 +261,7 @@ if (jasmine_option('jasmine_bilbil_uid')) {
     </div>
 
     <div class="jasmine-bilbil-statistics">
-        <a href="<?php echo 'https://space.bilibili.com/' . esc_attr(jasmine_option('jasmine_bilbil_uid')) . '/fans/follow'; ?>" class="jasmine-bilbil-statistics-a">
+        <a href="<?php echo 'https://space.bilibili.com/' . $jasmine_bilbil_uid . '/fans/follow'; ?>" class="jasmine-bilbil-statistics-a">
             <p class="statistics-data">
                 关注数
             </p>
@@ -264,7 +271,7 @@ if (jasmine_option('jasmine_bilbil_uid')) {
                 } ?>
             </p>
         </a>
-        <a href="<?php  echo 'https://space.bilibili.com/' . esc_attr(get_option('jasmine_bilbil_uid')) . '/fans/fans'; ?>" class="jasmine-bilbil-statistics-a">
+        <a href="<?php  echo 'https://space.bilibili.com/' . $jasmine_bilbil_uid . '/fans/fans'; ?>" class="jasmine-bilbil-statistics-a">
             <p class="statistics-data">
                 粉丝数
             </p>

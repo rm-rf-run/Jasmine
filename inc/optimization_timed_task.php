@@ -10,8 +10,8 @@ function cron_add_weekly( $schedules ) {
     );
     return $schedules;
 }
-//哔哩哔哩定时任务开始
-register_activation_hook( __FILE__, 'bilbil_activation' );
+//激活Jasmine主题时添加哔哩哔哩定时任务
+add_action('after_switch_theme', 'bilbil_activation');
 
 function bilbil_activation() {
     if (! wp_next_scheduled ( 'bilbil_daily_event')) {
@@ -46,9 +46,10 @@ function do_bilbil_daily() {
     }
 }
 
-register_deactivation_hook( __FILE__, 'my_deactivation' );
+do_action( 'switch_theme', 'my_deactivation' );
 
 function my_deactivation() {
-    wp_clear_scheduled_hook( 'my_hourly_event' );
+    wp_clear_scheduled_hook( 'bilbil_daily_event' );
+    error_log("哔哩哔哩定时任务结束");
 }
 // 哔哩哔哩定时任务结束
