@@ -412,8 +412,7 @@ function jasmine_change_avatar($avatar)
             }
         } else {
             $randomAvatar = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/random/ic_avatar'.mt_rand(1,11).'.jpg';
-            $img = "<img src='{$randomAvatar}' data-src='{$randomAvatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
-            return $img;
+            return "<img src='{$randomAvatar}' data-src='{$randomAvatar}' class='avatar avatar-40 photo lazyload' width='40' height='40'  alt='qq_avatar' />";
         }
     }
 }
@@ -422,8 +421,8 @@ define('OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/');
 
 require_once dirname(__FILE__) . '/inc/options-framework.php';
 
-$optionsfile = locate_template('options.php');
-load_template($optionsfile);
+$optionsFile = locate_template('options.php');
+load_template($optionsFile);
 
 function prefix_options_menu_filter($menu)
 {

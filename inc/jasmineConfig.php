@@ -25,6 +25,8 @@ jasmineConfig.qq_api_url = "<?php echo rest_url('qqinfo'); ?>";
 jasmineConfig.cookie_version_control = "1";
 console.log("SQL  请求数：", "<?php echo get_num_queries()?>");
 console.log("页面生成耗时", "<?php echo timer_stop(0)?>");
+console.log("%c Jasmine %c", "background:#24272A; color:#ffffff", "", "https://www.prettywordpress.com");
+console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/rm-rf-run");
 /*End of Initial Variables*/
 </script>
 <?php
