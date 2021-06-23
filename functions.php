@@ -403,7 +403,9 @@ function jasmine_change_avatar($avatar)
                 // $matches[0]将包含完整模式匹配到的文本,
                 // $matches[1]将包含第一个捕获子组匹配到的文本，以此类推。
                 preg_match('/:\"([^\"]*)\"/i', $qqavatar, $matches);
-                $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($matches[1])));
+                $uploadImg = file_get_contents($matches[1]);
+                file_put_contents("./wp-content/themes/Jasmine/assets/images/IMG_tourist_".crypt($qq_number,'jasmine').".jpg",$uploadImg);
+                $gravatar = get_bloginfo('template_directory')."/assets/images/IMG_tourist_".crypt($qq_number,'jasmine').".jpg";
                 $img = '<img src="' . $gravatar . '" data-src="' . $gravatar . '" class="avatar avatar-40 photo lazyload" width="40" height="40"  alt="qq_avatar" />';
                 wp_cache_add($cacheKey, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                 return $img;
@@ -446,6 +448,7 @@ function add_bilbil_data()
          * openSSL是一个用C++写开源的SSL加密库，https=http+SSL，所有当你打开这个模块*就可以使用在URL前缀https的请求了。去掉; *注释后，重新启动Apache服务器，再访问，就不会有这个错误了。
          *
          */
+
         if ($bilbil_uid == get_option('jasmine_bilbil_uid')) {
             return;
         }
@@ -453,8 +456,13 @@ function add_bilbil_data()
         $b2 = file_get_contents("compress.zlib://https://api.bilibili.com/x/relation/stat?vmid=" . $bilbil_uid . "&jsonp=jsonp");
         $results1 = json_decode($b1, true);
         $results = json_decode($b2, true);
-        $gravatar = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($results1['data']['face'])));
-        $topPhoto = 'data:image/jpg;base64,' . chunk_split(base64_encode(file_get_contents($results1['data']['top_photo'])));
+//        $uploadImg1 = file_get_contents("compress.zlib://".$results1['data']['top_photo']);
+//        file_put_contents("./wp-content/themes/Jasmine/assets/images/IMG_topPhoto.jpg",$uploadImg1);
+//        $topPhoto = get_bloginfo('template_directory')."/assets/images/IMG_topPhoto.jpg";
+
+        $uploadImg = file_get_contents("compress.zlib://".$results1['data']['face']);
+        file_put_contents("./wp-content/themes/Jasmine/assets/images/IMG_bilbil.jpg",$uploadImg);
+        $gravatar = get_bloginfo('template_directory')."/assets/images/IMG_bilbil.jpg";
         update_option('jasmine_bilbil_uid', $bilbil_uid);
         update_option('jasmine_bilbil_following', $results['data']['following']);
         update_option('jasmine_bilbil_follower', $results['data']['follower']);
@@ -463,7 +471,7 @@ function add_bilbil_data()
         update_option('jasmine_bilbil_level', $results1['data']['level']);
         update_option('jasmine_bilbil_type', $results1['data']['vip']['type']);
         update_option('jasmine_bilbil_describe', $results1['data']['sign']);
-        update_option('jasmine_bilbil_top_photo', $topPhoto);
+//        update_option('jasmine_bilbil_top_photo', $topPhoto);
     }
 }
 
