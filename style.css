@@ -335,7 +335,7 @@ input {
 /*导航栏*/
 
 .head-nav {
-    padding-right: 19%;
+    padding-right: 17%;
     padding-left: 20%;
     background-color: #fff;
     height: 42px;
@@ -1713,6 +1713,7 @@ dl {
 .head-nav ul li:hover > a, .head-nav ul li.focus > a {
     /*background: #00bcff;*/
     color: #007bff;
+    margin-left: 10px;
 }
 
 .head-nav ul.navbar-nav li a {
@@ -1722,6 +1723,9 @@ dl {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-transition: margin-left .8s;
+    -moz-transition: margin-left .8s;
+    -o-transition: margin-left .8s;
 }
 
 .head-nav ul li a, .head-nav ul li a > * {
@@ -1746,7 +1750,6 @@ dl {
     left: 0;
     background-color: white;
     z-index: 99999;
-    border-radius: 8px;
     /* Third Level Items */
 }
 
