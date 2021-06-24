@@ -47,8 +47,8 @@ setPostViews(get_the_ID());?>
                         $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
                         echo $img_src[0];
                     } else {
-                        $id = mt_rand(1, 12);
-                        echo esc_url($image[$id]);
+                        $id = mt_rand(1, 10);
+                        echo $image[$id];
                     }
                     ?>);">
         		<h1 class="post-title">归档</h1>
