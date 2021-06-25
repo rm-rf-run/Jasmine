@@ -53,7 +53,36 @@ if (jasmine_option('jasmine_notice')) {
 }
 ?>
 
+<?php
+$qrcode = jasmine_option('jasmine_woa');
+if(!empty($qrcode)){
+    echo '<div class="jasmine-tag-cloud">
+            <span class="jasmine-item-title"><i class="fa fa-weixin"></i>    公众号</span>
+            <img style="max-width:235px" src="'.$qrcode.'"/>
+        </div>';
+}?>
+
 <div class="jasmine-tag-cloud">
     <span class="jasmine-item-title"><i class="fa fa-tags"></i>    热门标签</span>
     <?php wp_tag_cloud('smallest=12&largest=18&unit=px&number=20'); ?>
 </div>
+
+<?php $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1, $wpdb->term_taxonomy T2 WHERE T1.term_id = T2.term_id AND T2.taxonomy = 'link_category'");
+if($linkcats) : foreach($linkcats as $linkcat) :
+if("首页友链" == $linkcat->name){
+?>
+<div class="jasmine-home-friend-chain">
+    <span class="jasmine-item-title"><i class="fa fa-child"></i>    首页友链</span>
+    <?php
+    $bookmarks = get_bookmarks('orderby=rand&category_name=' . $linkcat->name);
+    if ( !empty($bookmarks) ) {
+        foreach ($bookmarks as $bookmark) {
+            $friend_link = '<a class="home-friend-link-a" target="_blank" href="' . $bookmark->link_url . '" data-toggle="tooltip" data-placement="top" title="" data-original-title="' . $bookmark->link_description . '">'.$bookmark->link_name.'</a><br>';
+            echo $friend_link;
+        }
+    }?>
+</div><?php
+}
+ endforeach; endif; ?>
+
+

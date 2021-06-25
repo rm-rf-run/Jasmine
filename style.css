@@ -2347,3 +2347,16 @@ dl {
     background-color: #000;
     top: 0;
 }
+
+.jasmine-home-friend-chain {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+}
+
+.home-friend-link-a {
+    color: black;
+    opacity: 0.8;
+    margin-left: 1em;
+}

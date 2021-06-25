@@ -31,7 +31,6 @@ setPostViews(get_the_ID()); ?>
         	<?php get_template_part('template-parts/nav/nav-post');?>
         	<div class="jasmine-post-content">
         		<div class="friend-ps"><span>友链每次随机刷新位置</span></div>
-	        	<?php if (have_posts()) : the_post(); ?><!--缺一个更新缓存-->
 	        	<?php $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1, $wpdb->term_taxonomy T2 WHERE T1.term_id = T2.term_id AND T2.taxonomy = 'link_category'");
 					if($linkcats) : foreach($linkcats as $linkcat) : ?>
 					<h3><?php echo $linkcat->name; ?></h3>
@@ -61,7 +60,6 @@ setPostViews(get_the_ID()); ?>
 						} ?>
 					</ul>
 				<?php endforeach; endif; ?>
-				<?php endif; ?>
 			</div>
 			<div class="jasmine-site-information">
 				<div class="site-information-content">

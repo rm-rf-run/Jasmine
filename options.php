@@ -218,6 +218,13 @@ function optionsframework_options()
     );
 
     $options[] = array(
+        'name' => __('公众号二维码', 'jasmine'),
+        'desc' => __('在媒体中选择公众号二维码'),
+        'id' => 'jasmine_woa',
+        'type' => 'upload',
+    );
+
+    $options[] = array(
         'name' => __('额外CSS', 'jasmine'),
         'desc' => __('duck不必加style标签', 'jasmine'),
         'id' => 'jasmine_extracss',
