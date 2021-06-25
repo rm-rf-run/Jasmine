@@ -1043,6 +1043,7 @@ dl {
     left: -275%;
     animation: all .4s;
     display: none;
+    z-index: 999;
 }
 
 .jasmine-appreciation-img ul li {
