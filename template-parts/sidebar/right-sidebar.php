@@ -54,7 +54,7 @@ if (jasmine_option('jasmine_notice')) {
 ?>
 
 <?php
-$qrcode = jasmine_option('jasmine_woa');
+$qrcode = jasmine_option('jasmine_wechat_official_account');
 if(!empty($qrcode)){
     echo '<div class="jasmine-tag-cloud">
             <span class="jasmine-item-title"><i class="fa fa-weixin"></i>    公众号</span>

@@ -220,7 +220,7 @@ function optionsframework_options()
     $options[] = array(
         'name' => __('公众号二维码', 'jasmine'),
         'desc' => __('在媒体中选择公众号二维码'),
-        'id' => 'jasmine_woa',
+        'id' => 'jasmine_wechat_official_account',
         'type' => 'upload',
     );
 
