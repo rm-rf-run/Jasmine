@@ -34,10 +34,10 @@ setPostViews( get_the_ID() );
 						<?php if ( have_posts() ): ?>
 							<?php while ( have_posts() ): the_post(); ?>
                                 <div class="jasmine-post-help">
-                        <span class="jasmine-post-help-font">
-                          <font>A+</font>
+                        <span class="jasmine-post-help-font" data-toggle="tooltip" data-placement="top" title="" data-original-title="给字体加点火力">
+                          <span>A+</span>
                         </span>
-                                    <span class="jasmine-post-help-width">
+                        <span class="jasmine-post-help-width" data-toggle="tooltip" data-placement="top" title="" data-original-title="扩展阅读视野">
                           <i class="fa fa-chevron-left" aria-hidden="true"></i>
                           <i class="fa fa-chevron-right" aria-hidden="true"></i>
                         </span>

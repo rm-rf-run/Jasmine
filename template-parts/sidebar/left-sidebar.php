@@ -299,36 +299,41 @@ if (jasmine_option('jasmine_bilbil_uid')) {
             'author__not_in' => $user_ids,
         );
         $comments = get_comments($args);
-        foreach ($comments as $comment) {
-            $cacheKey = 'left_qq_avatar_';
-            $comment_link = get_comment_link($comment->comment_ID);
-            ?>
-            <div class="jasmine-left-comment-list"><a href="<?php echo $comment_link; ?>">
-                <?php
-                $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
-                if ($qq_number) {
-                    if ($cache = wp_cache_get($cacheKey . $qq_number, 'qq_avatar')) {
-                        echo __($cache);
+        if(!empty($comments)){
+            foreach ($comments as $comment) {
+                $cacheKey = 'left_qq_avatar_';
+                $comment_link = get_comment_link($comment->comment_ID);
+                ?>
+                <div class="jasmine-left-comment-list"><a href="<?php echo $comment_link; ?>">
+                    <?php
+                    $qq_number = get_comment_meta($comment->comment_ID, 'author_qq', true);
+                    if ($qq_number) {
+                        if ($cache = wp_cache_get($cacheKey . $qq_number, 'qq_avatar')) {
+                            echo __($cache);
+                        } else {
+                            $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
+                            preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
+                            $uploadImg = file_get_contents($matches[1]);
+                            file_put_contents("./wp-content/themes/Jasmine/assets/images/IMG_tourist_".crypt($qq_number,'jasmine').".jpg",$uploadImg);
+                            $gravatar = get_bloginfo('template_directory')."/assets/images/IMG_tourist_".crypt($qq_number,'jasmine').".jpg";
+                            $img = "<img src='{$gravatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
+                            echo __($img);
+                            wp_cache_add($cacheKey . $qq_number, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
+                        }
                     } else {
-                        $qq_avatar = file_get_contents('https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . $qq_number);
-                        preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
-                        $uploadImg = file_get_contents($matches[1]);
-                        file_put_contents("./wp-content/themes/Jasmine/assets/images/IMG_tourist_".crypt($qq_number,'jasmine').".jpg",$uploadImg);
-                        $gravatar = get_bloginfo('template_directory')."/assets/images/IMG_tourist_".crypt($qq_number,'jasmine').".jpg";
-                        $img = "<img src='{$gravatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
+                        $randomAvatar = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/random/ic_avatar'.mt_rand(1,11).'.jpg';
+                        $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
                         echo __($img);
-                        wp_cache_add($cacheKey . $qq_number, $img, 'qq_avatar', 12 * HOUR_IN_SECONDS);
                     }
-                } else {
-	                $randomAvatar = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/random/ic_avatar'.mt_rand(1,11).'.jpg';
-	                $img = "<img src='{$randomAvatar}' class='avatar avatar-40 photo' width='40' height='40'  alt='qq_avatar' />";
-                    echo __($img);
-                }
-                ?></a>
-            <div class="jasmine-left-comment-item"><?php
-                echo human_time_diff(get_comment_time('U'), current_time('timestamp')) . '前，”' . $comment->comment_author . '”在' . "<a href='" . $comment_link . "'>《" . $comment->post_title . "》</a>" . "<br>";
-                echo "<span class='left-post-comment'>说：" . $comment->comment_content . "</span><br>";
-                ?></div></div><?php
-        } ?>
+                    ?></a>
+                <div class="jasmine-left-comment-item"><?php
+                    echo human_time_diff(get_comment_time('U'), current_time('timestamp')) . '前，”' . $comment->comment_author . '”在' . "<a href='" . $comment_link . "'>《" . $comment->post_title . "》</a>" . "<br>";
+                    echo "<span class='left-post-comment'>说：" . $comment->comment_content . "</span><br>";
+                    ?></div></div><?php
+            }
+        }else{
+            echo '纳尼！怎么还没有人在本站点留言(ó﹏ò｡)';
+        }
+         ?>
     </div>
 
