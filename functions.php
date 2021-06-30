@@ -796,6 +796,12 @@ function author_skill()
     echo $output;
 }
 
+//保护后台登录
+add_action('login_enqueue_scripts','login_protection');
+function login_protection(){
+    if($_GET['key'] != 'sss')header('Location: https://www.prettywordpress.com/');
+}
+
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
 //优化网站代码
