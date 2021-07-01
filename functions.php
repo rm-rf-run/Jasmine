@@ -797,10 +797,55 @@ function author_skill()
 }
 
 //保护后台登录
-add_action('login_enqueue_scripts','login_protection');
-function login_protection(){
-    if($_GET['key'] != 'sss')header('Location: https://www.prettywordpress.com/');
+//add_action('login_enqueue_scripts', 'login_protection');
+//function login_protection()
+//{
+//    if (jasmine_option('jasmine_secret_key')) {
+//        if ($_GET['secret_key'] != jasmine_option('jasmine_secret_key')) header('Location: ' . home_url());
+//    }
+//}
+
+// 新增验证码输入框
+function jasmine_login(){
+    ?>
+    <p><label for="imageCode">验证码<input type="text" name="imageCode" value="" size="20" class="input" tabindex="20" /></label></p>
+    <p>请输入下面图片上的字符，不区分大小写<br/><img src="<?php bloginfo('template_directory');?>/verification.php" /></p>
+    <?php
 }
+add_action('login_form', 'jasmine_login');
+
+
+function session_is_started() {
+    if (php_sapi_name() !== 'cli') {
+        if (version_compare(phpversion(), '5.4.0', '>=')) {
+            return session_status() === PHP_SESSION_ACTIVE;
+        } else {
+            return !(session_id() === '');
+        }
+    }
+
+    return false;
+}
+
+// 输入的时候验证验证码
+function verification_code($user, $username = '', $password = '')
+{
+    if (isset($_POST['wp-submit'])) {
+        $error = new WP_Error();
+        if (session_is_started() === false) {
+            session_start();
+        }
+        $key = "12121";
+        $keyCode = md5($key . $_POST['imageCode'] . $key);
+        if (!($keyCode == $_SESSION['verification'])) {
+            $error->add('incorrect_password', '<strong>错误</strong>：验证码不正确。');
+            return $error;
+        }
+    }
+    return $user;
+}
+add_filter( 'authenticate', 'verification_code', 30, 3 );
+add_filter('login_form_login', 'verification_code', 10, 2);
 
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';

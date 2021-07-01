@@ -546,12 +546,13 @@ function optionsframework_options()
         'type' => 'textarea',
     );
 
-    // $options[] = array(
-    //     'name' => __('Check to Show a Hidden Text Input', 'jasmine'),
-    //     'desc' => __('Click here and see what happens.', 'jasmine'),
-    //     'id'   => 'example_showhidden',
-    //     'type' => 'checkbox',
-    // );
+    $options[] = array(
+        'name' => __('保护后台wp-login.php登录地址', 'jasmine'),
+        'desc' => __('直接输入“站点地址/wp-login.php”会跳到站点首页，需要加上?secret_key=你输入的密钥，列如www.222.com/wp-login.php?secret_key=jasmine，设置之后重启即可开启。', 'jasmine'),
+        'id' => 'jasmine_secret_key',
+        'std' => '',
+        'type' => 'text',
+    );
 
     // $options[] = array(
     //     'name'  => __('Hidden Text Input', 'jasmine'),
