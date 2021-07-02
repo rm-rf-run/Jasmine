@@ -805,17 +805,55 @@ function author_skill()
 //    }
 //}
 
+/*
+ * 后台登录页
+ *
+ */
+function custom_login()
+{
+    echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/inc/css/login.css" />';
+}
+
+add_action('login_head', 'custom_login');
+
 // 新增验证码输入框
 function jasmine_login(){
     ?>
-    <p><label for="imageCode">验证码<input type="text" name="imageCode" value="" size="20" class="input" tabindex="20" /></label></p>
-    <p>请输入下面图片上的字符，不区分大小写<br/><img src="<?php bloginfo('template_directory');?>/verification.php" /></p>
+    <p>
+        <label for="imageCode">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+            <input type="text" name="imageCode" placeholder="请输入验证码" value="" size="20" class="input" tabindex="20" />
+            <img src="<?php bloginfo('template_directory');?>/verification.php" />
+        </label>
+    </p>
     <?php
 }
 add_action('login_form', 'jasmine_login');
 
+function custom_headerText($title)
+{
+    return get_bloginfo('name').'</a><div class="jasmine-login-h1-head"></div><div class="hand"></div><div class="hand hand-r"></div><div class="arms">
+							<div class="arm"></div>
+							<div class="arm arm-r"></div>
+						</div>';
+}
+add_filter('login_headertext', 'custom_headerText');
 
-function session_is_started() {
+function custom_loginlogo_url($url)
+{
+    return esc_url(home_url('/'));
+}
+add_filter('login_headerurl', 'custom_loginlogo_url');
+
+function custom_bottom(){
+    echo "<div style='text-align: center'><img src='".get_bloginfo('template_directory')."/assets/images/running_dog.gif'/></div>";
+}
+
+add_action('login_footer','custom_bottom');
+
+
+function session_is_started(): bool
+{
     if (php_sapi_name() !== 'cli') {
         if (version_compare(phpversion(), '5.4.0', '>=')) {
             return session_status() === PHP_SESSION_ACTIVE;
@@ -835,6 +873,14 @@ function verification_code($user, $username = '', $password = '')
         if (session_is_started() === false) {
             session_start();
         }
+        if (empty($_POST['imageCode'])) {
+            $error->add('incorrect_password', '<strong>错误</strong>：请输入验证码。');
+            return $error;
+        }
+        if ($_SESSION['expire_time'] < time()) {
+            $error->add('incorrect_password', '<strong>错误</strong>：验证码已过期，请刷新页面重试。');
+            return $error;
+        }
         $key = "12121";
         $keyCode = md5($key . $_POST['imageCode'] . $key);
         if (!($keyCode == $_SESSION['verification'])) {
@@ -846,6 +892,9 @@ function verification_code($user, $username = '', $password = '')
 }
 add_filter( 'authenticate', 'verification_code', 30, 3 );
 add_filter('login_form_login', 'verification_code', 10, 2);
+/*
+ * 登录页end
+ */
 
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
