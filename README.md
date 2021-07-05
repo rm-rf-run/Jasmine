@@ -2,9 +2,17 @@
 
 ![Jasmine](https://cdn.jsdelivr.net/gh/rm-rf-run/cdn/img/github-jasmine.png)
 
+使用bootstrap制作的响应式模板，使用各种骚样式，上手简单，参数配置化，使用最少的代码做最多的事情。
+
 # 还在持续优化，README.md后续在发布第一个包之后更新。:relaxed:
 
-使用bootstrap制作的wordpress模板<br>
+# 安装
+Jasmine需要PHP7.0.1或更高版本，默认你已经搭建好了运行环境。
+Windows本地搭建使用环境(https://www.bilibili.com/video/BV1wv411z7un)
+```
+git clone https://github.com/rm-rf-run/Jasmine.git
+```
+
 * assets文件夹主要放CSS、js、图片、图标等静态资源，inc文件夹放自己的PHP代码（供在function文件里调用，这样能减小function文件的大小）
 - 主题特征：
 	* 评论支持Markdown语法
