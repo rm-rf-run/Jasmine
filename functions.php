@@ -821,10 +821,10 @@ function jasmine_login(){
     ?>
     <p>
         <label for="imageCode">
-            <i class="fa fa-bell-o" aria-hidden="true"></i>
-            <input type="text" name="imageCode" placeholder="请输入验证码" value="" size="20" class="input" tabindex="20" />
-            <img src="<?php bloginfo('template_directory');?>/verification.php" />
+            <span>验证码</span>
+            <input type="text" name="imageCode" value="" size="20" class="input" tabindex="20" />
         </label>
+        <img src="<?php bloginfo('template_directory');?>/verification.php" style="vertical-align: middle;padding-left: 50px;" />
     </p>
     <?php
 }
@@ -832,10 +832,7 @@ add_action('login_form', 'jasmine_login');
 
 function custom_headerText($title)
 {
-    return get_bloginfo('name').'</a><div class="jasmine-login-h1-head"></div><div class="hand"></div><div class="hand hand-r"></div><div class="arms">
-							<div class="arm"></div>
-							<div class="arm arm-r"></div>
-						</div>';
+    return get_bloginfo('name');
 }
 add_filter('login_headertext', 'custom_headerText');
 
@@ -916,5 +913,5 @@ require get_template_directory() . '/inc/optimization_timed_task.php';
 
 // $example_update_checker = new ThemeUpdateChecker(
 //     'Jasmine',
-//     'http://yigujin.cn/ info.json '
+//     'https://www.prettywordpress.com// info.json '
 // );

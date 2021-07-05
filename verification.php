@@ -19,7 +19,7 @@ $str = random(4);
 $width = 50;
 
 //验证码图片的高度
-$height = 25;
+$height = 32;
 
 //声明需要创建的图层的图片格式
 @ header("Content-Type:image/png");

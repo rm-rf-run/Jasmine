@@ -1,3 +1,10 @@
+.login{
+    background-image:url(../../assets/images/login-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .login form{
     margin-top:0px;
 }
@@ -29,5 +36,27 @@
 }
 
 #login h1 a {
+    margin: auto;
     background-image:url(../../assets/images/jasmine-logo.jpg);
+}
+
+.login form{
+    background-image:url(../../assets/images/login-form-bg.jpg);
+    box-shadow:none;
+    border: none;
+}
+
+#login{
+    opacity: 0.8;
+    background-image:url(../../assets/images/login-form-bg.jpg);
+    border: 1px solid #ccc;
+    width: 400px;
+    margin: 150px auto 0;
+    padding: 10px 10px 20px 10px;
+    border-radius: 3px;
+    box-shadow: 0 4px 10px -1px rgba(200, 200, 200, 0.7);
+}
+
+body.login div#login form#loginform input {
+    font-size: 15px;
 }

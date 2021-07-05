@@ -29,6 +29,9 @@
 <script type="text/javascript" id="support" src="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/js/support.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/js/customized.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/js/mobile-customized.js"></script>
+<?php if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) { ?>
+    <script type='text/javascript' src='/wp-includes/js/comment-reply.min.js'></script>
+<?php } ?>
 <?php wp_footer(); ?>
 </body>
 </html>
