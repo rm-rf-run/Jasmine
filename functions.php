@@ -797,13 +797,13 @@ function author_skill()
 }
 
 //保护后台登录
-//add_action('login_enqueue_scripts', 'login_protection');
-//function login_protection()
-//{
-//    if (jasmine_option('jasmine_secret_key')) {
-//        if ($_GET['secret_key'] != jasmine_option('jasmine_secret_key')) header('Location: ' . home_url());
-//    }
-//}
+add_action('login_enqueue_scripts', 'login_protection');
+function login_protection()
+{
+    if (jasmine_option('jasmine_secret_key') && jasmine_option('jasmine_secret_parameter')) {
+        if ($_GET[jasmine_option('jasmine_secret_parameter')] != jasmine_option('jasmine_secret_key')) header('Location: ' . home_url());
+    }
+}
 
 /*
  * 后台登录页

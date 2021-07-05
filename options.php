@@ -548,7 +548,15 @@ function optionsframework_options()
 
     $options[] = array(
         'name' => __('保护后台wp-login.php登录地址', 'jasmine'),
-        'desc' => __('直接输入“站点地址/wp-login.php”会跳到站点首页，需要加上?secret_key=你输入的密钥，列如www.222.com/wp-login.php?secret_key=jasmine，设置之后重启即可开启。', 'jasmine'),
+        'desc' => __('额外的请求参数，与下面的密钥配合使用，两个参数不为空才能开启。注意规避一些关键单词。', 'jasmine'),
+        'id' => 'jasmine_secret_parameter',
+        'std' => '',
+        'type' => 'text',
+    );
+
+    $options[] = array(
+        'name' => __('保护后台wp-login.php登录地址', 'jasmine'),
+        'desc' => __('默认为空，输入秘钥后开启登录保护。直接输入“站点地址/wp-login.php”会跳到站点首页，需要加上?请求参数=你输入的密钥，列如www.222.com/wp-login.php?secret_key=jasmine，设置之后即可开启。', 'jasmine'),
         'id' => 'jasmine_secret_key',
         'std' => '',
         'type' => 'text',
