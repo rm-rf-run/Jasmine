@@ -21,3 +21,4 @@
 1. 使用file_get_contents需要在php.ini将extension=php_openssl.dll前面的;去掉
 2. 如果使用的有古登堡编辑器，请将在inc/optimization-speed下的add_filter('use_block_editor_for_post_type', '___return_false', 10);方法注释
 3. 开启Markdown语法需要在后台设置,讨论下勾选开启
+4. 首页展示友链需要建立一个名为**首页友链**的链接分类，将需要展示的链接添加到该分类下即可在右边栏展示
