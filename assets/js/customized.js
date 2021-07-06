@@ -326,6 +326,7 @@
             contentDisplay();
             initOwO();
             lazyload();
+            hljs.highlightAll();
         })
         //还原文章样式
         $(document).on('pjax:click', function () {
@@ -415,5 +416,6 @@
 
         initOwO();
         lazyload();
+        hljs.highlightAll();
     })
 })(jQuery);
