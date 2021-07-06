@@ -327,6 +327,7 @@
             initOwO();
             lazyload();
             hljs.highlightAll();
+            loadFancybox();
         })
         //还原文章样式
         $(document).on('pjax:click', function () {
@@ -413,9 +414,17 @@
                 });
             }
         }
+        // fancybox
+        function loadFancybox(){
+            $("#jasmine-post-main img").each(function () {
+                var strA = `<a href='${this.src}' data-fancybox='gallery'></a>`;
+                $(this).wrapAll(strA);
+            });
+        }
 
         initOwO();
         lazyload();
         hljs.highlightAll();
+        loadFancybox();
     })
 })(jQuery);
