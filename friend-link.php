@@ -32,7 +32,8 @@ setPostViews(get_the_ID()); ?>
         	<div class="jasmine-post-content">
         		<div class="friend-ps"><span>友链每次随机刷新位置</span></div>
 	        	<?php $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1, $wpdb->term_taxonomy T2 WHERE T1.term_id = T2.term_id AND T2.taxonomy = 'link_category'");
-					if($linkcats) : foreach($linkcats as $linkcat) : ?>
+					if($linkcats) : foreach($linkcats as $linkcat) :
+                        if("首页友链" != $linkcat->name){?>
 					<h3><?php echo $linkcat->name; ?></h3>
 					<div class="jasmine-division">
 						<div class="jasmine-division-center" >
@@ -57,7 +58,7 @@ setPostViews(get_the_ID()); ?>
 					        		</li>
 								<?php
 							}
-						} ?>
+						}}?>
 					</ul>
 				<?php endforeach; endif; ?>
 			</div>
