@@ -58,7 +58,7 @@ $qrcode = jasmine_option('jasmine_wechat_official_account');
 if(!empty($qrcode)){
     echo '<div class="jasmine-tag-cloud">
             <span class="jasmine-item-title"><i class="fa fa-weixin"></i>    公众号</span>
-            <img style="max-width:235px" src="'.$qrcode.'"/>
+            <img style="width: 100%;" src="'.$qrcode.'"/>
         </div>';
 }?>
 
