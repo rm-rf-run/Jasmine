@@ -982,9 +982,17 @@ dl {
     color: #007bff;
 }
 
+#jasmine-post-main {
+    color: #4d4d4d;
+    font-weight: 400;
+    line-height: 26px;
+    font-family: fantasy;
+}
+
 #jasmine-post-main img {
     height: 100%;
     width: 100%;
+    margin: 24px 0;
 }
 
 .jasmine-post-content {

@@ -849,7 +849,7 @@ function custom_bottom(){
 add_action('login_footer','custom_bottom');
 
 
-function session_is_started(): bool
+function session_is_started()
 {
     if (php_sapi_name() !== 'cli') {
         if (version_compare(phpversion(), '5.4.0', '>=')) {
