@@ -893,6 +893,32 @@ add_filter('login_form_login', 'verification_code', 10, 2);
  * 登录页end
  */
 
+//输出WordPress表情
+add_action('media_buttons', 'jasmine_smilies_custom_button');
+function jasmine_smilies_custom_button()
+{
+    $context = '';
+    $context .= '<link rel="stylesheet" href="'.get_bloginfo('template_url').'/inc/css/owo.css">';
+    $context .= '<div class="OwO" style="float: right"></div>';
+    $context .='<script type="text/javascript" id="support" src="'.get_bloginfo('template_url').'/inc/js/owo.js"></script>';
+    $context .="<script>function initOwO() {
+            let owo = document.getElementsByClassName('OwO')[0];
+            if (undefined != owo) {
+                let s = new OwO({
+                    logo: '添加表情',
+                    container: owo,  //获取表情标签
+                    position: 'down',
+                    width: '500px',
+                    maxHeight: '210px',
+                    api: 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/OwO/OwO.min.json'
+                });
+            }
+        }initOwO();</script>";
+    echo $context;
+}
+
+add_filter('the_content', 'comment_add_owo', 20, 2);
+
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
 //优化网站代码

@@ -403,7 +403,7 @@
         function initOwO() {
             let owo = document.getElementsByClassName('OwO')[0];
             if (undefined != owo) {
-                var s = new OwO({
+                let s = new OwO({
                     logo: 'OωO表情',
                     container: owo,  //获取表情标签
                     target: document.getElementsByClassName('OwO-textarea')[0], //获取评论输入区
@@ -417,8 +417,10 @@
         // fancybox
         function loadFancybox(){
             $("#jasmine-post-main img").each(function () {
-                var strA = `<a href='${this.src}' data-fancybox='gallery'></a>`;
-                $(this).wrapAll(strA);
+                if(!$(this).hasClass("not-fancybox")){
+                    let strA = `<a href='${this.src}' data-fancybox='gallery'></a>`;
+                    $(this).wrapAll(strA);
+                }
             });
         }
 

@@ -1,4 +1,6 @@
 <?php
+//WordPress禁用XML-RPC接口服务 防止爆破获取密码
+add_filter('xmlrpc_enabled', '__return_false');
 // 优化代码
 //去除头部冗余代码
 remove_action('wp_head', 'feed_links_extra', 3);
@@ -6,7 +8,6 @@ remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'index_rel_link');
 remove_action('wp_head', 'start_post_rel_link', 10, 0);
-remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'wp_generator'); //隐藏wordpress版本
 remove_filter('the_content', 'wptexturize'); //取消标点符号转义
 

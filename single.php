@@ -125,6 +125,16 @@ setPostViews( get_the_ID() );
                             </a>
                         </div>
                     </div>
+                    <div class="jasmine-single-like">
+                        <span class="post-like shuoshuo-span">
+                            <a href="javascript:;" data-action="jasmine_like" data-id="<?php the_ID(); ?>" class="like<?php if(isset($_COOKIE['jasmine_like_'.$post->ID])) echo ' have-like';?>">
+                              <span class="like-count">
+                                <i class="fa fa-thumbs-o-up"></i> 点赞
+                                <?php if( get_post_meta($post->ID,'jasmine_like',true) ){ echo get_post_meta($post->ID,'jasmine_like',true); } else { echo '0'; }?>
+                              </span>
+                            </a>
+                        </span>
+                    </div>
 					<?php
 					// 如果评论是开放的或者我们至少有一个评论，加载评论模板。
 					if ( comments_open() || get_comments_number() ) :
@@ -162,11 +172,6 @@ setPostViews( get_the_ID() );
                 <!--右边栏-->
                 <div class="col-md-3 column" id="hide-column">
 					<?php get_template_part( 'template-parts/sidebar/right-sidebar' ); ?>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-
                 </div>
             </div>
         </div>

@@ -995,6 +995,12 @@ dl {
     margin: 24px 0;
 }
 
+#jasmine-post-main .not-fancybox{
+    margin: 0;
+    height: auto !important;
+    width: auto !important;
+}
+
 .jasmine-post-content {
     background: #fff;
     border-radius: 4px;
@@ -2367,4 +2373,15 @@ dl {
     color: black;
     opacity: 0.8;
     margin-left: 1em;
+}
+
+.jasmine-single-like {
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+    padding: 8px;
+}
+
+.jasmine-single-like a {
+    color: black;
 }
