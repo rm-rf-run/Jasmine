@@ -2198,7 +2198,7 @@ dl {
 
 .catalog {
     top: 200px;
-    left: 50px;
+    right: 50px;
     position: fixed !important;
     background: white;
     padding: 10px;

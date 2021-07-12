@@ -919,6 +919,14 @@ function jasmine_smilies_custom_button()
 
 add_filter('the_content', 'comment_add_owo', 20, 2);
 
+// 上传图片重命名,日期+随机数字的方式
+function rename_upload_img($file) {
+    $time=date("Y-m-d H:i:s");
+    $file['name'] = $time."".mt_rand(100,999).".".pathinfo($file['name'] , PATHINFO_EXTENSION);
+    return $file;
+}
+add_filter('wp_handle_upload_prefilter', 'rename_upload_img');
+
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
 //优化网站代码
