@@ -110,6 +110,13 @@ function optionsframework_options()
         'type' => 'text');
 
     $options[] = array(
+        'name' => __('站点图标', 'jasmine'),
+        'desc' => __('站点图标是您会在浏览器标签、收藏夹和WordPress移动应用中看到的图标,站点图标必须为方形，且宽高至少512 × 512像素。', 'jasmine'),
+        'id' => 'site_icon',
+        'std' => '',
+        'type' => 'upload');
+
+    $options[] = array(
         'name' => __('作者', 'jasmine'),
         'desc' => __('rm-rf-run', 'jasmine'),
         'id' => 'author_name',

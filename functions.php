@@ -927,6 +927,18 @@ function rename_upload_img($file) {
 }
 add_filter('wp_handle_upload_prefilter', 'rename_upload_img');
 
+// 设置站点图标
+function custom_icon_url($url, $size, $blog_id)
+{
+    $site_icon_url = jasmine_option('site_icon');
+    if ($site_icon_url) {
+        $url = jasmine_option('site_icon');
+    }
+    return $url;
+}
+
+add_filter('get_site_icon_url', 'custom_icon_url', 10, 3);
+
 //用户自定义头像功能
 require get_template_directory() . '/inc/author-avatars.php';
 //优化网站代码
