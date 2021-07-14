@@ -110,7 +110,7 @@ function popular_posts($posts_num = 5, $before = '<li>', $after = '</li>')
         echo $cache;
     } else {
         global $wpdb;
-        $sql = "SELECT t1.ID, t1.post_title, t1.guid, t2.meta_value as postView
+        $sql = "SELECT DISTINCT t1.ID, t1.post_title, t1.guid, t2.meta_value as postView
             FROM $wpdb->posts t1 left join $wpdb->postmeta t2 on t1.id = t2.post_id and t2.`meta_key`='post_views_count'
             WHERE post_status = 'publish' ";
         $sql .= "AND t1.post_title != '' ";
@@ -120,16 +120,10 @@ function popular_posts($posts_num = 5, $before = '<li>', $after = '</li>')
         $output = '';
         foreach ($popularPosts as $popularPost) {
             $post_title = stripslashes($popularPost->post_title);
-            $length = mb_strlen($post_title, 'utf-8');
-            if ($length >= 10) {
-                $post_title_short = mb_substr($post_title, 0, 10, 'utf-8') . "...";
-            } else {
-                $post_title_short = $post_title;
-            }
             $permalink = get_permalink($popularPost->ID);
             $output .= $before . '<a href="'
                 . $permalink . '"  rel="bookmark" title="';
-            $output .= $post_title . '">' . $post_title_short . '<i class="fa fa-fire popular-posts" aria-hidden="true"></i><span class="popular-posts-view">' . $popularPost->postView . '</span>' . '</a>';
+            $output .= $post_title . '">' . $post_title . '<i class="fa fa-fire popular-posts" aria-hidden="true"></i><span class="popular-posts-view">' . $popularPost->postView . '</span>' . '</a>';
             $output .= $after;
         }
         echo $output;
