@@ -2203,6 +2203,13 @@ dl {
     margin-left: 54px;
 }
 
+.shuoshuo-content .not-fancybox {
+    margin: 0;
+    float: none;
+    height: auto !important;
+    width: auto !important;
+}
+
 .shuoshuo-content a {
     color: #eb7350;
 }
