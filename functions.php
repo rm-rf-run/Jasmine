@@ -47,20 +47,6 @@ function sonliss_menu_link_atts($atts, $item, $args)
 
 add_filter('nav_menu_link_attributes', 'sonliss_menu_link_atts', 10, 3);
 
-// add_filter( 'avatar_defaults', 'newgravatar' );
-
-/**
- * 自定义头像
- * @param $avatar_defaults
- * @return mixed
- */
-function newgravatar($avatar_defaults)
-{
-    $myavatar = get_bloginfo('template_directory') . '/assets/images/gravatar.jpg';
-    $avatar_defaults[$myavatar] = "Jasmine默认头像";
-    return $avatar_defaults;
-}
-
 /**
  * 说明：直接去掉函数 comment_class() 和 body_class() 中输出的 "comment-author-" 和 "author-"
  *
