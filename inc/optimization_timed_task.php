@@ -37,7 +37,7 @@ function do_bilbil_daily() {
     }
 }
 
-do_action( 'switch_theme', 'my_deactivation' );
+do_action( 'load-themes.php', 'my_deactivation' );
 
 function my_deactivation() {
     error_log("哔哩哔哩定时任务结束");
