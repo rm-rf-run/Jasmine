@@ -2284,10 +2284,11 @@ dl {
 }
 
 .catalog {
-    top: 200px;
+    top: 300px;
     right: 50px;
-    position: fixed !important;
-    background: white;
+    width: 220px;
+    position: fixed!important;
+    background: #fff;
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 8px;
