@@ -36,12 +36,9 @@ setPostViews(get_the_ID());?>
                     $image[2] = "https://api.ixiaowai.cn/api/api.php";
                     $image[3] = "https://api.btstu.cn/sjbz/?lx=dongman";
                     $image[4] = "https://api.btstu.cn/sjbz/?lx=suiji";
-                    $image[5] = "https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302";
-                    $image[6] = "https://api.ixiaowai.cn/gqapi/gqapi.php";
-                    $image[7] = "https://random.52ecy.cn/randbg.php";
-                    $image[8] = "https://www.dmoe.cc/random.php";
-                    $image[9] = "https://img.paulzzh.tech/touhou/random";
-                    $image[10] = "https://api.ixiaowai.cn/api/api.php";
+                    $image[5] = "https://www.dmoe.cc/random.php";
+                    $image[6] = "https://img.paulzzh.tech/touhou/random";
+                    $image[7] = "https://api.ixiaowai.cn/api/api.php";
                     if (has_post_thumbnail()) {
                         //当前日志有缩略图
                         $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
