@@ -1081,6 +1081,10 @@ dl {
     width: auto !important;
 }
 
+#jasmine-post-main ul,ol {
+    padding-left: 20px;
+}
+
 .jasmine-post-content {
     background: #fff;
     border-radius: 4px;
