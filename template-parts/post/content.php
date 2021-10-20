@@ -40,8 +40,7 @@
             if (post_password_required()) {
                 echo _e('文章已加密','jasmine');
             } else {
-                $excerpt = $post->post_excerpt;
-                echo strlen($excerpt)>30?mb_substr($excerpt,0,30,'utf-8').'...':$excerpt;
+                echo get_the_excerpt();
             }
             ?>
         </p>
