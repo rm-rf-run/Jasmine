@@ -8,6 +8,9 @@ const OwO_bili = 'https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/inc/OwO/bili';
 
 function comment_add_owo($comment_text)
 {
+    if ($cache = wp_cache_get('imgDataCache')) {
+        return strtr($comment_text, $cache);
+    }
     $smiles_path = OwO_bili . "/";
     $return_smiles = array();
     $biliname = array('baiyan', 'fadai', 'koubi', 'qinqin', 'weiqu', 'bishi', 'fanu', 'kun', 'se', 'weixiao', 'bizui', 'ganga', 'lengmo', 'shengbing', 'wunai', 'chan', 'guilian', 'liubixue', 'shengqi', 'xiaoku', 'daku', 'guzhang', 'liuhan', 'shuizhao', 'xieyanxiao', 'dalao', 'haixiu', 'liulei', 'sikao', 'yiwen', 'dalian', 'heirenwenhao', 'miantian', 'tiaokan', 'yun', 'dianzan', 'huaixiao', 'mudengkoudai', 'tiaopi', 'zaijian', 'doge', 'jingxia', 'nanguo', 'touxiao', 'zhoumei', 'facai', 'keai', 'outu', 'tuxue', 'zhuakuang');
@@ -157,6 +160,11 @@ function comment_add_owo($comment_text)
         '@[OK]'   => '<img src="' . OwO_paopao . '/OK.png" alt="OK" style="vertical-align: middle;" class="not-fancybox">',
         '@[what]' => '<img src="' . OwO_paopao . '/what.png" alt="what" style="vertical-align: middle;" class="not-fancybox">',
     );
-    return strtr($comment_text, array_merge($data_OwO,$return_smiles));
+
+    $imgData = array_merge($data_OwO,$return_smiles);
+    // 不设置过期时间,如果新增了表情记得执行清除缓存 wp_cache_delete('imgDataCache');
+    wp_cache_add('imgDataCache', $imgData);
+    return strtr($comment_text, $imgData);
+
 }
 add_filter('comment_text', 'comment_add_owo', 20, 2);

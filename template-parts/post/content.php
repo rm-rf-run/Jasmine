@@ -24,7 +24,7 @@
         $image = explode(",", jasmine_option("jasmine_post_api"));
         if (has_post_thumbnail()) {
             //当前日志有缩略图
-            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
+            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id(), "Full");
             echo $img_src[0];
         } else {
             $i = get_query_var('i');//获取传过来的i
@@ -40,7 +40,8 @@
             if (post_password_required()) {
                 echo _e('文章已加密','jasmine');
             } else {
-                echo get_the_excerpt();
+                $excerpt = $post->post_excerpt;
+                echo strlen($excerpt)>30?mb_substr($excerpt,0,30,'utf-8').'...':$excerpt;
             }
             ?>
         </p>
@@ -58,8 +59,8 @@
                   </span>
             <span class="jasmine-content-foot">
                     <i class="fa fa-thumbs-o-up"></i>
-                  <?php if (get_post_meta($post->ID, 'jasmine_like', true)) {
-                      echo get_post_meta($post->ID, 'jasmine_like', true);
+                  <?php if (get_post_meta(the_ID(), 'jasmine_like', true)) {
+                      echo get_post_meta(the_ID(), 'jasmine_like', true);
                   } else {
                       echo '0';
                   } ?>

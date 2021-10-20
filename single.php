@@ -85,7 +85,7 @@ setPostViews( get_the_ID() );
 				                最后编辑：<?php the_modified_time( 'Y年n月j日' ); ?>
 				              </span>
                                 </p>
-                                <div id="jasmine-post-main"><?php the_content() ?></div>
+                                <div id="jasmine-post-main"><?php the_content(); ?></div>
 							<?php endwhile; ?>
 						<?php endif; ?>
                         <div class="jasmine-appreciation">

@@ -896,7 +896,7 @@ function jasmine_smilies_custom_button()
         }initOwO();</script>";
     echo $context;
 }
-
+// 文章中可以使用表情，但是加载耗时，已经启用缓存
 add_filter('the_content', 'comment_add_owo', 20, 2);
 
 // 上传图片重命名,日期+随机数字的方式

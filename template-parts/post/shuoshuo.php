@@ -29,7 +29,15 @@ if (has_post_thumbnail()) {
     echo esc_url($image[$i]);
 }?>);"></div>
 	<div class="shuoshuo-main">
-		<?php echo get_avatar(get_the_author_meta('ID'), 48); ?>
+        <?php
+        if ($cache = wp_cache_get('shuoshuo_avatar_admin_email')) {
+            echo __($cache);
+        }else{
+            $img = get_simple_local_avatar(get_bloginfo('admin_email'),48);
+            echo $img;
+            wp_cache_add('shuoshuo_avatar_admin_email', $img, 12 * HOUR_IN_SECONDS);
+        }
+        ?>
 		<span class="shuoshuo-author" style="margin-left: 6px;">
 			<?php echo the_author_posts_link(); ?>
 			<i class="fa fa-certificate" style="color: #ffba50!important" aria-hidden="true"></i>

@@ -33,4 +33,4 @@ console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://gi
 // 打印sql
 // global $wpdb; "<pre>".print_r($wpdb->queries)."</pre>";
 }
-add_action('wp_head', 'font_end_js_control');
+add_action('wp_footer', 'font_end_js_control');
