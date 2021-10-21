@@ -32,3 +32,4 @@ git clone https://github.com/rm-rf-run/Jasmine.git
 3. 如果使用的有古登堡编辑器，请将在inc/optimization-speed下的add_filter('use_block_editor_for_post_type', '___return_false', 10);方法注释
 4. 开启Markdown语法需要在后台设置,讨论下勾选开启
 5. 首页展示友链需要建立一个名为**首页友链**的链接分类，将需要展示的链接添加到该分类下即可在右边栏展示
+6. 首页和归档的图片api不能保证都能一直使用的哟
