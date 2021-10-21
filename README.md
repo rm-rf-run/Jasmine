@@ -1,3 +1,4 @@
+[![](https://data.jsdelivr.com/v1/package/gh/rm-rf-run/jasmine/badge)](https://www.jsdelivr.com/package/gh/rm-rf-run/jasmine)
 # Jasmine：一个wordpress主题:smile:
 
 ![Jasmine](https://cdn.jsdelivr.net/gh/rm-rf-run/cdn/img/github-jasmine.png)
