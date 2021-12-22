@@ -2477,24 +2477,24 @@ dl {
 .jasmine-single-like a {
     color: black;
 }
-.jasmine-post-main table {
+#jasmine-post-main table {
   display: block;
   width: 100%;
   overflow: auto;
 }
-.jasmine-post-main table th {
+#jasmine-post-main table th {
   font-weight: 600;
   padding: 6px 13px;
   border: 1px solid #dfe2e5;
 }
-.jasmine-post-main table td {
+#jasmine-post-main table td {
   padding: 6px 13px;
   border: 1px solid #dfe2e5;
 }
-.jasmine-post-main table tr {
+#jasmine-post-main table tr {
   background-color: #fff;
   border-top: 1px solid #c6cbd1;
 }
-.jasmine-post-main table tr:nth-child(2n) {
+#jasmine-post-main table tr:nth-child(2n) {
   background-color: #f6f8fa;
 }
