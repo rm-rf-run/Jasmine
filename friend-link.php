@@ -27,7 +27,7 @@ setPostViews(get_the_ID()); ?>
           <?php get_template_part('template-parts/sidebar/left-sidebar');?>
         </div>
         <!--中间栏-->
-        <div class="col-md-6 column" id="pjax-container">
+        <div class="col-md-6 column">
         	<?php get_template_part('template-parts/nav/nav-post');?>
         	<div class="jasmine-post-content">
         		<div class="friend-ps"><span>友链每次随机刷新位置</span></div>
