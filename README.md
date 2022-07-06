@@ -28,7 +28,7 @@ git clone https://github.com/rm-rf-run/Jasmine.git
 	 overflow: hidden;
 
 **注意事项：**
-1. 使用本主题请将主题名称改为Jasmine,zip下载的名称为Jasmine-master,需要更改为Jasmine
+1. 使用本主题请将主题名称改为Jasmine,zip下载的名称为Jasmine-master、release下载的名称为Jasmin-版本号，需要更改为Jasmine
 2. 使用file_get_contents需要在php.ini将extension=php_openssl.dll前面的;去掉
 3. 如果使用的有古登堡编辑器，请将在inc/optimization-speed下的add_filter('use_block_editor_for_post_type', '___return_false', 10);方法注释
 4. 开启Markdown语法需要在后台设置,讨论下勾选开启
