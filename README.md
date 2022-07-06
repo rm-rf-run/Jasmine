@@ -3,7 +3,7 @@
 
 ![Jasmine](https://cdn.jsdelivr.net/gh/rm-rf-run/cdn/img/github-jasmine.png)
 
-使用bootstrap制作的响应式模板，使用各种骚样式，上手简单，参数配置化，使用最少的代码做最多的事情。
+使用bootstrap制作的响应式模板，使用各种骚样式，上手简单，参数配置化，使用最少的代码做最多的事情。 
 
 # 还在持续优化，README.md后续在发布第一个包之后更新。:relaxed:
 
