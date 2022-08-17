@@ -2063,6 +2063,24 @@ dl {
     }
 }
 
+.jasmine-post-help {
+    width: 100%;
+    height: 50px;
+}
+
+.jasmine-post-help-font {
+    float: left;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.jasmine-post-help-width {
+    float: right;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
 #jasmine-pc-menu #searchform {
     position: relative;
     margin: 5px 10px;

@@ -28,11 +28,20 @@ setPostViews( get_the_ID() );
 					<?php get_template_part( 'template-parts/sidebar/left-sidebar' ); ?>
                 </div>
                 <!--中间栏-->
-                <div class="col-md-9 column">
+                <div class="col-md-6 column" id="pjax-container">
 					<?php get_template_part( 'template-parts/nav/nav-post' ); ?>
                     <div class="jasmine-post-content">
 						<?php if ( have_posts() ): ?>
 							<?php while ( have_posts() ): the_post(); ?>
+                                <div class="jasmine-post-help">
+                        <span class="jasmine-post-help-font" data-toggle="tooltip" data-placement="top" title="" data-original-title="给字体加点火力">
+                          <span>A+</span>
+                        </span>
+                        <span class="jasmine-post-help-width" data-toggle="tooltip" data-placement="top" title="" data-original-title="扩展阅读视野">
+                          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </span>
+                                </div>
                                 <h1 class="jasmine-post-h1"><?php the_title() ?></h1>
                                 <div class="post-meta-info">
                                     <div class="author-img">
@@ -159,6 +168,10 @@ setPostViews( get_the_ID() );
                         </div>
                     </div>
                     <!--toc end-->
+                </div>
+                <!--右边栏-->
+                <div class="col-md-3 column" id="hide-column">
+					<?php get_template_part( 'template-parts/sidebar/right-sidebar' ); ?>
                 </div>
             </div>
         </div>

@@ -40,7 +40,7 @@
             if (post_password_required()) {
                 echo _e('文章已加密','jasmine');
             } else {
-                echo mb_substr(get_the_excerpt(), 0, 30).'...';
+                echo get_the_excerpt();
             }
             ?>
         </p>

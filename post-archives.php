@@ -27,7 +27,7 @@ setPostViews(get_the_ID());?>
           <?php get_template_part('template-parts/sidebar/left-sidebar');?>
         </div>
         <!--中间栏-->
-        <div class="col-md-6 column">
+        <div class="col-md-6 column" id="pjax-container"> 
         <!--导航栏-->
         <?php get_template_part('template-parts/nav/nav-post');?>
         <div class="jasmine-post-archives">
