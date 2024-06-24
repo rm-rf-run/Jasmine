@@ -152,32 +152,12 @@ if (jasmine_option('jasmine_lovedate')) {
     ?>
     <div class="jasmine-love">
         <?php
-        $cacheKeyHe = 'qq_love'.jasmine_option('jasmine_qq_he');
-        if ($cache = wp_cache_get($cacheKeyHe, 'qq_avatar')) {
-            echo __($cache);
-        } else {
-            $qq_avatar = file_get_contents('compress.zlib://https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_he'));
-            preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
-            $uploadImg = file_get_contents($matches[1]);
-            file_put_contents("./wp-content/themes/Jasmine/assets/images/IMG_boy.jpg",$uploadImg);
-            $gravatar = get_bloginfo('template_directory')."/assets/images/IMG_boy.jpg";
+            $gravatar = 'https://q1.qlogo.cn/g?b=qq&s=100&nk=' . jasmine_option('jasmine_qq_he');
             $imgHe = "<img src='{$gravatar}' class='jasmine-love-me'/><i class='fa fa-heart'></i>";
             echo __($imgHe);
-            wp_cache_add($cacheKeyHe, $imgHe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
-        }
-        $cacheKeyShe = 'qq_love'.jasmine_option('jasmine_qq_she');
-        if ($cacshe = wp_cache_get($cacheKeyShe, 'qq_avatar')) {
-            echo __($cacshe);
-        } else {
-            $qq_avatar = file_get_contents('compress.zlib://https://ptlogin2.qq.com/getface?appid=1006102&imgtype=3&uin=' . jasmine_option('jasmine_qq_she'));
-            preg_match('/:\"([^\"]*)\"/i', $qq_avatar, $matches);
-            $uploadImg = file_get_contents($matches[1]);
-            file_put_contents("./wp-content/themes/Jasmine/assets/images/IMG_girl.jpg",$uploadImg);
-            $gravatar = get_bloginfo('template_directory')."/assets/images/IMG_girl.jpg";
+   			$gravatar = 'https://q1.qlogo.cn/g?b=qq&s=100&nk=' . jasmine_option('jasmine_qq_she');
             $imgShe = "<img src='{$gravatar}' class='jasmine-love-she'/>";
             echo __($imgShe);
-            wp_cache_add($cacheKeyShe, $imgShe, 'qq_avatar', 12 * HOUR_IN_SECONDS);
-        }
         ?>
         <br/>
         <span id="love_time"></span>
