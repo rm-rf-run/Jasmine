@@ -20,41 +20,41 @@ Use it to make something cool, have fun, and share what you've learned with othe
 * {
     margin: 0px;
     padding: 0px;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
 
 body {
     background-attachment: fixed;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
 
 a:hover {
     text-decoration: none;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 p, span, h1, h2, h3, h3, h5, h6 {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 
 span span {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 
 div span {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh.cur), auto;
 }
 
 div a {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 div a p {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 input {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_text.cur), auto;
 }
 
 /* noto-sans-sc-100 - chinese-simplified */
@@ -1019,7 +1019,7 @@ dl {
     width: 76px;
     line-height: 30px;
     margin-top: 2px;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 .jasmine-bilbil-btn-add a {
@@ -1040,7 +1040,7 @@ dl {
     width: 76px;
     line-height: 30px;
     margin-top: 2px;
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 .jasmine-bilbil-message a {
@@ -1471,7 +1471,7 @@ dl {
 }
 
 .friend-link * {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
     color: black;
 }
 
@@ -1567,7 +1567,7 @@ dl {
 }
 
 .btn:not(:disabled):not(.disabled) {
-    cursor: url(https://cdn.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
+    cursor: url(https://gcore.jsdelivr.net/gh/rm-rf-run/jasmine/assets/images/Pointer/lxh_a.cur), auto;
 }
 
 .jasmine-tag-cloud {
